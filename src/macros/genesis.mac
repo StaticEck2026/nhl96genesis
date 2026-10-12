@@ -55,6 +55,81 @@ String  MACRO
     IF NARG>14
         dc.b    \15    ; fifteenth param
     ENDIF
+    IF NARG>15
+        dc.b    \16
+    ENDIF
+    IF NARG>16
+        dc.b    \17
+    ENDIF
+    IF NARG>17
+        dc.b    \18
+    ENDIF
+    IF NARG>18
+        dc.b    \19
+    ENDIF
+    IF NARG>19
+        dc.b    \20
+    ENDIF
+    IF NARG>20
+        dc.b    \21
+    ENDIF
+    IF NARG>21
+        dc.b    \22
+    ENDIF
+    IF NARG>22
+        dc.b    \23
+    ENDIF
+    IF NARG>23
+        dc.b    \24
+    ENDIF
+    IF NARG>24
+        dc.b    \25
+    ENDIF
+    IF NARG>25
+        dc.b    \26
+    ENDIF
+    IF NARG>26
+        dc.b    \27
+    ENDIF
+    IF NARG>27
+        dc.b    \28
+    ENDIF
+    IF NARG>28
+        dc.b    \29
+    ENDIF
+    IF NARG>29
+        dc.b    \30
+    ENDIF
+    IF NARG>30
+        dc.b    \31
+    ENDIF
+    IF NARG>31
+        dc.b    \32
+    ENDIF
+    IF NARG>32
+        dc.b    \33
+    ENDIF
+    IF NARG>33
+        dc.b    \34
+    ENDIF
+    IF NARG>34
+        dc.b    \35
+    ENDIF
+    IF NARG>35
+        dc.b    \36
+    ENDIF
+    IF NARG>36
+        dc.b    \37
+    ENDIF
+    IF NARG>37
+        dc.b    \38
+    ENDIF
+    IF NARG>38
+        dc.b    \39
+    ENDIF
+    IF NARG>39
+        dc.b    \40
+    ENDIF
         ; Pad with zero if needed for word alignment
     IF *&1
         dc.b    0

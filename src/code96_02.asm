@@ -1556,12 +1556,12 @@ ControllerSetupScreen	;Build the controller setup screen: vram, fonts, the pad g
 	jsr	(printz).l
 	String	-(TXPRI+TXMAP1),1,4,0
 	move.w	(VisTeam).w,d7
-	jsr	(sub_12B84).l
+	jsr	(DrawSetupTeamBlock).l
 	addi.w	#$20,d4
 	jsr	(printz).l
 	String	-(TXPRI+TXMAP1),$17,4,0
 	move.w	(HomeTeam).w,d7
-	jsr	(sub_12B84).l
+	jsr	(DrawSetupTeamBlock).l
 	addi.w	#$20,d4
 	rts
 

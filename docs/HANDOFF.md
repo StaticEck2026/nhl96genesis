@@ -87,4 +87,12 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   shotacc at $6E (95 $6D): more evidence that 96's player struct is shifted past $60.
 - Converting a segment can change names other converted segments use (code96_02 now jumps to lineinput, defined
   here): run the full ROM build, not only the segment, before committing.
-- Next: code96_05.
+- code96_05 converted: season / save RAM code and screens, almost all new in 96 (no 95 or 93 match), so IDA names.
+  MATCH (segment and ROM). sub_12B84 is DrawSetupTeamBlock (95's role in ControllerSetupScreen; the code has
+  95 DrawPadIcon's shape, but code96_02 DrawPadIcon is the one with the pad icon tables).
+- More inline data after calls: besides printz / printsmallz, the routines at $1BC72, $1BEC4, $1BED6, $1C11A and
+  $1C12C take a String after the call (move.l a1,-(sp) / movea.l 4(sp),a1), and DecompressGraphicsWithCallback
+  ($1B724) takes an 8 byte remap table. IDA decodes all of these as instructions (some do not even assemble).
+- SNASM turns addi / subi #1-8 into addq / subq: the source keeps them with opt oaq- / opt osq- (osq for subi).
+- macros/genesis.mac: String takes up to 40 arguments (the 96 stat screen Strings are long).
+- Next: data96_01.

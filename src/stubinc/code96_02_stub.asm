@@ -12,6 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+DrawSetupTeamBlock = $012B84		;code96_05
 SetShotMode = $00F496		;code96_04
 ShotMode = $00F530		;code96_04
 lineinput = $00EE0E		;code96_04

@@ -152,7 +152,7 @@ mesarea equ $FFFFBFF2
 TextBuffer equ $FFFFBFF4
 word_FFC062 equ $FFFFC062
 word_FFC064 equ $FFFFC064
-word_FFC336 equ $FFFFC336
+Sattsize equ $FFFFC336
 gmode equ $FFFFC338
 sflags equ $FFFFC33A
 sflags2 equ $FFFFC33C
@@ -393,6 +393,7 @@ unk_FFFFFF equ $FFFFFFFF
 Z80_RAM equ $A00000
 Z80_YM2612 equ $A04000
 ; ----------------------------------
+
 
 
 

@@ -2,7 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-sub_12B84	equ	$012B84	;ControllerSetupScreen: draw team d7
 Begin		equ	$01464C	;cold start: clear RAM, start the sound driver and the menus
 loc_14D6E	equ	$014D6E	;doinput: start button, pad 1
 loc_14D74	equ	$014D74	;pad 2
@@ -97,8 +96,6 @@ ValidationRoutine	equ	$1E9038	;ROM checksum
 dword_23456	equ	$23456
 dword_235B8	equ	$235B8
 off_23574	equ	$23574
-sub_10CB2	equ	$10CB2
-sub_10CF2	equ	$10CF2
 sub_15774	equ	$15774
 sub_157A2	equ	$157A2
 sub_157B2	equ	$157B2
@@ -130,3 +127,29 @@ unk_1DF9EC	equ	$1DF9EC
 unk_1DF9FC	equ	$1DF9FC
 unk_44120	equ	$44120
 nullsub_4	equ	$01D062
+sub_13EA2	equ	$013EA2
+sub_143A8	equ	$0143A8
+sub_1B282	equ	$01B282
+sub_1B320	equ	$01B320
+sub_1B724	equ	$01B724
+sub_1BE1C	equ	$01BE1C
+sub_1BED6	equ	$01BED6
+sub_1BEEC	equ	$01BEEC
+sub_1D6F24	equ	$1D6F24
+sub_1D8262	equ	$1D8262
+sub_1DA6C0	equ	$1DA6C0
+sub_21C28	equ	$021C28
+sub_224E2	equ	$0224E2
+sub_24188	equ	$024188
+sub_24208	equ	$024208
+sub_88586	equ	$088586
+unk_12BFE	equ	$012BFE
+unk_12C6E	equ	$012C6E
+unk_12D46	equ	$012D46
+unk_13558	equ	$013558
+unk_17AA7A	equ	$17AA7A
+unk_1808B8	equ	$1808B8
+unk_18C136	equ	$18C136
+unk_18C936	equ	$18C936
+unk_18DE04	equ	$18DE04
+unk_17ECEA	equ	$17ECEA

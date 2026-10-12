@@ -6,10 +6,13 @@
 	include	stubinc\equals.inc	;VDP status bits. Equates only
 	include	ram96.asm		;RAM map. Equates only
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String, Player and the other data macros
 
 	org	0			;the ROM starts at 0. Without an org SNASM writes a short, misaligned bin (the stubs carry their own org)
 	include	main96.asm		; $000000  code, not converted yet
-	include	code96_01.asm		; $000776  code, not converted yet
+	include	teamdata96.asm		; $000776  VBjsr, TeamList and the team blocks, playoffseats
+	include	credits96.asm		; $0056F0  Credits, CreditsList
+	include	frames96.asm		; $005F96  SPAlist and the sprite animation tables
 	include	code96_02.asm		; $0096E8  code, not converted yet
 	include	code96_03.asm		; $00B85E  code, not converted yet
 	include	code96_04.asm		; $00EC6E  code, not converted yet

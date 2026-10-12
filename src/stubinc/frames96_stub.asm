@@ -1,8 +1,8 @@
-;	Segment build for code96_01.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_01.asm on its own for checking against the ROM.
+;	Segment build for frames96.asm: sets its origin and the outside routines and data it uses,
+;	then includes frames96.asm on its own for checking against the ROM.
 
 ; region code
-	org	$000776
+	org	$005F96
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -10,8 +10,7 @@
 	include	ram96.asm		;RAM map
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
 
-; External addresses outside, read from lst/nhl96.bin.
-
+; External addresses outside: none.
 
 ; Main segment code
-	include	code96_01.asm
+	include	frames96.asm

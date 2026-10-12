@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_01. <- CURRENT
+code96_02. <- CURRENT
 
 ## Sources
 
@@ -49,6 +49,7 @@ code96_01. <- CURRENT
 - A MATCH of 0 bytes is a failure; the byte count must be the segment's range.
 - Old output can look like a pass: the scripts delete the old bin first. Only a check made this session counts.
 - Data goes in the segment of the code that owns it. Graphics and sound stay incbins (later from an asset extractor), named for the asset, never for an IDA address.
+- An asset inside a converted segment (the team palettes) is listed under `assets` in `tools/segmap96.json` (path, start, end); the extractor writes it to `Extracted/<path>` and the source incbins it from there.
 
 ## ROM map
 
@@ -57,7 +58,9 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | File | Status | Start | End | Kind | 95G hint | Main names |
 |---|---|---|---|---|---|---|
 | main96 | matched, 1910 bytes | $000000 | $000775 | code | main95 | Vectors, header (sega\SegaIDTable96), SegaInit (as 95G), CHECK_VDP: the region lock reads CountryCode as a hex digit of region bits (RegionJapanNtsc ... RegionOverseasPal, PrintDeveloped ... PrintAnd, RegionPrint, RegionFont), RegionOK (ValidationRoutine, then jmp Begin), ZeroLong |
-| code96_01 | incbin | $000776 | $0096E7 | code | - | VBjsr, then data (no numbered labels in the listing after it) |
+| teamdata96 | matched, 20346 bytes | $000776 | $0056EF | data | teamdata95 | VBjsr, TeamList (the ASE / ASW slots point to Boston / Montreal), the team blocks Anaheim ... Winnipeg (Player / String macros, palettes as incbin assets, .pos position nibbles), playoffseats |
+| credits96 | matched, 2214 bytes | $0056F0 | $005F95 | data | credits95 | Credits (copyright lines, String -1), CreditsList (legal pages and credits, each page ended by an empty String) |
+| frames96 | matched, 14162 bytes | $005F96 | $0096E7 | data | frames95 | SPAlist and the sprite animation tables, named SPAxxxx by their SPA value until the code that uses them is converted |
 | code96_02 | incbin | $0096E8 | $00B85D | code | fourway95 | |
 | code96_03 | incbin | $00B85E | $00EC6D | code | - | |
 | code96_04 | incbin | $00EC6E | $010CB1 | code | lines95, input95, trade95 | |

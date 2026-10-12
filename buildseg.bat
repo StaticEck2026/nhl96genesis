@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-REM Usage: buildseg.bat main96   or   buildseg.bat code96_01
+REM Usage: buildseg.bat main96   or   buildseg.bat code96_02
 REM Assembles src\stubinc\<name>_stub.asm to output\<name>.bin (a folder in the argument is ignored)
 
 if "%~1"=="" (
@@ -30,7 +30,9 @@ set "REV_FLAG=/e REV=0"
 
 echo Building: %ROM_NAME%
 
-cd /d "%WORKSPACE%src" || exit /b 1
+REM Not "cd ... || exit": wine cmd takes the || branch even when cd works
+cd /d "%WORKSPACE%src"
+if errorlevel 1 exit /b 1
 
 "%WORKSPACE%assembler\Assembler.exe" ^
   /p /m /g ^

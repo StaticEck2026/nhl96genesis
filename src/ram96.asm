@@ -266,7 +266,7 @@ dword_FFD234 equ $FFFFD234
 word_FFD238 equ $FFFFD238
 word_FFD23A equ $FFFFD23A
 word_FFD23C equ $FFFFD23C
-dword_FFD244 equ $FFFFD244
+vbint equ $FFFFD244	;vertical blank handler address (VBjsr jumps through it)
 word_FFD248 equ $FFFFD248
 word_FFD24A equ $FFFFD24A
 word_FFD24C equ $FFFFD24C

@@ -9,9 +9,21 @@
    "end": 1909
   },
   {
-   "name": "code96_01",
-   "kind": "code",
+   "name": "teamdata96",
+   "kind": "data",
    "start": 1910,
+   "end": 22255
+  },
+  {
+   "name": "credits96",
+   "kind": "data",
+   "start": 22256,
+   "end": 24469
+  },
+  {
+   "name": "frames96",
+   "kind": "data",
+   "start": 24470,
    "end": 38631
   },
   {
@@ -199,6 +211,268 @@
    "kind": "code",
    "start": 1999436,
    "end": 2003153
+  }
+ ],
+ "assets": [
+  {
+   "path": "NHL96/Graphics/Pals/ANHh96.pal",
+   "start": 2042,
+   "end": 2073
+  },
+  {
+   "path": "NHL96/Graphics/Pals/ANHv96.pal",
+   "start": 2074,
+   "end": 2105
+  },
+  {
+   "path": "NHL96/Graphics/Pals/BOSh96.pal",
+   "start": 2808,
+   "end": 2839
+  },
+  {
+   "path": "NHL96/Graphics/Pals/BOSv96.pal",
+   "start": 2840,
+   "end": 2871
+  },
+  {
+   "path": "NHL96/Graphics/Pals/BUFh96.pal",
+   "start": 3552,
+   "end": 3583
+  },
+  {
+   "path": "NHL96/Graphics/Pals/BUFv96.pal",
+   "start": 3584,
+   "end": 3615
+  },
+  {
+   "path": "NHL96/Graphics/Pals/CGYh96.pal",
+   "start": 4304,
+   "end": 4335
+  },
+  {
+   "path": "NHL96/Graphics/Pals/CGYv96.pal",
+   "start": 4336,
+   "end": 4367
+  },
+  {
+   "path": "NHL96/Graphics/Pals/CHIh96.pal",
+   "start": 5062,
+   "end": 5093
+  },
+  {
+   "path": "NHL96/Graphics/Pals/CHIv96.pal",
+   "start": 5094,
+   "end": 5125
+  },
+  {
+   "path": "NHL96/Graphics/Pals/DETh96.pal",
+   "start": 5810,
+   "end": 5841
+  },
+  {
+   "path": "NHL96/Graphics/Pals/DETv96.pal",
+   "start": 5842,
+   "end": 5873
+  },
+  {
+   "path": "NHL96/Graphics/Pals/EDMh96.pal",
+   "start": 6584,
+   "end": 6615
+  },
+  {
+   "path": "NHL96/Graphics/Pals/EDMv96.pal",
+   "start": 6616,
+   "end": 6647
+  },
+  {
+   "path": "NHL96/Graphics/Pals/FLAh96.pal",
+   "start": 7352,
+   "end": 7383
+  },
+  {
+   "path": "NHL96/Graphics/Pals/FLAv96.pal",
+   "start": 7384,
+   "end": 7415
+  },
+  {
+   "path": "NHL96/Graphics/Pals/HFDh96.pal",
+   "start": 8108,
+   "end": 8139
+  },
+  {
+   "path": "NHL96/Graphics/Pals/HFDv96.pal",
+   "start": 8140,
+   "end": 8171
+  },
+  {
+   "path": "NHL96/Graphics/Pals/LAh96.pal",
+   "start": 8880,
+   "end": 8911
+  },
+  {
+   "path": "NHL96/Graphics/Pals/LAv96.pal",
+   "start": 8912,
+   "end": 8943
+  },
+  {
+   "path": "NHL96/Graphics/Pals/DALh96.pal",
+   "start": 9618,
+   "end": 9649
+  },
+  {
+   "path": "NHL96/Graphics/Pals/DALv96.pal",
+   "start": 9650,
+   "end": 9681
+  },
+  {
+   "path": "NHL96/Graphics/Pals/MTLh96.pal",
+   "start": 10358,
+   "end": 10389
+  },
+  {
+   "path": "NHL96/Graphics/Pals/MTLv96.pal",
+   "start": 10390,
+   "end": 10421
+  },
+  {
+   "path": "NHL96/Graphics/Pals/NJh96.pal",
+   "start": 11128,
+   "end": 11159
+  },
+  {
+   "path": "NHL96/Graphics/Pals/NJv96.pal",
+   "start": 11160,
+   "end": 11191
+  },
+  {
+   "path": "NHL96/Graphics/Pals/NYIh96.pal",
+   "start": 11920,
+   "end": 11951
+  },
+  {
+   "path": "NHL96/Graphics/Pals/NYIv96.pal",
+   "start": 11952,
+   "end": 11983
+  },
+  {
+   "path": "NHL96/Graphics/Pals/NYRh96.pal",
+   "start": 12686,
+   "end": 12717
+  },
+  {
+   "path": "NHL96/Graphics/Pals/NYRv96.pal",
+   "start": 12718,
+   "end": 12749
+  },
+  {
+   "path": "NHL96/Graphics/Pals/OTWh96.pal",
+   "start": 13444,
+   "end": 13475
+  },
+  {
+   "path": "NHL96/Graphics/Pals/OTWv96.pal",
+   "start": 13476,
+   "end": 13507
+  },
+  {
+   "path": "NHL96/Graphics/Pals/PHIh96.pal",
+   "start": 14214,
+   "end": 14245
+  },
+  {
+   "path": "NHL96/Graphics/Pals/PHIv96.pal",
+   "start": 14246,
+   "end": 14277
+  },
+  {
+   "path": "NHL96/Graphics/Pals/PITh96.pal",
+   "start": 14974,
+   "end": 15005
+  },
+  {
+   "path": "NHL96/Graphics/Pals/PITv96.pal",
+   "start": 15006,
+   "end": 15037
+  },
+  {
+   "path": "NHL96/Graphics/Pals/QUEh96.pal",
+   "start": 15736,
+   "end": 15767
+  },
+  {
+   "path": "NHL96/Graphics/Pals/QUEv96.pal",
+   "start": 15768,
+   "end": 15799
+  },
+  {
+   "path": "NHL96/Graphics/Pals/SJh96.pal",
+   "start": 16506,
+   "end": 16537
+  },
+  {
+   "path": "NHL96/Graphics/Pals/SJv96.pal",
+   "start": 16538,
+   "end": 16569
+  },
+  {
+   "path": "NHL96/Graphics/Pals/STLh96.pal",
+   "start": 17246,
+   "end": 17277
+  },
+  {
+   "path": "NHL96/Graphics/Pals/STLv96.pal",
+   "start": 17278,
+   "end": 17309
+  },
+  {
+   "path": "NHL96/Graphics/Pals/TBh96.pal",
+   "start": 17994,
+   "end": 18025
+  },
+  {
+   "path": "NHL96/Graphics/Pals/TBv96.pal",
+   "start": 18026,
+   "end": 18057
+  },
+  {
+   "path": "NHL96/Graphics/Pals/TORh96.pal",
+   "start": 18732,
+   "end": 18763
+  },
+  {
+   "path": "NHL96/Graphics/Pals/TORv96.pal",
+   "start": 18764,
+   "end": 18795
+  },
+  {
+   "path": "NHL96/Graphics/Pals/VANh96.pal",
+   "start": 19478,
+   "end": 19509
+  },
+  {
+   "path": "NHL96/Graphics/Pals/VANv96.pal",
+   "start": 19510,
+   "end": 19541
+  },
+  {
+   "path": "NHL96/Graphics/Pals/WSHh96.pal",
+   "start": 20248,
+   "end": 20279
+  },
+  {
+   "path": "NHL96/Graphics/Pals/WSHv96.pal",
+   "start": 20280,
+   "end": 20311
+  },
+  {
+   "path": "NHL96/Graphics/Pals/WPGh96.pal",
+   "start": 20992,
+   "end": 21023
+  },
+  {
+   "path": "NHL96/Graphics/Pals/WPGv96.pal",
+   "start": 21024,
+   "end": 21055
   }
  ]
 }

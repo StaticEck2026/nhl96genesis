@@ -19,6 +19,8 @@ Windows: `npm run build:retail`, `npm run seg:<name>`. Linux (wine): `tools/buil
 - `tools/make_segmap96.py [--lst] [--rom] [--code-cap] [--data-cap] [--out]`: made the first split. Do not
   rerun it onto `tools/segmap96.json` once segments are converted (`npm run segmap` writes to `output/`).
   When a segment's confirmed range differs, edit its entry in `tools/segmap96.json` and the neighbour's.
+- `tools/find95.py <segment | start-end> [--len N] [--min-distinct N] [--refresh]`: 95G labels found in a 96 range
+  by their first bytes (95G ROM and name map downloaded from GitHub into `output/ref95/`). Log in `output/`.
 - `tools/fixopcodes.js`, `tools/verifyRom.js`, `tools/verifySegment.js`: as in 95G.
 
 ## Naming and comment rules
@@ -28,6 +30,9 @@ In SEGMENT_AGENT.md, "Current rules". History (renames, IDA names) lives in `doc
 ## Conventions
 One segment per commit, MATCH before every push; `git pull --rebase origin main` then push to main.
 No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
+
+## Setup friction fixed
+- The main96 test needed the 95G ROM to find matching routines; tools/find95.py fetches it from the public repo.
 
 ## Current state / Next
 - Bootstrap: 33 incbin segments, full ROM and every segment MATCH.

@@ -31,7 +31,7 @@ code96_01. <- CURRENT
 - Listing: `lst/nhl96.bin.lst`, an IDA LST in ASM68K / MRI mode. It has no address column; a `loc_`, `sub_`, `unk_`, `byte_`, `word_`, `off_` name is the address. Do not disassemble `lst/nhl96.bin` and do not write a disassembler.
 - Reference ROM: `lst/nhl96.bin` (2 MB, SHA-1 `7204633fbb9966ac637e7966d02ba15c5acdee6b`). Bytes and branch displacements come from it.
 - Every segment starts as an `incbin ..\Extracted\segments\<name>.bin` of its range, cut from the ROM by `tools/extractSegments96.js` (run automatically by the prebuild check).
-- Names: 95G `docs/name_map.csv` (address, name, IDA name, old name, module) and the 95G source. 96 reordered the code a lot against 95, so match by body, never by address. A quick way to find a 95 routine in 96: take its first 20 or so bytes from the 95G ROM build and search for them in `lst/nhl96.bin` (the 95 address comes from the 95G name map); then compare the bodies.
+- Names: 95G `docs/name_map.csv` (address, name, IDA name, old name, module) and the 95G source. 96 reordered the code a lot against 95, so match by body, never by address. `python3 tools/find95.py <segment>` (or `<start>-<end>` in hex; options `--len`, `--min-distinct`, `--refresh`) lists the 95G labels whose first bytes are found in the range, with the 96 address, the 95G name and file. It downloads the 95G ROM and name map from GitHub into `output/ref95/` once. A hit is a hint; compare the bodies. Routines whose bytes changed (moved data, other RAM addresses) are not found by it.
 
 ## Segment files and stubs
 

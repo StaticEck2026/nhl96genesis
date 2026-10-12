@@ -11,7 +11,7 @@ Start with `START_HERE.md` (setup, build, contributor workflow), then `SEGMENT_A
 | `src/<segment>.asm` | One file per segment, no `org`. |
 | `src/stubinc/` | `<segment>_stub.asm` (org, equates, outside addresses, the segment) plus `ports.inc` and `equals.inc` (from 95G). |
 | `src/ram96.asm`, `src/externs96.asm` | RAM map; equates for addresses still inside incbin segments. |
-| `tools/` | `prebuild.js`, `extractSegments96.js`, `segmap96.json`, `make_segmap96.py`, `fixopcodes.js`, `verifyRom.js`, `verifySegment.js`, `build_rom.sh`, `verify_segment.sh`, `verify_all.sh`. |
+| `tools/` | `prebuild.js`, `extractSegments96.js`, `segmap96.json`, `make_segmap96.py`, `find95.py`, `fixopcodes.js`, `verifyRom.js`, `verifySegment.js`, `build_rom.sh`, `verify_segment.sh`, `verify_all.sh`. |
 | `docs/` | `HANDOFF.md`, `name_map.csv`. |
 
 Build: Windows `npm run build:retail` / `npm run seg:<name>`; Linux with wine `tools/build_rom.sh` / `tools/verify_segment.sh <name>` / `tools/verify_all.sh`. Logs go to `output/`.

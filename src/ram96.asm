@@ -139,7 +139,7 @@ word_FFBFB6 equ $FFFFBFB6
 word_FFBFB8 equ $FFFFBFB8
 word_FFBFC2 equ $FFFFBFC2
 word_FFBFD0 equ $FFFFBFD0
-word_FFBFDC equ $FFFFBFDC
+xc1 equ $FFFFBFDC
 word_FFBFDE equ $FFFFBFDE
 word_FFBFE0 equ $FFFFBFE0
 fox equ $FFFFBFE2
@@ -162,13 +162,13 @@ word_FFC342 equ $FFFFC342
 sflags5 equ $FFFFC344
 sflags6 equ $FFFFC346
 gmode2 equ $FFFFC348
-byte_FFC34A equ $FFFFC34A
+sflags7 equ $FFFFC34A
 byte_FFC34C equ $FFFFC34C
 byte_FFC34E equ $FFFFC34E
 GameFlags equ $FFFFC350	;bit 6: WriteSRAMBits skips sub_241AA
 sflags10 equ $FFFFC352
 byte_FFC354 equ $FFFFC354
-byte_FFC356 equ $FFFFC356
+sflags12 equ $FFFFC356
 sflags13 equ $FFFFC358
 byte_FFC35A equ $FFFFC35A
 LineHoldFlag equ $FFFFC35C
@@ -196,7 +196,7 @@ cont4team equ $FFFFC396
 HomeTeam equ $FFFFC3A0
 VisTeam equ $FFFFC3A2
 PenBuf equ $FFFFC3A6
-word_FFC3E8 equ $FFFFC3E8
+Pencntdwn equ $FFFFC3E8
 word_FFC3EA equ $FFFFC3EA
 word_FFC3EC equ $FFFFC3EC
 word_FFC442 equ $FFFFC442
@@ -366,6 +366,7 @@ dword_FFDCCE equ $FFFFDCCE
 dword_FFDCD2 equ $FFFFDCD2
 word_FFDCDE equ $FFFFDCDE
 dword_FFDCE0 equ $FFFFDCE0
+unk_FFDCE0 equ $FFFFDCE0
 dword_FFDCE4 equ $FFFFDCE4
 word_FFDCE8 equ $FFFFDCE8
 word_FFDCEA equ $FFFFDCEA

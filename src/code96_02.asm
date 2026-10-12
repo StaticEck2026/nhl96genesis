@@ -621,7 +621,7 @@ doinput	;Process controller input for player a3: d0 = dpad, d1 = new buttons, d2
 	beq.w	.37
 	btst	#5,pflags(a3)
 	bne.w	doinput_islocked
-	bra.w	loc_C26C
+	bra.w	fightinput
 .37
 	move.w	(puckc).w,d5
 	cmp.w	SCnum(a3),d5
@@ -1651,37 +1651,39 @@ ReadJoySwapPad4	;Unreferenced. The same for pad 4
 	dc.b	$13,$FC,$00,$30,$00,$A1,$00,$05,$31,$F8,$BF,$38,$BF,$2E,$4E,$B9
 	dc.b	$00,$01,$B3,$48,$31,$F8,$BF,$2E,$BF,$38,$4E,$75
 
-sub_B6A0
+checkfight	;Look for the start of a fight between players a2 and a3 (impact $A or more on both, no
+	;animation lock, no goalie, no faceoff): SetInst both ways, then startfight for both and the other
+	;players watch (assignment $15)
 	tst.w	(word_FFD266).w
 	bne.w	.5
 	btst	#5,(GameFlags).w
-	bne.w	locret_B986
+	bne.w	rtsfight
 	tst.w	(word_FFC4BC).w
-	beq.w	locret_B986
+	beq.w	rtsfight
 	cmpi.w	#$A,impact(a3)
-	blt.w	locret_B986
+	blt.w	rtsfight
 	cmpi.w	#$A,impact(a2)
-	blt.w	locret_B986
+	blt.w	rtsfight
 	btst	#5,pflags(a3)
-	bne.w	locret_B986
+	bne.w	rtsfight
 	btst	#5,pflags(a2)
-	bne.w	locret_B986
+	bne.w	rtsfight
 	btst	#4,pflags2(a3)
-	bne.w	locret_B986
+	bne.w	rtsfight
 	btst	#4,pflags2(a2)
-	bne.w	locret_B986
+	bne.w	rtsfight
 	tst.w	position(a3)
-	beq.w	locret_B986
+	beq.w	rtsfight
 	tst.w	position(a2)
-	beq.w	locret_B986
+	beq.w	rtsfight
 	btst	#0,(gmode).w
-	bne.w	locret_B986
+	bne.w	rtsfight
 	btst	#0,(byte_FFB7C1).w
-	bne.w	locret_B986
+	bne.w	rtsfight
 	cmpi.w	#$10A,Ypos(a3)
-	bgt.w	locret_B986
+	bgt.w	rtsfight
 	cmpi.w	#$10A,Ypos(a3)
-	bgt.w	locret_B986
+	bgt.w	rtsfight
 	movem.l	d0-d4/a0-a3,-(sp)
 	movea.w	#(puckx-M68K_RAM),a0
 	move.w	assnum(a0),d0
@@ -1690,9 +1692,9 @@ sub_B6A0
 	move.w	(word_FFC4C4).w,d0
 	cmp.w	#$64,d0
 	blt.w	.4
-	bsr.w	sub_B8D0
+	bsr.w	SetInst
 	exg	a2,a3
-	bsr.w	sub_B8D0
+	bsr.w	SetInst
 	exg	a2,a3
 	btst	#0,pflags2(a3)
 	beq.w	.4
@@ -1729,9 +1731,9 @@ sub_B6A0
 	eori.w	#7,d1
 	move.w	d1,facedir(a2)
 	move.l	a3,-(sp)
-	bsr.w	sub_B85E
+	bsr.w	startfight
 	exg	a2,a3
-	bsr.w	sub_B85E
+	bsr.w	startfight
 	movea.w	#(SortCords-M68K_RAM),a3
 	move.l	#$15,d0
 	moveq	#$B,d1

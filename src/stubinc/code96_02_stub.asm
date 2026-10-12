@@ -12,6 +12,11 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+startfight = $00B85E		;code96_03
+SetInst = $00B8D0		;code96_03
+rtsfight = $00B986		;code96_03
+fightinput = $00C26C		;code96_03
+SetLCmode = $00EC30		;code96_03
 ZeroLong = $000772		;main96
 SPAlist = $005F96		;frames96
 SPAgdive = $49A		;SPA value (frames96)

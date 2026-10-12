@@ -71,4 +71,15 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   $366). The 96 cont1team ... cont4team are $FFFFC390-$FFFFC396.
 - frames96: the goalie tables named from ClampTargetY's unreferenced SPA list and doinput_goaliedive (SPAgglover,
   SPAgglovel, SPAgstackr, SPAgstackl, SPAgstickr, SPAgstickl, SPAgdive).
-- Next: code96_03.
+- code96_03 converted: fighting, asstab and the penalty texts. MATCH (segment and ROM).
+- 96 brings fighting back from 93: the fight routines take the 93G names (checkfight in code96_02, startfight
+  for 93's checkfight .sf, SetInst, fightinput, ClearMessageLine, assfight, assfwatch). 96's player struct is not 95's
+  past $60: SetInst reads the player number at $67 and the fight rating at $75 (95 / 93: $66 / $74), so the 95 names
+  in equals.inc for $66-$76 (pnum, weight, ... checking, handed) are not used until 96's layout is known.
+- About 11 KB of this segment is code the listing does not decode (the assignment routines behind asstab, assfight,
+  assfwatch): bytes, with a label at every asstab entry (loc_<address> where nothing names the routine). Even with
+  RAM addresses masked only a third of it matches 95: 96 rewrote the player AI. With the "do not disassemble" rule
+  these segments stay mostly bytes; a re-analysed listing (IDA following asstab) would turn them into code.
+- Penaltylist and PenShotPenalties are data: written from the bytes in the 95G layout; 95's local names where the
+  penalty number and text are the same, .pXX for the rest (96 adds Boarding, Elbowing and High Sticking).
+- Next: code96_04.

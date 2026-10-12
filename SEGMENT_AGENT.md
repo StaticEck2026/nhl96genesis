@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_02. <- CURRENT
+code96_03. <- CURRENT
 
 ## Sources
 
@@ -61,7 +61,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | teamdata96 | matched, 20346 bytes | $000776 | $0056EF | data | teamdata95 | VBjsr, TeamList (the ASE / ASW slots point to Boston / Montreal), the team blocks Anaheim ... Winnipeg (Player / String macros, palettes as incbin assets, .pos position nibbles), playoffseats |
 | credits96 | matched, 2214 bytes | $0056F0 | $005F95 | data | credits95 | Credits (copyright lines, String -1), CreditsList (legal pages and credits, each page ended by an empty String) |
 | frames96 | matched, 14162 bytes | $005F96 | $0096E7 | data | frames95 | SPAlist and the sprite animation tables, named SPAxxxx by their SPA value until the code that uses them is converted |
-| code96_02 | incbin | $0096E8 | $00B85D | code | fourway95 | |
+| code96_02 | matched, 8566 bytes | $0096E8 | $00B85D | code | fourway95 | WriteSRAMBits, ReadSRAMBits (new: bit fields in the save RAM), faceoffinput, the faceoff routines assfaceoff ... puckfaceoff2 and Endfaceoff (bytes: not decoded in the listing), DrawFaceoffWindow, limitfo, updatepadinput, doinput (doinput_goaliedive, doinput_cbut, ClampTargetY, doinput_chkanim, doinput_skater, doinput_ispc, doinput_islocked), PadOnTeam, SetContTeams, DrawPadSetup, DrawPadIcon, ControllerSetupScreen, PrintSetupStr(Hi), ReadAllPads, Detect4WayPlay, ReadJoySwapPad1-4 |
 | code96_03 | incbin | $00B85E | $00EC6D | code | - | |
 | code96_04 | incbin | $00EC6E | $010CB1 | code | lines95, input95, trade95 | |
 | code96_05 | incbin | $010CB2 | $012BFD | code | - | |

@@ -38,6 +38,8 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - Linux: wine was not installed in a fresh cloud container (`apt-get install wine wine32` after `dpkg --add-architecture i386`).
 - Linux: `buildseg.bat` stopped at `cd /d ... || exit /b 1` (wine 9 cmd takes the `||` branch even when cd works), so
   every segment build wrote no log; it now uses `if errorlevel 1 exit /b 1`.
+- Matching 96 code to 95G: the 95G repo has its IDA listing (lst/nhl95.bin.lst). Aligning the two listings by
+  instruction shape (addresses masked) finds renamed and moved routines that find95.py (exact bytes) misses.
 
 ## Current state / Next
 - Bootstrap: 33 incbin segments, full ROM and every segment MATCH.
@@ -54,4 +56,19 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   routine is sub_16654 (95 updateanim): it only uses attribute bit 0 (loop) and stops a direction at its first
   negative time; pairs after it are marked "past the end" (the code may still index them directly).
 - RAM: dword_FFD244 is now vbint.
-- Next: code96_02.
+- code96_02 converted: the listing range as SNASM source, names from 95G where the routine matches (instruction
+  alignment of the 96 and 95 IDA listings, then the 95G source for locals and comments; RAM names only where the
+  address offset agrees with its neighbours or the code shows it). MATCH (segment and ROM).
+- IDA's text is lossy after printz / printsmallz calls (the inline String): it shows ori.b lines with other bytes
+  and even drops words. Those Strings were written from the ROM bytes; check every jsr to them in later segments.
+- Code the listing leaves as dc.b (reached through tables or not referenced) stays as bytes, split at the labels the
+  pointers or 95G byte matches show (assfaceoff ... puckfaceoff2, Endfaceoff, ReadJoySwapPad1-4; PrintSetupStrHi
+  is 95G source, same bytes). Code bytes after sub_975A have no reference and no name.
+- Kept as IDA names (no clear match): sub_AFDA, sub_B6A0, loc_AFD4, and outside loc_14D6E-loc_14D84 (doinput start
+  button), loc_EE0E (95 jumps to lineinput there, but the 96 code differs), loc_1A62A, loc_16934, loc_C26C.
+- RAM: about 80 IDA names renamed (ram96.asm, name_map.csv). crowdlevel and padiconchars2 share $FFFFB8B2 (the setup
+  screen keeps pad icon chars in game RAM). 96 tmstruct is $FFFFC726 with size $39E (equals.inc tmsize is still 95's
+  $366). The 96 cont1team ... cont4team are $FFFFC390-$FFFFC396.
+- frames96: the goalie tables named from ClampTargetY's unreferenced SPA list and doinput_goaliedive (SPAgglover,
+  SPAgglovel, SPAgstackr, SPAgstackl, SPAgstickr, SPAgstickl, SPAgdive).
+- Next: code96_03.

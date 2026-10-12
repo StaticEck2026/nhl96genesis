@@ -13,6 +13,8 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 LockScroll = $016786		;code96_06
+vtoa = $01A3EE		;code96_08
+SetSPA = $01A614		;code96_08
 SPA0074 = $74		;SPA value (frames96)
 SPA0170 = $170		;SPA value (frames96)
 SPA02C0 = $2C0		;SPA value (frames96)

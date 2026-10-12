@@ -53,6 +53,28 @@ setc4player = $016C74		;code96_06
 setpads = $016D6A		;code96_06
 goaliesave = $017C58		;code96_07
 checkob = $0187D4		;code96_07
+assinsert = $01A3D0		;code96_08
+assreplace = $01A3DA		;code96_08
+vtoa = $01A3EE		;code96_08
+SetSPA = $01A614		;code96_08
+doplayeracc = $01A62A		;code96_08
+sroot = $01B0DE		;code96_08
+orjoy = $01B2C4		;code96_08
+nodiag = $01B2F8		;code96_08
+ReadJoy1 = $01B348		;code96_08
+ReadJoy2 = $01B360		;code96_08
+ReadJoy3 = $01B378		;code96_08
+ReadJoy4 = $01B390		;code96_08
+setVram = $01B57E		;code96_08
+Vmaddr = $01B678		;code96_08
+dobitmap = $01B692		;code96_08
+DecompressGraphicsPlain = $01B730		;code96_08
+eraser = $01B976		;code96_08
+Framer = $01B9B0		;code96_08
+printsmallz = $01BA2E		;code96_08
+printsmall = $01BA40		;code96_08
+printz = $01BB8E		;code96_08
+print = $01BBA0		;code96_08
 
 
 ; Main segment code

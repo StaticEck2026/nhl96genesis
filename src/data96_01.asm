@@ -921,7 +921,7 @@ Begin	;Cold start, entered from Start. Clear RAM, init sound and menus, go to th
 	jsr	(sub_21B82).l
 	move.w	(OptLine).w,(TmpOptLine2).w
 	move.w	(OptPlayMode).w,(TempOptPlayMode).w
-	jsr	(sub_1B2C4).l
+	jsr	(orjoy).l
 	jmp	Opening
 
 StartGame	;Reset game state for a new game, then start the first period
@@ -1024,7 +1024,7 @@ ResetClock	;gameclock = PerTimeTotal = the period length (GetPeriodTime; overtim
 	move.w	d0,(PerTimeTotal).w
 	move.w	d0,(word_FFB05C).w
 	asr.w	#1,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	sub.w	d0,(word_FFB05C).w
 	bset	#0,(gmode).w
 	rts
@@ -1378,7 +1378,7 @@ startpause4	;Pause initiated by cont 4 (4 way play)
 
 Pausemode	;Game is in pause mode now: restart the sound driver, run the pause menu (HandleMenuInput) until it ends,
 	;then restart the sound driver again
-	jsr	(sub_1AF52).l
+	jsr	(forceblack).l
 	move.w	d0,-(sp)
 	move.w	(vcount).w,d0
 .loop
@@ -1417,10 +1417,10 @@ Pausemode	;Game is in pause mode now: restart the sound driver, run the pause me
 .2
 	bsr.w	vcountwait
 	bsr.w	ReadMenuJoy
-	jsr	(sub_1B320).l
+	jsr	(ProcessInputWithRepeat).l
 	bsr.w	HandleMenuInput
 	bne.s	.2
-	jsr	(sub_1AF52).l
+	jsr	(forceblack).l
 	move.w	(sp)+,(sflags).w
 	jsr	(stop_current_song).l
 	move.w	#9,d0
@@ -1584,7 +1584,7 @@ UpdateMenuSelection	;Clamp menuitem to the list, scroll word_FFD000 to show it, 
 	bsr.w	SetMenuPrintX
 	move.w	#6,(printy).w
 	movea.l	(menulist).w,a1
-	jsr	(sub_1BEE8).l
+	jsr	(printbigcur).l
 	adda.w	(a1),a1
 	move.w	(word_FFD000).w,d0
 	bra.w	.7
@@ -1608,10 +1608,10 @@ UpdateMenuSelection	;Clamp menuitem to the list, scroll word_FFD000 to show it, 
 	String	$FB,$02,$FA,$02
 	move.l	a1,-(sp)
 	movea.l	(menulist).w,a1
-	jsr	(sub_1BEE8).l
+	jsr	(printbigcur).l
 	cmp.w	(menuitem).w,d0
 	bne.w	.nosel
-	jsr	(sub_1BEE8).l
+	jsr	(printbigcur).l
 .nosel
 	movea.l	(sp)+,a1
 	bsr.w	PrintMenuItem
@@ -1646,12 +1646,12 @@ PrintMenuItem	;printsmall item String a1; an item that starts with x prints MANU
 	beq.w	.print
 	movea.l	#.12,a1
 .print
-	jsr	(sub_1BEE8).l
+	jsr	(printbigcur).l
 	movea.l	(sp)+,a1
 	adda.w	(a1),a1
 	bra.w	.1
 .0
-	jsr	(sub_1BEE8).l
+	jsr	(printbigcur).l
 .1
 	rts
 .11

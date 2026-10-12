@@ -26,6 +26,19 @@ updateplayers = $0162F0		;code96_06
 LockScroll = $016786		;code96_06
 checkwindow = $01679A		;code96_06
 ChkGoalies = $019782		;code96_07
+assinsert = $01A3D0		;code96_08
+assreplace = $01A3DA		;code96_08
+forceblack = $01AF52		;code96_08
+randomd0 = $01B0A6		;code96_08
+orjoy = $01B2C4		;code96_08
+ProcessInputWithRepeat = $01B320		;code96_08
+ReadJoy1 = $01B348		;code96_08
+ReadJoy2 = $01B360		;code96_08
+ReadJoy3 = $01B378		;code96_08
+ReadJoy4 = $01B390		;code96_08
+printsmallz = $01BA2E		;code96_08
+printsmall = $01BA40		;code96_08
+printbigcur = $01BEE8		;code96_08
 
 
 ; Main segment code

@@ -24,6 +24,21 @@ SeasonSchedule = $013558		;data96_01
 ResolveGames = $013EA2		;data96_01
 GetTeamPOSlot = $0143A8		;data96_01
 GetGoalieCountD7 = $015774		;code96_06
+randomd0 = $01B0A6		;code96_08
+sub_1B282 = $01B282		;code96_08
+orjoy = $01B2C4		;code96_08
+ProcessInputWithRepeat = $01B320		;code96_08
+setVram = $01B57E		;code96_08
+Vmaddr = $01B678		;code96_08
+dobitmap = $01B692		;code96_08
+DecompressGraphicsWithCallback = $01B724		;code96_08
+DecompressGraphicsPlain = $01B730		;code96_08
+eraser = $01B976		;code96_08
+printsmallz = $01BA2E		;code96_08
+printz = $01BB8E		;code96_08
+PushNumberWidth = $01BE1C		;code96_08
+printbigz = $01BED6		;code96_08
+printbig = $01BEEC		;code96_08
 
 
 ; Main segment code

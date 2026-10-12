@@ -480,7 +480,7 @@ asstab	;Assignment routines: assignment number = index (asslist entries; doassig
 	dc.l	assfaceoff	;$16
 	dc.l	assfaceoffpl	;$17
 	dc.l	pucknorm	;$18
-	dc.l	loc_19F58	;$19
+	dc.l	puckshadow	;$19
 	dc.l	puckunflip	;$1A
 	dc.l	puckfaceoff	;$1B
 	dc.l	puckfaceoff2	;$1C

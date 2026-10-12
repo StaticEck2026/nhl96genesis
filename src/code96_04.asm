@@ -147,7 +147,7 @@ lineinput	;Pad input while the line change box is open (pflags2 bit 3)
 .x
 	rts
 .5
-	jmp	loc_1A62A
+	jmp	doplayeracc
 .2
 	movem.l	a0,-(sp)
 	movea.l	#$FFFFD2EC,a0
@@ -217,7 +217,7 @@ sub_EF02
 	bsr.w	sub_F1E6
 	move.w	#2,d1
 	bsr.w	sub_F09A
-	move.l	(dword_FFD130).w,(dword_FFD138).w
+	move.l	(ThreeStars).w,(dword_FFD138).w
 	move.l	(dword_FFD134).w,(dword_FFD13C).w
 	bsr.w	sub_F102
 	movea.l	#$FFFFD140,a0
@@ -229,7 +229,7 @@ sub_EF02
 	bsr.w	sub_F1E6
 	move.w	#4,d1
 	bsr.w	sub_F09A
-	move.l	(dword_FFD130).w,(dword_FFD150).w
+	move.l	(ThreeStars).w,(dword_FFD150).w
 	move.l	(dword_FFD134).w,(dword_FFD154).w
 	move.l	(dword_FFD140).w,(dword_FFD158).w
 	move.l	(dword_FFD144).w,(dword_FFD15C).w
@@ -800,7 +800,7 @@ doshot	;Shoot the puck
 	bne.w	.perf
 	moveq	#$10,d0	;start value for ShA calc
 	add.b	$6E(a3),d0	;shotacc(a3)
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	cmp.w	#$E,d0	;chance of perfect shot
 	bgt.w	.perf
 .notperf
@@ -823,7 +823,7 @@ doshot	;Shoot the puck
 	move.w	#$96,d0
 .11
 	move.w	d0,-(sp)	;push adjusting value on stack
-	jsr	(sub_1B09A).l
+	jsr	(randomd0s).l
 	asr.w	#2,d0
 	add.w	d0,2(sp)	;add result to x diff
 	move.w	(sp),d0	;move adjusting value into d0
@@ -836,12 +836,12 @@ doshot	;Shoot the puck
 	bpl.w	.13
 	lsr.w	#1,d0
 .13
-	jsr	(sub_1B09A).l
+	jsr	(randomd0s).l
 	asr.w	#2,d0
 	add.w	d0,4(sp)	;add to y diff
 	move.w	(sp)+,d0	;pop adj value
 	lsr.w	#1,d0	;divide by 2
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	asr.w	#2,d0
 	add.w	d0,4(sp)	;add to Z diff
 .perf
@@ -1032,7 +1032,7 @@ dopass	;Pass the puck
 	add.w	Xvel(a3),d1
 	move.w	d1,(puckvx).w
 	move.w	#$1000,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	move.w	d0,(puckvz).w
 	btst	#1,(GameFlags).w
 	beq.w	.8
@@ -1109,7 +1109,7 @@ passtoa0	;Pass the puck to player a0
 	blt.w	.13
 .0
 	move.l	a0,-(sp)	;This routine uses passspeed and player's a0 x/y speed to determine the x/y velocity of the puck so it will meet player a0
-	jsr	(sub_1A458).l
+	jsr	(GetHot).l
 	add.w	(a0),d0	;Xpos
 	sub.w	(puckx).w,d0
 	add.w	Ypos(a0),d1
@@ -1928,7 +1928,7 @@ sub_105B0
 	movea.l	#unk_10847,a1
 	adda.l	d3,a1
 	move.w	#$64,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	clr.w	d2
 .5
 	cmp.b	(a1,d2.w),d0
@@ -2057,7 +2057,7 @@ unk_10847
 SimGameStats
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	(vcount).w,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	movea.l	#tmstruct,a1
 	move.w	#$39D,d0
 .loop
@@ -2116,7 +2116,7 @@ SimGameStats
 sub_10A08
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	#$C0,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	asr.w	#5,d0
 	movea.l	#unk_10AFA,a3
 	add.b	(a3,d1.w),d0
@@ -2164,7 +2164,7 @@ sub_10A08
 	bra.w	.7
 .3
 	move.w	#$64,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	clr.w	d5
 .4
 	cmp.b	(a3,d5.w),d0
@@ -2236,7 +2236,7 @@ PickSimGoalie
 	movem.l	d1-d7,-(sp)
 	clr.w	d1
 	move.w	#$64,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	cmp.w	#$2D,d0
 	bgt.w	.0
 	move.w	#1,d1
@@ -2252,7 +2252,7 @@ sub_10BAC
 	bra.w	.3
 .0
 	move.w	#$64,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	clr.w	d5
 .1
 	cmp.b	(a3,d5.w),d0
@@ -2280,7 +2280,7 @@ sub_10C00
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	(rosterscroll).w,d6
 	move.w	#$64,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	addi.w	#$64,d0
 	muls.w	d0,d6
 	divs.w	#$64,d6
@@ -2288,7 +2288,7 @@ sub_10C00
 	bra.w	.3
 .0
 	move.w	#$64,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	clr.w	d5
 .1
 	cmp.b	(a3,d5.w),d0
@@ -2320,7 +2320,7 @@ sub_10C6A
 	sub.w	d3,d0
 	move.w	d0,-(sp)
 	move.w	#$14,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	addi.w	#$1E,d0
 	add.w	(sp)+,d0
 	movem.l	(sp)+,d1-d7/a0-a6

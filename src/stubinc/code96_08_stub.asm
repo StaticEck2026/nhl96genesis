@@ -9,8 +9,10 @@
 	include	stubinc\equals.inc	;VDP status bits
 	include	ram96.asm		;RAM map
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+AdjustFacingDirection = $017C06		;code96_07
 
 
 ; Main segment code

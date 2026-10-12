@@ -1023,7 +1023,7 @@ doinput_chkanim	;Animation in progress (pflags2 bit 1): rts. Then the goalie che
 	btst	#1,(BA_PS_flags).w
 	bne.w	rtss15
 	move.w	(TempWord1).w,d0
-	jmp	loc_1A62A
+	jmp	doplayeracc
 
 doinput_skater	;Skater input (doinput, position not 0)
 	move.w	(TempWord1).w,d0
@@ -1163,7 +1163,7 @@ doinput_ispc	;The puck carrier: checkob, then pass mode, shot mode, or the butto
 .6
 	tst.w	position(a3)
 	bne.w	.7
-	jmp	loc_1A62A
+	jmp	doplayeracc
 .7
 	btst	#5,d1
 	beq.w	loc_AFD4
@@ -1209,8 +1209,8 @@ doinput_islocked	;B with the player not the carrier: change player (chgplayer)
 	movem.l	(sp)+,d0/a0
 	rts
 
-loc_AFD4	;jmp loc_1A62A, shared by doinput_chkanim, doinput_skater and doinput_islocked
-	jmp	loc_1A62A
+loc_AFD4	;jmp doplayeracc, shared by doinput_chkanim, doinput_skater and doinput_islocked
+	jmp	doplayeracc
 
 sub_AFDA	;Start with a dpad direction: SPA288C with pflags2 bit 1 set and Xvel + $64,
 	;not while pflags2 bit 2 or gmode bit 0 is set
@@ -1487,7 +1487,7 @@ ControllerSetupScreen	;Build the controller setup screen: vram, fonts, the pad g
 	move.w	#0,d0
 	bclr	#5,(disflags).w
 	jsr	(setVram).l
-	jsr	(sub_1B2C4).l
+	jsr	(orjoy).l
 	move.w	#1,d4
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2

@@ -22,6 +22,19 @@ GetPlayerCountD7 = $0157B2		;code96_06
 GetPlayerCount = $0157F4		;code96_06
 getGoalieSCnum = $0168B8		;code96_06
 sub_16D36 = $016D36		;code96_06
+assinsert = $01A3D0		;code96_08
+vtoa = $01A3EE		;code96_08
+GetHot = $01A458		;code96_08
+SetSPA = $01A614		;code96_08
+doplayeracc = $01A62A		;code96_08
+dirtab = $01AE60		;code96_08
+randomd0s = $01B09A		;code96_08
+randomd0 = $01B0A6		;code96_08
+sroot = $01B0DE		;code96_08
+eraser = $01B976		;code96_08
+Framer = $01B9B0		;code96_08
+printz = $01BB8E		;code96_08
+print = $01BBA0		;code96_08
 
 
 ; Main segment code

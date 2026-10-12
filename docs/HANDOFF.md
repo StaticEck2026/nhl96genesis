@@ -140,4 +140,16 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - The listing decodes btst Dn,#imm (btst d1,#$42) as a blank mnemonic and garbage; written by hand in
   AdjustFacingDirection (code96_06 sub_16D36 has the same form).
 - RAM: savednewpnum, puckz, RefCnt. Outside: PushRef, setpersonel, CountShootoutGoals.
-- Next: code96_08.
+- code96_08 converted: the player movement core (SetSPA, doplayeracc, goalieacc, playeracc, dostop, stopna2) and the
+  shared low level code (vtoa, GetHot, random numbers, sroot, the pads, dma, vram, palette fades, the graphics
+  decompressor, the print routines). MATCH (segment and ROM). Undecoded parts labelled from 95G bytes: the
+  DecompressBytecode opcodes (jump_table written as offsets), the print control codes (ControlCodeJumpTable written
+  with their names), cramfade, forceblack2, DoDMA_nd2, FormatAndPrintTime, PeriodLabelTable, PushNumber, findpc,
+  puckshadow (asstab $19).
+- Print routines: 96 has three String printers. printsmall ($1BA40), print ($1BBA0, a fixed font map) and the one
+  with the font map at smallfontptr, which is 95's print; it is printcur / printcurz here because print and printz
+  already name $1BBA0 / $1BB8E everywhere (clash rule). printbig / printbigz set bigfontptr; printbigcur /
+  printbigcurz print with the font already there. All the z forms take the String after the call.
+- RAM: pad4way1-4, lj1-4, callbackPtr, ThreeStars, nibblebuffer, seed, dmaram, PushWidthBuf, BigFontChars,
+  bigfontptr, framercset, printa, printm, printfontset, repeatdelayframes, palfadenew, waitxpad.
+- Next: code96_09.

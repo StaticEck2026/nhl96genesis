@@ -12,6 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside: none.
+print = $01BBA0		;code96_08
 
 ; Main segment code
 	include	credits96.asm

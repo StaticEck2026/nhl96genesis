@@ -15,6 +15,12 @@
 TeamList = $00077E		;teamdata96
 SPAlist = $005F96		;frames96
 updatepadinput = $00A4DC		;code96_02
+SetSPA = $01A614		;code96_08
+dirtab = $01AE60		;code96_08
+ReadJoy1 = $01B348		;code96_08
+ReadJoy2 = $01B360		;code96_08
+ReadJoy3 = $01B378		;code96_08
+ReadJoy4 = $01B390		;code96_08
 SPA037A = $37A		;SPA value (frames96)
 SPA052C = $52C		;SPA value (frames96)
 SPA0AA2 = $AA2		;SPA value (frames96)

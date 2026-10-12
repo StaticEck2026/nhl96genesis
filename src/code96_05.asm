@@ -794,10 +794,10 @@ sub_11814
 	tst.w	(demoflag).w
 	bne.w	.7
 	move.w	#$19,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	move.w	d0,(word_FFD258).w
 	move.w	#$19,d0
-	jsr	(sub_1B0A6).l
+	jsr	(randomd0).l
 	cmp.w	(word_FFD258).w,d0
 	bne.w	.5
 	addq.w	#1,d0
@@ -876,7 +876,7 @@ sub_11814
 	bsr.w	sub_11F3A
 .1
 	jsr	(sub_1B282).l
-	jsr	(sub_1B320).l
+	jsr	(ProcessInputWithRepeat).l
 	tst.w	d1
 	beq.w	.18
 	clr.w	(carddelay).w
@@ -1035,7 +1035,7 @@ sub_11BF8
 	bset	#5,(disflags).w
 	jsr	(setVram).l
 	bclr	#5,(disflags).w
-	jsr	(sub_1B2C4).l
+	jsr	(orjoy).l
 	movea.l	#unk_1808B8,a1
 	btst	#7,(GameFlags).w
 	bne.w	.0
@@ -1046,9 +1046,9 @@ sub_11BF8
 	movea.l	#unk_17AA7A,a2
 	jsr	(DecompressGraphicsPlain).l
 	bclr	#2,(sflags11).w
-	move.w	d4,(word_FFB018).w
+	move.w	d4,(BigFontChars).w
 	movea.l	#unk_17AA7A,a2
-	jsr	(sub_1B724).l
+	jsr	(DecompressGraphicsWithCallback).l
 	dc.b	$01,$2A,$15,$6E,$F9,$AB,$CD,$EF	;remap table
 	move.w	d4,(word_FF2716).l
 	addi.w	#$A0,d4
@@ -1113,11 +1113,11 @@ sub_11BF8
 .2
 	btst	#7,(GameFlags).w
 	bne.w	.3
-	jsr	(sub_1BED6).l
+	jsr	(printbigz).l
 	String	$F8,$04,$01,$0E,$10,'EVEN-STRENGTH',$F8,$04,$01,$0F,$12,'POWER-PLAY',$F8,$04,$01,$0D,$14,'PENALTY KILLING',$F8,$04,$01,$0F,$16,'GOALTENDING',$F8,$04,$01,$11,$18,'OVERALL',$00
 	bra.w	.4
 .3
-	jsr	(sub_1BED6).l
+	jsr	(printbigz).l
 	String	$F8,$04,$01,$12,$06,'EVEN-STRENGTH',$F8,$04,$01,$12,$08,'POWER-PLAY',$F8,$04,$01,$12,$0A,'PENALTY KILLING',$F8,$04,$01,$12,$0C,'GOALTENDING',$F8,$04,$01,$12,$0E,'OVERALL',$00
 .4
 	jsr	(sub_1222A).l
@@ -1129,7 +1129,7 @@ sub_11E56
 	move.w	(word_FFB014).w,-(sp)
 	cmpi.w	#1,(word_FFDDB6).w
 	bne.w	.0
-	move.w	(word_FFB018).w,(word_FFB014).w
+	move.w	(BigFontChars).w,(word_FFB014).w
 .0
 	jsr	(printz).l
 	String	-(TXPRI+TXMAP1),$1E,$10,$00
@@ -1144,8 +1144,8 @@ sub_11E56
 	jsr	(a0)
 	move.w	#2,d1
 	move.w	d0,-(sp)
-	jsr	(sub_1BE1C).l
-	jsr	(sub_1BEEC).l
+	jsr	(PushNumberWidth).l
+	jsr	(printbig).l
 	move.w	(sp)+,d0
 	bsr.w	sub_11F94
 	move.w	(sp),(printx).w
@@ -1161,7 +1161,7 @@ sub_11EC8
 	move.w	(word_FFB014).w,-(sp)
 	cmpi.w	#2,(word_FFDDB6).w
 	bne.w	.0
-	move.w	(word_FFB018).w,(word_FFB014).w
+	move.w	(BigFontChars).w,(word_FFB014).w
 .0
 	jsr	(printz).l
 	String	-(TXPRI+TXMAP1),$06,$10,$00
@@ -1176,8 +1176,8 @@ sub_11EC8
 	jsr	(a0)
 	move.w	#2,d1
 	move.w	d0,-(sp)
-	jsr	(sub_1BE1C).l
-	jsr	(sub_1BEEC).l
+	jsr	(PushNumberWidth).l
+	jsr	(printbig).l
 	move.w	(sp)+,d0
 	bsr.w	sub_11F94
 	move.w	(sp),(printx).w
@@ -1203,8 +1203,8 @@ sub_11F3A
 	jsr	(a0)
 	move.w	#2,d1
 	move.w	d0,-(sp)
-	jsr	(sub_1BE1C).l
-	jsr	(sub_1BEEC).l
+	jsr	(PushNumberWidth).l
+	jsr	(printbig).l
 	move.w	(sp)+,d0
 	bsr.w	sub_11F94
 	move.w	(sp),(printx).w
@@ -1221,14 +1221,14 @@ sub_11F94
 	cmp.w	#$15,d0
 	bge.w	.0
 	movea.l	#unk_11FF2,a1
-	jmp	sub_1BEEC
+	jmp	printbig
 .0
 	divs.w	#$A,d0
 	swap	d0
 	asl.w	#2,d0
 	movea.l	#unk_11FCA,a0
 	movea.l	(a0,d0.w),a1
-	jmp	sub_1BEEC
+	jmp	printbig
 
 unk_11FCA
 	dc.b	$00,$01,$1F,$F2,$00,$01,$1F,$F6,$00,$01,$1F,$FA,$00,$01,$1F,$FE

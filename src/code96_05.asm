@@ -59,11 +59,11 @@ sub_10D2A
 .0
 	movea.l	a1,a0
 	adda.w	#$C0,a0
-	jsr	(sub_15774).l
+	jsr	(GetGoalieCountD7).l
 	adda.w	d0,a0
 	bsr.w	sub_10E92
 	moveq	#$E,d2
-	jsr	(sub_15774).l
+	jsr	(GetGoalieCountD7).l
 	move.w	d0,d3
 	moveq	#$2A,d4
 	move.l	#$598C,d1
@@ -88,11 +88,11 @@ sub_10D2A
 .2
 	movea.l	a1,a0
 	adda.w	#$DC,a0
-	jsr	(sub_15774).l
+	jsr	(GetGoalieCountD7).l
 	adda.w	d0,a0
 	bsr.w	sub_10E92
 	moveq	#$E,d2
-	jsr	(sub_15774).l
+	jsr	(GetGoalieCountD7).l
 	move.w	d0,d3
 	move.w	#$2A,d4
 	move.l	#$5548,d1
@@ -117,11 +117,11 @@ sub_10D2A
 .4
 	movea.l	a1,a0
 	adda.w	#$114,a0
-	jsr	(sub_15774).l
+	jsr	(GetGoalieCountD7).l
 	adda.w	d0,a0
 	bsr.w	sub_10E92
 	moveq	#$D,d2
-	jsr	(sub_15774).l
+	jsr	(GetGoalieCountD7).l
 	move.w	d0,d3
 	move.w	#$27,d4
 	move.l	#$5DD0,d1

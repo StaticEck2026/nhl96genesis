@@ -462,14 +462,14 @@ asstab	;Assignment routines: assignment number = index (asslist entries; doassig
 	dc.l	loc_E63E	;$4
 	dc.l	loc_DFEC	;$5
 	dc.l	loc_E4C4	;$6
-	dc.l	loc_17388	;$7
-	dc.l	loc_17334	;$8
-	dc.l	loc_16FCE	;$9
-	dc.l	loc_17210	;$A
-	dc.l	loc_16E40	;$B
-	dc.l	loc_17058	;$C
-	dc.l	loc_171E0	;$D
-	dc.l	loc_175BE	;$E
+	dc.l	assscore	;$7
+	dc.l	assstanley	;$8
+	dc.l	asseben	;$9
+	dc.l	assepen	;$A
+	dc.l	assbench	;$B
+	dc.l	asspenalty	;$C
+	dc.l	assdopen	;$D
+	dc.l	assgoaliecpu	;$E
 	dc.l	loc_17E7E	;$F
 	dc.l	loc_18092	;$10
 	dc.l	loc_1889A	;$11
@@ -484,10 +484,10 @@ asstab	;Assignment routines: assignment number = index (asslist entries; doassig
 	dc.l	loc_19F14	;$1A
 	dc.l	puckfaceoff	;$1B
 	dc.l	puckfaceoff2	;$1C
-	dc.l	loc_1745A	;$1D
+	dc.l	assgoaliectrl	;$1D
 	dc.l	loc_19018	;$1E
 	dc.l	loc_19326	;$1F
-	dc.l	loc_172C2	;$20
+	dc.l	assgoaliebreakwait	;$20
 	dc.l	loc_18068	;$21
 	dc.l	loc_18874	;$22
 	dc.l	loc_1D6872	;$23

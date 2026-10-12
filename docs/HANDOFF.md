@@ -114,4 +114,20 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   Outside routines named where this code proves them: SoundCmd, SoundOff, KillCrowd, stop_current_song, song,
   Z80Program, SoundBanks, Opening, vb2, ChooseSong, sfx, ExitToOpening, ClearPenalties, ClearPenaltyBuffer,
   LockScroll, setupice, Create_HotCold_Table.
-- Next: code96_06.
+- code96_06 converted: updatereplay, updateplayers, updateanim, checkwindow, the pad switches (chgplayer,
+  setcplayer, setc1-4player, restorepl, setpads), burst, holdplayer, getGoalieSCnum, GetGoalieCount(D7) and
+  GetPlayerCount(D7) (96 reads the counts from save RAM SRTeamCounts). MATCH (segment and ROM).
+- The 96 asstab uses the 94 assignment numbers (NHL94Genesis data94.asm asstab), not 95's: entry n of the 96 table
+  matches the 94 routine n by bytes (RAM words masked). So the asstab entries take their 95 / 94 names by index:
+  here assscore, assstanley (94 only), asseben, assepen, assbench, asspenalty, assdopen, assgoaliecpu, assgoaliectrl,
+  assgoaliebreakwait. The entries in code96_03 ($1-$6: assdefo, assdefd, asswingd, asswingo, asscenterd,
+  asscentero) and later segments ($F asstab entries on) can be named the same way when those files are touched.
+- Undecoded entries found by masked byte comparison with the 95 / 94 ROMs (a small helper: 16-bit words equal, or
+  both $A000 and up as RAM): ReplayMode and its helpers (WaitVSyncAndReadInput, ShowReplayIcon, EraseReplayIcon,
+  ShowReplayBanner, EraseReplayBanner, suba4, UpdateCameraPos, RevReplayAdj, ClampReplayView), check4bench,
+  donothing. A second copy of burst (unreferenced) and a dead block in updateplayers stay as unnamed bytes.
+- SPA values used here renamed with their 95 names (SPAboardmidl ... SPAboardbot, SPAhook, SPAHold, SPAburst);
+  the tables of every named SPA value are now <name>_table, as name_map.csv already said for the earlier ones.
+- Outside routines named: getpde, setpde, PlaceBoardFall, dirtab. RAM: Vpos, Hpos, glovecords, bholdtimer34,
+  yc1, yleader, PBnum, BA_Sktr_SCnum, FallXPos, replaydelay, replayend, crowdframe (shares padiconchars1).
+- Next: code96_07.

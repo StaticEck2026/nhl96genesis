@@ -1121,7 +1121,7 @@ DoGameFrame	;Wait for at least one vblank, then run one frame of game logic
 	jsr	(sub_FD14).l
 	jsr	(sub_FFD0).l
 .0
-	bsr.w	sub_162F0
+	bsr.w	updateplayers
 	tst.w	(songdelay).w
 	beq.w	.1
 	bmi.w	.1
@@ -1132,8 +1132,8 @@ DoGameFrame	;Wait for at least one vblank, then run one frame of game logic
 	jsr	(song).l
 .1
 	jsr	(sub_1D733C).l
-	bsr.w	sub_1679A
-	bsr.w	sub_161E2
+	bsr.w	checkwindow
+	bsr.w	updatereplay
 	jmp	sub_2034A
 
 DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, the crowd, the clock, and once a second
@@ -1155,9 +1155,9 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 	jsr	(sub_883D4).l
 	bsr.w	clockcont
 	btst	#7,(sflags).w
-	bne.w	locret_162EE
+	bne.w	rtss8
 	sub.w	d7,(lldisp).w
-	bpl.w	locret_162EE
+	bpl.w	rtss8
 	addi.w	#$18,(lldisp).w
 	bsr.w	sub_19782
 	jsr	(sub_883AC).l
@@ -1168,7 +1168,7 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 
 sub_14AD4
 	subq.w	#1,(word_FFC442).w
-	bne.w	locret_162EE
+	bne.w	rtss8
 	jmp	loc_22A2C
 
 RestoreBenchEnergy	;Unless OptLine: every bench player of both teams gets 9 energy, up to $1000
@@ -1215,7 +1215,7 @@ updatecrowdf	;Every game loop, d7 = elapsed frames: the crowd level falls (faste
 	andi.w	#$1E,(padiconchars3).w
 	add.w	(padiconchars3).w,d0
 	movea.l	#unk_23248,a0
-	move.b	(a0,d0.w),(padiconchars1+1).w
+	move.b	(a0,d0.w),(crowdframe+1).w
 	clr.w	d1
 	move.b	1(a0,d0.w),d1
 	move.w	(VDP_CNTR).l,d2
@@ -1223,23 +1223,23 @@ updatecrowdf	;Every game loop, d7 = elapsed frames: the crowd level falls (faste
 	add.w	d2,d1
 	move.w	d1,(padiconchars4).w
 .2
-	clr.b	(padiconchars1).w
+	clr.b	(crowdframe).w
 	cmpi.w	#$118,(padiconchars2).w
-	bls.w	locret_162EE
+	bls.w	rtss8
 	move.w	(VDP_CNTR).l,d0
 	andi.w	#$7F,d0
 	cmp.w	#$13,d0
-	blt.w	locret_162EE
+	blt.w	rtss8
 	cmp.w	#$19,d0
-	bgt.w	locret_162EE
-	move.b	d0,(padiconchars1).w
+	bgt.w	rtss8
+	move.b	d0,(crowdframe).w
 	rts
 
 clockcont	;At the end of the period clock (gameclock 0): the horn, then the end of period or game assignments
 	btst	#0,(gmode).w
-	bne.w	locret_162EE
+	bne.w	rtss8
 	tst.w	(gameclock).w
-	bne.w	locret_162EE
+	bne.w	rtss8
 	bset	#3,(disflags).w
 	jsr	(stop_current_song).l
 	move.w	#4,-(sp)
@@ -1416,7 +1416,7 @@ Pausemode	;Game is in pause mode now: restart the sound driver, run the pause me
 	bsr.w	InitMenuState
 .2
 	bsr.w	vcountwait
-	bsr.w	sub_15CD8
+	bsr.w	ReadMenuJoy
 	jsr	(sub_1B320).l
 	bsr.w	HandleMenuInput
 	bne.s	.2
@@ -1494,7 +1494,7 @@ DrawMenuScreen	;Call the draw routine, print the items (UpdateMenuSelection), pa
 SetMenuPrintX	;printx = 5, 9 with disflags bit 1 clear
 	move.w	#5,(printx).w
 	btst	#1,(disflags).w
-	bne.w	locret_162EE
+	bne.w	rtss8
 	addq.w	#4,(printx).w
 	rts
 

@@ -16,6 +16,12 @@ sub_10CB2 = $010CB2		;code96_05
 sub_10CF2 = $010CF2		;code96_05
 rtss7 = $00A3DA		;code96_02
 TeamList = $00077E		;teamdata96
+GetGoalieCountD7 = $015774		;code96_06
+GetGoalieCount = $0157A2		;code96_06
+GetPlayerCountD7 = $0157B2		;code96_06
+GetPlayerCount = $0157F4		;code96_06
+getGoalieSCnum = $0168B8		;code96_06
+sub_16D36 = $016D36		;code96_06
 
 
 ; Main segment code

@@ -19,6 +19,12 @@ sub_11226 = $011226		;code96_05
 sub_1147E = $01147E		;code96_05
 sub_1149E = $01149E		;code96_05
 sub_1161E = $01161E		;code96_05
+ReadMenuJoy = $015CD8		;code96_06
+updatereplay = $0161E2		;code96_06
+rtss8 = $0162EE		;code96_06
+updateplayers = $0162F0		;code96_06
+LockScroll = $016786		;code96_06
+checkwindow = $01679A		;code96_06
 
 
 ; Main segment code

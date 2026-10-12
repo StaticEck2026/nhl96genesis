@@ -5,6 +5,7 @@ SRSeasonHeader equ $82	;save RAM offset: the season header (SetupPlayoffs keeps 
 SRPOPairings equ $AE	;save RAM offset: the playoff pairings, the team of each seed slot, a word each (InitPlayoffs)
 SRSeasonHeaderSave equ $CE	;save RAM offset: SetupPlayoffs keeps SRSeasonHeader here
 SRPOSlots equ $DE	;save RAM offset: the seed slot of each team, a word each (BuildPOSlots)
+SRTeamCounts equ $3598	;save RAM offset: 4 bytes a team: +1 the player count, +3 the goalie count in the low 2 bits
 M68K_RAM equ $FFFF0000
 AwardIds equ $FFFF0000	;InitPlayoffs: the teams of the two conferences (ConferenceTeams1 at +0, ConferenceTeams2 at +$14), sorted by SortSeeds. Shares M68K_RAM
 SeedStandings equ $FFFF0032	;InitPlayoffs: the standings, 3 bytes a team (ReadStandings)
@@ -22,6 +23,7 @@ word_FF2716 equ $FFFF2716
 word_FF2718 equ $FFFF2718
 word_FF2720 equ $FFFF2720
 word_FF7536 equ $FFFF7536
+replayend equ $FFFFAF64	;End of the replay buffer from M68K_RAM: updatereplay wraps recbpr there
 VSCRLPM equ $FFFFB000
 VSPRITES equ $FFFFB002
 VmMap1 equ $FFFFB004
@@ -77,6 +79,7 @@ byte_FFB7C1 equ $FFFFB7C1
 byte_FFB7F7 equ $FFFFB7F7
 lastpuckc equ $FFFFB8AE
 padiconchars1 equ $FFFFB8B0	;ControllerSetupScreen: PadIconMap1 ... 4 chars (PadIconChars), in game RAM
+crowdframe equ $FFFFB8B0	;The crowd frame (updatecrowdf; saved by updatereplay). Shares padiconchars1
 crowdlevel equ $FFFFB8B2	;crowd noise level; the controller setup screen keeps padiconchars2 here
 padiconchars2 equ $FFFFB8B2
 padiconchars3 equ $FFFFB8B4
@@ -92,9 +95,9 @@ word_FFB8C4 equ $FFFFB8C4
 word_FFB8C6 equ $FFFFB8C6
 word_FFB8C8 equ $FFFFB8C8
 dword_FFBD2A equ $FFFFBD2A
-word_FFBD2E equ $FFFFBD2E
+Vpos equ $FFFFBD2E
 word_FFBD30 equ $FFFFBD30
-word_FFBD32 equ $FFFFBD32
+Hpos equ $FFFFBD32
 word_FFBD34 equ $FFFFBD34
 word_FFBD36 equ $FFFFBD36
 word_FFBD38 equ $FFFFBD38
@@ -113,7 +116,7 @@ lastplayer equ $FFFFBF0C
 passdir equ $FFFFBF0E
 passspeed equ $FFFFBF10
 passplayer equ $FFFFBF12
-word_FFBF14 equ $FFFFBF14
+glovecords equ $FFFFBF14
 word_FFBF16 equ $FFFFBF16
 puckcross equ $FFFFBF1A	;puck crossing x and frames at each goal line, for the goalies
 byte_FFBF1C equ $FFFFBF1C
@@ -127,7 +130,7 @@ byte_FFBF2B equ $FFFFBF2B
 byte_FFBF2C equ $FFFFBF2C
 byte_FFBF2D equ $FFFFBF2D
 bholdtimer equ $FFFFBF3A
-word_FFBF3C equ $FFFFBF3C
+bholdtimer34 equ $FFFFBF3C
 TempWord1 equ $FFFFBF46
 TempWord2 equ $FFFFBF48
 TempRawSpd equ $FFFFBF4A
@@ -151,8 +154,8 @@ word_FFBFB8 equ $FFFFBFB8
 word_FFBFC2 equ $FFFFBFC2
 word_FFBFD0 equ $FFFFBFD0
 xc1 equ $FFFFBFDC
-word_FFBFDE equ $FFFFBFDE
-word_FFBFE0 equ $FFFFBFE0
+yc1 equ $FFFFBFDE
+yleader equ $FFFFBFE0
 fox equ $FFFFBFE2
 foy equ $FFFFBFE4
 fodir1 equ $FFFFBFE6
@@ -209,7 +212,7 @@ VisTeam equ $FFFFC3A2
 PenBuf equ $FFFFC3A6
 Pencntdwn equ $FFFFC3E8
 word_FFC3EA equ $FFFFC3EA
-word_FFC3EC equ $FFFFC3EC
+PBnum equ $FFFFC3EC
 word_FFC442 equ $FFFFC442
 word_FFC444 equ $FFFFC444
 word_FFC446 equ $FFFFC446
@@ -323,7 +326,7 @@ TempOptPlayMode equ $FFFFD28A
 unk_FFD296 equ $FFFFD296
 PlayingSong equ $FFFFD2A2
 word_FFD2D2 equ $FFFFD2D2
-word_FFD2D4 equ $FFFFD2D4
+BA_Sktr_SCnum equ $FFFFD2D4
 BA_Goalie_SCnum equ $FFFFD2D6
 BA_Skater_Offset equ $FFFFD2D8
 word_FFD2DA equ $FFFFD2DA
@@ -334,7 +337,7 @@ word_FFD2E2 equ $FFFFD2E2
 word_FFD2E4 equ $FFFFD2E4
 onetimerheight equ $FFFFD2E6
 word_FFD2E8 equ $FFFFD2E8
-word_FFD2EA equ $FFFFD2EA
+FallXPos equ $FFFFD2EA
 LineHoldTimer equ $FFFFD2EC
 setuphome equ $FFFFD2FC
 setupvis equ $FFFFD2FE
@@ -384,7 +387,7 @@ dword_FFDCE4 equ $FFFFDCE4
 word_FFDCE8 equ $FFFFDCE8
 word_FFDCEA equ $FFFFDCEA
 byte_FFDCEC equ $FFFFDCEC
-word_FFDCF2 equ $FFFFDCF2
+replaydelay equ $FFFFDCF2
 PALflag equ $FFFFDCF6
 byte_FFDCF9 equ $FFFFDCF9
 dword_FFDD7E equ $FFFFDD7E

@@ -393,7 +393,7 @@ sub_F1F0
 	movea.l	a3,a2
 	addq.w	#2,a2
 	movea.l	#$FFFFD20D,a5
-	jsr	(sub_157B2).l
+	jsr	(GetPlayerCountD7).l
 	subq.w	#1,d0
 	move.w	d0,d3
 	clr.w	d2
@@ -492,7 +492,7 @@ sub_F300
 	bne.s	.1
 	move.w	(sp)+,d7
 	move.w	d0,d1
-	jsr	(sub_157B2).l
+	jsr	(GetPlayerCountD7).l
 	cmp.w	d0,d1
 	bne.w	.playerabovetopgoalline
 	subq.w	#1,d1
@@ -1017,7 +1017,7 @@ dopass	;Pass the puck
 	move.w	SCnum(a3),(word_FFD238).w
 	move.w	(passdir).w,d0	;just hit puck in pass dir not to any player
 	asl.w	#2,d0
-	movea.l	#unk_1AE60,a0
+	movea.l	#dirtab,a0
 	move.w	2(a0,d0.w),d1	;y inc
 	muls.w	(passspeed).w,d1
 	moveq	#$A,d2
@@ -1961,9 +1961,9 @@ sub_10688
 	asl.w	#2,d0
 	move.l	(a0,d0.w),(dword_FFC744).w
 	move.l	(dword_23456).l,d4
-	bsr.w	sub_157A2
+	bsr.w	GetGoalieCount
 	move.w	d0,-(sp)
-	bsr.w	sub_157F4
+	bsr.w	GetPlayerCount
 	sub.w	(sp),d0
 	subq.w	#1,d0
 	move.w	d0,d2
@@ -2211,7 +2211,7 @@ SimGoalieStats
 	rts
 
 SimGoalie
-	jsr	(sub_15774).l
+	jsr	(GetGoalieCountD7).l
 	subq.w	#1,d0
 	bsr.w	PickSimGoalie
 	move.w	d0,d3

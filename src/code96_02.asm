@@ -606,7 +606,7 @@ doinput	;Process controller input for player a3: d0 = dpad, d1 = new buttons, d2
 	movem.l	(sp)+,d0-d2/a0/a3
 	btst	#6,d1
 	beq.w	.32
-	cmpi.w	#SPA1792,SPA(a3)
+	cmpi.w	#SPAhook,SPA(a3)
 	bne.w	.32
 	tst.w	SPAnum(a3)
 	bne.w	.32
@@ -1040,7 +1040,7 @@ doinput_skater	;Skater input (doinput, position not 0)
 	movem.l	(sp)+,d7-a0
 	bne.w	.1
 .0
-	jmp	loc_16934
+	jmp	burst
 .1
 	movem.w	d7,-(sp)
 	move.w	SCnum(a3),d7
@@ -1718,7 +1718,7 @@ checkfight	;Look for the start of a fight between players a2 and a3 (impact $A o
 	move.w	Ypos(a3),d1
 	add.w	Ypos(a2),d1
 	asr.w	#1,d1
-	move.w	d1,(word_FFBFDE).w
+	move.w	d1,(yc1).w
 	bset	#2,(sflags2).w
 	bset	#6,(sflags).w
 	moveq	#2,d1

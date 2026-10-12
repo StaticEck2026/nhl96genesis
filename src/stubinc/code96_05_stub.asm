@@ -23,6 +23,7 @@ unk_12D46 = $012D46		;data96_01
 SeasonSchedule = $013558		;data96_01
 ResolveGames = $013EA2		;data96_01
 GetTeamPOSlot = $0143A8		;data96_01
+GetGoalieCountD7 = $015774		;code96_06
 
 
 ; Main segment code

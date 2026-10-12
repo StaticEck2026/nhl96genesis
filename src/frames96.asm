@@ -87,7 +87,7 @@ SPA00EC_table:
 .6	dc.w	43,5,44,5,45,5,46,-5
 
 SPAgglover	=	*-SPAlist
-SPA012E_table:
+SPAgglover_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -127,7 +127,7 @@ SPA0170_table:
 .6	dc.w	73,2,74,30,36,-4
 
 SPAgglovel	=	*-SPAlist
-SPA01CA_table:
+SPAgglovel_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -147,7 +147,7 @@ SPA01CA_table:
 .6	dc.w	85,2,86,-30
 
 SPAgstickl	=	*-SPAlist
-SPA020C_table:
+SPAgstickl_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -167,7 +167,7 @@ SPA020C_table:
 .6	dc.w	97,2,98,30,36,-4
 
 SPAgstickr	=	*-SPAlist
-SPA0266_table:
+SPAgstickr_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -278,7 +278,7 @@ SPA03BC_table:
 .6	dc.w	143,5,144,-5
 
 SPAgstackl	=	*-SPAlist
-SPA03E6_table:
+SPAgstackl_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -298,7 +298,7 @@ SPA03E6_table:
 .6	dc.w	157,4,158,30,36,-4
 
 SPAgstackr	=	*-SPAlist
-SPA0440_table:
+SPAgstackr_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -318,7 +318,7 @@ SPA0440_table:
 .6	dc.w	169,4,170,30,42,-4
 
 SPAgdive	=	*-SPAlist
-SPA049A_table:
+SPAgdive_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -1108,8 +1108,8 @@ SPA164A_table:
 .6	dc.w	1065,10,1066,-10
 .7	dc.w	1067,10,1068,-10
 
-SPA169C	=	*-SPAlist
-SPA169C_table:
+SPAHold	=	*-SPAlist
+SPAHold_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -1174,8 +1174,8 @@ SPA1740_table:
 .6	dc.w	1081,10,1082,-10
 .7	dc.w	1083,10,1084,-10
 
-SPA1792	=	*-SPAlist
-SPA1792_table:
+SPAhook	=	*-SPAlist
+SPAhook_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -1366,8 +1366,8 @@ SPA2052_table:
 .6	dc.w	1115,-8
 .7	dc.w	1116,-8
 
-SPA2084	=	*-SPAlist
-SPA2084_table:
+SPAboardmidl	=	*-SPAlist
+SPAboardmidl_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t
@@ -1462,8 +1462,8 @@ SPA221C_table:
 .6	dc.w	1193,4,1194,4,1195,4,1196,-4
 .7	dc.w	1197,4,1198,4,1199,4,1200,-4
 
-SPA22AE	=	*-SPAlist
-SPA22AE_table:
+SPAboardtop	=	*-SPAlist
+SPAboardtop_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t
@@ -1484,8 +1484,8 @@ SPA22AE_table:
 .6	dc.w	1219,4,1220,4,1221,4,1222,4,1223,4,1224,20,1041,4,1042,4
 	dc.w	1043,4,1044,-4
 
-SPA2360	=	*-SPAlist
-SPA2360_table:
+SPAboardleft	=	*-SPAlist
+SPAboardleft_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t
@@ -1506,8 +1506,8 @@ SPA2360_table:
 .6	dc.w	1243,4,1244,4,1245,4,1246,4,1247,4,1248,20,1041,4,1042,4
 	dc.w	1043,4,1044,-4
 
-SPA2412	=	*-SPAlist
-SPA2412_table:
+SPAboardbot	=	*-SPAlist
+SPAboardbot_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t
@@ -1528,8 +1528,8 @@ SPA2412_table:
 .6	dc.w	1267,4,1268,4,1269,4,1270,4,1271,4,1272,20,1049,4,1050,4
 	dc.w	1051,4,1052,-4
 
-SPA24C4	=	*-SPAlist
-SPA24C4_table:
+SPAboardmidr	=	*-SPAlist
+SPAboardmidr_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t
@@ -1782,8 +1782,8 @@ SPA2BBA_table:
 .6	dc.w	670,-4096
 .7	dc.w	670,-4096
 
-SPA2C5C	=	*-SPAlist
-SPA2C5C_table:
+SPAburst	=	*-SPAlist
+SPAburst_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.1-.t
@@ -1887,7 +1887,7 @@ SPA2F72_table:
 	dc.w	708,-10
 
 SPAfight	=	*-SPAlist
-SPA30A4_table:
+SPAfight_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t
@@ -1953,7 +1953,7 @@ SPA3182_table:
 .3	dc.w	1599,4,1600,4,1601,4,1602,4,1520,-15
 
 SPAfhigh	=	*-SPAlist
-SPA31BC_table:
+SPAfhigh_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t
@@ -2017,7 +2017,7 @@ SPA3252_table:
 .3	dc.w	1567,6,1568,8,1569,8,1570,4,1520,-4
 
 SPAfgrab	=	*-SPAlist
-SPA328C_table:
+SPAfgrab_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t
@@ -2033,7 +2033,7 @@ SPA328C_table:
 .3	dc.w	1527,4,1528,4,1529,4,1530,14,1520,-15
 
 SPAflow	=	*-SPAlist
-SPA32C6_table:
+SPAflow_table:
 .t	;Offset to each direction of animation (0-7)
 	dc.w	.0-.t
 	dc.w	.0-.t

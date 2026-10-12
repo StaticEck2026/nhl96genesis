@@ -2,31 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-sub_15CD8	equ	$015CD8
-sub_161E2	equ	$0161E2
-locret_162EE	equ	$0162EE
-sub_162F0	equ	$0162F0
-LockScroll	equ	$016786
-sub_1679A	equ	$01679A
-getGoalieSCnum	equ	$0168B8	;d0 = SCnum of the goalie of the team of player d0
-loc_16934	equ	$016934
-holdplayer	equ	$016988
-chgplayer	equ	$016A46
-setc1player	equ	$016C52
-setc2player	equ	$016C5C
-setc3player	equ	$016C68
-setc4player	equ	$016C74
-setpads	equ	$016D6A
-loc_16E40	equ	$016E40	;asstab entry
-loc_16FCE	equ	$016FCE	;asstab entry
-loc_17058	equ	$017058	;asstab entry
-loc_171E0	equ	$0171E0	;asstab entry
-loc_17210	equ	$017210	;asstab entry
-loc_172C2	equ	$0172C2	;asstab entry
-loc_17334	equ	$017334	;asstab entry
-loc_17388	equ	$017388	;asstab entry
-loc_1745A	equ	$01745A	;asstab entry
-loc_175BE	equ	$0175BE	;asstab entry
 goaliesave	equ	$017C58
 loc_17E7E	equ	$017E7E	;asstab entry
 loc_18068	equ	$018068	;asstab entry
@@ -77,6 +52,8 @@ SkipStrings	equ	$01D7F2
 checkcoll	equ	$01D7FE
 setd0player	equ	$01F662
 rtss2	equ	$01F84A	;rts
+getpde	equ	$01FB24
+setpde	equ	$01FB44
 vb2	equ	$0201DC
 IRQ7		equ	$0202E4	;rte
 sub_2034A	equ	$02034A
@@ -131,8 +108,10 @@ sub_1D733C	equ	$1D733C
 ShortenMsgTimer	equ	$1D8676
 unk_1D86A4	equ	$1D86A4
 nullsub_6	equ	$1D8782
+PlaceBoardFall	equ	$1D8F66
 sub_1D9114	equ	$1D9114
 sub_1D920A	equ	$1D920A
+sub_1D92EC	equ	$1D92EC
 ClearPenalties	equ	$1D97F4
 sub_1D9844	equ	$1D9844
 loc_1DB020	equ	$1DB020
@@ -143,11 +122,6 @@ ValidationRoutine	equ	$1E9038	;ROM checksum
 dword_23456	equ	$23456
 dword_235B8	equ	$235B8
 off_23574	equ	$23574
-sub_15774	equ	$15774
-sub_157A2	equ	$157A2
-sub_157B2	equ	$157B2
-sub_157F4	equ	$157F4
-sub_16D36	equ	$16D36
 sub_1A458	equ	$1A458
 sub_1B09A	equ	$1B09A
 sub_1B0A6	equ	$1B0A6
@@ -169,7 +143,7 @@ sub_230AA	equ	$230AA
 sub_230C4	equ	$230C4
 sub_241E8	equ	$241E8
 sfx	equ	$88470
-unk_1AE60	equ	$1AE60
+dirtab	equ	$1AE60
 unk_1DF9EC	equ	$1DF9EC
 unk_1DF9FC	equ	$1DF9FC
 unk_44120	equ	$44120

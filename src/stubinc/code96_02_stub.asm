@@ -33,7 +33,7 @@ SPAgstackl = $3E6		;SPA value (frames96)
 SPAgstickr = $266		;SPA value (frames96)
 SPAgstickl = $20C		;SPA value (frames96)
 SPA099A = $99A		;SPA value (frames96)
-SPA1792 = $1792		;SPA value (frames96)
+SPAhook = $1792		;SPA value (frames96)
 SPA2126 = $2126		;SPA value (frames96)
 SPA2150 = $2150		;SPA value (frames96)
 SPA288C = $288C		;SPA value (frames96)
@@ -42,6 +42,15 @@ startpause2 = $014D74		;data96_01
 startpause3 = $014D7C		;data96_01
 startpause4 = $014D84		;data96_01
 vcountwait = $0151E0		;data96_01
+getGoalieSCnum = $0168B8		;code96_06
+burst = $016934		;code96_06
+holdplayer = $016988		;code96_06
+chgplayer = $016A46		;code96_06
+setc1player = $016C52		;code96_06
+setc2player = $016C5C		;code96_06
+setc3player = $016C68		;code96_06
+setc4player = $016C74		;code96_06
+setpads = $016D6A		;code96_06
 
 
 ; Main segment code

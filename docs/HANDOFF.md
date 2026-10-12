@@ -130,4 +130,14 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   the tables of every named SPA value are now <name>_table, as name_map.csv already said for the earlier ones.
 - Outside routines named: getpde, setpde, PlaceBoardFall, dirtab. RAM: Vpos, Hpos, glovecords, bholdtimer34,
   yc1, yleader, PBnum, BA_Sktr_SCnum, FallXPos, replaydelay, replayend, crowdframe (shares padiconchars1).
-- Next: code96_07.
+- code96_07 converted: AdjustFacingDirection, goaliesave (saveanim written with the SPA names), chkpk2, checkob,
+  EndPenaltyShotPlay, ChkGoalies, CPgoalie. MATCH (segment and ROM). Most of the segment is code the listing does
+  not decode: labelled bytes at the asstab entries (assgoalietopuck, chkpuckc, asspuckc, assbreakaway, assnearest,
+  asspassrec, assshoot, puckshootout, puckpenshot, pucknorm, puckunflip) and where outside jsr / jmp / movea.l
+  targets match a 95 routine by masked bytes (breakaway, BreakawayOffsidesFlagSet, EvadePC, check4check,
+  SelectPenaltyShotSkater, ReturnGoalies, CompLine, AssignPads, ChkOffsides, a2offsides, puckIChk); the others
+  keep address names (loc_19B16, sub_19E6E).
+- The listing decodes btst Dn,#imm (btst d1,#$42) as a blank mnemonic and garbage; written by hand in
+  AdjustFacingDirection (code96_06 sub_16D36 has the same form).
+- RAM: savednewpnum, puckz, RefCnt. Outside: PushRef, setpersonel, CountShootoutGoals.
+- Next: code96_08.

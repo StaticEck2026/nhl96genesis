@@ -165,7 +165,7 @@ lcfound	;Line choice d2 made: set the line, close the box
 	jsr	(loadTeamStruct).l
 	bclr	#1,limpact(a2)
 	move.w	d0,$16(a2)
-	jsr	(sub_1FB52).l
+	jsr	(setpersonel).l
 
 lcfound2
 	btst	#4,(sflags9).w

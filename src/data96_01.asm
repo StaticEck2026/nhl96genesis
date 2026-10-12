@@ -1159,7 +1159,7 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 	sub.w	d7,(lldisp).w
 	bpl.w	rtss8
 	addi.w	#$18,(lldisp).w
-	bsr.w	sub_19782
+	bsr.w	ChkGoalies
 	jsr	(sub_883AC).l
 	jsr	(sub_8842E).l
 	bsr.w	RestoreBenchEnergy

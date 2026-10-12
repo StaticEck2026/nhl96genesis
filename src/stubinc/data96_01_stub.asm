@@ -25,6 +25,7 @@ rtss8 = $0162EE		;code96_06
 updateplayers = $0162F0		;code96_06
 LockScroll = $016786		;code96_06
 checkwindow = $01679A		;code96_06
+ChkGoalies = $019782		;code96_07
 
 
 ; Main segment code

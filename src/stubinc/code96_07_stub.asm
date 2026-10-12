@@ -9,8 +9,20 @@
 	include	stubinc\equals.inc	;VDP status bits
 	include	ram96.asm		;RAM map
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+LockScroll = $016786		;code96_06
+SPA0074 = $74		;SPA value (frames96)
+SPA0170 = $170		;SPA value (frames96)
+SPA02C0 = $2C0		;SPA value (frames96)
+SPA031A = $31A		;SPA value (frames96)
+SPAgglovel = $1CA		;SPA value (frames96)
+SPAgglover = $12E		;SPA value (frames96)
+SPAgstackl = $3E6		;SPA value (frames96)
+SPAgstackr = $440		;SPA value (frames96)
+SPAgstickl = $20C		;SPA value (frames96)
+SPAgstickr = $266		;SPA value (frames96)
 
 
 ; Main segment code

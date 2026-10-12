@@ -2,20 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-goaliesave	equ	$017C58
-loc_17E7E	equ	$017E7E	;asstab entry
-loc_18068	equ	$018068	;asstab entry
-loc_18092	equ	$018092	;asstab entry
-checkob	equ	$0187D4	;offside watch
-loc_18874	equ	$018874	;asstab entry
-loc_1889A	equ	$01889A	;asstab entry
-loc_18ECA	equ	$018ECA	;asstab entry
-loc_18FE0	equ	$018FE0	;asstab entry
-loc_19018	equ	$019018	;asstab entry
-loc_19326	equ	$019326	;asstab entry
-sub_19782	equ	$019782
-loc_19B70	equ	$019B70	;asstab entry
-loc_19F14	equ	$019F14	;asstab entry
 loc_19F58	equ	$019F58	;asstab entry
 assinsert	equ	$01A3D0
 assreplace	equ	$01A3DA
@@ -44,6 +30,7 @@ print	equ	$01BBA0
 sub_1BEE8	equ	$01BEE8
 AddPenalty2	equ	$01C1D2	;d0 = penalty number, a3 = player
 sub_1C272	equ	$01C272
+PushRef	equ	$01C978
 ClearPenaltyBuffer	equ	$01CCB0
 loc_1CE8A	equ	$01CE8A
 loadTeamStruct	equ	$01D328	;a2 = the team struct of player a3
@@ -105,6 +92,7 @@ loc_1D6872	equ	$1D6872	;asstab entry
 PuckOnAttackHalf	equ	$1D6B66
 sub_1D6D22	equ	$1D6D22
 sub_1D733C	equ	$1D733C
+CountShootoutGoals	equ	$1D8208
 ShortenMsgTimer	equ	$1D8676
 unk_1D86A4	equ	$1D86A4
 nullsub_6	equ	$1D8782
@@ -137,7 +125,7 @@ sub_1DF8AC	equ	$1DF8AC
 sub_1E7A78	equ	$1E7A78
 sub_1E8840	equ	$1E8840
 sub_1FAFA	equ	$1FAFA
-sub_1FB52	equ	$1FB52
+setpersonel	equ	$1FB52
 sub_22E58	equ	$22E58
 sub_230AA	equ	$230AA
 sub_230C4	equ	$230C4

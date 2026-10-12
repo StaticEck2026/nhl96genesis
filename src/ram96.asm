@@ -68,7 +68,7 @@ word_FFB05C equ $FFFFB05C
 SortCords equ $FFFFB05E
 puckx equ $FFFFB75E
 pucky equ $FFFFB772
-unk_FFB776 equ $FFFFB776
+puckz equ $FFFFB776
 byte_FFB777 equ $FFFFB777
 puckvx equ $FFFFB786
 puckvy equ $FFFFB788
@@ -197,7 +197,7 @@ word_FFC378 equ $FFFFC378
 joypuckcarrier equ $FFFFC37C
 word_FFC37E equ $FFFFC37E
 passmodetimer equ $FFFFC380
-byte_FFC382 equ $FFFFC382
+savednewpnum equ $FFFFC382
 c1playernum equ $FFFFC384
 c2playernum equ $FFFFC386
 c3playernum equ $FFFFC388
@@ -215,7 +215,7 @@ word_FFC3EA equ $FFFFC3EA
 PBnum equ $FFFFC3EC
 word_FFC442 equ $FFFFC442
 word_FFC444 equ $FFFFC444
-word_FFC446 equ $FFFFC446
+RefCnt equ $FFFFC446
 word_FFC448 equ $FFFFC448
 word_FFC44A equ $FFFFC44A
 gsp equ $FFFFC4BC

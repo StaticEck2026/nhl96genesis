@@ -348,23 +348,23 @@ updateplayers	;This routine calls all collision/animation/assignment code for al
 	btst	#7,(sflags).w
 	bne.w	.16
 	ori.l	#$F,(PadControlBits).w
-	cmpi.w	#5,(unk_FFB776).w
+	cmpi.w	#5,(puckz).w
 	bgt.w	.14
 .13
 	clr.w	(word_FFDCC6).w
 	bra.w	.16
 .14
 	move.w	(word_FFDCCA).w,d0
-	cmp.w	(unk_FFB776).w,d0
+	cmp.w	(puckz).w,d0
 	beq.w	.15
-	move.w	(unk_FFB776).w,(word_FFDCCA).w
+	move.w	(puckz).w,(word_FFDCCA).w
 	bra.s	.13
 .15
 	addq.w	#1,(word_FFDCC6).w
 	cmpi.w	#$10,(word_FFDCC6).w
 	blt.w	.16
 	clr.w	(word_FFDCC6).w
-	subq.w	#1,(unk_FFB776).w
+	subq.w	#1,(puckz).w
 .16
 	bclr	#6,(sflags7).w
 	move.w	(CurCrowdMeter).w,d0

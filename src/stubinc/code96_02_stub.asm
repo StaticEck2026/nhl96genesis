@@ -51,6 +51,8 @@ setc2player = $016C5C		;code96_06
 setc3player = $016C68		;code96_06
 setc4player = $016C74		;code96_06
 setpads = $016D6A		;code96_06
+goaliesave = $017C58		;code96_07
+checkob = $0187D4		;code96_07
 
 
 ; Main segment code

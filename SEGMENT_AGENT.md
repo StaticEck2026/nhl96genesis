@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_07. <- CURRENT
+code96_08. <- CURRENT
 
 ## Sources
 
@@ -67,7 +67,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | code96_05 | matched, 8012 bytes | $010CB2 | $012BFD | code | - | Season and save RAM handling and its screens, mostly new in 96 (IDA names); DrawSetupTeamBlock |
 | data96_01 | matched, 11126 bytes | $012BFE | $015773 | code | setup95, awards95, hockey95, pause95 | Mostly code: TeamBlockPtrs, TeamLogoPtrs, SeasonSchedule (Day), ResolveGames, the playoff seeding (BeginPlayoffs, InitPlayoffs, SeedPairings, SortSeeds, CalcSeedPoints, SetupPlayoffs, GetTeamPOSlot, BuildPOSlots), Begin, StartGame, StartPer, Gameloop, DoGameFrame, ResetClock, restoreteams, RestoreBenchEnergy, updatecrowdf, clockcont, demoread, startpause1-4, Pausemode and the pause menu (seta2, InitMenuState, HandleMenuInput, UpdateMenuSelection, PrintMenuItem), vcountwait, GetNameandAttrib and the Attrib columns (bytes), TimeoutMenu, SelectGoalieMenu (bytes) |
 | code96_06 | matched, 9362 bytes | $015774 | $017C05 | code | display95, replay95, control95, players95, logic95 (94G assign94) | GetGoalieCount(D7), GetPlayerCount(D7), ReadMenuJoy, updatereplay, updateplayers, updateanim, LockScroll, checkwindow, getGoalieSCnum, burst, holdplayer, chgplayer, setcplayer, setc1-4player, Sweepcheck, restorepl, setpads; as labelled bytes: ReplayMode and its helpers (ShowReplayIcon ... ClampReplayView), check4bench, donothing and the asstab entries (96 asstab uses the 94 numbering: assscore, assstanley, asseben, assepen, assbench, asspenalty, assdopen, assgoaliecpu, assgoaliectrl, assgoaliebreakwait) |
-| code96_07 | incbin | $017C06 | $019F3D | code | logic95, lines95 | |
+| code96_07 | matched, 9016 bytes | $017C06 | $019F3D | code | logic95, lines95, penalty95, shootout95 | AdjustFacingDirection, goaliesave, saveanim, chkpk2, checkob, EndPenaltyShotPlay, ChkGoalies, CPgoalie; as labelled bytes: the asstab entries assgoalietopuck, chkpuckc, asspuckc, assbreakaway, assnearest, asspassrec, assshoot, puckshootout, puckpenshot, pucknorm, puckunflip (94 numbering), breakaway, BreakawayOffsidesFlagSet, EvadePC, check4check, SelectPenaltyShotSkater, ReturnGoalies, CompLine, AssignPads, ChkOffsides, a2offsides, puckIChk |
 | code96_08 | incbin | $019F3E | $01BF93 | code | video95, logic95, middle95 | |
 | code96_09 | incbin | $01BF94 | $01E10F | code | collide95, penalty95, lines95 | |
 | code96_10 | incbin | $01E110 | $0201C5 | code | collide95, players95 | |

@@ -39,6 +39,11 @@ ReadJoy4 = $01B390		;code96_08
 printsmallz = $01BA2E		;code96_08
 printsmall = $01BA40		;code96_08
 printbigcur = $01BEE8		;code96_08
+AddPenalty2 = $01C1D2		;code96_09
+PenaltyManager = $01C272		;code96_09
+ClearPenaltyBuffer = $01CCB0		;code96_09
+updatepwrplay = $01CE8A		;code96_09
+sub_1D4CE = $01D4CE		;code96_09
 
 
 ; Main segment code

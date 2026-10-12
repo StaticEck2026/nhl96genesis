@@ -375,7 +375,7 @@ updateplayers	;This routine calls all collision/animation/assignment code for al
 	jsr	(sub_1D92EC).l
 	tst.w	(puckc).w
 	bmi.w	.18
-	bclr	#7,(byte_FFC34C).w
+	bclr	#7,(sflags8).w
 	bclr	#1,(sflags6).w
 	move.w	(puckc).w,d0
 	asl.w	#7,d0

@@ -1757,7 +1757,7 @@ checkfight	;Look for the start of a fight between players a2 and a3 (impact $A o
 	bset	#0,pflags2(a3)
 	move.l	#$1A,d0
 	jsr	(assinsert).l
-	st	(word_FFBFEE).w
+	st	(collflag).w
 	movea.l	(sp)+,a3
 .4
 	movem.l	(sp)+,d0-d4/a0-a3

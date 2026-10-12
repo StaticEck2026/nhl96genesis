@@ -926,7 +926,7 @@ Begin	;Cold start, entered from Start. Clear RAM, init sound and menus, go to th
 
 StartGame	;Reset game state for a new game, then start the first period
 	move.l	#vb2,(vbint).l
-	clr.w	(word_FFC448).w
+	clr.w	(RefStep).w
 	bclr	#5,(GameFlags).w
 	st	(byte_FFD474).w
 	jsr	(ReadJoy1).l
@@ -1091,7 +1091,7 @@ StartPer	;Start a period: reset stack, rink and clock, face off, run the game lo
 	bsr.w	DoGameFrame
 	move.w	(gamelevel).w,d0
 	asl.w	#4,d0
-	move.w	d0,(padcursorchars).w
+	move.w	d0,(CwdExciteLvl).w
 	clr.w	(CurCrowdMeter).w
 	move.w	(HomeTeam).w,(HmTeam).w
 	move.w	#0,(SongIndex).w
@@ -1149,7 +1149,7 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 	bmi.w	.1
 	st	(word_FFD238).w
 .1
-	jsr	(sub_1C272).l
+	jsr	(PenaltyManager).l
 	bsr.w	updatecrowdf
 	jsr	(nullsub_6).l
 	jsr	(sub_883D4).l
@@ -1164,7 +1164,7 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 	jsr	(sub_8842E).l
 	bsr.w	RestoreBenchEnergy
 	bsr.w	sub_14AD4
-	jmp	loc_1CE8A
+	jmp	updatepwrplay
 
 sub_14AD4
 	subq.w	#1,(word_FFC442).w
@@ -1194,26 +1194,26 @@ RestoreBenchEnergy	;Unless OptLine: every bench player of both teams gets 9 ener
 
 updatecrowdf	;Every game loop, d7 = elapsed frames: the crowd level falls (faster when loud); every crowdcnt frames
 	;the next crowd frame
-	cmpi.w	#$15E,(padiconchars2).w
+	cmpi.w	#$15E,(crowdlevel).w
 	blt.w	.dec
-	subq.w	#3,(padiconchars2).w
+	subq.w	#3,(crowdlevel).w
 .dec
-	sub.w	d7,(padiconchars2).w
+	sub.w	d7,(crowdlevel).w
 	bpl.w	.1
-	clr.w	(padiconchars2).w
+	clr.w	(crowdlevel).w
 .1
-	sub.w	d7,(padiconchars4).w
+	sub.w	d7,(crowdcnt).w
 	bpl.w	.2
-	move.w	(padiconchars2).w,d0
+	move.w	(crowdlevel).w,d0
 	lsr.w	#1,d0
 	cmp.w	#$7F,d0
 	bls.w	.0
 	moveq	#$7F,d0
 .0
 	andi.w	#$60,d0
-	addq.w	#2,(padiconchars3).w
-	andi.w	#$1E,(padiconchars3).w
-	add.w	(padiconchars3).w,d0
+	addq.w	#2,(crowdtblidx).w
+	andi.w	#$1E,(crowdtblidx).w
+	add.w	(crowdtblidx).w,d0
 	movea.l	#unk_23248,a0
 	move.b	(a0,d0.w),(crowdframe+1).w
 	clr.w	d1
@@ -1221,10 +1221,10 @@ updatecrowdf	;Every game loop, d7 = elapsed frames: the crowd level falls (faste
 	move.w	(VDP_CNTR).l,d2
 	and.w	d1,d2
 	add.w	d2,d1
-	move.w	d1,(padiconchars4).w
+	move.w	d1,(crowdcnt).w
 .2
 	clr.b	(crowdframe).w
-	cmpi.w	#$118,(padiconchars2).w
+	cmpi.w	#$118,(crowdlevel).w
 	bls.w	rtss8
 	move.w	(VDP_CNTR).l,d0
 	andi.w	#$7F,d0
@@ -1297,7 +1297,7 @@ clockcont	;At the end of the period clock (gameclock 0): the horn, then the end 
 	dbf	d2,.t2
 .eog
 	jsr	(ClearPenaltyBuffer).l
-	addi.w	#$3E8,(padiconchars2).w
+	addi.w	#$3E8,(crowdlevel).w
 	bset	#0,(gmode).w
 	bset	#6,(gmode).w
 	jsr	(ClearPenalties).l

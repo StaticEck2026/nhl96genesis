@@ -49,7 +49,7 @@ SetLCmode2	;Open the line change box: wait for the box, then draw the line choic
 	jsr	(SkipStrings).l
 	jsr	(print).l
 	move.w	(sp)+,d0
-	jsr	(sub_1D14E).l
+	jsr	(linebar).l
 	subq.w	#5,(printx).w
 .up
 	subq.w	#1,(printy).w

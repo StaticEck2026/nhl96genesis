@@ -21,6 +21,7 @@ ReadJoy1 = $01B348		;code96_08
 ReadJoy2 = $01B360		;code96_08
 ReadJoy3 = $01B378		;code96_08
 ReadJoy4 = $01B390		;code96_08
+loadTeamStruct = $01D328		;code96_09
 SPA037A = $37A		;SPA value (frames96)
 SPA052C = $52C		;SPA value (frames96)
 SPA0AA2 = $AA2		;SPA value (frames96)

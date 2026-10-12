@@ -152,4 +152,15 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   printbigcurz print with the font already there. All the z forms take the String after the call.
 - RAM: pad4way1-4, lj1-4, callbackPtr, ThreeStars, nibblebuffer, seed, dmaram, PushWidthBuf, BigFontChars,
   bigfontptr, framercset, printa, printm, printfontset, repeatdelayframes, palfadenew, waitxpad.
-- Next: code96_09.
+- code96_09 converted: penalties and the ref window, the penalty box and power play box, line energy, shot stats,
+  intermission and the other games' scores, the collision and check code. MATCH (segment and ROM).
+- Inline Strings here also follow bsr.w calls (bsr.w printz), appendz, and the new printbigz1 / printbigz2: the
+  scratch fixer handles bsr.w (4 byte call) now. IDA also decoded the penalty length Strings (PenaltyTimeTxt) as
+  code with a bogus sub_1CBDC; written as Strings. Some instructions IDA dropped after a String were put back by
+  hand from the ROM bytes (moveq, movea.l, cmpi.b, two bsr.w).
+- Game code had picked up the setup-screen names of the shared crowd RAM (padiconchars2 / padcursorchars);
+  it now uses crowdlevel, CwdExciteLvl, crowdcnt, crowdframe and the new crowdtblidx.
+- RAM: sflags4, sflags8, Ylist, OOlist(pos), PenSum, energybarchars, EASNcset, wcradiusx/y, ltx, lty, collflag,
+  msgtimer, Penaltytimer, penmsgtimer, RefStep, RefPen, TempPlOffset, TickerNum, BA_Team, BA_Goalie_Offset,
+  BA_Checker_Offset, pspenalty. Outside: ResetBench, checkwallcoll, UpdateRecords, FallDown.
+- Next: code96_10.

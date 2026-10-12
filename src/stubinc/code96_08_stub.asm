@@ -13,6 +13,8 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 AdjustFacingDirection = $017C06		;code96_07
+PrintBigChar = $01BF94		;code96_09
+unk_1C01C = $01C01C		;code96_09
 
 
 ; Main segment code

@@ -38,12 +38,12 @@ word_FFB016 equ $FFFFB016
 BigFontChars equ $FFFFB018
 smallfontchars equ $FFFFB01C
 word_FFB01E equ $FFFFB01E
-word_FFB020 equ $FFFFB020
+energybarchars equ $FFFFB020
 word_FFB022 equ $FFFFB022
 word_FFB024 equ $FFFFB024
 word_FFB026 equ $FFFFB026
 framercset equ $FFFFB028
-word_FFB02A equ $FFFFB02A
+EASNcset equ $FFFFB02A
 word_FFB02C equ $FFFFB02C
 word_FFB02E equ $FFFFB02E
 word_FFB030 equ $FFFFB030
@@ -77,12 +77,16 @@ byte_FFB7BC equ $FFFFB7BC
 puckc equ $FFFFB7BE
 byte_FFB7C1 equ $FFFFB7C1
 byte_FFB7F7 equ $FFFFB7F7
+Ylist equ $FFFFB85E
+OOlistpos equ $FFFFB87E
+OOlist equ $FFFFB89E
 lastpuckc equ $FFFFB8AE
 padiconchars1 equ $FFFFB8B0	;ControllerSetupScreen: PadIconMap1 ... 4 chars (PadIconChars), in game RAM
 crowdframe equ $FFFFB8B0	;The crowd frame (updatecrowdf; saved by updatereplay). Shares padiconchars1
 crowdlevel equ $FFFFB8B2	;crowd noise level; the controller setup screen keeps padiconchars2 here
 padiconchars2 equ $FFFFB8B2
 padiconchars3 equ $FFFFB8B4
+crowdtblidx equ $FFFFB8B4	;updatecrowdf: the crowd frame step. Shares padiconchars3
 padiconchars4 equ $FFFFB8B6
 crowdcnt equ $FFFFB8B6	;updatecrowdf: frames to the next crowd frame. Shares padiconchars4
 padcursorchars equ $FFFFB8B8	;ControllerSetupScreen: PadCursorMap chars
@@ -100,8 +104,8 @@ word_FFBD30 equ $FFFFBD30
 Hpos equ $FFFFBD32
 word_FFBD34 equ $FFFFBD34
 word_FFBD36 equ $FFFFBD36
-word_FFBD38 equ $FFFFBD38
-word_FFBD3A equ $FFFFBD3A
+wcradiusx equ $FFFFBD38
+wcradiusy equ $FFFFBD3A
 palcount equ $FFFFBD3C
 palfadenew equ $FFFFBD3E
 word_FFBD4C equ $FFFFBD4C
@@ -149,8 +153,8 @@ onetimerplayer equ $FFFFBFA6
 word_FFBFB0 equ $FFFFBFB0
 disflags equ $FFFFBFB2
 word_FFBFB4 equ $FFFFBFB4
-word_FFBFB6 equ $FFFFBFB6
-word_FFBFB8 equ $FFFFBFB8
+ltx equ $FFFFBFB6
+lty equ $FFFFBFB8
 word_FFBFC2 equ $FFFFBFC2
 word_FFBFD0 equ $FFFFBFD0
 xc1 equ $FFFFBFDC
@@ -160,7 +164,7 @@ fox equ $FFFFBFE2
 foy equ $FFFFBFE4
 fodir1 equ $FFFFBFE6
 fodir2 equ $FFFFBFE8
-word_FFBFEE equ $FFFFBFEE
+collflag equ $FFFFBFEE
 word_FFBFF0 equ $FFFFBFF0
 mesarea equ $FFFFBFF2
 TextBuffer equ $FFFFBFF4
@@ -175,12 +179,12 @@ sflags equ $FFFFC33A
 sflags2 equ $FFFFC33C
 sflags3 equ $FFFFC33E
 BA_PS_flags equ $FFFFC340
-word_FFC342 equ $FFFFC342
+sflags4 equ $FFFFC342
 sflags5 equ $FFFFC344
 sflags6 equ $FFFFC346
 gmode2 equ $FFFFC348
 sflags7 equ $FFFFC34A
-byte_FFC34C equ $FFFFC34C
+sflags8 equ $FFFFC34C
 sflags9 equ $FFFFC34E
 GameFlags equ $FFFFC350	;bit 6: WriteSRAMBits skips sub_241AA
 sflags10 equ $FFFFC352
@@ -198,7 +202,7 @@ word_FFC374 equ $FFFFC374
 word_FFC376 equ $FFFFC376
 word_FFC378 equ $FFFFC378
 joypuckcarrier equ $FFFFC37C
-word_FFC37E equ $FFFFC37E
+msgtimer equ $FFFFC37E
 passmodetimer equ $FFFFC380
 savednewpnum equ $FFFFC382
 c1playernum equ $FFFFC384
@@ -214,20 +218,22 @@ HomeTeam equ $FFFFC3A0
 VisTeam equ $FFFFC3A2
 PenBuf equ $FFFFC3A6
 Pencntdwn equ $FFFFC3E8
-word_FFC3EA equ $FFFFC3EA
+Penaltytimer equ $FFFFC3EA
 PBnum equ $FFFFC3EC
 word_FFC442 equ $FFFFC442
-word_FFC444 equ $FFFFC444
+penmsgtimer equ $FFFFC444
 RefCnt equ $FFFFC446
-word_FFC448 equ $FFFFC448
-word_FFC44A equ $FFFFC44A
+RefStep equ $FFFFC448
+RefPen equ $FFFFC44A
+unk_FFC44C equ $FFFFC44C
 gsp equ $FFFFC4BC
 gameclock equ $FFFFC4BE
 PerTimeTotal equ $FFFFC4C2
 ChkCnt equ $FFFFC4C4
-word_FFC4C8 equ $FFFFC4C8
+TempPlOffset equ $FFFFC4C8
 ScoreSumbytes equ $FFFFC4CA
 PenSumLength equ $FFFFC634
+PenSum equ $FFFFC636
 tmstruct equ $FFFFC726	;the home team struct; AwShots the away team
 HmGoals equ $FFFFC732
 byte_FFC733 equ $FFFFC733
@@ -267,7 +273,7 @@ word_FFD000 equ $FFFFD000
 menulist equ $FFFFD002
 menudraw equ $FFFFD006
 word_FFD00A equ $FFFFD00A
-word_FFD026 equ $FFFFD026
+TickerNum equ $FFFFD026
 dword_FFD028 equ $FFFFD028
 callbackPtr equ $FFFFD02C
 word_FFD030 equ $FFFFD030
@@ -328,13 +334,13 @@ TmpOptLine2 equ $FFFFD288
 TempOptPlayMode equ $FFFFD28A
 unk_FFD296 equ $FFFFD296
 PlayingSong equ $FFFFD2A2
-word_FFD2D2 equ $FFFFD2D2
+BA_Team equ $FFFFD2D2
 BA_Sktr_SCnum equ $FFFFD2D4
 BA_Goalie_SCnum equ $FFFFD2D6
 BA_Skater_Offset equ $FFFFD2D8
-word_FFD2DA equ $FFFFD2DA
-word_FFD2DC equ $FFFFD2DC
-word_FFD2DE equ $FFFFD2DE
+BA_Goalie_Offset equ $FFFFD2DA
+BA_Checker_Offset equ $FFFFD2DC
+pspenalty equ $FFFFD2DE
 holdreset equ $FFFFD2E0
 word_FFD2E2 equ $FFFFD2E2
 word_FFD2E4 equ $FFFFD2E4

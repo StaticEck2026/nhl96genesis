@@ -35,6 +35,11 @@ eraser = $01B976		;code96_08
 Framer = $01B9B0		;code96_08
 printz = $01BB8E		;code96_08
 print = $01BBA0		;code96_08
+sub_1CFE4 = $01CFE4		;code96_09
+nullsub_4 = $01D062		;code96_09
+linebar = $01D14E		;code96_09
+loadTeamStruct = $01D328		;code96_09
+SkipStrings = $01D7F2		;code96_09
 
 
 ; Main segment code

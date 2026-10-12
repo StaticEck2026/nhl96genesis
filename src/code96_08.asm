@@ -424,7 +424,7 @@ goalieacc	;Goalie movement
 .22
 	bsr.w	vtoa
 .2
-	btst	#0,(word_FFC342).w
+	btst	#0,(sflags4).w
 	bne.w	.adjustkeepdir
 	bsr.w	AdjustFacingDirection
 	movem.w	(sp)+,d0-d1
@@ -2162,7 +2162,7 @@ printbigtext	;Print with the font map at bigfontptr. Lower case is printed as up
 	addi.b	#-$20,d0
 .2
 	move.w	d3,-(sp)
-	bsr.w	sub_1BF94
+	bsr.w	PrintBigChar
 	move.w	(sp)+,d3
 .1
 	dbf	d3,.0

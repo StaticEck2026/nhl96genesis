@@ -15,6 +15,9 @@
 AdjustFacingDirection = $017C06		;code96_07
 PrintBigChar = $01BF94		;code96_09
 unk_1C01C = $01C01C		;code96_09
+rtss2 = $01F84A		;code96_10
+getpde = $01FB24		;code96_10
+setpde = $01FB44		;code96_10
 
 
 ; Main segment code

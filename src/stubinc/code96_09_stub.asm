@@ -45,6 +45,13 @@ PushTime = $01BD84		;code96_08
 appendz = $01BE78		;code96_08
 appstring = $01BE80		;code96_08
 printbigcur = $01BEE8		;code96_08
+FallDown = $01E110		;code96_10
+checkwallcoll = $01E630		;code96_10
+GetPeriodTimeRemaining = $01EBCC		;code96_10
+rtss2 = $01F84A		;code96_10
+ResetBench = $01FDF4		;code96_10
+sub_1FE58 = $01FE58		;code96_10
+setplayer = $01FEA0		;code96_10
 
 
 ; Main segment code

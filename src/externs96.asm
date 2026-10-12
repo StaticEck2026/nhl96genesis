@@ -2,16 +2,7 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-FallDown	equ	$01E110
-checkwallcoll	equ	$01E630
-sub_1EBCC	equ	$01EBCC
-setd0player	equ	$01F662
-rtss2	equ	$01F84A	;rts
-getpde	equ	$01FB24
-setpde	equ	$01FB44
-ResetBench	equ	$01FDF4
-sub_1FE58	equ	$01FE58
-sub_1FEA0	equ	$01FEA0
+sub_201C6	equ	$0201C6
 vb2	equ	$0201DC
 unk_202C4	equ	$0202C4
 IRQ7		equ	$0202E4	;rte
@@ -41,6 +32,7 @@ DivBy0		equ	$023196	;zero divide handler
 unk_23248	equ	$023248
 unk_232C8	equ	$0232C8
 linelist	equ	$023342	;line names
+unk_233BC	equ	$0233BC
 unk_23426	equ	$023426
 unk_236B0	equ	$0236B0
 unk_23734	equ	$023734
@@ -87,6 +79,7 @@ loc_1D6872	equ	$1D6872	;asstab entry
 PuckOnAttackHalf	equ	$1D6B66
 sub_1D6D22	equ	$1D6D22
 sub_1D6E0E	equ	$1D6E0E
+AttributeCalc	equ	$1D6F66
 sub_1D72F6	equ	$1D72F6
 sub_1D733C	equ	$1D733C
 UpdateRecords	equ	$1D7BC6
@@ -96,16 +89,21 @@ sub_1D8618	equ	$1D8618
 ShortenMsgTimer	equ	$1D8676
 unk_1D86A4	equ	$1D86A4
 nullsub_6	equ	$1D8782
+nullsub_7	equ	$1D8A86
 PlaceBoardFall	equ	$1D8F66
+sub_1D9062	equ	$1D9062
+sub_1D906C	equ	$1D906C
 sub_1D9114	equ	$1D9114
 sub_1D920A	equ	$1D920A
 sub_1D92EC	equ	$1D92EC
+sub_1D9376	equ	$1D9376
 ClearPenalties	equ	$1D97F4
 sub_1D9844	equ	$1D9844
 loc_1DB020	equ	$1DB020
 sub_1DFA1C	equ	$1DFA1C
 sub_1E2688	equ	$1E2688
 sub_1E55BC	equ	$1E55BC
+sub_1E8794	equ	$1E8794
 ValidationRoutine	equ	$1E9038	;ROM checksum
 dword_23456	equ	$23456
 dword_235B8	equ	$235B8
@@ -119,8 +117,6 @@ sub_1D9352	equ	$1D9352
 sub_1DF8AC	equ	$1DF8AC
 sub_1E7A78	equ	$1E7A78
 sub_1E8840	equ	$1E8840
-sub_1FAFA	equ	$1FAFA
-setpersonel	equ	$1FB52
 sub_22E58	equ	$22E58
 sub_230AA	equ	$230AA
 sub_230C4	equ	$230C4

@@ -747,7 +747,7 @@ doshot	;Shoot the puck
 	move.b	$6D(a3),d0
 	lsr.b	#1,d0	;divide by 2
 	movea.l	a3,a0	;move a3 address into a0
-	jsr	(sub_1FAFA).l	;scale d0 based on energy level
+	jsr	(makepde).l	;scale d0 based on energy level
 	addi.w	#$14,d0	;add 14 to d0
 	mulu.w	(passspeed).w,d0	;shot speed ranged by energy level
 	mulu.w	#$5249,d0

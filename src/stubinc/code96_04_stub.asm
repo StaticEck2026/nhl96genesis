@@ -40,6 +40,8 @@ nullsub_4 = $01D062		;code96_09
 linebar = $01D14E		;code96_09
 loadTeamStruct = $01D328		;code96_09
 SkipStrings = $01D7F2		;code96_09
+makepde = $01FAFA		;code96_10
+setpersonel = $01FB52		;code96_10
 
 
 ; Main segment code

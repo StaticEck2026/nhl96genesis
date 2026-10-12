@@ -163,4 +163,13 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - RAM: sflags4, sflags8, Ylist, OOlist(pos), PenSum, energybarchars, EASNcset, wcradiusx/y, ltx, lty, collflag,
   msgtimer, Penaltytimer, penmsgtimer, RefStep, RefPen, TempPlOffset, TickerNum, BA_Team, BA_Goalie_Offset,
   BA_Checker_Offset, pspenalty. Outside: ResetBench, checkwallcoll, UpdateRecords, FallDown.
-- Next: code96_10.
+- code96_10 converted: FallDown, setInjuryType, the wall and goal collisions (checkwallcoll, checkgoal, checkgoalp,
+  CheckBump, wallcollb, wallcoll), the player energy (makepde, getpde, setpde) and the players on the ice
+  (setpersonel, SetPlList, TryAddPlayerToList, ResetBench, setplayer). MATCH (segment and ROM). puckbody,
+  SetupPenaltyShot and forcepldata are labelled bytes found by masked byte comparison (SetupPenaltyShot uses
+  assignment $20, the 94 number of 95's $1D).
+- 95 comments that name player struct fields past $60 (or the roster bytes setplayer reads) were dropped where
+  the 96 offsets differ.
+- RAM: puckcross2, puckcross6, PPBonus, PlayerChked, PlayerChking, ScoreSum, PlList, ltplayer, crowdnoisedelay,
+  FallYPos, homeshootgoals, awayshootgoals, shootoutteam. Outside: AttributeCalc.
+- Next: code96_11.

@@ -388,7 +388,7 @@ InProgress	;Ref in progress: update the graphics, stats and penalty information
 	bset	#5,(sflags5).w
 .3
 	movem.l	d0-d1/a1-a4,-(sp)
-	bsr.w	sub_1EBCC
+	bsr.w	GetPeriodTimeRemaining
 	movea.w	#(PenSum-M68K_RAM),a4
 	adda.w	(PenSumLength).w,a4
 	cmpi.w	#$EC,(PenSumLength).w	;log full: keep overwriting the last entry
@@ -1048,7 +1048,7 @@ releasepl	;The player's penalty time is up, so let him out (if appropriate). a2 
 	clr.w	$34(a3)
 	move.b	(a0,d1.w),$35(a3)
 	bsr.w	sub_1FE58
-	bsr.w	sub_1FEA0
+	bsr.w	setplayer
 	bset	#2,$63(a3)
 	movem.l	(sp)+,d0-d3/a0-a3
 	rts

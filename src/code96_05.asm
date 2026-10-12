@@ -997,12 +997,12 @@ sub_11814
 	jsr	(Create_HotCold_Table).l
 	btst	#0,(gmode2).w
 	beq.w	.34
-	move.w	(word_FFD454).w,-(sp)
-	clr.w	(word_FFD454).w
+	move.w	(shootoutteam).w,-(sp)
+	clr.w	(shootoutteam).w
 	jsr	(sub_1D8262).l
-	move.w	#1,(word_FFD454).w
+	move.w	#1,(shootoutteam).w
 	jsr	(sub_1D8262).l
-	move.w	(sp)+,(word_FFD454).w
+	move.w	(sp)+,(shootoutteam).w
 .34
 	cmpi.w	#2,(OptPlayMode).w
 	beq.w	.35

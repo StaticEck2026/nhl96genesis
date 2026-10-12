@@ -66,6 +66,8 @@ word_FFB058 equ $FFFFB058
 lldisp equ $FFFFB05A
 word_FFB05C equ $FFFFB05C
 SortCords equ $FFFFB05E
+unk_FFB65E equ $FFFFB65E
+unk_FFB6DE equ $FFFFB6DE
 puckx equ $FFFFB75E
 pucky equ $FFFFB772
 puckz equ $FFFFB776
@@ -123,8 +125,8 @@ passplayer equ $FFFFBF12
 glovecords equ $FFFFBF14
 word_FFBF16 equ $FFFFBF16
 puckcross equ $FFFFBF1A	;puck crossing x and frames at each goal line, for the goalies
-byte_FFBF1C equ $FFFFBF1C
-byte_FFBF20 equ $FFFFBF20
+puckcross2 equ $FFFFBF1C
+puckcross6 equ $FFFFBF20
 lj1 equ $FFFFBF22
 lj2 equ $FFFFBF24
 lj3 equ $FFFFBF26
@@ -152,7 +154,7 @@ smallfontptr equ $FFFFBF8A
 onetimerplayer equ $FFFFBFA6
 word_FFBFB0 equ $FFFFBFB0
 disflags equ $FFFFBFB2
-word_FFBFB4 equ $FFFFBFB4
+ltplayer equ $FFFFBFB4
 ltx equ $FFFFBFB6
 lty equ $FFFFBFB8
 word_FFBFC2 equ $FFFFBFC2
@@ -194,7 +196,7 @@ sflags13 equ $FFFFC358
 byte_FFC35A equ $FFFFC35A
 LineHoldFlag equ $FFFFC35C
 byte_FFC364 equ $FFFFC364
-word_FFC368 equ $FFFFC368
+crowdnoisedelay equ $FFFFC368
 word_FFC36A equ $FFFFC36A
 word_FFC36C equ $FFFFC36C
 CurCrowdMeter equ $FFFFC372
@@ -232,6 +234,7 @@ PerTimeTotal equ $FFFFC4C2
 ChkCnt equ $FFFFC4C4
 TempPlOffset equ $FFFFC4C8
 ScoreSumbytes equ $FFFFC4CA
+ScoreSum equ $FFFFC4CC
 PenSumLength equ $FFFFC634
 PenSum equ $FFFFC636
 tmstruct equ $FFFFC726	;the home team struct; AwShots the away team
@@ -268,13 +271,14 @@ unk_FFCFD2 equ $FFFFCFD2
 byte_FFCFEE equ $FFFFCFEE
 byte_FFCFEF equ $FFFFCFEF
 byte_FFCFF0 equ $FFFFCFF0
+PlList equ $FFFFCFF2
 menuitem equ $FFFFCFFE
 word_FFD000 equ $FFFFD000
 menulist equ $FFFFD002
 menudraw equ $FFFFD006
 word_FFD00A equ $FFFFD00A
 TickerNum equ $FFFFD026
-dword_FFD028 equ $FFFFD028
+PPBonus equ $FFFFD028
 callbackPtr equ $FFFFD02C
 word_FFD030 equ $FFFFD030
 word_FFD032 equ $FFFFD032
@@ -345,7 +349,7 @@ holdreset equ $FFFFD2E0
 word_FFD2E2 equ $FFFFD2E2
 word_FFD2E4 equ $FFFFD2E4
 onetimerheight equ $FFFFD2E6
-word_FFD2E8 equ $FFFFD2E8
+FallYPos equ $FFFFD2E8
 FallXPos equ $FFFFD2EA
 LineHoldTimer equ $FFFFD2EC
 setuphome equ $FFFFD2FC
@@ -364,11 +368,11 @@ word_FFD3C0 equ $FFFFD3C0
 word_FFD3C2 equ $FFFFD3C2
 word_FFD3C4 equ $FFFFD3C4
 word_FFD3C6 equ $FFFFD3C6
-word_FFD434 equ $FFFFD434
-word_FFD436 equ $FFFFD436
+homeshootgoals equ $FFFFD434
+awayshootgoals equ $FFFFD436
 word_FFD438 equ $FFFFD438
 word_FFD446 equ $FFFFD446
-word_FFD454 equ $FFFFD454
+shootoutteam equ $FFFFD454
 byte_FFD474 equ $FFFFD474
 byte_FFD47E equ $FFFFD47E
 word_FFD484 equ $FFFFD484
@@ -387,8 +391,8 @@ word_FFDCC6 equ $FFFFDCC6
 waitxpad equ $FFFFDCC8
 word_FFDCCA equ $FFFFDCCA
 inputjoy equ $FFFFDCCC
-dword_FFDCCE equ $FFFFDCCE
-dword_FFDCD2 equ $FFFFDCD2
+PlayerChked equ $FFFFDCCE
+PlayerChking equ $FFFFDCD2
 word_FFDCDE equ $FFFFDCDE
 dword_FFDCE0 equ $FFFFDCE0
 unk_FFDCE0 equ $FFFFDCE0

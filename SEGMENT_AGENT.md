@@ -1,0 +1,95 @@
+# NHL 96 segment agent
+
+This file is the queue. Do not rewrite it as a whole file. Edit it in place.
+
+## Current rules (Oct 2026; these override older notes below)
+
+Naming lineage is 92G -> 93G -> 94G -> 95G -> 96G.
+- A routine, variable or table that matches its parent takes the parent's name. 92G is the naming root. A 96 routine that matches 95G takes the 95G name.
+- Clash rule: if one name would mean two different things, the earliest game's meaning keeps the name and the later one gets a new name.
+- Fix the earliest repo first, then propagate the change down the lineage (92 -> 93 -> 94 -> 95 -> 96).
+- Team names: 93 uses the city names of its own data; 94, 95 and 96 use NYIslanders / NYRangers (short NYI / NYR).
+
+Source style:
+- No rename-history, provenance or origin-tag comments ("was X", "from 95G", "renamed", `IDA: loc_...`). That history lives in `docs/name_map.csv` only.
+- No hardcoded ROM addresses in comments, and no hand-kept derived counts (sizes, numbers of entries, totals) that the code or the assembler can compute. The include comments in `src/nhl96.asm` (the ROM map) are the one place for addresses.
+- Mark "New in 96:" only for major features (new modes, screens, systems), not for every changed routine.
+- First-pass naming: a label with no 95G (or 94G / 93G / 92G) match is named from what the code clearly does when that is obvious; never guess a name.
+- Local labels in 92 style: `.loop`, `.next`, `.done`, `.exit`, and plain numbers (`.0`, `.1`) for trivial jumps. A routine that matches 95G keeps its 95G locals.
+- File headers are short plain-English stories of what the file does, modelled on the 95G file headers (`src/main95.asm`, `src/hockey95.asm`).
+
+Layout: follow 95G (https://github.com/abdulahmad/NHL95Genesis). `src/nhl96.asm` includes every segment in ROM order. Segment build stubs go in `src/stubinc`, tools in `tools/`. The build runs a prebuild ROM check (`tools/prebuild.js`) that names the path, file name, SHA-1 and size of the ROM it needs and extracts the segment slices automatically. Segment files may be renamed for their subsystem once their content is known (`code96_06` -> `display96`): rename the file, its stub, its include line, its `seg:` script and its ROM map row in the same commit.
+
+Work in small steps: every change is built and checked byte for byte against the reference ROM, then committed and pushed to main (no force push; outside contributors push to their fork and open a PR, see START_HERE.md). Keep `docs/HANDOFF.md` current after each push.
+
+## Current segment
+
+main96. <- CURRENT
+
+## Sources
+
+- Listing: `lst/nhl96.bin.lst`, an IDA LST in ASM68K / MRI mode. It has no address column; a `loc_`, `sub_`, `unk_`, `byte_`, `word_`, `off_` name is the address. Do not disassemble `lst/nhl96.bin` and do not write a disassembler.
+- Reference ROM: `lst/nhl96.bin` (2 MB, SHA-1 `7204633fbb9966ac637e7966d02ba15c5acdee6b`). Bytes and branch displacements come from it.
+- Every segment starts as an `incbin ..\Extracted\segments\<name>.bin` of its range, cut from the ROM by `tools/extractSegments96.js` (run automatically by the prebuild check).
+- Names: 95G `docs/name_map.csv` (address, name, IDA name, old name, module) and the 95G source. 96 reordered the code a lot against 95, so match by body, never by address. A quick way to find a 95 routine in 96: take its first 20 or so bytes from the 95G ROM build and search for them in `lst/nhl96.bin` (the 95 address comes from the 95G name map); then compare the bodies.
+
+## Segment files and stubs
+
+- A segment file has no `org`. Its stub `src/stubinc/<name>_stub.asm` carries the `org`, includes `stubinc\ports.inc`, `stubinc\equals.inc`, `ram96.asm`, `externs96.asm`, then outside equates, then the segment file. Paths are relative to `src/`. Add `include macros\genesis.mac` (copy it from 95G) when the segment uses a macro.
+- `src/externs96.asm`: an equate for every address converted code uses that is still inside an incbin segment. Included by `nhl96.asm` and every stub. When a segment is converted, the equates for its own labels leave this file (otherwise the build fails with a duplicate symbol).
+- A label another converted segment defines: an equate in your stub only (the full build has the label itself).
+- `src/ram96.asm`: the RAM map, IDA names to start. Rename a variable to its 95G name when you first convert code that uses it (update every use; record it in `docs/name_map.csv`). Define each name once.
+
+## Rules (SNASM68k, from 95G)
+
+- Write real `cmp`, `cmpi`, and `exg`. `tools/fixopcodes.js` rewrites `cmp #imm` from SNASM's `CMPI` to EA's `CMP` opcode using the listing; a real `cmpi.l #imm,d0` stays `0C80`. Do not write a compare as `dc.w`.
+- `jsr name` only when SNASM emits the same opcode. `jsr (name).l` is `4EB9`, `jsr (name).w` is `4EB8`; `bsr.w` stays `bsr.w`. IDA writes `jsr (sub_1E9038).l`: keep the `.l`.
+- A global label ends local-label scope. A local that another routine branches to stays global. SNASM symbols are case-insensitive.
+- Keep each comment line under 200 characters. A longer line makes SNASM write an empty bin.
+- A MATCH of 0 bytes is a failure; the byte count must be the segment's range.
+- Old output can look like a pass: the scripts delete the old bin first. Only a check made this session counts.
+- Data goes in the segment of the code that owns it. Graphics and sound stay incbins (later from an asset extractor), named for the asset, never for an IDA address.
+
+## ROM map
+
+The first row whose status is incbin is the current segment. Rows are in ROM order and tile `$000000` up to the `$FF` fill, which `src/nhl96.asm` writes with `dcb.b`. The first split came from `python3 tools/make_segmap96.py` (see its header for the options): it cuts the listing at code / data changes and at `sub_` labels about every 8 KB of code (128 KB of data). The kind is a guess from the listing, and the 95G column lists the 95G files whose routines were found at the start of their bytes in the range (a hint, not a match). Ranges are confirmed from the listing as each segment is converted.
+
+| File | Status | Start | End | Kind | 95G hint | Main names |
+|---|---|---|---|---|---|---|
+| main96 | incbin | $000000 | $000775 | code | main95 | |
+| code96_01 | incbin | $000776 | $0096E7 | code | - | |
+| code96_02 | incbin | $0096E8 | $00B85D | code | fourway95 | |
+| code96_03 | incbin | $00B85E | $00EC6D | code | - | |
+| code96_04 | incbin | $00EC6E | $010CB1 | code | lines95, input95, trade95 | |
+| code96_05 | incbin | $010CB2 | $012BFD | code | - | |
+| data96_01 | incbin | $012BFE | $015773 | data | setup95, awards95 | |
+| code96_06 | incbin | $015774 | $017C05 | code | display95 | |
+| code96_07 | incbin | $017C06 | $019F3D | code | logic95, lines95 | |
+| code96_08 | incbin | $019F3E | $01BF93 | code | video95, logic95, middle95 | |
+| code96_09 | incbin | $01BF94 | $01E10F | code | collide95, penalty95, lines95 | |
+| code96_10 | incbin | $01E110 | $0201C5 | code | collide95, players95 | |
+| code96_11 | incbin | $0201C6 | $0221D3 | code | players95, display95, video95 | |
+| code96_12 | incbin | $0221D4 | $023247 | code | setup95 | |
+| data96_02 | incbin | $023248 | $04411F | data | sound95, setup95, middle95 | |
+| data96_03 | incbin | $044120 | $07A409 | data | - | |
+| data96_04 | incbin | $07A40A | $0887E3 | data | sound95 | |
+| code96_13 | incbin | $0887E4 | $08F2C5 | code | - | |
+| data96_05 | incbin | $08F2C6 | $120033 | data | - | |
+| data96_06 | incbin | $120034 | $140B05 | data | - | |
+| data96_07 | incbin | $140B06 | $179167 | data | - | |
+| data96_08 | incbin | $179168 | $199BE3 | data | - | |
+| data96_09 | incbin | $199BE4 | $1BDCDB | data | - | |
+| data96_10 | incbin | $1BDCDC | $1D6B65 | data | - | |
+| code96_14 | incbin | $1D6B66 | $1D8E5B | code | shootout95, middle95, scout95 | |
+| code96_15 | incbin | $1D8E5C | $1DB287 | code | season95, goal95, logic95 | |
+| code96_16 | incbin | $1DB288 | $1DC03B | code | - | |
+| data96_11 | incbin | $1DC03C | $1DFA1B | data | create95, trade95, records95 | |
+| code96_17 | incbin | $1DFA1C | $1E1A3B | code | - | |
+| code96_18 | incbin | $1E1A3C | $1E2E75 | code | stats95 | |
+| data96_12 | incbin | $1E2E76 | $1E6161 | data | summary95, shootout95, records95 | |
+| code96_19 | incbin | $1E6162 | $1E824B | code | create95, records95 | |
+| code96_20 | incbin | $1E824C | $1E90D1 | code | - | |
+
+## New in 96
+
+Add a system here when the listing shows something 95 does not have.

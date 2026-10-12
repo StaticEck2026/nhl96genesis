@@ -172,4 +172,13 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   the 96 offsets differ.
 - RAM: puckcross2, puckcross6, PPBonus, PlayerChked, PlayerChking, ScoreSum, PlList, ltplayer, crowdnoisedelay,
   FallYPos, homeshootgoals, awayshootgoals, shootoutteam. Outside: AttributeCalc.
-- Next: code96_11.
+- code96_11 converted: the vertical blank handlers and the sprite / display code, setupice, the team setup, the game
+  flow between periods and games, the EA Sports screen, DefaultMenus, the playoff tree and FigureJoy. MATCH (segment
+  and ROM).
+- $201DC is VBlank (the game handler, 95 VBlank by masked bytes) and $202C4 is vb2 (the fade-only handler forcefade
+  and EASportsScreen set): data96_01 had called $201DC vb2 from 95's StartGame; StartGame now sets VBlank.
+- IntermissionStart ($2161E), ExitToOpening, Opening and Opening2 sit together here; StartGame (data96_01) jumps
+  to IntermissionStart.
+- RAM: DMAList, DMAlistend, Satt, sso, pads, padcont, fofdata2, Joy1/3/4Struct, potree, postarts, potreeteam,
+  pojoy, OptNOP, Opt1team, Opt2team, animchars, faceoffvrcset, Oldrow, Hscroll, Vscroll, zamx.
+- Next: code96_12.

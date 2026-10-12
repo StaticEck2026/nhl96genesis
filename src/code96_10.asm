@@ -1750,7 +1750,7 @@ setplayer	;Bring player onto the ice and set his attributes. d3 = offset of play
 	add.b	(PPBonus+1).w,d3
 	add.b	(PPBonus+3).w,d3
 	add.b	(PPBonus+2).w,d3
-	bsr.w	sub_201C6
+	bsr.w	ClampNibble
 	lsr.b	#1,d3	;shift right 1 bit (divide by 2)
 	eori.b	#$F,d3	;XOR d3 with F
 	addi.b	#$F,d3	;add F to d3
@@ -1761,7 +1761,7 @@ setplayer	;Bring player onto the ice and set his attributes. d3 = offset of play
 	move.w	#6,(TempWord2).w
 	jsr	(AttributeCalc).l
 	add.b	(PPBonus+3).w,d3
-	bsr.w	sub_201C6
+	bsr.w	ClampNibble
 	lsr.b	#1,d3
 	eori.b	#$F,d3
 	addi.b	#$F,d3
@@ -1778,7 +1778,7 @@ setplayer	;Bring player onto the ice and set his attributes. d3 = offset of play
 	move.w	#8,(TempWord2).w
 	jsr	(AttributeCalc).l
 	add.b	(PPBonus+2).w,d3
-	bsr.w	sub_201C6
+	bsr.w	ClampNibble
 	move.b	d3,$76(a3)
 	bclr	#3,4(a3)
 	move.b	4(a0),$77(a3)
@@ -1812,7 +1812,7 @@ setplayer	;Bring player onto the ice and set his attributes. d3 = offset of play
 	add.b	(PPBonus).w,d3
 	add.b	(PPBonus+1).w,d3
 	add.b	(PPBonus+3).w,d3
-	bsr.w	sub_201C6
+	bsr.w	ClampNibble
 	move.b	d3,$72(a3)
 	move.b	5(a0),d3
 	andi.b	#$F,d3
@@ -1821,7 +1821,7 @@ setplayer	;Bring player onto the ice and set his attributes. d3 = offset of play
 	add.b	(PPBonus).w,d3
 	add.b	(PPBonus+1).w,d3
 	add.b	(PPBonus+3).w,d3
-	bsr.w	sub_201C6
+	bsr.w	ClampNibble
 	move.b	d3,$6E(a3)
 	move.b	6(a0),d3
 	lsr.b	#4,d3
@@ -1834,7 +1834,7 @@ setplayer	;Bring player onto the ice and set his attributes. d3 = offset of play
 	jsr	(AttributeCalc).l
 	add.b	(PPBonus+2).w,d3
 	add.b	(PPBonus+2).w,d3
-	bsr.w	sub_201C6
+	bsr.w	ClampNibble
 	move.b	d3,$71(a3)
 	move.b	7(a0),d3	;move Pas/Agr byte into d3
 	lsr.b	#4,d3
@@ -1842,7 +1842,7 @@ setplayer	;Bring player onto the ice and set his attributes. d3 = offset of play
 	jsr	(AttributeCalc).l
 	add.b	(PPBonus).w,d3
 	add.b	(PPBonus+3).w,d3
-	bsr.w	sub_201C6
+	bsr.w	ClampNibble
 	move.b	d3,$6F(a3)
 	move.b	7(a0),d3
 	andi.b	#$F,d3

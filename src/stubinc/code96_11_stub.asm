@@ -9,8 +9,47 @@
 	include	stubinc\equals.inc	;VDP status bits
 	include	ram96.asm		;RAM map
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+TeamList = $00077E		;teamdata96
+ReadSRAMBits = $00975A		;code96_02
+SetContTeams = $00B04E		;code96_02
+sub_EF02 = $00EF02		;code96_04
+sub_10FB4 = $010FB4		;code96_05
+sub_11024 = $011024		;code96_05
+sub_1116A = $01116A		;code96_05
+sub_113C2 = $0113C2		;code96_05
+sub_1147E = $01147E		;code96_05
+sub_1149E = $01149E		;code96_05
+sub_11510 = $011510		;code96_05
+sub_115EA = $0115EA		;code96_05
+sub_1169C = $01169C		;code96_05
+sub_11814 = $011814		;code96_05
+sub_1223E = $01223E		;code96_05
+unk_122A4 = $0122A4		;code96_05
+nullsub_2 = $013556		;data96_01
+nullsub_3 = $013EA0		;data96_01
+BeginPlayoffs = $014026		;data96_01
+StartGame = $014702		;data96_01
+ResetClock = $01483A		;data96_01
+StartPer = $0148BA		;data96_01
+PlayoffStatsMenu = $015490		;data96_01
+CopyPaletteToCRAM = $01B064		;code96_08
+randomd0 = $01B0A6		;code96_08
+waitx = $01B152		;code96_08
+jdtab = $01B3C8		;code96_08
+DoDMA = $01B3EC		;code96_08
+DoFill = $01B52E		;code96_08
+setVram = $01B57E		;code96_08
+setVram_0 = $01B594		;code96_08
+dobitmap = $01B692		;code96_08
+DecompressGraphicsPlain = $01B730		;code96_08
+printz = $01BB8E		;code96_08
+sub_1C184 = $01C184		;code96_09
+Intermission = $01D3CE		;code96_09
+UpdateScores = $01D518		;code96_09
+rtss2 = $01F84A		;code96_10
 
 
 ; Main segment code

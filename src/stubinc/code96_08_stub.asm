@@ -18,6 +18,7 @@ unk_1C01C = $01C01C		;code96_09
 rtss2 = $01F84A		;code96_10
 getpde = $01FB24		;code96_10
 setpde = $01FB44		;code96_10
+vb2 = $0202C4		;code96_11
 
 
 ; Main segment code

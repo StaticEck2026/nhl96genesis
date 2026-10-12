@@ -1258,7 +1258,7 @@ SetContTeams	;The controller setup screen: pick the team of each pad (cont1team 
 	clr.w	(cont2team).w
 	clr.w	(cont3team).w
 	clr.w	(cont4team).w
-	clr.w	(word_FFD256).w
+	clr.w	(OptNOP).w
 	rts
 .setup
 	clr.w	(setupvalues).w
@@ -1278,8 +1278,8 @@ SetContTeams	;The controller setup screen: pick the team of each pad (cont1team 
 	cmpi.w	#2,(OptPlayMode).w
 	bne.w	.2
 .1
-	move.w	(word_FFCFCC).w,d0
-	movea.l	#unk_FFCFD2,a0
+	move.w	(potreeteam).w,d0
+	movea.l	#potree,a0
 	move.b	(a0,d0.w),d0
 	move.w	#1,(cont1team).w
 	cmp.w	(HomeTeam).w,d0
@@ -1358,7 +1358,7 @@ SetContTeams	;The controller setup screen: pick the team of each pad (cont1team 
 	dbf	d4,.pad
 	bra.w	.frame
 .4
-	move.w	#4,(word_FFD256).w
+	move.w	#4,(OptNOP).w
 	clr.w	(padiconchars1).w
 	rts
 

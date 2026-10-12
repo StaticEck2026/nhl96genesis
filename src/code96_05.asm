@@ -743,10 +743,10 @@ sub_1161E
 
 sub_1169C
 	jsr	(sub_115EA).l
-	move.b	(a2),(word_FFD258+1).w
-	move.w	(word_FFD258).w,(HomeTeam).w
-	move.b	1(a2),(word_FFD25A+1).w
-	move.w	(word_FFD25A).w,(VisTeam).w
+	move.b	(a2),(Opt1team+1).w
+	move.w	(Opt1team).w,(HomeTeam).w
+	move.b	1(a2),(Opt2team+1).w
+	move.w	(Opt2team).w,(VisTeam).w
 	rts
 	;Code the listing does not decode: kept as bytes
 	dc.b	$48,$E7,$FF,$BE,$30,$38,$DD,$7E,$42,$41,$20,$7C,$00,$01,$18,$0C
@@ -795,28 +795,28 @@ sub_11814
 	bne.w	.7
 	move.w	#$19,d0
 	jsr	(randomd0).l
-	move.w	d0,(word_FFD258).w
+	move.w	d0,(Opt1team).w
 	move.w	#$19,d0
 	jsr	(randomd0).l
-	cmp.w	(word_FFD258).w,d0
+	cmp.w	(Opt1team).w,d0
 	bne.w	.5
 	addq.w	#1,d0
 	cmp.w	#$1A,d0
 	blt.w	.5
 	clr.w	d0
 .5
-	move.w	d0,(word_FFD25A).w
+	move.w	d0,(Opt2team).w
 .7
 	cmpi.w	#1,(OptPlayMode).w
 	beq.w	.10
-	move.w	(word_FFD258).w,(HomeTeam).w
-	move.w	(word_FFD25A).w,(VisTeam).w
+	move.w	(Opt1team).w,(HomeTeam).w
+	move.w	(Opt2team).w,(VisTeam).w
 	cmpi.w	#2,(OptPlayMode).w
 	beq.w	.8
 	cmpi.w	#3,(OptPlayMode).w
 	bne.w	.10
 .8
-	jsr	(sub_21C28).l
+	jsr	(NewPO).l
 .10
 	bsr.w	sub_11BF8
 	movea.l	#unk_1808B8,a0
@@ -916,11 +916,11 @@ sub_11814
 	cmpi.w	#2,(OptPlayMode).w
 	bne.w	.23
 .21
-	subq.w	#1,(word_FFD258).w
+	subq.w	#1,(Opt1team).w
 	bpl.w	.22
-	move.w	#$19,(word_FFD258).w
+	move.w	#$19,(Opt1team).w
 .22
-	jsr	(sub_21C28).l
+	jsr	(NewPO).l
 	bset	#1,(byte_FF2710).l
 	bset	#2,(byte_FF2710).l
 	bra.w	.26
@@ -955,14 +955,14 @@ sub_11814
 	cmpi.w	#2,(OptPlayMode).w
 	bne.w	.6
 .28
-	addq.w	#1,(word_FFD258).w
-	cmpi.w	#$1A,(word_FFD258).w
+	addq.w	#1,(Opt1team).w
+	cmpi.w	#$1A,(Opt1team).w
 	blt.w	.29
-	clr.w	(word_FFD258).w
+	clr.w	(Opt1team).w
 .29
 	bset	#1,(byte_FF2710).l
 	bset	#2,(byte_FF2710).l
-	jsr	(sub_21C28).l
+	jsr	(NewPO).l
 	bra.w	.32
 .6
 	btst	#7,(GameFlags).w
@@ -1320,7 +1320,7 @@ sub_121C8
 	beq.w	.0
 	cmpi.w	#3,(OptPlayMode).w
 	bgt.w	.0
-	move.w	(word_FFCFCC).w,d0
+	move.w	(potreeteam).w,d0
 	movea.l	#$FFFFCFD2,a0
 	move.b	(a0,d0.w),d0
 	cmp.w	(HomeTeam).w,d0

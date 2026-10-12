@@ -44,6 +44,17 @@ PenaltyManager = $01C272		;code96_09
 ClearPenaltyBuffer = $01CCB0		;code96_09
 updatepwrplay = $01CE8A		;code96_09
 sub_1D4CE = $01D4CE		;code96_09
+VBlank = $0201DC		;code96_11
+setvideo = $02034A		;code96_11
+KillCrowd = $020E28		;code96_11
+setupice = $020E52		;code96_11
+clearTeamStats = $021482		;code96_11
+IntermissionStart = $02161E		;code96_11
+ExitToOpening = $0216EE		;code96_11
+Opening = $0216F2		;code96_11
+EASportsScreen = $021A4C		;code96_11
+DefaultMenus = $021B82		;code96_11
+sub_21CF4 = $021CF4		;code96_11
 
 
 ; Main segment code

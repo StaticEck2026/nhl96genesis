@@ -938,7 +938,7 @@ forcefade	;Run the palette fade to the end: vbint = vb2 (fades only), interrupts
 	move.l	(vbint).w,-(sp)
 	move.w	(disflags).w,-(sp)
 	bclr	#2,(disflags).w
-	move.l	#unk_202C4,(vbint).l
+	move.l	#vb2,(vbint).l
 	move	#$2500,sr
 .1
 	tst.w	(palcount).w

@@ -39,6 +39,7 @@ printz = $01BB8E		;code96_08
 PushNumberWidth = $01BE1C		;code96_08
 printbigz = $01BED6		;code96_08
 printbig = $01BEEC		;code96_08
+NewPO = $021C28		;code96_11
 
 
 ; Main segment code

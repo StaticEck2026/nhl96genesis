@@ -915,17 +915,17 @@ Begin	;Cold start, entered from Start. Clear RAM, init sound and menus, go to th
 	jsr	(SoundOff).l
 	jsr	(KillCrowd).l
 	jsr	(Detect4WayPlay).l
-	jsr	(sub_21A4C).l
+	jsr	(EASportsScreen).l
 	jsr	(sub_23F1C).l
 	jsr	(sub_1D9114).l
-	jsr	(sub_21B82).l
+	jsr	(DefaultMenus).l
 	move.w	(OptLine).w,(TmpOptLine2).w
 	move.w	(OptPlayMode).w,(TempOptPlayMode).w
 	jsr	(orjoy).l
 	jmp	Opening
 
 StartGame	;Reset game state for a new game, then start the first period
-	move.l	#vb2,(vbint).l
+	move.l	#VBlank,(vbint).l
 	clr.w	(RefStep).w
 	bclr	#5,(GameFlags).w
 	st	(byte_FFD474).w
@@ -943,7 +943,7 @@ StartGame	;Reset game state for a new game, then start the first period
 	ble.w	.2
 	bsr.w	sub_14804
 .2
-	jsr	(sub_21482).l
+	jsr	(clearTeamStats).l
 	btst	#0,(gmode2).w
 	beq.w	.3
 	move.l	a0,-(sp)
@@ -978,7 +978,7 @@ StartGame	;Reset game state for a new game, then start the first period
 	jsr	(sub_1D4CE).l
 	jsr	(setupice).l
 	jsr	(sub_1D6D22).l
-	jmp	loc_2161E
+	jmp	IntermissionStart
 
 sub_14804
 	move.l	#$E68,d0
@@ -1134,7 +1134,7 @@ DoGameFrame	;Wait for at least one vblank, then run one frame of game logic
 	jsr	(sub_1D733C).l
 	bsr.w	checkwindow
 	bsr.w	updatereplay
-	jmp	sub_2034A
+	jmp	setvideo
 
 DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, the crowd, the clock, and once a second
 	;(lldisp) the slower updates
@@ -1767,15 +1767,15 @@ WeightTbl	;RatingToWeight: the weight in lb of each rating
 	dc.w	204,212,220,228,236,244,252,260
 
 PlayoffStatsMenu	;Pause menu Playoff Stats: with GameFlags bit 7 set jump to loc_1DB020, else sub_1E55BC for the team struct
-	;of team unk_FFCFD2 + word_FFCFCC
+	;of team potree + potreeteam
 	btst	#7,(GameFlags).w
 	beq.w	.0
 	jmp	loc_1DB020
 .0
 	movem.l	a2,-(sp)
 	jsr	(sub_225E0).l
-	movea.w	#(unk_FFCFD2-M68K_RAM),a0
-	move.w	(word_FFCFCC).w,d0
+	movea.w	#(potree-M68K_RAM),a0
+	move.w	(potreeteam).w,d0
 	move.b	(a0,d0.w),d0
 	movea.w	#(tmstruct-M68K_RAM),a2
 	cmp.w	$28(a2),d0

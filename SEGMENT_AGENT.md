@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_11. <- CURRENT
+code96_12. <- CURRENT
 
 ## Sources
 
@@ -71,7 +71,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | code96_08 | matched, 8278 bytes | $019F3E | $01BF93 | code | video95, logic95, middle95, skate95 | puckflip, assexit, assinsert, assreplace, vtoa, GetHot, SetSPA, doplayeracc, goalieacc, playeracc, dostop, stopna2, MaxSpeed, dirtab(2), WeightedRandomSelect, remap, forceblack, forcefade, cramfade, randomd0(s), sroot, waitx, orjoy, nodiag, ReadJoy1-4, ReadJoy, DoDMA, DoFill, setVram, dobitmap, DecompressGraphics, DecompressBytecode and its opcodes, xyVmMap, eraser, Framer, printsmall(z), ControlCodeJumpTable, print(z), printcur(z), PushTime, PushNumber(Width), appstring, printbig(z), printbigtext |
 | code96_09 | matched, 8572 bytes | $01BF94 | $01E10F | code | collide95, penalty95, lines95, middle95, faceoff95 | PrintBigChar, PutBigTile, printbig1/2 (printbigz1/2), AddPenalty, AddPenalty2, PenaltyManager, chkprogress, PenShotChk, getBAplayerInfo, InProgress, coinsearch, checkfornewpen, Stop4Pen, UpdatePA, SetPA(2), PushRef, prefmes, PenaltyTimeTxt, PenGoalStuff, updatepentime, ProcessPenaltyList, releasepl, GetLowestPen, updatepwrplay, EASNLogo, linebar, getlinee, AvgCline, ChkShotStat, SetupTeamForIntermission, SetupTeamLine, RestoreTeamEnergy, Intermission, UpdateScores, SetScore, sctab, PrintBigListItem, PrintSmallListItem, SkipStrings, checkcoll, checkplcoll, checkcx, checkint, CCStart, checkagr, holdcheck |
 | code96_10 | matched, 8374 bytes | $01E110 | $0201C5 | code | collide95, players95, shootout95 | FallDown, setInjuryType, checkwallcoll, checkgoal, AssignTeam, GetPeriodTimeRemaining, checkgoalp, CheckBump, wallcollb, wallcoll, setd0player, rtss2, makepde, getpde, setpde, setpersonel, SetPlList, TryAddPlayerToList, ResetBench, setplayer; as labelled bytes: puckbody, SetupPenaltyShot, forcepldata |
-| code96_11 | incbin | $0201C6 | $0221D3 | code | players95, display95, video95 | |
+| code96_11 | matched, 8206 bytes | $0201C6 | $0221D3 | code | players95, display95, video95, hockey95, setup95 | ClampNibble, VBlank, vb2 (bytes), IRQ7, setvideo, updatescroll, showref, checkfo, showcrowd, ShowCrowdPb, ShowCrowdFrame, checksso, setsortcords, setffo, uppads, QueuePadLabel, RenderSmallFontChar, addframe, addframe2, find3d, KillCrowd, setupice, defaultsprites(2), SprSort, clearTeamStats, InitTeamStructure, setplayercolors, IntermissionStart, ExitToOpening, Opening, Opening2, EASportsScreen, VBlank_SetOptions, DefaultMenus, defmenuoptions, ContinuePlayoffs, NewPO, SetTreeGameTeams, FigureJoy; DumpSprites, resetplstuff, UpdatePlayoffLevel (bytes) |
 | code96_12 | incbin | $0221D4 | $023247 | code | setup95 | |
 | data96_02 | incbin | $023248 | $04411F | data | sound95, setup95, middle95 | |
 | data96_03 | incbin | $044120 | $07A409 | data | - | |

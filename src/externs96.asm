@@ -2,23 +2,12 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-sub_201C6	equ	$0201C6
-vb2	equ	$0201DC
-unk_202C4	equ	$0202C4
-IRQ7		equ	$0202E4	;rte
-sub_2034A	equ	$02034A
-KillCrowd	equ	$020E28
-setupice	equ	$020E52
-sub_21482	equ	$021482
-loc_2161E	equ	$02161E
-ExitToOpening	equ	$0216EE
-Opening	equ	$0216F2
-sub_21A4C	equ	$021A4C
-VBlank_SetOptions	equ	$021B52	;vbint of the setup screens
-sub_21B82	equ	$021B82
-sub_21CF4	equ	$021CF4
+sub_221D4	equ	$0221D4
+sub_2229C	equ	$02229C
+sub_22386	equ	$022386
 sub_223B0	equ	$0223B0
 sub_223EA	equ	$0223EA
+sub_224FA	equ	$0224FA
 sub_225E0	equ	$0225E0
 sub_22820	equ	$022820
 loc_22A2C	equ	$022A2C
@@ -32,6 +21,7 @@ DivBy0		equ	$023196	;zero divide handler
 unk_23248	equ	$023248
 unk_232C8	equ	$0232C8
 linelist	equ	$023342	;line names
+unk_233AC	equ	$0233AC
 unk_233BC	equ	$0233BC
 unk_23426	equ	$023426
 unk_236B0	equ	$0236B0
@@ -41,6 +31,8 @@ unk_239D4	equ	$0239D4
 sub_23F1C	equ	$023F1C
 sub_241AA	equ	$0241AA	;save RAM checksum (WriteSRAMBits)
 doassignment	equ	$024380
+sub_243A0	equ	$0243A0
+sub_243BA	equ	$0243BA
 sub_2441E	equ	$02441E
 Z80Program	equ	$025500
 SoundBanks	equ	$027026
@@ -55,12 +47,22 @@ sub_887E4	equ	$0887E4
 unk_91B86	equ	$091B86
 unk_91B8E	equ	$091B8E
 FaceOffMap	equ	$091D46	;faceoff window bitmap
+unk_923E4	equ	$0923E4
+unk_923EC	equ	$0923EC
 unk_97E72	equ	$097E72
 unk_98F30	equ	$098F30
 unk_98F38	equ	$098F38
+unk_9AA9E	equ	$09AA9E
 unk_13938E	equ	$13938E
+unk_13AA96	equ	$13AA96
+unk_13AA9E	equ	$13AA9E
+unk_13BCB0	equ	$13BCB0
 unk_13D290	equ	$13D290
+unk_13D298	equ	$13D298
 unk_13D59E	equ	$13D59E
+unk_13D5A6	equ	$13D5A6
+unk_13DA74	equ	$13DA74
+unk_13E99A	equ	$13E99A
 unk_173C7A	equ	$173C7A	;controller setup screen map
 RosterFont	equ	$179168
 unk_179A76	equ	$179A76
@@ -78,6 +80,7 @@ unk_1B9416	equ	$1B9416
 loc_1D6872	equ	$1D6872	;asstab entry
 PuckOnAttackHalf	equ	$1D6B66
 sub_1D6D22	equ	$1D6D22
+sub_1D6D40	equ	$1D6D40
 sub_1D6E0E	equ	$1D6E0E
 AttributeCalc	equ	$1D6F66
 sub_1D72F6	equ	$1D72F6
@@ -85,11 +88,14 @@ sub_1D733C	equ	$1D733C
 UpdateRecords	equ	$1D7BC6
 CountShootoutGoals	equ	$1D8208
 sub_1D82A2	equ	$1D82A2
+nullsub_5	equ	$1D84D4
 sub_1D8618	equ	$1D8618
 ShortenMsgTimer	equ	$1D8676
 unk_1D86A4	equ	$1D86A4
 nullsub_6	equ	$1D8782
 nullsub_7	equ	$1D8A86
+sub_1D8E5C	equ	$1D8E5C
+sub_1D8E6C	equ	$1D8E6C
 PlaceBoardFall	equ	$1D8F66
 sub_1D9062	equ	$1D9062
 sub_1D906C	equ	$1D906C
@@ -101,9 +107,19 @@ ClearPenalties	equ	$1D97F4
 sub_1D9844	equ	$1D9844
 loc_1DB020	equ	$1DB020
 sub_1DFA1C	equ	$1DFA1C
+sub_1E0DDE	equ	$1E0DDE
 sub_1E2688	equ	$1E2688
 sub_1E55BC	equ	$1E55BC
+sub_1E6C4C	equ	$1E6C4C
+sub_1E700A	equ	$1E700A
+loc_1E7664	equ	$1E7664
+sub_1E7AC4	equ	$1E7AC4
+sub_1E827A	equ	$1E827A
+sub_1E8544	equ	$1E8544
 sub_1E8794	equ	$1E8794
+sub_1E889C	equ	$1E889C
+sub_1E89FC	equ	$1E89FC
+sub_1E8C5E	equ	$1E8C5E
 ValidationRoutine	equ	$1E9038	;ROM checksum
 dword_23456	equ	$23456
 dword_235B8	equ	$235B8
@@ -128,7 +144,6 @@ unk_44120	equ	$44120
 Create_HotCold_Table	equ	$1D6F24
 sub_1D8262	equ	$1D8262
 sub_1DA6C0	equ	$1DA6C0
-sub_21C28	equ	$021C28
 sub_224E2	equ	$0224E2
 sub_24188	equ	$024188
 sub_24208	equ	$024208

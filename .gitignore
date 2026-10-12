@@ -1,0 +1,5 @@
+Extracted/
+output/
+node_modules/
+__pycache__/
+*.log

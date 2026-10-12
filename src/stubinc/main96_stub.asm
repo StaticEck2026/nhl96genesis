@@ -12,6 +12,7 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 VBjsr = $000776		;vertical blank interrupt, jumps through vbint
+Begin = $01464C		;data96_01
 
 
 ; Main segment code

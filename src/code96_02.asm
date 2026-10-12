@@ -531,19 +531,19 @@ doinput	;Process controller input for player a3: d0 = dpad, d1 = new buttons, d2
 .8
 	tst.w	d4
 	bne.w	.34
-	jmp	loc_14D6E
+	jmp	startpause1
 .34
 	cmp.w	#2,d4
 	bne.w	.35
-	jmp	loc_14D74
+	jmp	startpause2
 .35
 	cmp.w	#4,d4
 	bne.w	.9
-	jmp	loc_14D7C
+	jmp	startpause3
 .9
 	cmp.w	#6,d4
 	bne.w	.10
-	jmp	loc_14D84
+	jmp	startpause4
 .10
 	btst	#7,(sflags).w
 	beq.w	.nostart
@@ -1271,11 +1271,11 @@ SetContTeams	;The controller setup screen: pick the team of each pad (cont1team 
 	beq.w	.0
 	move.w	#2,(cont1team).w
 .0
-	cmpi.w	#1,(word_FFD254).w
+	cmpi.w	#1,(OptPlayMode).w
 	beq.w	.1
-	cmpi.w	#3,(word_FFD254).w
+	cmpi.w	#3,(OptPlayMode).w
 	beq.w	.1
-	cmpi.w	#2,(word_FFD254).w
+	cmpi.w	#2,(OptPlayMode).w
 	bne.w	.2
 .1
 	move.w	(word_FFCFCC).w,d0
@@ -1658,7 +1658,7 @@ checkfight	;Look for the start of a fight between players a2 and a3 (impact $A o
 	bne.w	.5
 	btst	#5,(GameFlags).w
 	bne.w	rtsfight
-	tst.w	(word_FFC4BC).w
+	tst.w	(gsp).w
 	beq.w	rtsfight
 	cmpi.w	#$A,impact(a3)
 	blt.w	rtsfight
@@ -1689,7 +1689,7 @@ checkfight	;Look for the start of a fight between players a2 and a3 (impact $A o
 	move.w	assnum(a0),d0
 	cmpi.b	#$1B,asslist(a0,d0.w)
 	beq.w	.4
-	move.w	(word_FFC4C4).w,d0
+	move.w	(ChkCnt).w,d0
 	cmp.w	#$64,d0
 	blt.w	.4
 	bsr.w	SetInst
@@ -1698,7 +1698,7 @@ checkfight	;Look for the start of a fight between players a2 and a3 (impact $A o
 	exg	a2,a3
 	btst	#0,pflags2(a3)
 	beq.w	.4
-	clr.w	(word_FFC4C4).w
+	clr.w	(ChkCnt).w
 	moveq	#$1B,d0
 	movea.w	#(unk_FFC856-M68K_RAM),a0
 .0

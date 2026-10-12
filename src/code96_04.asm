@@ -886,7 +886,7 @@ doshot	;Shoot the puck
 	bne.w	.3
 	jsr	(sub_1D6622).l
 .3
-	jsr	(sub_88470).l
+	jsr	(sfx).l
 .4
 	movem.l	(sp)+,d0-d7/a0-a3
 	rts
@@ -1085,7 +1085,7 @@ dopass	;Pass the puck
 	btst	#1,(GameFlags).w
 	bne.w	.14
 	move.w	d0,-(sp)	;#SFXpass
-	jsr	(sub_88470).l
+	jsr	(sfx).l
 .14
 	movem.l	(sp)+,d0-d5/a0-a1
 	rts

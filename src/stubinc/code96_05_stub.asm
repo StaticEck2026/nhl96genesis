@@ -17,6 +17,12 @@ WriteSRAMBits = $0096E8		;code96_02
 ReadSRAMBits = $00975A		;code96_02
 sub_1051A = $01051A		;code96_04
 SimGameStats = $01091A		;code96_04
+TeamBlockPtrs = $012BFE		;data96_01
+TeamLogoPtrs = $012C6E		;data96_01
+unk_12D46 = $012D46		;data96_01
+SeasonSchedule = $013558		;data96_01
+ResolveGames = $013EA2		;data96_01
+GetTeamPOSlot = $0143A8		;data96_01
 
 
 ; Main segment code

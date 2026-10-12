@@ -1,8 +1,17 @@
 ;	RAM map. IDA names for now; a segment agent gives each one its 95G name (or a name from
 ;	what it holds) when it first converts code that uses it. Define each name once, here.
 SaveRAM equ $200000	;the cartridge save RAM (header SRAM range)
+SRSeasonHeader equ $82	;save RAM offset: the season header (SetupPlayoffs keeps a copy at SRSeasonHeaderSave)
+SRPOPairings equ $AE	;save RAM offset: the playoff pairings, the team of each seed slot, a word each (InitPlayoffs)
+SRSeasonHeaderSave equ $CE	;save RAM offset: SetupPlayoffs keeps SRSeasonHeader here
+SRPOSlots equ $DE	;save RAM offset: the seed slot of each team, a word each (BuildPOSlots)
 M68K_RAM equ $FFFF0000
-word_FF00B4 equ $FFFF00B4
+AwardIds equ $FFFF0000	;InitPlayoffs: the teams of the two conferences (ConferenceTeams1 at +0, ConferenceTeams2 at +$14), sorted by SortSeeds. Shares M68K_RAM
+SeedStandings equ $FFFF0032	;InitPlayoffs: the standings, 3 bytes a team (ReadStandings)
+SeedPoints equ $FFFF0080	;InitPlayoffs: 2 * wins + ties of each team (CalcSeedPoints)
+SeedGames equ $FFFF009A	;InitPlayoffs: the wins of each team, the SortSeeds tie break (CalcSeedPoints)
+SeedCount equ $FFFF00B4
+POPairingsTmp equ $FFFF00B6	;InitPlayoffs with sflags11 bit 0: the pairings, here instead of save RAM SRPOPairings
 byte_FF0DDC equ $FFFF0DDC
 word_FF1388 equ $FFFF1388
 word_FF1EB2 equ $FFFF1EB2
@@ -47,12 +56,12 @@ word_FFB046 equ $FFFFB046
 word_FFB048 equ $FFFFB048
 fodropx equ $FFFFB04A
 fodropy equ $FFFFB04C
-dword_FFB04E equ $FFFFB04E
+recbpr equ $FFFFB04E
 vcount equ $FFFFB052
-word_FFB054 equ $FFFFB054
+oldvcount equ $FFFFB054
 word_FFB056 equ $FFFFB056
 word_FFB058 equ $FFFFB058
-word_FFB05A equ $FFFFB05A
+lldisp equ $FFFFB05A
 word_FFB05C equ $FFFFB05C
 SortCords equ $FFFFB05E
 puckx equ $FFFFB75E
@@ -66,13 +75,15 @@ byte_FFB7BC equ $FFFFB7BC
 puckc equ $FFFFB7BE
 byte_FFB7C1 equ $FFFFB7C1
 byte_FFB7F7 equ $FFFFB7F7
-word_FFB8AE equ $FFFFB8AE
+lastpuckc equ $FFFFB8AE
 padiconchars1 equ $FFFFB8B0	;ControllerSetupScreen: PadIconMap1 ... 4 chars (PadIconChars), in game RAM
 crowdlevel equ $FFFFB8B2	;crowd noise level; the controller setup screen keeps padiconchars2 here
 padiconchars2 equ $FFFFB8B2
 padiconchars3 equ $FFFFB8B4
 padiconchars4 equ $FFFFB8B6
+crowdcnt equ $FFFFB8B6	;updatecrowdf: frames to the next crowd frame. Shares padiconchars4
 padcursorchars equ $FFFFB8B8	;ControllerSetupScreen: PadCursorMap chars
+CwdExciteLvl equ $FFFFB8B8	;Crowd excitement (StartPer: gamelevel * 16). Shares padcursorchars
 word_FFB8BA equ $FFFFB8BA
 word_FFB8BC equ $FFFFB8BC
 dword_FFB8BE equ $FFFFB8BE
@@ -93,7 +104,7 @@ word_FFBD3E equ $FFFFBD3E
 word_FFBD4C equ $FFFFBD4C
 word_FFBD62 equ $FFFFBD62
 word_FFBD7C equ $FFFFBD7C
-dword_FFBEAA equ $FFFFBEAA
+PadControlBits equ $FFFFBEAA
 dword_FFBEAE equ $FFFFBEAE
 dword_FFBEB2 equ $FFFFBEB2
 dword_FFBEB6 equ $FFFFBEB6
@@ -151,7 +162,7 @@ word_FFBFF0 equ $FFFFBFF0
 mesarea equ $FFFFBFF2
 TextBuffer equ $FFFFBFF4
 word_FFC062 equ $FFFFC062
-word_FFC064 equ $FFFFC064
+lastsfx equ $FFFFC064
 Sattsize equ $FFFFC336
 gmode equ $FFFFC338
 sflags equ $FFFFC33A
@@ -176,7 +187,7 @@ byte_FFC364 equ $FFFFC364
 word_FFC368 equ $FFFFC368
 word_FFC36A equ $FFFFC36A
 word_FFC36C equ $FFFFC36C
-word_FFC372 equ $FFFFC372
+CurCrowdMeter equ $FFFFC372
 word_FFC374 equ $FFFFC374
 word_FFC376 equ $FFFFC376
 word_FFC378 equ $FFFFC378
@@ -204,15 +215,15 @@ word_FFC444 equ $FFFFC444
 word_FFC446 equ $FFFFC446
 word_FFC448 equ $FFFFC448
 word_FFC44A equ $FFFFC44A
-word_FFC4BC equ $FFFFC4BC
+gsp equ $FFFFC4BC
 gameclock equ $FFFFC4BE
-word_FFC4C2 equ $FFFFC4C2
-word_FFC4C4 equ $FFFFC4C4
+PerTimeTotal equ $FFFFC4C2
+ChkCnt equ $FFFFC4C4
 word_FFC4C8 equ $FFFFC4C8
-word_FFC4CA equ $FFFFC4CA
-word_FFC634 equ $FFFFC634
+ScoreSumbytes equ $FFFFC4CA
+PenSumLength equ $FFFFC634
 tmstruct equ $FFFFC726	;the home team struct; AwShots the away team
-unk_FFC732 equ $FFFFC732
+HmGoals equ $FFFFC732
 byte_FFC733 equ $FFFFC733
 word_FFC73C equ $FFFFC73C
 dword_FFC744 equ $FFFFC744
@@ -223,7 +234,7 @@ byte_FFC756 equ $FFFFC756
 byte_FFC7CA equ $FFFFC7CA
 unk_FFC856 equ $FFFFC856
 AwShots equ $FFFFCAC4
-unk_FFCAD0 equ $FFFFCAD0
+AwGoals equ $FFFFCAD0
 byte_FFCAD1 equ $FFFFCAD1
 word_FFCADA equ $FFFFCADA
 dword_FFCAE2 equ $FFFFCAE2
@@ -233,21 +244,22 @@ word_FFCAEC equ $FFFFCAEC
 byte_FFCAF4 equ $FFFFCAF4
 byte_FFCB68 equ $FFFFCB68
 word_FFCF42 equ $FFFFCF42
-word_FFCFC4 equ $FFFFCFC4
+gsstruct equ $FFFFCF44
+gamenum equ $FFFFCFC4
 word_FFCFC6 equ $FFFFCFC6
-word_FFCFC8 equ $FFFFCFC8
-word_FFCFCA equ $FFFFCFCA
+bosgames equ $FFFFCFC8
+gamelevel equ $FFFFCFCA
 word_FFCFCC equ $FFFFCFCC
 word_FFCFCE equ $FFFFCFCE
-word_FFCFD0 equ $FFFFCFD0
+WinBits equ $FFFFCFD0
 unk_FFCFD2 equ $FFFFCFD2
 byte_FFCFEE equ $FFFFCFEE
 byte_FFCFEF equ $FFFFCFEF
 byte_FFCFF0 equ $FFFFCFF0
-word_FFCFFE equ $FFFFCFFE
+menuitem equ $FFFFCFFE
 word_FFD000 equ $FFFFD000
-dword_FFD002 equ $FFFFD002
-dword_FFD006 equ $FFFFD006
+menulist equ $FFFFD002
+menudraw equ $FFFFD006
 word_FFD00A equ $FFFFD00A
 word_FFD026 equ $FFFFD026
 dword_FFD028 equ $FFFFD028
@@ -285,15 +297,15 @@ word_FFD24A equ $FFFFD24A
 word_FFD24C equ $FFFFD24C
 word_FFD24E equ $FFFFD24E
 FourWayPlay equ $FFFFD250
-word_FFD252 equ $FFFFD252
-word_FFD254 equ $FFFFD254
+menupadnum equ $FFFFD252
+OptPlayMode equ $FFFFD254
 word_FFD256 equ $FFFFD256
 word_FFD258 equ $FFFFD258
 word_FFD25A equ $FFFFD25A
-word_FFD25C equ $FFFFD25C
+OptPerlen equ $FFFFD25C
 word_FFD25E equ $FFFFD25E
 word_FFD260 equ $FFFFD260
-word_FFD262 equ $FFFFD262
+OptPen equ $FFFFD262
 OptLine equ $FFFFD264
 word_FFD266 equ $FFFFD266
 word_FFD268 equ $FFFFD268
@@ -303,16 +315,17 @@ goaliemode2 equ $FFFFD26E
 demoflag equ $FFFFD276
 dword_FFD278 equ $FFFFD278
 dword_FFD27C equ $FFFFD27C
-word_FFD280 equ $FFFFD280
+PalMode equ $FFFFD280
 word_FFD284 equ $FFFFD284
 word_FFD286 equ $FFFFD286
-word_FFD288 equ $FFFFD288
-word_FFD28A equ $FFFFD28A
-word_FFD2A2 equ $FFFFD2A2
+TmpOptLine2 equ $FFFFD288
+TempOptPlayMode equ $FFFFD28A
+unk_FFD296 equ $FFFFD296
+PlayingSong equ $FFFFD2A2
 word_FFD2D2 equ $FFFFD2D2
 word_FFD2D4 equ $FFFFD2D4
-word_FFD2D6 equ $FFFFD2D6
-word_FFD2D8 equ $FFFFD2D8
+BA_Goalie_SCnum equ $FFFFD2D6
+BA_Skater_Offset equ $FFFFD2D8
 word_FFD2DA equ $FFFFD2DA
 word_FFD2DC equ $FFFFD2DC
 word_FFD2DE equ $FFFFD2DE
@@ -323,8 +336,8 @@ onetimerheight equ $FFFFD2E6
 word_FFD2E8 equ $FFFFD2E8
 word_FFD2EA equ $FFFFD2EA
 LineHoldTimer equ $FFFFD2EC
-word_FFD2FC equ $FFFFD2FC
-word_FFD2FE equ $FFFFD2FE
+setuphome equ $FFFFD2FC
+setupvis equ $FFFFD2FE
 word_FFD300 equ $FFFFD300
 word_FFD310 equ $FFFFD310
 carddelay equ $FFFFD312
@@ -348,15 +361,15 @@ byte_FFD474 equ $FFFFD474
 byte_FFD47E equ $FFFFD47E
 word_FFD484 equ $FFFFD484
 word_FFD488 equ $FFFFD488
-word_FFD48A equ $FFFFD48A
-word_FFD48C equ $FFFFD48C
-word_FFD48E equ $FFFFD48E
+SongNum equ $FFFFD48A
+HmTeam equ $FFFFD48C
+SongIndex equ $FFFFD48E
 word_FFD490 equ $FFFFD490
 word_FFD492 equ $FFFFD492
 word_FFD81C equ $FFFFD81C
 byte_FFDCA6 equ $FFFFDCA6
-word_FFDCC0 equ $FFFFDCC0
-word_FFDCC2 equ $FFFFDCC2
+songdelay equ $FFFFDCC0
+delayedsong equ $FFFFDCC2
 word_FFDCC4 equ $FFFFDCC4
 word_FFDCC6 equ $FFFFDCC6
 word_FFDCC8 equ $FFFFDCC8
@@ -372,7 +385,7 @@ word_FFDCE8 equ $FFFFDCE8
 word_FFDCEA equ $FFFFDCEA
 byte_FFDCEC equ $FFFFDCEC
 word_FFDCF2 equ $FFFFDCF2
-word_FFDCF6 equ $FFFFDCF6
+PALflag equ $FFFFDCF6
 byte_FFDCF9 equ $FFFFDCF9
 dword_FFDD7E equ $FFFFDD7E
 dword_FFDD82 equ $FFFFDD82
@@ -388,6 +401,8 @@ word_FFDDB8 equ $FFFFDDB8
 word_FFDDBC equ $FFFFDDBC
 word_FFDDBE equ $FFFFDDBE
 word_FFDDC4 equ $FFFFDDC4
+varend equ $FFFFDDC6	;End of the variables Begin clears from VSCRLPM
+Stack equ $FFFFFDFA
 unk_FFFFF6 equ $FFFFFFF6
 unk_FFFFFF equ $FFFFFFFF
 Z80_RAM equ $A00000

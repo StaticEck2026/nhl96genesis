@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-data96_01. <- CURRENT
+code96_06. <- CURRENT
 
 ## Sources
 
@@ -65,7 +65,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | code96_03 | matched, 13328 bytes | $00B85E | $00EC6D | code | - | Fighting (startfight, SetInst, fightinput, ClearMessageLine; assfight and assfwatch as bytes), asstab, the assignment routines (bytes, labelled at their asstab entries), Penaltylist, PenShotPenalties, SetLCmode |
 | code96_04 | matched, 8260 bytes | $00EC6E | $010CB1 | code | lines95, input95, trade95 | SetLCmode2, setlccords, getlchoice(2), lineinput, lcfound(2); shotdiradj, shotdirmath, SetShotMode, ShotMode, prepshot, doshot, setpassmode, passmode, dopass, passtoa0; DefaultRosters, FormatPlayerNameD7, getplayername, GetCreatedName, GetRosterName(Tail), GetJerseyNumber; SimGameStats, SimGoalieStats, SimGoalie, PickSimGoalie |
 | code96_05 | matched, 8012 bytes | $010CB2 | $012BFD | code | - | Season and save RAM handling and its screens, mostly new in 96 (IDA names); DrawSetupTeamBlock |
-| data96_01 | incbin | $012BFE | $015773 | data | setup95, awards95 | Holds code too: Begin is in this range, so check the kind |
+| data96_01 | matched, 11126 bytes | $012BFE | $015773 | code | setup95, awards95, hockey95, pause95 | Mostly code: TeamBlockPtrs, TeamLogoPtrs, SeasonSchedule (Day), ResolveGames, the playoff seeding (BeginPlayoffs, InitPlayoffs, SeedPairings, SortSeeds, CalcSeedPoints, SetupPlayoffs, GetTeamPOSlot, BuildPOSlots), Begin, StartGame, StartPer, Gameloop, DoGameFrame, ResetClock, restoreteams, RestoreBenchEnergy, updatecrowdf, clockcont, demoread, startpause1-4, Pausemode and the pause menu (seta2, InitMenuState, HandleMenuInput, UpdateMenuSelection, PrintMenuItem), vcountwait, GetNameandAttrib and the Attrib columns (bytes), TimeoutMenu, SelectGoalieMenu (bytes) |
 | code96_06 | incbin | $015774 | $017C05 | code | display95 | |
 | code96_07 | incbin | $017C06 | $019F3D | code | logic95, lines95 | |
 | code96_08 | incbin | $019F3E | $01BF93 | code | video95, logic95, middle95 | |

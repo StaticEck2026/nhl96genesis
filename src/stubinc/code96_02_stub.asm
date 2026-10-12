@@ -37,6 +37,11 @@ SPA1792 = $1792		;SPA value (frames96)
 SPA2126 = $2126		;SPA value (frames96)
 SPA2150 = $2150		;SPA value (frames96)
 SPA288C = $288C		;SPA value (frames96)
+startpause1 = $014D6E		;data96_01
+startpause2 = $014D74		;data96_01
+startpause3 = $014D7C		;data96_01
+startpause4 = $014D84		;data96_01
+vcountwait = $0151E0		;data96_01
 
 
 ; Main segment code

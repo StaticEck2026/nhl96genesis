@@ -95,4 +95,23 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   ($1B724) takes an 8 byte remap table. IDA decodes all of these as instructions (some do not even assemble).
 - SNASM turns addi / subi #1-8 into addq / subq: the source keeps them with opt oaq- / opt osq- (osq for subi).
 - macros/genesis.mac: String takes up to 40 arguments (the 96 stat screen Strings are long).
-- Next: data96_01.
+- data96_01 converted: mostly code, not data. MATCH (segment and ROM). It holds the playoff seeding (95G awards95
+  names: InitPlayoffs, SeedPairings, SortSeeds, CalcSeedPoints, CopyBytes, ConferenceTeams1 / 2, SetupPlayoffs;
+  96 seeds the 16 slots by conference and division, TeamDivisions), ResolveGames, the hockey95 game flow (Begin,
+  StartGame, StartPer, Gameloop, DoGameFrame), ResetClock, restoreteams, RestoreBenchEnergy, updatecrowdf, clockcont,
+  demoread, startpause1-4 and the pause95 menu (Pausemode, seta2, InitMenuState, HandleMenuInput,
+  UpdateMenuSelection, PrintMenuItem). The 96 menu code is shorter than 95's; the names follow the 95 role.
+- unk_13558 is SeasonSchedule (the 95G Day format, 191 days): written with the Day macro and the team equates.
+- Byte runs with labels: GetNameandAttrib, attribjmp (written as offsets) and the Attrib column handlers
+  (StatusTextTbl, InjuryGamesTbl, HandedTextTbl as Strings; 96 adds RatingToWeight / WeightTbl), TimeoutMenu and
+  SelectGoalieMenu (found from the pause menu lists), RestoreSeasonHeader (95G shape, unreferenced), PrintMenuList
+  (jsr from code96_05) and the vbint handler unk_12D46. Code after Pausemode has no reference and no name.
+- Save RAM in 96 is byte addressed (SaveRAM+offset, odd bytes): ram96.asm has SRSeasonHeader, SRPOPairings,
+  SRSeasonHeaderSave, SRPOSlots as offsets. The seeding work lists sit at the start of RAM (AwardIds, SeedStandings,
+  SeedPoints, SeedGames, SeedCount, POPairingsTmp).
+- RAM: 50 more names (gsp, gsstruct, bosgames, gamelevel, WinBits, menuitem, menulist, OptPlayMode, PALflag, ...).
+  crowdcnt and CwdExciteLvl share $FFFFB8B6 / $FFFFB8B8 with the pad icon chars, as crowdlevel does.
+  Outside routines named where this code proves them: SoundCmd, SoundOff, KillCrowd, stop_current_song, song,
+  Z80Program, SoundBanks, Opening, vb2, ChooseSong, sfx, ExitToOpening, ClearPenalties, ClearPenaltyBuffer,
+  LockScroll, setupice, Create_HotCold_Table.
+- Next: code96_06.

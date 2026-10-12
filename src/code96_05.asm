@@ -142,7 +142,7 @@ sub_10E92
 	movem.l	d0-d1/d4/d7-a0,-(sp)
 	btst	#2,(dword_FFDD7E+2).w
 	beq.w	.0
-	bsr.w	sub_143A8
+	bsr.w	GetTeamPOSlot
 .0
 	mulu.w	d7,d4
 	add.l	d4,d1
@@ -161,10 +161,10 @@ sub_10E92
 	beq.w	.4
 	ext.l	d4
 	divu.w	#$3C,d4
-	cmpi.w	#2,(word_FFD25C).w
+	cmpi.w	#2,(OptPerlen).w
 	beq.w	.4
 	asl.w	#1,d4
-	cmpi.w	#1,(word_FFD25C).w
+	cmpi.w	#1,(OptPerlen).w
 	beq.w	.4
 	asl.w	#1,d4
 .4
@@ -267,8 +267,8 @@ sub_10FB4
 
 sub_11024
 	movem.l	d0-d7/a0-a6,-(sp)
-	move.w	(word_FFD25C).w,-(sp)
-	move.w	#2,(word_FFD25C).w
+	move.w	(OptPerlen).w,-(sp)
+	move.w	#2,(OptPerlen).w
 	bset	#6,(GameFlags).w
 	move.w	(word_FFDDB0).w,d7
 	bra.w	.12
@@ -313,7 +313,7 @@ sub_11024
 	bsr.w	sub_11226
 	btst	#2,(dword_FFDD7E+2).w
 	beq.w	.9
-	jsr	(sub_13EA2).l
+	jsr	(ResolveGames).l
 	btst	#1,(dword_FFDD7E+2).w
 	bne.w	.10
 	jsr	(sub_224E2).l
@@ -353,7 +353,7 @@ sub_11024
 	clr.w	(word_FFDDB0).w
 	bclr	#6,(GameFlags).w
 	jsr	(sub_241AA).l
-	move.w	(sp)+,(word_FFD25C).w
+	move.w	(sp)+,(OptPerlen).w
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
@@ -367,7 +367,7 @@ sub_1116A
 .0
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.b	d1,(a2)+
-	movea.l	#unk_13558,a0
+	movea.l	#SeasonSchedule,a0
 	clr.w	d5
 	move.b	(a0)+,d5
 	add.w	d2,d1
@@ -399,13 +399,13 @@ sub_1116A
 .5
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	#3,d2
-	sub.w	(word_FFCFCA).w,d2
+	sub.w	(gamelevel).w,d2
 	move.w	#1,d0
 	asl.w	d2,d0
 	move.b	d0,1(a2)
 	addq.w	#2,a2
 	movea.l	#$FFFFCF44,a0
-	cmpi.w	#3,(word_FFCFCA).w
+	cmpi.w	#3,(gamelevel).w
 	bne.w	.7
 	cmpi.w	#4,4(a0)
 	beq.w	.8
@@ -448,7 +448,7 @@ sub_11226
 	movea.l	(sp)+,a2
 	bra.w	.4
 .2
-	movea.l	#unk_13558,a0
+	movea.l	#SeasonSchedule,a0
 	clr.w	d5
 	move.b	(a0)+,d5
 	add.w	d2,d1
@@ -699,16 +699,16 @@ sub_11582
 	rts
 
 sub_115EA
-	clr.w	(word_FFD25C).w
-	move.b	(dword_FFDD7E+3).w,(word_FFD25C+1).w
-	clr.w	(word_FFD262).w
-	move.b	(dword_FFDD82).w,(word_FFD262+1).w
+	clr.w	(OptPerlen).w
+	move.b	(dword_FFDD7E+3).w,(OptPerlen+1).w
+	clr.w	(OptPen).w
+	move.b	(dword_FFDD82).w,(OptPen+1).w
 	clr.w	(OptLine).w
 	move.b	(dword_FFDD82+1).w,(OptLine+1).w
-	clr.w	(word_FFD254).w
+	clr.w	(OptPlayMode).w
 	btst	#2,(dword_FFDD7E+2).w
 	beq.w	.0
-	move.w	#1,(word_FFD254).w
+	move.w	#1,(OptPlayMode).w
 .0
 	rts
 
@@ -783,7 +783,7 @@ sub_11814
 	btst	#7,(GameFlags).w
 	bne.w	.2
 	move.w	#2,-(sp)
-	jsr	(sub_88586).l
+	jsr	(song).l
 .2
 	movem.l	d0-d7/a0-a6,-(sp)
 	btst	#7,(GameFlags).w
@@ -807,13 +807,13 @@ sub_11814
 .5
 	move.w	d0,(word_FFD25A).w
 .7
-	cmpi.w	#1,(word_FFD254).w
+	cmpi.w	#1,(OptPlayMode).w
 	beq.w	.10
 	move.w	(word_FFD258).w,(HomeTeam).w
 	move.w	(word_FFD25A).w,(VisTeam).w
-	cmpi.w	#2,(word_FFD254).w
+	cmpi.w	#2,(OptPlayMode).w
 	beq.w	.8
-	cmpi.w	#3,(word_FFD254).w
+	cmpi.w	#3,(OptPlayMode).w
 	bne.w	.10
 .8
 	jsr	(sub_21C28).l
@@ -885,7 +885,7 @@ sub_11814
 	bne.w	.33
 	btst	#7,(GameFlags).w
 	bne.w	.20
-	cmpi.w	#1,(word_FFD254).w
+	cmpi.w	#1,(OptPlayMode).w
 	beq.w	.frame
 	btst	#2,d1
 	beq.w	.3
@@ -911,9 +911,9 @@ sub_11814
 .20
 	btst	#0,d1
 	beq.w	.27
-	cmpi.w	#3,(word_FFD254).w
+	cmpi.w	#3,(OptPlayMode).w
 	beq.w	.21
-	cmpi.w	#2,(word_FFD254).w
+	cmpi.w	#2,(OptPlayMode).w
 	bne.w	.23
 .21
 	subq.w	#1,(word_FFD258).w
@@ -950,9 +950,9 @@ sub_11814
 .27
 	btst	#1,d1
 	beq.w	.frame
-	cmpi.w	#3,(word_FFD254).w
+	cmpi.w	#3,(OptPlayMode).w
 	beq.w	.28
-	cmpi.w	#2,(word_FFD254).w
+	cmpi.w	#2,(OptPlayMode).w
 	bne.w	.6
 .28
 	addq.w	#1,(word_FFD258).w
@@ -992,9 +992,9 @@ sub_11814
 	bra.w	.frame
 .33
 	movea.l	#tmstruct,a0
-	jsr	(sub_1D6F24).l
+	jsr	(Create_HotCold_Table).l
 	movea.l	#AwShots,a0
-	jsr	(sub_1D6F24).l
+	jsr	(Create_HotCold_Table).l
 	btst	#0,(gmode2).w
 	beq.w	.34
 	move.w	(word_FFD454).w,-(sp)
@@ -1004,9 +1004,9 @@ sub_11814
 	jsr	(sub_1D8262).l
 	move.w	(sp)+,(word_FFD454).w
 .34
-	cmpi.w	#2,(word_FFD254).w
+	cmpi.w	#2,(OptPlayMode).w
 	beq.w	.35
-	cmpi.w	#3,(word_FFD254).w
+	cmpi.w	#3,(OptPlayMode).w
 	bne.w	.36
 .35
 	move.b	#1,($203D8F).l
@@ -1316,9 +1316,9 @@ sub_121C8
 	btst	#7,(GameFlags).w
 	bne.w	.2
 	movem.l	d0/a0,-(sp)
-	tst.w	(word_FFD254).w
+	tst.w	(OptPlayMode).w
 	beq.w	.0
-	cmpi.w	#3,(word_FFD254).w
+	cmpi.w	#3,(OptPlayMode).w
 	bgt.w	.0
 	move.w	(word_FFCFCC).w,d0
 	movea.l	#$FFFFCFD2,a0
@@ -1351,14 +1351,14 @@ sub_1222A
 
 sub_1223E
 	movem.l	d0-d7/a0-a6,-(sp)
-	move.l	(dword_FFD002).w,-(sp)
-	move.l	(dword_FFD006).w,-(sp)
-	move.w	(word_FFCFFE).w,-(sp)
+	move.l	(menulist).w,-(sp)
+	move.l	(menudraw).w,-(sp)
+	move.w	(menuitem).w,-(sp)
 	move.w	(word_FFD000).w,-(sp)
 	btst	#1,(byte_FFC35A).w
 	bne.w	.0
 	move.w	#3,-(sp)
-	jsr	(sub_88586).l
+	jsr	(song).l
 .0
 	movea.l	(dword_FFDDAC).w,a0
 	cmpa.l	#$772,a0
@@ -1371,10 +1371,10 @@ sub_1223E
 	bra.s	.0
 .1
 	bclr	#1,(byte_FFC35A).w
-	move.l	(sp)+,(dword_FFD006).w
-	move.w	(sp)+,(word_FFCFFE).w
+	move.l	(sp)+,(menudraw).w
+	move.w	(sp)+,(menuitem).w
 	move.w	(sp)+,(word_FFD000).w
-	move.l	(sp)+,(dword_FFD002).w
+	move.l	(sp)+,(menulist).w
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
@@ -1533,7 +1533,7 @@ sub_12640
 
 DrawSetupTeamBlock	;Draw the team logo of team d7 at printx / printy (the controller setup screen)
 	movem.l	d0-d7/a0-a6,-(sp)
-	movea.l	#unk_12BFE,a0
+	movea.l	#TeamBlockPtrs,a0
 	asl.w	#2,d7
 	movea.l	(a0,d7.w),a0
 	movea.l	a0,a1
@@ -1551,7 +1551,7 @@ DrawSetupTeamBlock	;Draw the team logo of team d7 at printx / printy (the contro
 
 sub_12BB2
 	movem.l	d0-d3/d5-d7/a0-a6,-(sp)
-	movea.l	#unk_12C6E,a0
+	movea.l	#TeamLogoPtrs,a0
 	asl.w	#2,d7
 	movea.l	(a0,d7.w),a0
 	tst.w	d5

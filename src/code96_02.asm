@@ -555,7 +555,7 @@ doinput	;Process controller input for player a3: d0 = dpad, d1 = new buttons, d2
 	btst	#0,(sflags2).w
 	bne.w	faceoffinput
 	btst	#3,pflags2(a3)
-	bne.w	loc_EE0E
+	bne.w	lineinput
 	btst	#3,pflags(a3)
 	beq.w	rtss15
 	movem.l	d0-d2/a0/a3,-(sp)

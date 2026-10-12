@@ -9,8 +9,11 @@
 	include	stubinc\equals.inc	;VDP status bits
 	include	ram96.asm		;RAM map
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+rtss7 = $00A3DA		;code96_02
+TeamList = $00077E		;teamdata96
 
 
 ; Main segment code

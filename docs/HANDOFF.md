@@ -82,4 +82,9 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   these segments stay mostly bytes; a re-analysed listing (IDA following asstab) would turn them into code.
 - Penaltylist and PenShotPenalties are data: written from the bytes in the 95G layout; 95's local names where the
   penalty number and text are the same, .pXX for the rest (96 adds Boarding, Elbowing and High Sticking).
-- Next: code96_04.
+- code96_04 converted: line changes, shot and pass, roster names, the season simulation. MATCH (segment and ROM).
+  Unmatched routines keep their IDA names; small unreferenced code runs stay bytes. A comment on doshot reads
+  shotacc at $6E (95 $6D): more evidence that 96's player struct is shifted past $60.
+- Converting a segment can change names other converted segments use (code96_02 now jumps to lineinput, defined
+  here): run the full ROM build, not only the segment, before committing.
+- Next: code96_05.

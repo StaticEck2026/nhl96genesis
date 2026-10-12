@@ -2,11 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-loc_EE0E	equ	$00EE0E	;doinput: line change input
-SetShotMode	equ	$00F496
-ShotMode	equ	$00F530
-setpassmode	equ	$00F898
-passmode	equ	$00F8D2
 sub_12B84	equ	$012B84	;ControllerSetupScreen: draw team d7
 Begin		equ	$01464C	;cold start: clear RAM, start the sound driver and the menus
 loc_14D6E	equ	$014D6E	;doinput: start button, pad 1
@@ -99,3 +94,39 @@ PuckOnAttackHalf	equ	$1D6B66
 ShortenMsgTimer	equ	$1D8676
 sub_1D920A	equ	$1D920A
 ValidationRoutine	equ	$1E9038	;ROM checksum
+dword_23456	equ	$23456
+dword_235B8	equ	$235B8
+off_23574	equ	$23574
+sub_10CB2	equ	$10CB2
+sub_10CF2	equ	$10CF2
+sub_15774	equ	$15774
+sub_157A2	equ	$157A2
+sub_157B2	equ	$157B2
+sub_157F4	equ	$157F4
+sub_16D36	equ	$16D36
+sub_1A458	equ	$1A458
+sub_1B09A	equ	$1B09A
+sub_1B0A6	equ	$1B0A6
+sub_1CFE4	equ	$1CFE4
+sub_1D14E	equ	$1D14E
+sub_1D6622	equ	$1D6622
+sub_1D66AC	equ	$1D66AC
+sub_1D6718	equ	$1D6718
+sub_1D7DF8	equ	$1D7DF8
+sub_1D8B26	equ	$1D8B26
+sub_1D9352	equ	$1D9352
+sub_1DF8AC	equ	$1DF8AC
+sub_1E7A78	equ	$1E7A78
+sub_1E8840	equ	$1E8840
+sub_1FAFA	equ	$1FAFA
+sub_1FB52	equ	$1FB52
+sub_22E58	equ	$22E58
+sub_230AA	equ	$230AA
+sub_230C4	equ	$230C4
+sub_241E8	equ	$241E8
+sub_88470	equ	$88470
+unk_1AE60	equ	$1AE60
+unk_1DF9EC	equ	$1DF9EC
+unk_1DF9FC	equ	$1DF9FC
+unk_44120	equ	$44120
+nullsub_4	equ	$01D062

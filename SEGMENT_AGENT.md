@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_04. <- CURRENT
+code96_05. <- CURRENT
 
 ## Sources
 
@@ -63,7 +63,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | frames96 | matched, 14162 bytes | $005F96 | $0096E7 | data | frames95 | SPAlist and the sprite animation tables, named SPAxxxx by their SPA value until the code that uses them is converted |
 | code96_02 | matched, 8566 bytes | $0096E8 | $00B85D | code | fourway95 | WriteSRAMBits, ReadSRAMBits (new: bit fields in the save RAM), faceoffinput, the faceoff routines assfaceoff ... puckfaceoff2 and Endfaceoff (bytes: not decoded in the listing), DrawFaceoffWindow, limitfo, updatepadinput, doinput (doinput_goaliedive, doinput_cbut, ClampTargetY, doinput_chkanim, doinput_skater, doinput_ispc, doinput_islocked), PadOnTeam, SetContTeams, DrawPadSetup, DrawPadIcon, ControllerSetupScreen, PrintSetupStr(Hi), ReadAllPads, Detect4WayPlay, ReadJoySwapPad1-4 |
 | code96_03 | matched, 13328 bytes | $00B85E | $00EC6D | code | - | Fighting (startfight, SetInst, fightinput, ClearMessageLine; assfight and assfwatch as bytes), asstab, the assignment routines (bytes, labelled at their asstab entries), Penaltylist, PenShotPenalties, SetLCmode |
-| code96_04 | incbin | $00EC6E | $010CB1 | code | lines95, input95, trade95 | |
+| code96_04 | matched, 8260 bytes | $00EC6E | $010CB1 | code | lines95, input95, trade95 | SetLCmode2, setlccords, getlchoice(2), lineinput, lcfound(2); shotdiradj, shotdirmath, SetShotMode, ShotMode, prepshot, doshot, setpassmode, passmode, dopass, passtoa0; DefaultRosters, FormatPlayerNameD7, getplayername, GetCreatedName, GetRosterName(Tail), GetJerseyNumber; SimGameStats, SimGoalieStats, SimGoalie, PickSimGoalie |
 | code96_05 | incbin | $010CB2 | $012BFD | code | - | |
 | data96_01 | incbin | $012BFE | $015773 | data | setup95, awards95 | Holds code too: Begin is in this range, so check the kind |
 | code96_06 | incbin | $015774 | $017C05 | code | display95 | |

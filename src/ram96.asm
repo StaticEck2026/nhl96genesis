@@ -61,7 +61,7 @@ unk_FFB776 equ $FFFFB776
 byte_FFB777 equ $FFFFB777
 puckvx equ $FFFFB786
 puckvy equ $FFFFB788
-word_FFB78A equ $FFFFB78A
+puckvz equ $FFFFB78A
 byte_FFB7BC equ $FFFFB7BC
 puckc equ $FFFFB7BE
 byte_FFB7C1 equ $FFFFB7C1
@@ -97,10 +97,10 @@ dword_FFBEAA equ $FFFFBEAA
 dword_FFBEAE equ $FFFFBEAE
 dword_FFBEB2 equ $FFFFBEB2
 dword_FFBEB6 equ $FFFFBEB6
-word_FFBF0A equ $FFFFBF0A
+shotplayer equ $FFFFBF0A
 lastplayer equ $FFFFBF0C
-word_FFBF0E equ $FFFFBF0E
-word_FFBF10 equ $FFFFBF10
+passdir equ $FFFFBF0E
+passspeed equ $FFFFBF10
 passplayer equ $FFFFBF12
 word_FFBF14 equ $FFFFBF14
 word_FFBF16 equ $FFFFBF16
@@ -121,7 +121,7 @@ TempWord1 equ $FFFFBF46
 TempWord2 equ $FFFFBF48
 TempRawSpd equ $FFFFBF4A
 TempMaxSpd equ $FFFFBF4C
-word_FFBF50 equ $FFFFBF50
+rosterscroll equ $FFFFBF50
 TempLegSpd equ $FFFFBF52
 word_FFBF56 equ $FFFFBF56
 word_FFBF58 equ $FFFFBF58
@@ -148,15 +148,15 @@ fodir1 equ $FFFFBFE6
 fodir2 equ $FFFFBFE8
 word_FFBFEE equ $FFFFBFEE
 word_FFBFF0 equ $FFFFBFF0
-word_FFBFF2 equ $FFFFBFF2
-word_FFBFF4 equ $FFFFBFF4
+mesarea equ $FFFFBFF2
+TextBuffer equ $FFFFBFF4
 word_FFC062 equ $FFFFC062
 word_FFC064 equ $FFFFC064
 word_FFC336 equ $FFFFC336
 gmode equ $FFFFC338
 sflags equ $FFFFC33A
 sflags2 equ $FFFFC33C
-byte_FFC33E equ $FFFFC33E
+sflags3 equ $FFFFC33E
 BA_PS_flags equ $FFFFC340
 word_FFC342 equ $FFFFC342
 sflags5 equ $FFFFC344
@@ -164,10 +164,10 @@ sflags6 equ $FFFFC346
 gmode2 equ $FFFFC348
 sflags7 equ $FFFFC34A
 byte_FFC34C equ $FFFFC34C
-byte_FFC34E equ $FFFFC34E
+sflags9 equ $FFFFC34E
 GameFlags equ $FFFFC350	;bit 6: WriteSRAMBits skips sub_241AA
 sflags10 equ $FFFFC352
-byte_FFC354 equ $FFFFC354
+sflags11 equ $FFFFC354
 sflags12 equ $FFFFC356
 sflags13 equ $FFFFC358
 byte_FFC35A equ $FFFFC35A
@@ -182,7 +182,7 @@ word_FFC376 equ $FFFFC376
 word_FFC378 equ $FFFFC378
 joypuckcarrier equ $FFFFC37C
 word_FFC37E equ $FFFFC37E
-word_FFC380 equ $FFFFC380
+passmodetimer equ $FFFFC380
 byte_FFC382 equ $FFFFC382
 c1playernum equ $FFFFC384
 c2playernum equ $FFFFC386
@@ -319,7 +319,7 @@ word_FFD2DE equ $FFFFD2DE
 holdreset equ $FFFFD2E0
 word_FFD2E2 equ $FFFFD2E2
 word_FFD2E4 equ $FFFFD2E4
-word_FFD2E6 equ $FFFFD2E6
+onetimerheight equ $FFFFD2E6
 word_FFD2E8 equ $FFFFD2E8
 word_FFD2EA equ $FFFFD2EA
 LineHoldTimer equ $FFFFD2EC

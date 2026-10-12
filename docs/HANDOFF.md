@@ -31,3 +31,5 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 
 ## Current state / Next
 - Bootstrap: 33 incbin segments, full ROM and every segment MATCH.
+- main96 converted (test of the docs): 95G names for SegaInit, CHECK_VDP, RegionPrint, RegionFont, RegionOK, VBjsr, Begin, IRQ7, ValidationRoutine; the 96 region lock (hex digit country code) named from what it does. MATCH (segment and ROM).
+- Next: code96_01.

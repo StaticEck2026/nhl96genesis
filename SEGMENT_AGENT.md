@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-main96. <- CURRENT
+code96_01. <- CURRENT
 
 ## Sources
 
@@ -56,13 +56,13 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 
 | File | Status | Start | End | Kind | 95G hint | Main names |
 |---|---|---|---|---|---|---|
-| main96 | incbin | $000000 | $000775 | code | main95 | |
-| code96_01 | incbin | $000776 | $0096E7 | code | - | |
+| main96 | matched, 1910 bytes | $000000 | $000775 | code | main95 | Vectors, header (sega\SegaIDTable96), SegaInit (as 95G), CHECK_VDP: the region lock reads CountryCode as a hex digit of region bits (RegionJapanNtsc ... RegionOverseasPal, PrintDeveloped ... PrintAnd, RegionPrint, RegionFont), RegionOK (ValidationRoutine, then jmp Begin), ZeroLong |
+| code96_01 | incbin | $000776 | $0096E7 | code | - | VBjsr, then data (no numbered labels in the listing after it) |
 | code96_02 | incbin | $0096E8 | $00B85D | code | fourway95 | |
 | code96_03 | incbin | $00B85E | $00EC6D | code | - | |
 | code96_04 | incbin | $00EC6E | $010CB1 | code | lines95, input95, trade95 | |
 | code96_05 | incbin | $010CB2 | $012BFD | code | - | |
-| data96_01 | incbin | $012BFE | $015773 | data | setup95, awards95 | |
+| data96_01 | incbin | $012BFE | $015773 | data | setup95, awards95 | Holds code too: Begin is in this range, so check the kind |
 | code96_06 | incbin | $015774 | $017C05 | code | display95 | |
 | code96_07 | incbin | $017C06 | $019F3D | code | logic95, lines95 | |
 | code96_08 | incbin | $019F3E | $01BF93 | code | video95, logic95, middle95 | |

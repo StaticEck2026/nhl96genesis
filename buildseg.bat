@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-REM Usage: buildseg.bat main96   or   buildseg.bat code96_02
+REM Usage: buildseg.bat main96   or   buildseg.bat srambits96
 REM Assembles src\stubinc\<name>_stub.asm to output\<name>.bin (a folder in the argument is ignored)
 
 if "%~1"=="" (

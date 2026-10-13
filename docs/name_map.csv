@@ -167,8 +167,8 @@ $009632,SPA369C_table,,,frames96
 $009668,SPA36D2_table,,,frames96
 $00968E,SPA36F8_table,,,frames96
 $FFFFD244,vbint,dword_FFD244,,ram96
-$0096E8,WriteSRAMBits,sub_96E8,,code96_02
-$00975A,ReadSRAMBits,sub_975A,,code96_02
+$0096E8,WriteSRAMBits,sub_96E8,,srambits96
+$00975A,ReadSRAMBits,sub_975A,,srambits96
 $0099CA,faceoffinput,loc_99CA,,faceoff96
 $009A24,assfaceoff,,,faceoff96
 $009A40,assfaceoffpl,,,faceoff96

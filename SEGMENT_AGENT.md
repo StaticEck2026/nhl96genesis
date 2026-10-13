@@ -61,7 +61,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | teamdata96 | matched, 20346 bytes | $000776 | $0056EF | data | teamdata95 | VBjsr, TeamList (the ASE / ASW slots point to Boston / Montreal), the team blocks Anaheim ... Winnipeg (Player / String macros, palettes as incbin assets, .pos position nibbles), playoffseats |
 | credits96 | matched, 2214 bytes | $0056F0 | $005F95 | data | credits95 | Credits (copyright lines, String -1), CreditsList (legal pages and credits, each page ended by an empty String) |
 | frames96 | matched, 14162 bytes | $005F96 | $0096E7 | data | frames95 | SPAlist and the sprite animation tables, named SPAxxxx by their SPA value until the code that uses them is converted |
-| code96_02 | matched, 738 bytes | $0096E8 | $0099C9 | code | - | WriteSRAMBits, ReadSRAMBits (new: bit fields in the save RAM), then bytes the listing does not decode |
+| srambits96 | matched, 738 bytes | $0096E8 | $0099C9 | code | - | WriteSRAMBits, ReadSRAMBits (new: bit fields in the save RAM), then bytes the listing does not decode |
 | faceoff96 | matched, 2834 bytes | $0099CA | $00A4DB | code | faceoff95 | faceoffinput, the faceoff routines assfaceoff ... puckfaceoff2 and Endfaceoff (bytes: not decoded in the listing), DrawFaceoffWindow, limitfo |
 | input96 | matched, 2930 bytes | $00A4DC | $00B04D | code | input95 | updatepadinput, doinput (doinput_goaliedive, doinput_cbut, ClampTargetY, doinput_chkanim, doinput_skater, doinput_ispc, doinput_islocked), PadOnTeam |
 | goal96 | matched, 1402 bytes | $00B04E | $00B5C7 | code | goal95 | SetContTeams, DrawPadSetup, DrawPadIcon, ControllerSetupScreen, PrintSetupStr(Hi), ReadAllPads |
@@ -103,3 +103,4 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 Add a system here when the listing shows something 95 does not have.
 
 - Fighting (`engine/fight96.asm`): back from 93 (checkfight, SetInst, fightinput, assfight, assfwatch, ClearMessageLine take the 93G names), with new fight moves (more SPAs) and a second round (word_FFDCDE).
+- Save RAM bit fields (`src/srambits96.asm`): WriteSRAMBits and ReadSRAMBits pack a value into the save RAM. The later save-RAM block keeps the name sram96.

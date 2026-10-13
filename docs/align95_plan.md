@@ -77,14 +77,14 @@ there is no single engine list to include once. Folders still match: `engine/`,
 
 ## Work queue (file split)
 
-One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH`, then commit and push, then `docs/HANDOFF.md`. A split is a new file, its stub, its `seg:` script, the `nhl96.asm` include, the ROM map row, and the `module` column in `docs/name_map.csv`. Segment builds already branch to equates in other files (`bne.w rtsfight` from code96_02), so a split on a label boundary is safe when every cross-edge is a branch to a global label or a `jsr` / `jmp`.
+One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH`, then commit and push, then `docs/HANDOFF.md`. A split is a new file, its stub, its `seg:` script, the `nhl96.asm` include, the ROM map row, and the `module` column in `docs/name_map.csv`. Segment builds already branch to equates in other files (`bne.w faceoffinput` from input96), so a split on a label boundary is safe when every cross-edge is a branch to a global label or a `jsr` / `jmp`.
 
 1. `engine/fight96.asm` — done. `checkfight` through `sub_C51C`.
 2. `engine/fourway96.asm` — done. `Detect4WayPlay` through `ReadJoySwapPad4`.
 3. `engine/goal96.asm` — done. `SetContTeams` through `ReadAllPads`.
 4. `engine/input96.asm` — done. `updatepadinput` through `PadOnTeam` (doinput, including the goalie parts that 95G kept in skate95; they are inside doinput here). `PadOnTeam` follows `sub_AFDA` and `doinput` branches to it, so it stays in this file.
 5. `engine/faceoff96.asm` — done. `faceoffinput` through `Endfaceoff`. What remains of code96_02 is `WriteSRAMBits` / `ReadSRAMBits` and the unreferenced bytes between them and the faceoff.
-6. Those two bit routines stay in their own include `src/srambits96.asm` (new in 96). The 95G save-RAM block is later and is the file that gets the name `src/sram96.asm`.
+6. `src/srambits96.asm` — done. `WriteSRAMBits` / `ReadSRAMBits` and the unreferenced bytes that follow them. The 95G save-RAM block is later and is the file that gets the name `src/sram96.asm`.
 7. `engine/logic96.asm` — `asstab` through the assignment bytes in code96_03. Penalty texts that sit in the middle of that run stay in the file (guest) until penalty96 is the next include and the bytes are contiguous with it.
 8. `engine/lines96.asm` — `SetLCmode` through `lcfound2`.
 9. Continue down the table above. Do not start graphics or the sound bank until the extraction step.

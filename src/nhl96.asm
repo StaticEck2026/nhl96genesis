@@ -13,7 +13,7 @@
 	include	teamdata96.asm		; $000776  VBjsr, TeamList and the team blocks, playoffseats
 	include	credits96.asm		; $0056F0  Credits, CreditsList
 	include	frames96.asm		; $005F96  SPAlist and the sprite animation tables
-	include	code96_02.asm		; $0096E8  save RAM bit fields
+	include	srambits96.asm		; $0096E8  save RAM bit fields
 	include	engine\faceoff96.asm	; $0099CA  faceoffs
 	include	engine\input96.asm	; $00A4DC  pad input
 	include	engine\goal96.asm	; $00B04E  controller setup screen

@@ -225,7 +225,7 @@ HiScoreScreen	;vb2, the HiScoreBgMap and HiScoreImg bitmaps, then wait up to $50
 	dc.b	$24,$7C,$FF,$FF,$C7,$26,$B4,$6A,$00,$28,$67,$00,$00,$08,$24,$7C
 	dc.b	$FF,$FF,$CA,$C4,$4E,$75
 
-sub_1D920A	;Called before setpassmode / SetShotMode (code96_02)
+sub_1D920A	;Called before setpassmode / SetShotMode (input96)
 	movem.l	d1-d7/a0,-(sp)
 	btst	#0,(gmode).w
 	bne.w	.0

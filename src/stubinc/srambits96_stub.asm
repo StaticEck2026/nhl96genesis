@@ -1,5 +1,5 @@
-;	Segment build for code96_02.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_02.asm on its own for checking against the ROM.
+;	Segment build for srambits96.asm: sets its origin and the outside routines and data it uses,
+;	then includes srambits96.asm on its own for checking against the ROM.
 
 ; region code
 	org	$0096E8
@@ -16,4 +16,4 @@ MakeSRAMChecksum = $0241AA		;data96_02
 
 
 ; Main segment code
-	include	code96_02.asm
+	include	srambits96.asm

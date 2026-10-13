@@ -2,7 +2,7 @@
 """find95.py: find NHL 95 Genesis labels in an NHL 96 range by their bytes, to pick 95G names.
 
 Usage: python3 tools/find95.py <segment | start-end> [--len 20] [--min-distinct 5] [--refresh]
-  python3 tools/find95.py code96_02            a segment from tools/segmap96.json
+  python3 tools/find95.py srambits96           a segment from tools/segmap96.json
   python3 tools/find95.py 0x200-0x775          an address range (hex)
 It downloads the 95G ROM and docs/name_map.csv from the public repo
 https://github.com/abdulahmad/NHL95Genesis (raw.githubusercontent.com) into output/ref95/ once

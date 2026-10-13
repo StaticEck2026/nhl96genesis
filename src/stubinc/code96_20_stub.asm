@@ -13,8 +13,8 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 ProductCode = $000180		;main96
-WriteSRAMBits = $0096E8		;code96_02
-ReadSRAMBits = $00975A		;code96_02
+WriteSRAMBits = $0096E8		;srambits96
+ReadSRAMBits = $00975A		;srambits96
 sub_103AA = $0103AA		;code96_04
 sub_104EE = $0104EE		;code96_04
 sub_1161E = $01161E		;code96_05

@@ -1243,11 +1243,11 @@ nullsub_7
 	dc.b	$21,$FC,$00,$00,$00,$00,$D4,$7A,$31,$FC,$00,$01,$D4,$6E,$42,$78
 	dc.b	$D4,$70,$50,$F8,$D4,$7E,$4C,$DF,$7F,$FF,$4E,$75
 
-sub_1D8AB4	;Called from code96_02.
+sub_1D8AB4	;Called from the faceoff bytes.
 	;Code the listing does not decode: kept as bytes
 	dc.b	$08,$F8,$00,$00,$C3,$4A,$31,$C0,$D4,$7E,$4E,$75
 
-sub_1D8AC0	;Called from code96_02.
+sub_1D8AC0	;Called from the faceoff bytes.
 	;Code the listing does not decode: kept as bytes
 	dc.b	$31,$FC,$FF,$FF,$D4,$74,$08,$B8,$00,$00,$C3,$4A,$4E,$75
 

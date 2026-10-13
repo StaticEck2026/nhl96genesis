@@ -7180,7 +7180,7 @@ ControllerTitleMap	;The controller setup screen title map (ControllerSetupScreen
 	dc.w	$6026,$6027,$6028,$6029,$602A,$602B,$602B,$602C,$602D,$602E,$602F,$6030,$6031,$6032,$6033,$6034
 	dc.w	$6035,$6036,$6037
 
-unk_1B773A	;A map used from code96_02
+unk_1B773A	;A map used from the controller setup
 	dc.l	.pal-unk_1B773A,.map-unk_1B773A
 	dc.w	$4A	;tiles
 	dc.b	$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00

@@ -82,6 +82,7 @@ linelist = $023342		;data96_02
 MakeSRAMChecksum = $0241AA		;data96_02
 doassignment = $024380		;data96_02
 FaceOffMap = $091D46		;data96_05
+ControllerBgMap = $173C7A		;data96_07
 
 
 ; Main segment code

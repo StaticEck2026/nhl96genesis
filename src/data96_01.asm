@@ -2,31 +2,31 @@
 ;	frame updates, the demo and the pause menu, the roster attribute columns, and the season schedule.
 
 TeamBlockPtrs	;The setup team block bitmap of each team, a long pointer per team (DrawSetupTeamBlock)
-	dc.l	$148054,$148502,$148970,$148DDE
-	dc.l	$14928C,$14973A,$149BA8,$14A016
-	dc.l	$14A4E4,$14A952,$14AE20,$14B2EE
-	dc.l	$14B7BC,$14BC8A,$14C158,$14C626
-	dc.l	$14CAD4,$14CFA2,$14D470,$14D8DE
-	dc.l	$14DD6C,$14E1DA,$14E6A8,$14EB56
-	dc.l	$14F024,$14F4F2,$14F024,$14F024
+	dc.l	TeamBlockANH,TeamBlockBOS,TeamBlockBUF,TeamBlockCGY
+	dc.l	TeamBlockCHI,TeamBlockDAL,TeamBlockDET,TeamBlockEDM
+	dc.l	TeamBlockFLA,TeamBlockHFD,TeamBlockLA,TeamBlockMTL
+	dc.l	TeamBlockNJ,TeamBlockNYI,TeamBlockNYR,TeamBlockOTW
+	dc.l	TeamBlockPHI,TeamBlockPIT,TeamBlockQUE,TeamBlockSJ
+	dc.l	TeamBlockSTL,TeamBlockTB,TeamBlockTOR,TeamBlockVAN
+	dc.l	TeamBlockWSH,TeamBlockWPG,TeamBlockWSH,TeamBlockWSH
 
 TeamLogoPtrs	;The team logo bitmap of each team, a long pointer per team (sub_12BB2)
-	dc.l	$14F9A0,$150A8E,$151B1C,$152BEA
-	dc.l	$153CD8,$154DE6,$155ED4,$156FA2
-	dc.l	$1580B0,$15919E,$15A2AC,$15B3DA
-	dc.l	$15C508,$15D636,$15E764,$15F872
-	dc.l	$160980,$161AAE,$162BDC,$163CAA
-	dc.l	$164DB8,$165EA6,$166FB4,$1680A2
-	dc.l	$1691D0,$16A2FE,$153CD8,$153CD8
+	dc.l	TeamLogoANH,TeamLogoBOS,TeamLogoBUF,TeamLogoCGY
+	dc.l	TeamLogoCHI,TeamLogoDAL,TeamLogoDET,TeamLogoEDM
+	dc.l	TeamLogoFLA,TeamLogoHFD,TeamLogoLA,TeamLogoMTL
+	dc.l	TeamLogoNJ,TeamLogoNYI,TeamLogoNYR,TeamLogoOTW
+	dc.l	TeamLogoPHI,TeamLogoPIT,TeamLogoQUE,TeamLogoSJ
+	dc.l	TeamLogoSTL,TeamLogoTB,TeamLogoTOR,TeamLogoVAN
+	dc.l	TeamLogoWSH,TeamLogoWPG,TeamLogoCHI,TeamLogoCHI
 
-unk_12CDE	;A long pointer per team (read by sub_1E8544)
-	dc.l	$16BAAC,$16BDEC,$16B78C,$16C14C
-	dc.l	$16C52C,$16C8CC,$16CBAC,$16CEEC
-	dc.l	$16B40C,$16D2CC,$16D56C,$16D86C
-	dc.l	$16DBAC,$16DF4C,$16E26C,$16E64C
-	dc.l	$16E9CC,$16ECEC,$16F00C,$16F32C
-	dc.l	$16F6AC,$16FA0C,$16FDEC,$1700EC
-	dc.l	$17040C,$17074C
+SmallLogoPtrs	;The small team logo of each team, a long pointer per team (read by sub_1E8544)
+	dc.l	SmallLogoANH,SmallLogoBOS,SmallLogoBUF,SmallLogoCGY
+	dc.l	SmallLogoCHI,SmallLogoDAL,SmallLogoDET,SmallLogoEDM
+	dc.l	SmallLogoFLA,SmallLogoHFD,SmallLogoLA,SmallLogoMTL
+	dc.l	SmallLogoNJ,SmallLogoNYI,SmallLogoNYR,SmallLogoOTW
+	dc.l	SmallLogoPHI,SmallLogoPIT,SmallLogoQUE,SmallLogoSJ
+	dc.l	SmallLogoSTL,SmallLogoTB,SmallLogoTOR,SmallLogoVAN
+	dc.l	SmallLogoWSH,SmallLogoWPG
 
 unk_12D46	;The vertical blank handler sub_11BF8 sets (vbint).
 	;Code the listing does not decode: kept as bytes

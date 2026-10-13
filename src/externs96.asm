@@ -2,7 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-unk_173C7A	equ	$173C7A	;controller setup screen map
 RosterFont	equ	$179168
 unk_179A76	equ	$179A76
 unk_179A7E	equ	$179A7E

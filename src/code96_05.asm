@@ -1092,7 +1092,7 @@ sub_11BF8
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	-TXMAP2,$00,$00,$00
-	movea.l	#unk_173C7A,a0
+	movea.l	#ControllerBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

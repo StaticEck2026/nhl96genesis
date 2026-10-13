@@ -238,4 +238,9 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   code96_08), CrowdFrameList, FaceOffSprites, EnergyBarMap and EASNmap (written as maps), EASportsMap, RevRinkTilelist
   and the start of ReplayIconMap (used by ShowReplayIcon; its tiles at +8 open data96_07). MATCH (segment and ROM).
   code96_11's sub_210B0 is setupEASNmap.
-- Next: data96_07.
+- data96_07 converted: graphics maps, each written as a map (header, tiles, .pal, .map): the rest of ReplayIconMap,
+  ReplayBannerMap (ShowReplayBanner), the maps used from code96_14 / code96_15 / code96_05 (unk_ names, purpose not
+  known yet), the setup team blocks, team logos and small logos, named per team from the data96_01 pointer tables
+  (TeamBlockPtrs, TeamLogoPtrs, SmallLogoPtrs, now dc.l of the labels), and ControllerBgMap. One unreferenced block
+  stays dc.b. MATCH (segment and ROM).
+- Next: data96_08.

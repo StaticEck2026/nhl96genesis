@@ -46,6 +46,7 @@ MakeSRAMChecksum = $0241AA		;data96_02
 ReadSRAM = $0241E8		;data96_02
 ClearSRAMBytes = $024208		;data96_02
 song = $088586		;data96_04
+ControllerBgMap = $173C7A		;data96_07
 
 
 ; Main segment code

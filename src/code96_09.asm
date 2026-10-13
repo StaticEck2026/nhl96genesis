@@ -657,7 +657,7 @@ SetPA	;Start ref animation d0 (penalty number)
 	beq.w	.2
 	btst	#3,(gmode2).w
 	beq.w	.2
-	jsr	(sub_1D82A2).l
+	jsr	(ShootoutWonBy).l
 .2
 	move.w	#$7FFF,(penmsgtimer).w
 	btst	#7,(sflags).w
@@ -937,7 +937,7 @@ updatepentime	;Update the time remaining on all penalized players, once a second
 	addi.w	#$18,(Penaltytimer).w
 	bset	#6,(sflags3).w
 	bsr.w	chkatop
-	jsr	(sub_1D8618).l
+	jsr	(updatePPTeamTime).l
 	movea.w	#(tmstruct-M68K_RAM),a2
 	bsr.w	ProcessPenaltyList
 	adda.w	#$39E,a2
@@ -2091,7 +2091,7 @@ CCStart	;Player a3 is checking player a2
 	add.b	$68(a2),d0
 	lsr.w	#1,d0
 	exg	a2,a3
-	jsr	(sub_1D72F6).l
+	jsr	(wallcollduringcheck).l
 	exg	a2,a3
 	sub.w	impact(a2),d0
 	beq.w	.2

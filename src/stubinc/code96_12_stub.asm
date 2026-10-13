@@ -40,6 +40,9 @@ MakeSRAMChecksum = $0241AA		;data96_02
 ReadSRAM = $0241E8		;data96_02
 song = $088586		;data96_04
 Rinktilelist = $0923E4		;data96_05
+CountGoalies = $1D7D0E		;code96_14
+ShootoutModeBox = $1D7FA6		;code96_14
+nullsub_7 = $1D8A86		;code96_14
 
 
 ; Main segment code

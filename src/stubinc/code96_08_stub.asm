@@ -27,6 +27,7 @@ RosterFont = $179168		;data96_08
 SmallFontMap = $179A76		;data96_08
 BigFontMap2 = $17AA72		;data96_08
 BigFontMap4 = $17B680		;data96_08
+stopfast = $1D6E0E		;code96_14
 
 
 ; Main segment code

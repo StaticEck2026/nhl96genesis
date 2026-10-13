@@ -77,6 +77,10 @@ EnergyBarMap = $13D290		;data96_06
 EASNmap = $13D59E		;data96_06
 BigFontMap = $1B89C8		;data96_09
 BigFontMap3 = $1B9416		;data96_09
+wallcollduringcheck = $1D72F6		;code96_14
+UpdateRecords = $1D7BC6		;code96_14
+ShootoutWonBy = $1D82A2		;code96_14
+updatePPTeamTime = $1D8618		;code96_14
 
 
 ; Main segment code

@@ -18,6 +18,7 @@ SetSPA = $01A614		;code96_08
 PushRef = $01C978		;code96_09
 rtss2 = $01F84A		;code96_10
 setpersonel = $01FB52		;code96_10
+CountShootoutGoals = $1D8208		;code96_14
 SPA0074 = $74		;SPA value (frames96)
 SPA0170 = $170		;SPA value (frames96)
 SPA02C0 = $2C0		;SPA value (frames96)

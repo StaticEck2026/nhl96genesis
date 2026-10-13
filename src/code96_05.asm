@@ -999,9 +999,9 @@ sub_11814
 	beq.w	.34
 	move.w	(shootoutteam).w,-(sp)
 	clr.w	(shootoutteam).w
-	jsr	(sub_1D8262).l
+	jsr	(InitShooters).l
 	move.w	#1,(shootoutteam).w
-	jsr	(sub_1D8262).l
+	jsr	(InitShooters).l
 	move.w	(sp)+,(shootoutteam).w
 .34
 	cmpi.w	#2,(OptPlayMode).w

@@ -81,7 +81,7 @@ setvideo	;This is not vblank code but sets up ram for vblank transfers. Called o
 	jsr	(nullsub_5).l
 	bsr.w	showcrowd
 	jsr	(showref).l
-	jsr	(sub_1D6D40).l
+	jsr	(UpdateCrowdMeter).l
 	cmpa.w	#$C066,a6	;no sprites: one blank sprite
 	bne.w	.n
 	clr.l	(a6)+

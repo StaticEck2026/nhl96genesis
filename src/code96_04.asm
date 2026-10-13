@@ -589,7 +589,7 @@ shotdiradj	;Adjust the shot direction by the pad and the shooter
 	btst	#0,(gmode2).w	;check if shootout
 	beq.w	.2
 .1
-	jsr	(sub_1D8B26).l
+	jsr	(PSandSOpassdir).l
 .2
 	rts
 
@@ -1890,7 +1890,7 @@ sub_105B0
 	move.l	(a1,d4.w),(dword_FFCAE2).w
 	move.l	(GAttribOverallMask).l,d4
 	clr.w	d0
-	jsr	(sub_1D7DF8).l
+	jsr	(CalcAttrib).l
 	muls.w	#$64,d0
 	divs.w	d1,d0
 	movea.l	#unk_10760,a0
@@ -1974,7 +1974,7 @@ sub_10688
 	bne.w	.2
 	movem.l	d0/d2/d4,-(sp)
 	movem.l	a4-a6,-(sp)
-	jsr	(sub_1D7DF8).l
+	jsr	(CalcAttrib).l
 	muls.w	#$64,d0
 	divs.w	d1,d0
 	movem.l	(sp)+,a4-a6
@@ -2145,7 +2145,7 @@ sub_10A08
 	bmi.w	.2
 	movem.l	d2-d7/a0-a6,-(sp)
 	bset	#4,(sflags13).w
-	jsr	(sub_1D7DF8).l
+	jsr	(CalcAttrib).l
 	bclr	#4,(sflags13).w
 	movem.l	(sp)+,d2-d7/a0-a6
 	move.w	d0,(a6)+

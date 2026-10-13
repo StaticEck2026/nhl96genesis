@@ -461,10 +461,10 @@ goalieacc	;Goalie movement
 	cmp.w	#$FFE0,d0
 	blt.w	.stopandrestore
 	move.w	(sp)+,d0
-	jsr	(sub_1D6E0E).l
+	jsr	(stopfast).l
 	bra.w	.3
 .stopandrestore
-	jsr	(sub_1D6E0E).l
+	jsr	(stopfast).l
 	move.w	(sp)+,d0
 .3
 	move.w	d0,d2
@@ -534,7 +534,7 @@ goalieacc	;Goalie movement
 	move.w	Xvel(a3),d0
 	or.w	Yvel(a3),d0
 	beq.w	.14
-	jmp	sub_1D6E0E
+	jmp	stopfast
 .14
 	btst	#1,pflags2(a3)
 	beq.w	SetSPA
@@ -800,7 +800,7 @@ dostop	;Stop player a3: under $1000 speed in x and y the velocities are cleared,
 loc_1ADCA
 	tst.w	$34(a3)
 	bne.w	stopna2
-	jmp	sub_1D6E0E
+	jmp	stopfast
 
 loc_1ADD8
 	move.w	(puckc).w,d1
@@ -819,7 +819,7 @@ loc_1ADD8
 	bsr.w	SetSPA
 	tst.w	$34(a3)
 	bne.w	stopna2
-	jmp	sub_1D6E0E
+	jmp	stopfast
 
 stopna2	;Stop, keeping the animation (goalies)
 	tst.w	Xvel(a3)

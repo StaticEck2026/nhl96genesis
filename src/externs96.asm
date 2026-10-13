@@ -2,24 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-PuckOnAttackHalf	equ	$1D6B66
-sub_1D6D22	equ	$1D6D22
-sub_1D6D40	equ	$1D6D40
-sub_1D6E0E	equ	$1D6E0E
-AttributeCalc	equ	$1D6F66
-sub_1D72F6	equ	$1D72F6
-sub_1D733C	equ	$1D733C
-UpdateRecords	equ	$1D7BC6
-CountGoalies	equ	$1D7D0E
-ShootoutModeBox	equ	$1D7FA6
-CountShootoutGoals	equ	$1D8208
-sub_1D82A2	equ	$1D82A2
-nullsub_5	equ	$1D84D4
-sub_1D8618	equ	$1D8618
-ShortenMsgTimer	equ	$1D8676
-ManualGoalieMenu	equ	$1D86A4
-nullsub_6	equ	$1D8782
-nullsub_7	equ	$1D8A86
 sub_1D8E5C	equ	$1D8E5C
 sub_1D8E6C	equ	$1D8E6C
 PrintPlayerAssists	equ	$1D8EF6
@@ -34,6 +16,7 @@ sub_1D9376	equ	$1D9376
 ClearPenalties	equ	$1D97F4
 sub_1D9844	equ	$1D9844
 loc_1DB020	equ	$1DB020
+sub_1DF9C2	equ	$1DF9C2
 sub_1DFA1C	equ	$1DFA1C
 sub_1DFA34	equ	$1DFA34
 sub_1E0DDE	equ	$1E0DDE
@@ -62,14 +45,10 @@ sub_1E889C	equ	$1E889C
 sub_1E89FC	equ	$1E89FC
 sub_1E8C5E	equ	$1E8C5E
 ValidationRoutine	equ	$1E9038	;ROM checksum
-sub_1D7DF8	equ	$1D7DF8
-sub_1D8B26	equ	$1D8B26
 sub_1D9352	equ	$1D9352
 sub_1DF8AC	equ	$1DF8AC
 sub_1E7A78	equ	$1E7A78
 sub_1E8840	equ	$1E8840
 unk_1DF9EC	equ	$1DF9EC
 unk_1DF9FC	equ	$1DF9FC
-Create_HotCold_Table	equ	$1D6F24
-sub_1D8262	equ	$1D8262
 sub_1DA6C0	equ	$1DA6C0

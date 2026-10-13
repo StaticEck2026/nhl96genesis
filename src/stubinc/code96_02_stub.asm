@@ -91,6 +91,8 @@ PadIconMap4 = $1B643E		;data96_09
 PadCursorMap = $1B69BC		;data96_09
 ControllerTitleMap = $1B6F3A		;data96_09
 unk_1B773A = $1B773A		;data96_09
+PuckOnAttackHalf = $1D6B66		;code96_14
+ShortenMsgTimer = $1D8676		;code96_14
 
 
 ; Main segment code

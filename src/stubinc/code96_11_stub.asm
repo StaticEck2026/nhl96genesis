@@ -78,6 +78,8 @@ EASNmap = $13D59E		;data96_06
 EASportsMap = $13DA74		;data96_06
 RevRinkTilelist = $13E99A		;data96_06
 SmallFontMap = $179A76		;data96_08
+UpdateCrowdMeter = $1D6D40		;code96_14
+nullsub_5 = $1D84D4		;code96_14
 
 
 ; Main segment code

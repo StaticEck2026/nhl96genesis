@@ -70,7 +70,7 @@ FallDown	;Player a3 falls down (a check or the puck): the fall animation, the in
 	bsr.w	vtoa
 	tst.w	position(a2)
 	beq.w	loc_1E41A
-	jsr	(sub_1D72F6).l	;check for wall collision
+	jsr	(wallcollduringcheck).l	;check for wall collision
 	btst	#4,pflags3(a2)	;check wall collision bit
 	beq.w	loc_1E41A
 	movem.l	d1-d4,-(sp)

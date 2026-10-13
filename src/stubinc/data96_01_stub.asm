@@ -156,6 +156,11 @@ SmallLogoTOR = $16FDEC		;data96_07
 SmallLogoVAN = $1700EC		;data96_07
 SmallLogoWSH = $17040C		;data96_07
 SmallLogoWPG = $17074C		;data96_07
+InitCrowdMeter = $1D6D22		;code96_14
+Create_HotCold_Table = $1D6F24		;code96_14
+setSlotBit = $1D733C		;code96_14
+ManualGoalieMenu = $1D86A4		;code96_14
+nullsub_6 = $1D8782		;code96_14
 
 
 ; Main segment code

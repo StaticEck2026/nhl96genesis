@@ -33,6 +33,7 @@ AbortGame = $021A2E		;code96_11
 SmallFontMap = $179A76		;data96_08
 BigFontMap = $1B89C8		;data96_09
 BigFontMap3 = $1B9416		;data96_09
+ManualGoalieMenu = $1D86A4		;code96_14
 
 ; Main segment code
 	include	data96_02.asm

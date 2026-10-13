@@ -977,7 +977,7 @@ StartGame	;Reset game state for a new game, then start the first period
 	move.b	#1,(VDP_PSG).l
 	jsr	(sub_1D4CE).l
 	jsr	(setupice).l
-	jsr	(sub_1D6D22).l
+	jsr	(InitCrowdMeter).l
 	jmp	IntermissionStart
 
 sub_14804
@@ -1131,7 +1131,7 @@ DoGameFrame	;Wait for at least one vblank, then run one frame of game logic
 	move.w	(delayedsong).w,-(sp)
 	jsr	(song).l
 .1
-	jsr	(sub_1D733C).l
+	jsr	(setSlotBit).l
 	bsr.w	checkwindow
 	bsr.w	updatereplay
 	jmp	setvideo

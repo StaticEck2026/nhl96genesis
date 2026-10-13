@@ -257,4 +257,10 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   number. RAM: onetimertargetx, onetimertargety. MATCH (segment and ROM).
 - code96_14: $1D6D10 is CheckOneTimerFacing (setonetimeranim calls it after vtoa, as in 95); PuckOnAttackHalf starts
   the segment.
-- Next: code96_14.
+- code96_14 converted: the crowd meter (InitCrowdMeter, UpdateCrowdMeter), stopfast (a stopna2 copy with step $7D0;
+  stopna2 itself is code96_08's), checkcornercoll / cornercollb (95 names: the wall test without the goals;
+  code96_10 keeps checkwallcoll), the hot / cold players, the team / crowd records and name log, CalcAttrib with its
+  weight lists, the string helpers, the shootout code and skate paths, GetTeamNickname / GetTeamArena. Undecoded
+  routines are labelled bytes by 95 masked byte matches. MATCH (segment and ROM).
+- ShowCrowdFrame2 is a copy of code96_11's ShowCrowdFrame that nothing reaches.
+- Next: code96_15.

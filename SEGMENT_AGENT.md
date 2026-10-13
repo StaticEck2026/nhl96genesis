@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_14. <- CURRENT
+code96_15. <- CURRENT
 
 ## Sources
 
@@ -83,7 +83,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | data96_08 | matched, 133756 bytes | $179168 | $199BE3 | data | graphics95 | RosterFont, SmallFontMap, SmallFontMap2, BigFontMap, BigFontMap2, the screen maps and data used from other code (unk_ names) |
 | data96_09 | matched, 147704 bytes | $199BE4 | $1BDCDB | data | graphics95 | PadIconMap1-4, PadCursorMap, ControllerTitleMap, BigFontMap, BigFontMap3, the screen maps and data used from other code (unk_ names) |
 | data96_10 | matched, 102026 bytes | $1BDCDC | $1D6B65 | data | graphics95, input95, logic95 | screen maps used from other code (unk_ names); puckvzadj, OneTimerPass, OneTimerTarget, OneTimerNearTbl, OneTimerFarTbl, OneTimerGoalieTbl; assonetimer, setonetimeranim (bytes) |
-| code96_14 | incbin | $1D6B66 | $1D8E5B | code | shootout95, middle95, scout95 | |
+| code96_14 | matched, 8950 bytes | $1D6B66 | $1D8E5B | code | shootout95, middle95, scout95, collide95, logic95, records95, lines95 | PuckOnAttackHalf, InitCrowdMeter, UpdateCrowdMeter, stopfast, checkcornercoll, cornercollb, Create_HotCold_Table, AttributeCalc, wallcollduringcheck, setSlotBit, Read/WriteTeamRecord, TeamRecordIO, Read/WriteNameLog, NameLogIO, UpdateRecords, UpdateTeamRecord, CountGoalies, CountPlayers, CalcAttrib, Ovr/Attrib weight lists, ShootoutModeBox, ClearShootout, CountShootoutGoals, InitShooters, ShootoutWonBy, EndShootout, updatePPTeamTime, ShortenMsgTimer, PSandSOpassdir, passdirlist, ShootoutPaths 1-7; CheckOneTimerFacing, the hot / cold players, CopyString, AppendUserName, AppendTeamName, TrimSpaces, NextShooter, GetTeamNickname, GetTeamArena, ClearWinRecords, StartShootoutPath, NextPathPoint, SkatePath, ShootoutShootCheck, UnpackPicture (bytes) |
 | code96_15 | incbin | $1D8E5C | $1DB287 | code | season95, goal95, logic95 | |
 | code96_16 | incbin | $1DB288 | $1DC03B | code | - | |
 | data96_11 | incbin | $1DC03C | $1DFA1B | data | create95, trade95, records95 | |

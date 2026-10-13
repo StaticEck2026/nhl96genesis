@@ -209,4 +209,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - SoundBanks: the SndItem table (168 items), then the item data with a comment per item; the segment ends inside
   sample 16, which continues in data96_03.
 - RAM: ValidSRAM, SRAMChecksum, SndDrvRAM.
-- Next: data96_03.
+- data96_03 converted: SoundBanks item data from inside sample 16 to inside song 0 (the samples, the patches), dc.b
+  with one comment per item. MATCH (segment and ROM). No labels: the listing's unk_44120 was the constant
+  move.l #$44120,(a1) in code96_04 (String length 4, 'A '), now written as the constant.
+- Next: data96_04.

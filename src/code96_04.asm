@@ -41,7 +41,7 @@ SetLCmode2	;Open the line change box: wait for the box, then draw the line choic
 	move.w	$16(a2),d0
 .pr
 	movea.w	#(mesarea-M68K_RAM),a1
-	move.l	#unk_44120,(a1)
+	move.l	#$44120,(a1)	;String length 4, 'A '
 	add.b	d4,2(a1)
 	jsr	(print).l
 	move.w	d0,-(sp)

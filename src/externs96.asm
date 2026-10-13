@@ -119,7 +119,6 @@ sub_1E8840	equ	$1E8840
 sfx	equ	$88470
 unk_1DF9EC	equ	$1DF9EC
 unk_1DF9FC	equ	$1DF9FC
-unk_44120	equ	$44120
 Create_HotCold_Table	equ	$1D6F24
 sub_1D8262	equ	$1D8262
 sub_1DA6C0	equ	$1DA6C0

@@ -71,6 +71,12 @@ stop_current_song = $0885FC		;data96_04
 SoundOff = $088676		;data96_04
 Rinktilelist = $0923E4		;data96_05
 Sprites = $09AA9E		;data96_05
+CrowdFrameList = $13AA96		;data96_06
+FaceOffSprites = $13BCB0		;data96_06
+EnergyBarMap = $13D290		;data96_06
+EASNmap = $13D59E		;data96_06
+EASportsMap = $13DA74		;data96_06
+RevRinkTilelist = $13E99A		;data96_06
 
 
 ; Main segment code

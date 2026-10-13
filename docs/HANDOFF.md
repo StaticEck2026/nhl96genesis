@@ -233,4 +233,9 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - The listing's unk_A0000 (from data96_10, move.l #unk_A0000,d1 before a divu) is the number $A0000: no label; write
   it as #$A0000 when data96_10 is converted. data96_06 holds the sprite palette at $12F588 (Sprites + $94AEA)
   and frameSprData at $12F608 (Sprites + $94B6A).
-- Next: data96_06.
+- data96_06 converted: graphics, dc.b with labels at the resources the code uses (95 names by use): the rest of
+  Spritetiles, SpritePalette and frameSprData (the Sprites header offsets), HotList, HotList2 (the GetHot variants in
+  code96_08), CrowdFrameList, FaceOffSprites, EnergyBarMap and EASNmap (written as maps), EASportsMap, RevRinkTilelist
+  and the start of ReplayIconMap (used by ShowReplayIcon; its tiles at +8 open data96_07). MATCH (segment and ROM).
+  code96_11's sub_210B0 is setupEASNmap.
+- Next: data96_07.

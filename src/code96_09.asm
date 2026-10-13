@@ -1204,7 +1204,7 @@ nullsub_4
 EASNLogo	;Draw the EASN logo
 	bsr.w	printz
 	String	$BF,$01,$15
-	movea.l	#unk_13D59E,a1
+	movea.l	#EASNmap,a1
 	adda.l	4(a1),a1
 	movea.w	#$772,a2
 	clr.w	d0
@@ -1243,7 +1243,7 @@ linebar	;Draw the energy bar of line d0 for team a2 at printx / printy
 	moveq	#$F,d1
 	sub.w	d0,d1
 	clr.w	d0
-	movea.l	#unk_13D290,a1
+	movea.l	#EnergyBarMap,a1
 	adda.l	4(a1),a1
 	movea.w	#$772,a2
 	move.w	(a1),d2

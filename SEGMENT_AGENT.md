@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-data96_06. <- CURRENT
+data96_07. <- CURRENT
 
 ## Sources
 
@@ -78,7 +78,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | data96_04 | matched, 58330 bytes | $07A40A | $0887E3 | data | sound95 | SoundBanks item data (song 0 part to list 1); SoundCmd, UpdateCwdExcite, updatesound, CheckLateGameSong, sfx, sfxplay, SfxTable, song, StartSong, stop_current_song, SoundOff, ChooseSong, TeamSongs, RandomSongs; stop_current_song2, KillCrowd2, p_initialZ80, ClearAllTrackAndSFXSlots (bytes) |
 | code96_13 | matched, 27362 bytes | $0887E4 | $08F2C5 | code | sound95, scout95 | newcheck, ScoutTextScript (unreferenced text); unreferenced data after it |
 | data96_05 | matched, 593262 bytes | $08F2C6 | $120033 | data | graphics95 | maps (header, tiles, .pal, .map): unk_8F2C6, unk_90686, unk_911B8, Framermap, FaceOffMap, Rinktilelist, RefTiles, RefTilesHor; Sprites header, Spritetiles (start) |
-| data96_06 | incbin | $120034 | $140B05 | data | - | |
+| data96_06 | matched, 133842 bytes | $120034 | $140B05 | data | graphics95 | Spritetiles (rest), SpritePalette, frameSprData, HotList, HotList2, CrowdFrameList, FaceOffSprites, EnergyBarMap, EASNmap (maps), EASportsMap, RevRinkTilelist, ReplayIconMap (start) |
 | data96_07 | incbin | $140B06 | $179167 | data | - | |
 | data96_08 | incbin | $179168 | $199BE3 | data | - | |
 | data96_09 | incbin | $199BE4 | $1BDCDB | data | - | |

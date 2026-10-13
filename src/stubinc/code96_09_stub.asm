@@ -73,6 +73,8 @@ newcheck = $0887E4		;code96_13
 Framermap = $091B86		;data96_05
 RefTiles = $097E72		;data96_05
 RefTilesHor = $098F30		;data96_05
+EnergyBarMap = $13D290		;data96_06
+EASNmap = $13D59E		;data96_06
 
 
 ; Main segment code

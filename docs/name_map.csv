@@ -985,7 +985,7 @@ $020C16,addframe2,sub_20C16,,code96_11
 $020DD2,find3d,sub_20DD2,,code96_11
 $021046,sub_21046,sub_21046,,code96_11
 $02109A,setupIceRinkPal,sub_2109A,,code96_11
-$0210B0,sub_210B0,sub_210B0,,code96_11
+$0210B0,setupEASNmap,sub_210B0,,code96_11
 $0210C2,sub_210C2,,,code96_11
 $0210D0,sub_210D0,sub_210D0,,code96_11
 $0210EC,sub_210EC,,,code96_11
@@ -1216,3 +1216,14 @@ $097E72,RefTiles,unk_97E72,,data96_05
 $098F30,RefTilesHor,unk_98F30,,data96_05
 $09AA9E,Sprites,unk_9AA9E,,data96_05
 $09AAA8,Spritetiles,,,data96_05
+$12F588,SpritePalette,,,data96_06
+$12F608,frameSprData,,,data96_06
+$13938E,HotList,unk_13938E,,data96_06
+$13A212,HotList2,,,data96_06
+$13AA96,CrowdFrameList,unk_13AA96,,data96_06
+$13BCB0,FaceOffSprites,unk_13BCB0,,data96_06
+$13D290,EnergyBarMap,unk_13D290,,data96_06
+$13D59E,EASNmap,unk_13D59E,,data96_06
+$13DA74,EASportsMap,unk_13DA74,,data96_06
+$13E99A,RevRinkTilelist,unk_13E99A,,data96_06
+$140AFE,ReplayIconMap,,,data96_06

@@ -115,7 +115,7 @@ updatescroll	;Scroll the rink window: Hscroll / Vscroll from Hpos / Vpos
 	movea.l	#Rinktilelist,a0
 	btst	#4,(sflags4).w
 	beq.w	.0
-	movea.l	#unk_13E99A,a0
+	movea.l	#RevRinkTilelist,a0
 	bra.w	.1
 .0
 	adda.l	4(a0),a0
@@ -209,7 +209,7 @@ checkfo	;Check for faceoff sprites: the fofdata2 entries (frame, flags) as sprit
 .0
 	subq.w	#3,d4
 .2
-	movea.l	#unk_13BCB0,a2
+	movea.l	#FaceOffSprites,a2
 	adda.l	4(a2),a2
 	subq.w	#1,d4
 	add.w	d4,d4
@@ -275,7 +275,7 @@ checkfo	;Check for faceoff sprites: the fofdata2 entries (frame, flags) as sprit
 showcrowd	;Crowd sprites: the penalty box frames per PBnum nibble (ShowCrowdPb), then the crowdframe frame
 	btst	#4,(sflags4).w	;check if reverse angle replay
 	bne.w	locret_20720
-	movea.l	#unk_13AA96,a1
+	movea.l	#CrowdFrameList,a1
 	adda.l	4(a1),a1
 	move.w	(Hpos).w,d4
 	move.w	(Vpos).w,d5
@@ -903,9 +903,9 @@ setupice	;Set all variables, send non purgeable graphics, build sprite frame lis
 	jsr	(sub_1D8E6C).l
 	jsr	(sub_1D8E5C).l
 	move.w	d4,(EASNcset).w
-	bsr.w	sub_210B0
+	bsr.w	setupEASNmap
 	move.w	d4,(energybarchars).w
-	movea.l	#unk_13D298,a2
+	movea.l	#EnergyBarMap+8,a2
 	bsr.w	DecompressGraphicsPlain
 	move.w	d4,(animchars).w
 	jsr	(sub_210D0).l
@@ -989,9 +989,9 @@ setupIceRinkPal	;Copy the rink palettes (at the Rinktilelist header) to palfaden
 	dbf	d0,.0
 	rts
 
-sub_210B0	;DecompressGraphicsPlain unk_13D5A6 at EASNcset
+setupEASNmap	;Load the EASN logo tiles (EASNmap+8) at EASNcset
 	move.w	(EASNcset).w,d4
-	movea.l	#unk_13D5A6,a2
+	movea.l	#EASNmap+8,a2
 	jmp	DecompressGraphicsPlain
 	dc.b	$4E,$75
 
@@ -999,9 +999,9 @@ sub_210C2	;Called from the replay code.
 	;Code the listing does not decode: kept as bytes
 	dc.b	$38,$38,$B0,$20,$24,$7C,$00,$13,$D2,$98,$60,$00,$A6,$62
 
-sub_210D0	;DecompressGraphicsPlain unk_13AA9E at animchars
+sub_210D0	;DecompressGraphicsPlain CrowdFrameList+8 at animchars
 	move.w	(animchars).w,d4
-	movea.l	#unk_13AA9E,a2
+	movea.l	#CrowdFrameList+8,a2
 	bra.w	DecompressGraphicsPlain
 	dc.b	$38,$38,$B0,$3A,$24,$7C,$00,$09,$8F,$38,$60,$00,$A6,$46
 
@@ -1575,7 +1575,7 @@ EASportsScreen	;Called from Begin. Show the EA Sports screen until a button or a
 	bsr.w	setVram_0
 	bsr.w	printz
 	String	$FE,$00,$00
-	movea.l	#unk_13DA74,a2
+	movea.l	#EASportsMap,a2
 	movea.l	a2,a0
 	movea.l	a2,a1
 	adda.l	(a2)+,a0

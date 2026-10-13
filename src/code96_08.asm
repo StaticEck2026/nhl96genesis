@@ -152,7 +152,7 @@ vtoa	;d0/d1 = vector: return d0 = direction 0-7 (8 for no vector) through .dt
 .dt
 	dc.b	1,7,3,5,0,0,4,4,2,6,2,6,1,7,3,5
 
-GetHot	;Push long address of structure to get hot spot from; hot spot x/y returned in d0/d1 (unk_13938E by
+GetHot	;Push long address of structure to get hot spot from; hot spot x/y returned in d0/d1 (HotList by
 	;frame, flipped with the attribute)
 	movem.l	a0-a1,-(sp)
 	movea.l	$C(sp),a0	;move stored address before sub routine call into a0
@@ -160,7 +160,7 @@ GetHot	;Push long address of structure to get hot spot from; hot spot x/y return
 	clr.w	d1	;clear d1
 	tst.w	frame(a0)
 	ble.w	.ex
-	movea.l	#unk_13938E,a1
+	movea.l	#HotList,a1
 	move.w	frame(a0),d0
 	add.w	d0,d0	;double d0
 	move.b	1(a1,d0.w),d1	;SprStrHot Y byte

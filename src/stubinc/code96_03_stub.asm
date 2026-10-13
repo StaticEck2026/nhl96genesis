@@ -48,6 +48,7 @@ AddPenalty2 = $01C1D2		;code96_09
 loadTeamStruct = $01D328		;code96_09
 setd0player = $01F662		;code96_10
 rtss2 = $01F84A		;code96_10
+assonetimer = $1D6872		;data96_10
 SPA3128 = $3128		;SPA value (frames96)
 SPA3182 = $3182		;SPA value (frames96)
 SPA3252 = $3252		;SPA value (frames96)

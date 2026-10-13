@@ -361,8 +361,8 @@ BA_Goalie_Offset equ $FFFFD2DA
 BA_Checker_Offset equ $FFFFD2DC
 pspenalty equ $FFFFD2DE
 holdreset equ $FFFFD2E0
-word_FFD2E2 equ $FFFFD2E2
-word_FFD2E4 equ $FFFFD2E4
+onetimertargetx equ $FFFFD2E2
+onetimertargety equ $FFFFD2E4
 onetimerheight equ $FFFFD2E6
 FallYPos equ $FFFFD2E8
 FallXPos equ $FFFFD2EA

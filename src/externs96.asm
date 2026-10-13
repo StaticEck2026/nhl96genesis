@@ -2,7 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-loc_1D6872	equ	$1D6872	;asstab entry
 PuckOnAttackHalf	equ	$1D6B66
 sub_1D6D22	equ	$1D6D22
 sub_1D6D40	equ	$1D6D40
@@ -63,9 +62,6 @@ sub_1E889C	equ	$1E889C
 sub_1E89FC	equ	$1E89FC
 sub_1E8C5E	equ	$1E8C5E
 ValidationRoutine	equ	$1E9038	;ROM checksum
-sub_1D6622	equ	$1D6622
-sub_1D66AC	equ	$1D66AC
-sub_1D6718	equ	$1D6718
 sub_1D7DF8	equ	$1D7DF8
 sub_1D8B26	equ	$1D8B26
 sub_1D9352	equ	$1D9352

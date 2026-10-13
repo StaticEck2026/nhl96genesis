@@ -884,7 +884,7 @@ doshot	;Shoot the puck
 	beq.w	.3
 	btst	#3,pflags3(a3)
 	bne.w	.3
-	jsr	(sub_1D6622).l
+	jsr	(puckvzadj).l
 .3
 	jsr	(sfx).l
 .4
@@ -935,13 +935,13 @@ dopass	;Pass the puck
 .0
 	bclr	#3,(sflags5).w
 	beq.w	.noot
-	jsr	(sub_1D6718).l
+	jsr	(OneTimerTarget).l
 	move.w	#9,(onetimerheight).w
 	btst	#2,(sflags6).w
 	beq.w	.1
 	move.w	#$20,(onetimerheight).w
 .1
-	jsr	(sub_1D66AC).l
+	jsr	(OneTimerPass).l
 	bra.w	.8
 .noot
 	moveq	#8,d0	;moves 8 into d0

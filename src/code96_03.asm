@@ -490,7 +490,7 @@ asstab	;Assignment routines: assignment number = index (asslist entries; doassig
 	dc.l	assgoaliebreakwait	;$20
 	dc.l	chkpuckc	;$21
 	dc.l	assbreakaway	;$22
-	dc.l	loc_1D6872	;$23
+	dc.l	assonetimer	;$23
 	dc.l	loc_D32A	;$24
 	dc.l	loc_D7A4	;$25
 	dc.l	loc_D06A	;$26

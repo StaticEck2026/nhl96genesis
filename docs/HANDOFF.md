@@ -251,4 +251,10 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   cursor and ControllerTitleMap, and the big fonts. The big font names follow 95 by the print routine: printbig1 uses
   BigFontMap, printbig BigFontMap2, printbig2 BigFontMap3; the font printbig takes with sflags11 bit 2 is BigFontMap4
   (data96_08's BigFontMap / BigFontMap2 renamed, old names in name_map). MATCH (segment and ROM).
-- Next: data96_10.
+- data96_10 converted: screen maps used from other code (unk_ names), then the one-timer code that 95 keeps in
+  input95 / logic95: puckvzadj, OneTimerPass, OneTimerTarget and OneTimerNearTbl / FarTbl / GoalieTbl as source;
+  assonetimer (asstab $23) and setonetimeranim as labelled bytes. The constant $A0000 in puckvzadj is written as a
+  number. RAM: onetimertargetx, onetimertargety. MATCH (segment and ROM).
+- code96_14: $1D6D10 is CheckOneTimerFacing (setonetimeranim calls it after vtoa, as in 95); PuckOnAttackHalf starts
+  the segment.
+- Next: code96_14.

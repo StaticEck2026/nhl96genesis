@@ -51,6 +51,9 @@ PAttribAggressMask = $023574		;data96_02
 GAttribOverallMask = $0235B8		;data96_02
 ReadSRAM = $0241E8		;data96_02
 sfx = $088470		;data96_04
+puckvzadj = $1D6622		;data96_10
+OneTimerPass = $1D66AC		;data96_10
+OneTimerTarget = $1D6718		;data96_10
 
 
 ; Main segment code

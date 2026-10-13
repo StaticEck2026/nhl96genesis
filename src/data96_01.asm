@@ -489,7 +489,7 @@ BeginPlayoffs	;Seed the playoffs with sflags11 bit 0 (the pairings to POPairings
 	bsr.w	InitPlayoffs
 	jsr	(maketree).l
 	bclr	#6,(GameFlags).w
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 	rts
 
 InitPlayoffs	;Seed the playoffs: the two conferences (ConferenceTeams1 / 2) sorted by points (SortSeeds), the pairings
@@ -539,7 +539,7 @@ InitPlayoffs	;Seed the playoffs: the two conferences (ConferenceTeams1 / 2) sort
 	bra.w	.4
 .3
 	bsr.w	BuildPOSlots
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 .4
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
@@ -675,7 +675,7 @@ ConferenceTeams1	;The teams of the first conference
 ConferenceTeams2	;The teams of the second conference
 	dc.b	BOS,BUF,HFD,MTL,OTW,PIT,QUE,FLA,NJ,NYI,NYR,PHI,TB,WSH
 
-SetupPlayoffs	;Start the playoffs: save the season header (SRSeasonHeaderSave) and clear it, clear save RAM blocks (sub_24208),
+SetupPlayoffs	;Start the playoffs: save the season header (SRSeasonHeaderSave) and clear it, clear save RAM blocks (ClearSRAMBytes),
 	;OptPlayMode 1
 	movem.l	d0-d7/a0-a6,-(sp)
 	bset	#6,(GameFlags).w
@@ -702,26 +702,26 @@ SetupPlayoffs	;Start the playoffs: save the season header (SRSeasonHeaderSave) a
 	jsr	(sub_1147E).l
 	move.l	#$CBF,d0
 	move.w	#$54,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.l	#$D13,d0
 	move.w	#$54,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.l	#$D67,d0
 	move.w	#$15,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.l	#$D7C,d0
 	move.w	#$18,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.l	#$89,d0
 	move.l	#$6C0,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	jsr	(sub_1DFA1C).l
 	moveq	#$4D,d0
 	moveq	#$A,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.w	#1,(OptPlayMode).w
 	bclr	#6,(GameFlags).w
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
@@ -916,7 +916,7 @@ Begin	;Cold start, entered from Start. Clear RAM, init sound and menus, go to th
 	jsr	(KillCrowd).l
 	jsr	(Detect4WayPlay).l
 	jsr	(EASportsScreen).l
-	jsr	(sub_23F1C).l
+	jsr	(InitSaveRAM).l
 	jsr	(sub_1D9114).l
 	jsr	(DefaultMenus).l
 	move.w	(OptLine).w,(TmpOptLine2).w
@@ -983,8 +983,8 @@ StartGame	;Reset game state for a new game, then start the first period
 sub_14804
 	move.l	#$E68,d0
 	moveq	#$66,d1
-	jsr	(sub_24208).l
-	jsr	(sub_241AA).l
+	jsr	(ClearSRAMBytes).l
+	jsr	(MakeSRAMChecksum).l
 	rts
 
 restoreteams	;Both teams: no players in the penalty box, every roster player on the bench
@@ -1214,7 +1214,7 @@ updatecrowdf	;Every game loop, d7 = elapsed frames: the crowd level falls (faste
 	addq.w	#2,(crowdtblidx).w
 	andi.w	#$1E,(crowdtblidx).w
 	add.w	(crowdtblidx).w,d0
-	movea.l	#unk_23248,a0
+	movea.l	#CrowdFrameTbl,a0
 	move.b	(a0,d0.w),(crowdframe+1).w
 	clr.w	d1
 	move.b	1(a0,d0.w),d1
@@ -1402,16 +1402,16 @@ Pausemode	;Game is in pause mode now: restart the sound driver, run the pause me
 	move.w	(sflags).w,-(sp)
 	bsr.w	seta2
 	jsr	(sub_1D9844).l
-	movea.l	#unk_23734,a0
+	movea.l	#PauseMenu,a0
 	lea	SetupPauseScreen(pc),a1
 	btst	#0,(gmode2).w
 	beq.w	.0
-	movea.l	#unk_236B0,a0
+	movea.l	#ShootoutPauseMenu,a0
 	bra.w	.1
 .0
 	btst	#2,$30(a2)
 	beq.w	.1
-	movea.l	#unk_23890,a0
+	movea.l	#PauseMenuNoTimeout,a0
 .1
 	bsr.w	InitMenuState
 .2
@@ -1537,7 +1537,7 @@ HandleMenuInput	;Pause menu pad d1: up / down move the selection, C runs the ite
 	beq.w	.0
 	cmpa.l	#SelectGoalieMenu,a0
 	beq.w	.0
-	cmpa.l	#unk_1D86A4,a0
+	cmpa.l	#ManualGoalieMenu,a0
 	bne.w	.11
 .0
 	bsr.w	UpdateMenuSelection

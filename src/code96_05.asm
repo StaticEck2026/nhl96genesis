@@ -237,7 +237,7 @@ sub_10F44
 .3
 	addq.l	#3,d1
 	dbf	d4,.2
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 	movem.l	(sp)+,d0-d4/a0
 	rts
 
@@ -261,7 +261,7 @@ sub_10FB4
 	jsr	(sub_1147E).l
 	jsr	(sub_11552).l
 	bclr	#6,(GameFlags).w
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 .0
 	rts
 
@@ -352,7 +352,7 @@ sub_11024
 .13
 	clr.w	(word_FFDDB0).w
 	bclr	#6,(GameFlags).w
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 	move.w	(sp)+,(OptPerlen).w
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
@@ -485,7 +485,7 @@ sub_11226
 	addq.w	#5,a2
 .5
 	dbf	d1,.6
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
@@ -547,7 +547,7 @@ sub_112DA
 	move.l	#$240,d1
 	move.w	#8,d2
 	jsr	(WriteSRAMBits).l
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 	jsr	(sub_1149E).l
 .5
 	movem.l	(sp)+,d0-d2
@@ -617,8 +617,8 @@ sub_1147E
 	movea.l	#$FFFFDD7E,a0
 	moveq	#$C,d1
 	moveq	#$41,d0
-	jsr	(sub_24188).l
-	jsr	(sub_241AA).l
+	jsr	(WriteSRAM).l
+	jsr	(MakeSRAMChecksum).l
 	movem.l	(sp)+,d0-d1/a0
 	rts
 
@@ -627,7 +627,7 @@ sub_1149E
 	movea.l	#$FFFFDD7E,a0
 	moveq	#$C,d1
 	moveq	#$41,d0
-	jsr	(sub_241E8).l
+	jsr	(ReadSRAM).l
 	movem.l	(sp)+,d0-d1/a0
 	rts
 	;Code the listing does not decode: kept as bytes
@@ -666,11 +666,11 @@ sub_11552
 	movem.l	d0-d1,-(sp)
 	moveq	#$4D,d0
 	move.l	#$D67,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.l	#$1DBE,d0
 	move.l	#$108,d1
-	jsr	(sub_24208).l
-	jsr	(sub_241AA).l
+	jsr	(ClearSRAMBytes).l
+	jsr	(MakeSRAMChecksum).l
 	movem.l	(sp)+,d0-d1
 	rts
 
@@ -684,17 +684,17 @@ sub_11582
 	move.l	#$89,d0
 	move.l	#$666,d1
 .0
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.l	#$DDD,d0
 	moveq	#9,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.l	#$1DBE,d0
 	move.l	#$108,d1
-	jsr	(sub_24208).l
+	jsr	(ClearSRAMBytes).l
 	move.l	#$DE6,d0
 	moveq	#$78,d1
-	jsr	(sub_24208).l
-	jsr	(sub_241AA).l
+	jsr	(ClearSRAMBytes).l
+	jsr	(MakeSRAMChecksum).l
 	movem.l	(sp)+,d0-d1
 	rts
 
@@ -1011,7 +1011,7 @@ sub_11814
 .35
 	move.b	#1,($203D8F).l
 	bclr	#6,(GameFlags).w
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 .36
 	movem.l	(sp)+,d0-d7/a0-a6
 .exit

@@ -58,6 +58,14 @@ PenaltyShotBox = $022B70		;code96_12
 ShowGoalBox = $022C5E		;code96_12
 GetPlayerName = $022E70		;code96_12
 GetPlayerNumInitial = $022ED6		;code96_12
+bfasciicon = $0232C8		;data96_02
+priolist = $023426		;data96_02
+ShootoutIntermissionMenu = $0239D4		;data96_02
+PregameMenu = $023A58		;data96_02
+PlayoffPregameMenu = $023AF4		;data96_02
+IntermissionMenu = $023BA8		;data96_02
+GameOverMenu = $023CBC		;data96_02
+PlayoffGameOverMenu = $023D88		;data96_02
 
 
 ; Main segment code

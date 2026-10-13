@@ -78,6 +78,9 @@ print = $01BBA0		;code96_08
 SkipStrings = $01D7F2		;code96_09
 checkcoll = $01D7FE		;code96_09
 VBlank_SetOptions = $021B52		;code96_11
+linelist = $023342		;data96_02
+MakeSRAMChecksum = $0241AA		;data96_02
+doassignment = $024380		;data96_02
 
 
 ; Main segment code

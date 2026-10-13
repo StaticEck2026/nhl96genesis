@@ -5,7 +5,7 @@
 ;	Code the listing does not decode stays as bytes, with its labels where they are known.
 
 WriteSRAMBits	;Write the d2-bit value d0 to the save RAM at bit d1 (bit 0 is the top bit of the
-	;first odd byte at SaveRAM), then sub_241AA unless GameFlags bit 6 is set
+	;first odd byte at SaveRAM), then MakeSRAMChecksum unless GameFlags bit 6 is set
 	movem.l	d0-d6/a0,-(sp)
 	movea.l	#SaveRAM,a0
 	move.w	d1,d3
@@ -40,7 +40,7 @@ WriteSRAMBits	;Write the d2-bit value d0 to the save RAM at bit d1 (bit 0 is the
 	move.b	d6,1(a0)
 	btst	#6,(GameFlags).l
 	bne.w	.0
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 .0
 	movem.l	(sp)+,d0-d6/a0
 	rts

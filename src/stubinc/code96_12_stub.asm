@@ -35,6 +35,9 @@ prefmes = $01C9FA		;code96_09
 sub_1CFE4 = $01CFE4		;code96_09
 rtss2 = $01F84A		;code96_10
 maketree = $021CF4		;code96_11
+WriteSRAM = $024188		;data96_02
+MakeSRAMChecksum = $0241AA		;data96_02
+ReadSRAM = $0241E8		;data96_02
 
 
 ; Main segment code

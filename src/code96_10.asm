@@ -1480,7 +1480,7 @@ SetPlList	;Create PlList of players who we want on the ice now. a2 = team struct
 	movea.w	#(PlList-M68K_RAM),a4
 	clr.l	(a4)	;clear 6 bytes (PlList)
 	clr.w	4(a4)
-	movea.l	#unk_23426,a0	;priority of positions
+	movea.l	#priolist,a0	;priority of positions
 	tst.w	$26(a2)
 	bpl.w	.0
 	addq.w	#1,a0	;add 1 to a0
@@ -1520,7 +1520,7 @@ SetPlList	;Create PlList of players who we want on the ice now. a2 = team struct
 	move.b	6(a4,d4.w),d0	;move 6+a4+d4 into d0 (previous d5)
 	ext.w	d0	;extend d0
 	asl.w	#1,d0	;mult by 2
-	movea.l	#unk_233BC,a0	;move sublist into a0
+	movea.l	#sublist,a0	;move sublist into a0
 	adda.w	(a0,d0.w),a0
 .s1
 	clr.w	d0

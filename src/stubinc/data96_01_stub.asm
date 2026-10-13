@@ -60,6 +60,15 @@ WritePassBits = $0223EA		;code96_12
 GetShifter = $0224E2		;code96_12
 ReadTeamStats = $0225E0		;code96_12
 ShowInjuryBox = $022A2C		;code96_12
+CrowdFrameTbl = $023248		;data96_02
+ShootoutPauseMenu = $0236B0		;data96_02
+PauseMenu = $023734		;data96_02
+PauseMenuNoTimeout = $023890		;data96_02
+InitSaveRAM = $023F1C		;data96_02
+MakeSRAMChecksum = $0241AA		;data96_02
+ClearSRAMBytes = $024208		;data96_02
+Z80Program = $025500		;data96_02
+SoundBanks = $027026		;data96_02
 
 
 ; Main segment code

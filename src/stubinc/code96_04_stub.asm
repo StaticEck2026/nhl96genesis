@@ -45,6 +45,11 @@ setpersonel = $01FB52		;code96_10
 box = $022E58		;code96_12
 FinalizeTextBuffer = $0230AA		;code96_12
 ConvertByteToDigits = $0230C4		;code96_12
+linelist = $023342		;data96_02
+PAttribOverallMask = $023456		;data96_02
+PAttribAggressMask = $023574		;data96_02
+GAttribOverallMask = $0235B8		;data96_02
+ReadSRAM = $0241E8		;data96_02
 
 
 ; Main segment code

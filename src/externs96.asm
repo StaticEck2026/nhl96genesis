@@ -2,24 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-unk_23248	equ	$023248
-unk_232C8	equ	$0232C8
-linelist	equ	$023342	;line names
-unk_233AC	equ	$0233AC
-unk_233BC	equ	$0233BC
-unk_23426	equ	$023426
-unk_236B0	equ	$0236B0
-unk_23734	equ	$023734
-unk_23890	equ	$023890
-unk_239D4	equ	$0239D4
-sub_23F1C	equ	$023F1C
-sub_241AA	equ	$0241AA	;save RAM checksum (WriteSRAMBits)
-doassignment	equ	$024380
-sub_243A0	equ	$0243A0
-sub_243BA	equ	$0243BA
-sub_2441E	equ	$02441E
-Z80Program	equ	$025500
-SoundBanks	equ	$027026
 SoundCmd	equ	$08839E
 sub_883AC	equ	$0883AC
 sub_883D4	equ	$0883D4
@@ -50,6 +32,7 @@ unk_13E99A	equ	$13E99A
 unk_173C7A	equ	$173C7A	;controller setup screen map
 RosterFont	equ	$179168
 unk_179A76	equ	$179A76
+unk_179A7E	equ	$179A7E
 unk_17AA72	equ	$17AA72
 unk_17B680	equ	$17B680
 PadIconMap1	equ	$1B53C4
@@ -60,7 +43,9 @@ PadCursorMap	equ	$1B69BC
 unk_1B6F3A	equ	$1B6F3A	;controller setup screen map
 unk_1B773A	equ	$1B773A	;controller setup screen background
 unk_1B89C8	equ	$1B89C8
+unk_1B89D0	equ	$1B89D0
 unk_1B9416	equ	$1B9416
+unk_1B941E	equ	$1B941E
 loc_1D6872	equ	$1D6872	;asstab entry
 PuckOnAttackHalf	equ	$1D6B66
 sub_1D6D22	equ	$1D6D22
@@ -77,7 +62,7 @@ sub_1D82A2	equ	$1D82A2
 nullsub_5	equ	$1D84D4
 sub_1D8618	equ	$1D8618
 ShortenMsgTimer	equ	$1D8676
-unk_1D86A4	equ	$1D86A4
+ManualGoalieMenu	equ	$1D86A4
 nullsub_6	equ	$1D8782
 nullsub_7	equ	$1D8A86
 sub_1D8E5C	equ	$1D8E5C
@@ -95,8 +80,20 @@ ClearPenalties	equ	$1D97F4
 sub_1D9844	equ	$1D9844
 loc_1DB020	equ	$1DB020
 sub_1DFA1C	equ	$1DFA1C
+sub_1DFA34	equ	$1DFA34
 sub_1E0DDE	equ	$1E0DDE
+LineEditor	equ	$1E1B18
+LoadTeamLine	equ	$1E2310
+SaveTeamLine	equ	$1E239E
 sub_1E2688	equ	$1E2688
+TeamRosterScreen	equ	$1E2EFC
+ScoringSummaryScreen	equ	$1E352A
+PenaltySummaryScreen	equ	$1E38E6
+PeriodStatsScreen	equ	$1E3C7C
+GameStatisticsScreen	equ	$1E3FDE
+ShootoutShooters	equ	$1E4582
+RecordHoldersScreen	equ	$1E4DCC
+PlayerStatsScreen	equ	$1E55BA
 sub_1E55BC	equ	$1E55BC
 sub_1E6C4C	equ	$1E6C4C
 sub_1E700A	equ	$1E700A
@@ -110,9 +107,6 @@ sub_1E889C	equ	$1E889C
 sub_1E89FC	equ	$1E89FC
 sub_1E8C5E	equ	$1E8C5E
 ValidationRoutine	equ	$1E9038	;ROM checksum
-dword_23456	equ	$23456
-dword_235B8	equ	$235B8
-off_23574	equ	$23574
 sub_1D6622	equ	$1D6622
 sub_1D66AC	equ	$1D66AC
 sub_1D6718	equ	$1D6718
@@ -122,7 +116,6 @@ sub_1D9352	equ	$1D9352
 sub_1DF8AC	equ	$1DF8AC
 sub_1E7A78	equ	$1E7A78
 sub_1E8840	equ	$1E8840
-sub_241E8	equ	$241E8
 sfx	equ	$88470
 unk_1DF9EC	equ	$1DF9EC
 unk_1DF9FC	equ	$1DF9FC
@@ -130,8 +123,6 @@ unk_44120	equ	$44120
 Create_HotCold_Table	equ	$1D6F24
 sub_1D8262	equ	$1D8262
 sub_1DA6C0	equ	$1DA6C0
-sub_24188	equ	$024188
-sub_24208	equ	$024208
 song	equ	$088586
 unk_17AA7A	equ	$17AA7A
 unk_1808B8	equ	$1808B8

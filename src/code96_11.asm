@@ -734,7 +734,7 @@ addframe2	;d0/d1 = x/y coord on screen, a3 = object, a5 = dma trans, a6 = sprite
 	clr.w	d4
 	move.b	2(a2),d4
 	andi.w	#$F,d4
-	movea.l	#unk_233AC,a0
+	movea.l	#sizetab,a0
 	move.b	(a0,d4.w),d4
 	btst	#0,(sflags12).w
 	beq.w	.2
@@ -914,8 +914,8 @@ setupice	;Set all variables, send non purgeable graphics, build sprite frame lis
 	bsr.w	sub_2109A
 	bsr.w	sub_1C184
 	move.w	d4,(word_FFB038).w
-	jsr	(sub_243A0).l
-	jsr	(sub_243BA).l
+	jsr	(LoadSmallFont).l
+	jsr	(LoadBigFonts).l
 	move.w	d4,(ExtraChars).w
 	btst	#1,(gmode).w
 	beq.w	.2
@@ -1230,6 +1230,9 @@ InitTeamStructure	;Set up team struct a2 for team d0: the team number at $28 and
 	movea.w	#TeamList,a0
 	asl.w	#2,d0
 	move.l	(a0,d0.w),$1E(a2)
+
+SetOriginalLines	;The lines of team struct a2: with OptLine the team's lines (sub_EF02), else the default lines. The
+	;"Set Original lines" item of the line menus
 	tst.w	(OptLine).w
 	beq.w	.0
 	move.w	d7,-(sp)
@@ -1546,6 +1549,9 @@ loc_217BE
 .22
 	bclr	#7,(GameFlags).w
 	bra.w	Opening2
+
+AbortGame	;The "ABORT GAME" menu item: back to the title (Opening2).
+	;Code the listing does not decode: kept as bytes
 	dc.b	$08,$B8,$00,$04,$C3,$3A,$31,$FC,$FF,$FF,$C0,$64,$21,$FC,$FF,$FF
 	dc.b	$00,$00,$B0,$4E,$50,$F8,$D2,$76,$4E,$F9,$00,$02,$17,$4A
 
@@ -1673,15 +1679,15 @@ NewPO	;New playoff tree
 	movea.l	#$FFFFD130,a0
 	moveq	#$57,d0
 	moveq	#$10,d1
-	jsr	(sub_241E8).l
+	jsr	(ReadSRAM).l
 	clr.w	(Opt1team).w
 	move.b	(dword_FFDD82+2).w,(Opt1team+1).w
 	bra.w	.2
 .1
 	move.l	#$E5E,d0
 	moveq	#$A,d1
-	jsr	(sub_24208).l
-	jsr	(sub_241AA).l
+	jsr	(ClearSRAMBytes).l
+	jsr	(MakeSRAMChecksum).l
 	moveq	#$20,d0
 	bsr.w	randomd0
 .top
@@ -1732,7 +1738,7 @@ maketree	;Make the playoff tree (potree) from the playoff seeds and WinBits, the
 	movea.l	#$FFFFD130,a0
 	moveq	#$57,d0
 	moveq	#$10,d1
-	jsr	(sub_241E8).l
+	jsr	(ReadSRAM).l
 .0
 	move.w	(postarts).w,d1
 	asl.w	#4,d1

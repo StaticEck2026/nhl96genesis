@@ -192,4 +192,21 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - Outside: CountGoalies, PrintPlayerGoals, PrintPlayerAssists, ShootoutModeBox (externs96).
 - RAM: tpassbits, pwddatabuffer, statsbuffer, recwins, homegoalies, awaygoalies, InjCntDown, jerseynum, injurygames,
   puck_pflags2.
-- Next: data96_02.
+- data96_02 converted: the game tables, the save RAM routines, the pads, the font loaders, the sound driver, the
+  Z80 program and the start of the sound bank. MATCH (segment and ROM).
+- The tables are written as source: CrowdFrameTbl, bfasciicon, linelist, PlayerPositionText, PerLabels(2), sizetab,
+  sublist, priolist and the attribute columns as in 95; the pause, intermission and line menus as String items with
+  dc.l handlers (InitMenuState lists). code96_09's intermission table is now IntermissionMenus (dc.l of the menus).
+- Menu handlers named by their item, as 95's pause menus name them: PlayGame, LineEditor, GameStatisticsScreen,
+  PlayerStatsScreen, ScoringSummaryScreen, PenaltySummaryScreen, TeamRosterScreen, RecordHoldersScreen,
+  PeriodStatsScreen, ManualGoalieMenu, ShootoutShooters, SaveTeamLine, LoadTeamLine (externs96), AbortGame and
+  SetOriginalLines (code96_11; SetOriginalLines is the line setup tail of InitTeamStructure).
+- The save RAM is $2000 bytes here (95: $8000): InitSaveRAM, ValidateSRAM, ClearSRAM, WriteSRAM, MakeSRAMChecksum
+  (skipped while GameFlags bit 6), ReadSRAM, ClearSRAMBytes. nullsub_1 (code96_04) is NullSaveClear.
+- The sound driver is the 95 one with 19 commands through SndJumpTable ($A queues a command, $10 SndSongControl,
+  $11 SndFindSong, $12 the old SndSendZ80); its routines are labelled bytes (95 masked byte matches and the table).
+  SndDriver writes its cmpi.w #$13,d0 as dc.w: tools/fixopcodes.js turns a built cmpi.w #,d0 into cmp.w.
+- SoundBanks: the SndItem table (168 items), then the item data with a comment per item; the segment ends inside
+  sample 16, which continues in data96_03.
+- RAM: ValidSRAM, SRAMChecksum, SndDrvRAM.
+- Next: data96_03.

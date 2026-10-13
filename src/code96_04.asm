@@ -182,7 +182,7 @@ lcfound2
 	bset	#3,(sflags12).w
 	jmp	nullsub_4
 
-nullsub_1
+NullSaveClear	;An rts. Called from ClearSRAM
 	rts
 
 sub_EF02
@@ -431,11 +431,11 @@ sub_F1F0
 	movea.l	a1,a0
 	movea.l	#$F300,a4
 	movea.l	#unk_1DF9FC,a6
-	move.l	(dword_235B8).l,d4
+	move.l	(GAttribOverallMask).l,d4
 	tst.w	d5
 	beq.w	.2
 	movea.l	#unk_1DF9EC,a6
-	move.l	(dword_23456).l,d4
+	move.l	(PAttribOverallMask).l,d4
 .2
 	jsr	(sub_1DF8AC).l
 	move.b	d0,(a5)+
@@ -1650,7 +1650,7 @@ GetRosterNameTail
 	addi.l	#$12CE,d0
 	moveq	#$20,d1
 	movea.l	#$FFFFDD8A,a0
-	jsr	(sub_241E8).l
+	jsr	(ReadSRAM).l
 	movea.l	a0,a1
 	bra.w	.done
 .team
@@ -1780,7 +1780,7 @@ sub_103AA
 	addi.l	#$12CE,d0
 	moveq	#$20,d1
 	movea.l	#$FFFFDD8A,a0
-	jsr	(sub_241E8).l
+	jsr	(ReadSRAM).l
 	adda.w	(a0),a0
 	addq.w	#8,a0
 	move.b	(a0),d0
@@ -1888,7 +1888,7 @@ sub_105B0
 	movea.l	#TeamList,a1
 	asl.w	#2,d4
 	move.l	(a1,d4.w),(dword_FFCAE2).w
-	move.l	(dword_235B8).l,d4
+	move.l	(GAttribOverallMask).l,d4
 	clr.w	d0
 	jsr	(sub_1D7DF8).l
 	muls.w	#$64,d0
@@ -1960,7 +1960,7 @@ sub_10688
 	movea.l	#TeamList,a0
 	asl.w	#2,d0
 	move.l	(a0,d0.w),(dword_FFC744).w
-	move.l	(dword_23456).l,d4
+	move.l	(PAttribOverallMask).l,d4
 	bsr.w	GetGoalieCount
 	move.w	d0,-(sp)
 	bsr.w	GetPlayerCount
@@ -2137,7 +2137,7 @@ sub_10A08
 	move.l	(sp)+,(a1)
 	movem.l	(sp)+,d1/a0-a1
 	movem.l	a4/a6,-(sp)
-	move.l	(off_23574).l,d4
+	move.l	(PAttribAggressMask).l,d4
 	movea.l	a1,a2
 .1
 	clr.w	d0

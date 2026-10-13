@@ -96,14 +96,14 @@ EncodePW	;After a playoff game compute winners and save the bits if needed
 	bsr.w	maketree
 .1
 	bclr	#6,(GameFlags).w
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 	rts
 .2
 	movea.w	#(pwddatabuffer-M68K_RAM),a3
 	bsr.w	ClrPassBits
 	jsr	(WritePassData).l
 	bclr	#6,(GameFlags).w
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 	bclr	#4,(sflags).w
 	move.w	#$FFFF,(lastsfx).w
 	move.l	#$FFFF0000,(recbpr).w
@@ -124,7 +124,7 @@ ReadPassData	;Read pwddatabuffer from save RAM (GameFlags bit 7: the season copy
 .0
 	moveq	#$A,d1
 	movea.l	#pwddatabuffer,a0
-	jsr	(sub_241E8).l
+	jsr	(ReadSRAM).l
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
@@ -140,8 +140,8 @@ WritePassData	;Write pwddatabuffer to save RAM and its checksum (GameFlags bit 7
 .0
 	moveq	#$A,d1
 	movea.l	#pwddatabuffer,a0
-	jsr	(sub_24188).l
-	jsr	(sub_241AA).l
+	jsr	(WriteSRAM).l
+	jsr	(MakeSRAMChecksum).l
 .1
 	movem.l	(sp)+,d0-d1/a0
 	rts
@@ -322,7 +322,7 @@ AddPlayoffTeamStats	;Add the po team's game stats to its playoff totals in stats
 	movea.l	#statsbuffer,a0
 	jsr	(sub_10F22).l
 	bclr	#6,(GameFlags).w
-	jsr	(sub_241AA).l
+	jsr	(MakeSRAMChecksum).l
 .2
 	rts
 

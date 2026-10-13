@@ -390,7 +390,7 @@ goalieacc	;Goalie movement
 	cmp.w	SCnum(a3),d0
 	movem.w	(sp)+,d0
 	beq.w	.28
-	jsr	(sub_2441E).l
+	jsr	(GoalieInCrease).l
 	bne.w	.28
 	movem.w	d0-d1,-(sp)
 	move.w	(puckx).w,d0
@@ -468,7 +468,7 @@ goalieacc	;Goalie movement
 	move.w	(sp)+,d0
 .3
 	move.w	d0,d2
-	jsr	(sub_2441E).l
+	jsr	(GoalieInCrease).l
 	bne.w	.27
 	btst	#7,pflags(a3)
 	bne.w	.4

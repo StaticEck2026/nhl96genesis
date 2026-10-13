@@ -41,6 +41,10 @@ printbigz = $01BED6		;code96_08
 printbig = $01BEEC		;code96_08
 NewPO = $021C28		;code96_11
 GetShifter = $0224E2		;code96_12
+WriteSRAM = $024188		;data96_02
+MakeSRAMChecksum = $0241AA		;data96_02
+ReadSRAM = $0241E8		;data96_02
+ClearSRAMBytes = $024208		;data96_02
 
 
 ; Main segment code

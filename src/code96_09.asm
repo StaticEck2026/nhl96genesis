@@ -12,7 +12,7 @@ PrintBigChar	;Print big font char d0 (printbigtext) through the unk_1C01C table
 	clr.w	d2
 	bra.w	.1
 .0
-	movea.l	#unk_232C8,a0
+	movea.l	#bfasciicon,a0
 	clr.w	d2
 	move.b	(a0,d0.w),d1
 .1
@@ -1040,7 +1040,7 @@ releasepl	;The player's penalty time is up, so let him out (if appropriate). a2 
 	addq.w	#1,$24(a2)
 	bset	#0,(tmstruct+$30).w
 	bset	#0,(AwShots+$30).w
-	movea.l	#unk_23426,a0
+	movea.l	#priolist,a0
 	tst.w	$26(a2)
 	bpl.w	.gin
 	addq.w	#1,a0
@@ -1262,7 +1262,7 @@ getlinee	;d0 = line number, a2 = team struct. Return d0 = energy level of this l
 	adda.w	d0,a1
 	clr.l	d0
 	clr.w	d1
-	movea.l	#unk_23426,a0
+	movea.l	#priolist,a0
 	move.w	$24(a2),d4
 	bra.w	.next
 .loop
@@ -1446,11 +1446,11 @@ Intermission	;Before the period: at game over (gsp 4) the records (UpdateRecords
 	addq.w	#5,d0
 .2
 	asl.w	#2,d0
-	lea	unk_1D4A6(pc),a0
+	lea	IntermissionMenus(pc),a0
 	movea.l	(a0,d0.w),a0
 	btst	#0,(gmode2).w
 	beq.w	.3
-	movea.l	#unk_239D4,a0
+	movea.l	#ShootoutIntermissionMenu,a0
 .3
 	bset	#0,(sflags).w
 	movea.l	#SetupPauseScreen,a1
@@ -1472,10 +1472,9 @@ Intermission	;Before the period: at game over (gsp 4) the records (UpdateRecords
 	rts
 	dc.b	$4E,$75
 
-unk_1D4A6	;Intermission table
-	dc.b	$00,$02,$3A,$58,$00,$02,$3B,$A8,$00,$02,$3B,$A8,$00,$02,$3B,$A8
-	dc.b	$00,$02,$3C,$BC,$00,$02,$3A,$F4,$00,$02,$3B,$A8,$00,$02,$3B,$A8
-	dc.b	$00,$02,$3B,$A8,$00,$02,$3D,$88
+IntermissionMenus	;The intermission menu by gsp, then the same with OptPlayMode (gsp + 5)
+	dc.l	PregameMenu,IntermissionMenu,IntermissionMenu,IntermissionMenu,GameOverMenu
+	dc.l	PlayoffPregameMenu,IntermissionMenu,IntermissionMenu,IntermissionMenu,PlayoffGameOverMenu
 
 sub_1D4CE	;Early in the playoffs (gamelevel 0-1): random goals for the other games of the day (SetScore)
 	cmpi.w	#1,(gamelevel).w

@@ -199,7 +199,7 @@ gmode2 equ $FFFFC348
 sflags7 equ $FFFFC34A
 sflags8 equ $FFFFC34C
 sflags9 equ $FFFFC34E
-GameFlags equ $FFFFC350	;bit 6: WriteSRAMBits skips sub_241AA
+GameFlags equ $FFFFC350	;bit 6: WriteSRAMBits skips MakeSRAMChecksum
 sflags10 equ $FFFFC352
 sflags11 equ $FFFFC354
 sflags12 equ $FFFFC356
@@ -377,7 +377,7 @@ awaygoalies equ $FFFFD31C
 word_FFD31E equ $FFFFD31E
 word_FFD320 equ $FFFFD320
 word_FFD326 equ $FFFFD326
-word_FFD32A equ $FFFFD32A
+ValidSRAM equ $FFFFD32A
 byte_FFD3AC equ $FFFFD3AC
 word_FFD3C0 equ $FFFFD3C0
 word_FFD3C2 equ $FFFFD3C2
@@ -429,11 +429,12 @@ word_FFDDB0 equ $FFFFDDB0
 word_FFDDB4 equ $FFFFDDB4
 word_FFDDB6 equ $FFFFDDB6
 injurygames equ $FFFFDDB8
-word_FFDDBC equ $FFFFDDBC
+SRAMChecksum equ $FFFFDDBC
 word_FFDDBE equ $FFFFDDBE
 word_FFDDC4 equ $FFFFDDC4
 varend equ $FFFFDDC6	;End of the variables Begin clears from VSCRLPM
 Stack equ $FFFFFDFA
+SndDrvRAM equ $FFFFFDFC	;Sound driver RAM base: word $1234 = driver on, 0 = off
 unk_FFFFF6 equ $FFFFFFF6
 unk_FFFFFF equ $FFFFFFFF
 Z80_RAM equ $A00000

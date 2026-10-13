@@ -57,6 +57,14 @@ WritePassData = $0223B0		;code96_12
 WritePassBits = $0223EA		;code96_12
 GetShifter = $0224E2		;code96_12
 AddPlayoffTeamStats = $0224FA		;code96_12
+sizetab = $0233AC		;data96_02
+MakeSRAMChecksum = $0241AA		;data96_02
+ReadSRAM = $0241E8		;data96_02
+ClearSRAMBytes = $024208		;data96_02
+LoadSmallFont = $0243A0		;data96_02
+LoadBigFonts = $0243BA		;data96_02
+Z80Program = $025500		;data96_02
+SoundBanks = $027026		;data96_02
 
 
 ; Main segment code

@@ -19,6 +19,7 @@ rtss2 = $01F84A		;code96_10
 getpde = $01FB24		;code96_10
 setpde = $01FB44		;code96_10
 vb2 = $0202C4		;code96_11
+GoalieInCrease = $02441E		;data96_02
 
 
 ; Main segment code

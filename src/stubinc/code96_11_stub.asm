@@ -84,6 +84,10 @@ LoadReplayIcon = $1D8E5C		;code96_15
 LoadHomeTeamGfx = $1D8E6C		;code96_15
 OptionsScreen = $1E0DDE		;code96_17
 ReturnToGame = $1E2688		;code96_18
+UserNameEntry = $1E6C4C		;code96_19
+PlayoffScreen = $1E700A		;code96_19
+showclock = $1E7664		;code96_19
+SeasonAwards = $1E7AC4		;code96_19
 
 
 ; Main segment code

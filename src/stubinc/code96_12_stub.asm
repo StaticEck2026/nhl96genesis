@@ -45,6 +45,8 @@ ShootoutModeBox = $1D7FA6		;code96_14
 nullsub_7 = $1D8A86		;code96_14
 PrintPlayerAssists = $1D8EF6		;code96_15
 PrintPlayerGoals = $1D8F0C		;code96_15
+ShowBigScore = $1E78C4		;code96_19
+ClearBigScore = $1E7A78		;code96_19
 
 
 ; Main segment code

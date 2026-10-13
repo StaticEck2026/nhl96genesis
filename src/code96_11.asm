@@ -371,8 +371,8 @@ ShowCrowdFrame	;Crowd frame d0 (0 = none): its sprites in view as sprite table e
 locret_20720
 	rts
 
-sub_20722	;Jump to loc_1E7664
-	jmp	loc_1E7664
+sub_20722	;Jump to showclock
+	jmp	showclock
 	;After sub_20722: code that only its own branches reach.
 	;Code the listing does not decode: kept as bytes
 	dc.b	$08,$38,$00,$07,$C3,$3A,$67,$00,$00,$B8,$08,$38,$00,$00,$C3,$48
@@ -1348,7 +1348,7 @@ IntermissionStart	;The end of a period: ResetClock, restart the sound driver, In
 .checkadjust
 	btst	#7,(GameFlags).w
 	bne.w	.1
-	jsr	(sub_1E700A).l
+	jsr	(PlayoffScreen).l
 .1
 	jmp	*+6
 
@@ -1510,15 +1510,15 @@ loc_217BE
 	jsr	(sub_11814).l
 .playoffs
 	jsr	(SetContTeams).l
-	jsr	(sub_1E6C4C).l
-	jsr	(sub_1E700A).l
+	jsr	(UserNameEntry).l
+	jsr	(PlayoffScreen).l
 	btst	#0,(gmode2).w
 	bne.w	.15
 	jsr	(nullsub_3).l
 .15
 	jmp	StartGame
 .16
-	jsr	(sub_1E7AC4).l
+	jsr	(SeasonAwards).l
 	bset	#1,(dword_FFDD7E+2).w
 	bclr	#6,(GameFlags).w
 	jsr	(sub_1147E).l
@@ -1533,7 +1533,7 @@ loc_217BE
 	beq.w	.19
 	jsr	(sub_1E8C5E).l
 .19
-	jsr	(sub_1E700A).l
+	jsr	(PlayoffScreen).l
 	btst	#3,(dword_FFDD7E+2).w
 	beq.w	.21
 .20
@@ -1541,7 +1541,7 @@ loc_217BE
 	jsr	(song).l
 	jsr	(sub_1E8544).l
 .21
-	jsr	(sub_1E7AC4).l
+	jsr	(SeasonAwards).l
 	btst	#1,(sflags13).w
 	bne.w	.22
 	move.l	#unk_122A4,(dword_FFDDAC).w

@@ -47,6 +47,7 @@ unk_18B916 = $18B916		;data96_08
 unk_1AC7C6 = $1AC7C6		;data96_09
 PStatsClearList = $1DB364		;code96_16
 PStatsPalette = $1DBB92		;code96_16
+PListPrint = $1E6162		;code96_19
 
 ; Main segment code
 	include	data96_12.asm

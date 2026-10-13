@@ -168,7 +168,9 @@ ltplayer equ $FFFFBFB4
 ltx equ $FFFFBFB6
 lty equ $FFFFBFB8
 word_FFBFC2 equ $FFFFBFC2
+unk_FFBFCA equ $FFFFBFCA
 word_FFBFD0 equ $FFFFBFD0
+unk_FFBFD8 equ $FFFFBFD8
 xc1 equ $FFFFBFDC
 yc1 equ $FFFFBFDE
 yleader equ $FFFFBFE0
@@ -325,10 +327,10 @@ word_FFD238 equ $FFFFD238
 word_FFD23A equ $FFFFD23A
 word_FFD23C equ $FFFFD23C
 vbint equ $FFFFD244	;vertical blank handler address (VBjsr jumps through it)
-word_FFD248 equ $FFFFD248
-word_FFD24A equ $FFFFD24A
-word_FFD24C equ $FFFFD24C
-word_FFD24E equ $FFFFD24E
+pad1user equ $FFFFD248
+pad2user equ $FFFFD24A
+pad3user equ $FFFFD24C
+pad4user equ $FFFFD24E
 FourWayPlay equ $FFFFD250
 menupadnum equ $FFFFD252
 OptPlayMode equ $FFFFD254
@@ -381,11 +383,13 @@ word_FFD31E equ $FFFFD31E
 word_FFD320 equ $FFFFD320
 word_FFD326 equ $FFFFD326
 ValidSRAM equ $FFFFD32A
+namelog equ $FFFFD32C	;The user name log, $C bytes per name
 byte_FFD3AC equ $FFFFD3AC
-word_FFD3C0 equ $FFFFD3C0
-word_FFD3C2 equ $FFFFD3C2
+NameEntryBuf equ $FFFFD3AC	;Name entry: the name
+NameEntryLen equ $FFFFD3C0
+namelogsel equ $FFFFD3C2
 word_FFD3C4 equ $FFFFD3C4
-word_FFD3C6 equ $FFFFD3C6
+nameentryvis equ $FFFFD3C6
 homeshootgoals equ $FFFFD434
 awayshootgoals equ $FFFFD436
 word_FFD438 equ $FFFFD438

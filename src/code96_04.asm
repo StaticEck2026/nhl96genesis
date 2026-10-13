@@ -9,7 +9,7 @@ SetLCmode2	;Open the line change box: wait for the box, then draw the line choic
 	bsr.w	setlccords
 	cmpi.w	#$F,(printy).w
 	blt.w	.2
-	jsr	(sub_1E7A78).l
+	jsr	(ClearBigScore).l
 	bclr	#2,(sflags12).w
 .0
 	bset	#2,(sflags12).w

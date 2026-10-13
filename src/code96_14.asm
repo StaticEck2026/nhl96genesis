@@ -591,18 +591,18 @@ UpdateRecords	;With save RAM (ValidSRAM) and user records on (OptUserRec 0), upd
 	bsr.w	CountGoalies
 	bsr.w	CountPlayers
 	movea.l	#ThreeStars,a0
-	move.w	(word_FFD248).w,d1
+	move.w	(pad1user).w,d1
 	ext.l	d1
-	move.w	(word_FFD24A).w,d2
+	move.w	(pad2user).w,d2
 	move.w	(HomeTeam).w,d3
 	move.w	(VisTeam).w,d4
 	movea.l	#tmstruct,a1
 	movea.l	#AwShots,a2
 	bsr.w	UpdateTeamRecord
 	movea.l	#ThreeStars,a0
-	move.w	(word_FFD24A).w,d1
+	move.w	(pad2user).w,d1
 	ext.l	d1
-	move.w	(word_FFD248).w,d2
+	move.w	(pad1user).w,d2
 	move.w	(VisTeam).w,d3
 	move.w	(HomeTeam).w,d4
 	movea.l	#AwShots,a1

@@ -500,7 +500,7 @@ ShowThreeStars	;End of game Stars of the Game box. Waits for RefCnt <= $40 and r
 	bgt.w	rtss2
 	bset	#7,(gmode).w
 	bne.w	rtss2
-	jsr	(sub_1E7A78).l
+	jsr	(ClearBigScore).l
 	jsr	(sub_1CFE4).l
 	movem.l	d0/a1,-(sp)
 	bset	#3,(disflags).w
@@ -715,7 +715,7 @@ ShowGoalBox	;Goal box: close both line change boxes (lcfound2), then the scorer 
 	jsr	(lcfound2).l
 	adda.w	#$39E,a2
 	jsr	(lcfound2).l
-	jsr	(loc_1E78C4).l
+	jsr	(ShowBigScore).l
 	movea.w	#(ScoreSum-6-M68K_RAM),a4
 	adda.w	(ScoreSumbytes).w,a4
 	bsr.w	printz

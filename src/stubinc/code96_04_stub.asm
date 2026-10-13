@@ -60,6 +60,7 @@ ReadGoaliePulled = $1D9352		;code96_15
 CalcAttribRating = $1DF8AC		;data96_11
 OvrPlayerWgtList2 = $1DF9EC		;data96_11
 OvrGoalWgtList2 = $1DF9FC		;data96_11
+ClearBigScore = $1E7A78		;code96_19
 
 
 ; Main segment code

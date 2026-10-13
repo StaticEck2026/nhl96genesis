@@ -303,4 +303,13 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   ReadTeamRecords; the record texts as Strings). Then PlayerStatsList (source: the game / playoff stats screen of
   a team, d7 = 0 / 1, as in 95) with ReadAnyPad and the PList... helpers. One printcurz block in PListArrows was
   written by hand from the ROM bytes. MATCH (segment and ROM).
-- Next: code96_19.
+- code96_19 converted: PListPrint / PListValue / PListMark (PlayerStatsList), the user name entry with the
+  records95 names (NameEntryScreen ... UserNameEntry, CountTeamPads, SkipOtherUserName, ClearNameRecord), the
+  playoff tree screen with the playoff95 names (PlayoffScreen, HandlePlayoffInput, UpdatePlayoffScroll,
+  PlayoffScreenExit, PrintSeriesScore, DrawTreeArrow is an rts, DrawTeamBlocks, VBlank_Playoff, PlayoffTreeSetup),
+  showclock / showclockdma / ClockDigitChar (code96_11's sub_20722 jumps to showclock), ShowBigScore /
+  ClearBigScore, and SeasonAwards (96 browses the 9 awards) with its helpers and texts. The award pictures are
+  labels in data96_09 now (HartPic ... PearsonPic). About 20 instructions after inline Strings were written by
+  hand from the ROM bytes (the listing is lossy there). MATCH (segment and ROM). RAM: NameEntryLen, namelogsel,
+  nameentryvis, pad1user ... pad4user (the 95 block layout), new namelog, NameEntryBuf.
+- Next: code96_20.

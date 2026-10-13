@@ -777,7 +777,7 @@ PlayerStatsList	;Stats screen for team a2, d7 = 0 game / 1 playoff (word_FFCF42)
 	beq.s	.7
 	jsr	(sub_12640).l
 	bset	#2,(disflags).w
-	bsr.w	sub_1E6162
+	bsr.w	PListPrint
 	bsr.w	PListArrows
 	move	#$2500,sr
 	bclr	#2,(disflags).w

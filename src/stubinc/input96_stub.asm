@@ -14,11 +14,11 @@
 ; External addresses outside, read from lst/nhl96.bin.
 faceoffinput = $0099CA		;faceoff96
 rtss7 = $00A3DA		;faceoff96
-SetShotMode = $00F496		;code96_04
-ShotMode = $00F530		;code96_04
+SetShotMode = $00F496		;input96_shot
+ShotMode = $00F530		;input96_shot
 lineinput = $00EE0E		;lines96
-passmode = $00F8D2		;code96_04
-setpassmode = $00F898		;code96_04
+passmode = $00F8D2		;input96_shot
+setpassmode = $00F898		;input96_shot
 fightinput = $00C26C		;fight96
 SetLCmode = $00EC30		;lines96
 SPAlist = $005F96		;frames96

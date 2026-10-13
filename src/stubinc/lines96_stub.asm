@@ -27,7 +27,7 @@ setpersonel = $01FB52		;code96_10
 box = $022E58		;code96_12
 linelist = $023342		;data96_02
 ClearBigScore = $1E7A78		;code96_19
-rtss = $00F8D0		;code96_04
+rtss = $00F8D0		;input96_shot
 
 
 ; Main segment code

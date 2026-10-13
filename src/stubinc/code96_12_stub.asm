@@ -14,8 +14,8 @@
 ; External addresses outside, read from lst/nhl96.bin.
 Penaltylist = $00E818		;logic96
 lcfound2 = $00EEC4		;lines96
-GetPlayerNamePointer = $0101C6		;code96_04
-GetJerseyNumber = $0102B8		;code96_04
+GetPlayerNamePointer = $0101C6		;code96_04b
+GetJerseyNumber = $0102B8		;code96_04b
 sub_10F02 = $010F02		;code96_05
 sub_10F22 = $010F22		;code96_05
 GetGoalieCountD7 = $015774		;code96_06

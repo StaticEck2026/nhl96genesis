@@ -21,7 +21,9 @@
 	include	engine\fight96.asm	; $00B6A0  fighting
 	include	engine\logic96.asm	; $00C548  assignment table, penalty texts
 	include	engine\lines96.asm	; $00EC30  line change box
-	include	code96_04.asm		; $00EF00  shot, pass, rosters, simulation
+	include	code96_04.asm		; $00EF00  team lines
+	include	engine\input96_shot.asm	; $00F374  shot and pass
+	include	code96_04b.asm		; $0100C0  roster names and season simulation
 	include	code96_05.asm		; $010CB2  code
 	include	data96_01.asm		; $012BFE  data
 	include	code96_06.asm		; $015774  code

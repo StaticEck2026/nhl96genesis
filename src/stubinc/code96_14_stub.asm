@@ -13,7 +13,7 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 sub_EF02 = $00EF02		;code96_04
-GetRosterName = $0101E6		;code96_04
+GetRosterName = $0101E6		;code96_04b
 GetGoalieCount = $0157A2		;code96_06
 GetPlayerCount = $0157F4		;code96_06
 LockScroll = $016786		;code96_06

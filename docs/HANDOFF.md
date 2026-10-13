@@ -327,5 +327,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/faceoff96.asm` is the faceoff (faceoffinput through Endfaceoff, $0099CA-$00A4DB).
   `src/srambits96.asm` is WriteSRAMBits and ReadSRAMBits ($0096E8-$0099C9). code96_02 is gone.
   `engine/logic96.asm` is asstab through the penalty texts ($00C548-$00EC2F).
-  `engine/lines96.asm` is the line change box (SetLCmode through lcfound2, $00EC30-$00EEFF). code96_03 is gone. code96_04 starts at NullSaveClear.
-  Next: `engine/input96_shot.asm` (shotdiradj through passtoa0). Unsure list is in the plan.
+  `engine/lines96.asm` is the line change box (SetLCmode through lcfound2, $00EC30-$00EEFF). code96_03 is gone.
+  `engine/input96_shot.asm` is the shot and the pass (shotdiradj through sub_1008E, $00F374-$0100BF).
+  code96_04 is the team line writer (NullSaveClear, sub_EF02). code96_04b is roster names and the season simulation, still to split into trade96 and season96_sim.
+  Next: `front/trade96.asm` (DefaultRosters through the name helpers) and `front/season96_sim.asm`. Unsure list is in the plan.

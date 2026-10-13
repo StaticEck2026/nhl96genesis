@@ -78,6 +78,18 @@
    "name": "code96_04",
    "kind": "code",
    "start": 61184,
+   "end": 62323
+  },
+  {
+   "name": "input96_shot",
+   "kind": "code",
+   "start": 62324,
+   "end": 65727
+  },
+  {
+   "name": "code96_04b",
+   "kind": "code",
+   "start": 65728,
    "end": 68785
   },
   {

@@ -187,20 +187,20 @@ $00A388,.lf (limitfo),sub_A388,,code96_02
 $00A3DA,rtss7,locret_A3DA,,code96_02
 $00A3DC,Endfaceoff,,,code96_02
 $00A4D6,.ftab (Endfaceoff),,,code96_02
-$00A4DC,updatepadinput,sub_A4DC,,code96_02
-$00A598,doinput,sub_A598,,code96_02
-$00A72E,.20 (doinput),sub_A72E,,code96_02
-$00AAC6,doinput_goaliedive,loc_AAC6,,code96_02
-$00AB00,rtss15,locret_AB00,,code96_02
-$00AB02,doinput_cbut,loc_AB02,,code96_02
-$00AC6E,ClampTargetY,sub_AC6E,,code96_02
-$00ACAC,doinput_chkanim,loc_ACAC,,code96_02
-$00AD52,doinput_skater,loc_AD52,,code96_02
-$00ADD4,doinput_ispc,loc_ADD4,,code96_02
-$00AF5A,doinput_islocked,loc_AF5A,,code96_02
-$00AFD4,loc_AFD4,,,code96_02
-$00AFDA,sub_AFDA,,,code96_02
-$00B00E,PadOnTeam,sub_B00E,,code96_02
+$00A4DC,updatepadinput,sub_A4DC,,input96
+$00A598,doinput,sub_A598,,input96
+$00A72E,.20 (doinput),sub_A72E,,input96
+$00AAC6,doinput_goaliedive,loc_AAC6,,input96
+$00AB00,rtss15,locret_AB00,,input96
+$00AB02,doinput_cbut,loc_AB02,,input96
+$00AC6E,ClampTargetY,sub_AC6E,,input96
+$00ACAC,doinput_chkanim,loc_ACAC,,input96
+$00AD52,doinput_skater,loc_AD52,,input96
+$00ADD4,doinput_ispc,loc_ADD4,,input96
+$00AF5A,doinput_islocked,loc_AF5A,,input96
+$00AFD4,loc_AFD4,,,input96
+$00AFDA,sub_AFDA,,,input96
+$00B00E,PadOnTeam,sub_B00E,,input96
 $00B04E,SetContTeams,sub_B04E,,goal96
 $00B1E2,ContTeamOrder1,,,goal96
 $00B1E6,ContTeamOrder2,,,goal96

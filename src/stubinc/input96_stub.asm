@@ -1,0 +1,67 @@
+;	Segment build for engine\input96.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
+
+; region code
+	org	$00A4DC
+
+; includes for stubs to replace removed code
+	include	stubinc\ports.inc	;IO_* / VDP_* ports
+	include	stubinc\equals.inc	;VDP status bits
+	include	ram96.asm		;RAM map
+	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String
+
+; External addresses outside, read from lst/nhl96.bin.
+faceoffinput = $0099CA		;code96_02
+rtss7 = $00A3DA		;code96_02
+SetShotMode = $00F496		;code96_04
+ShotMode = $00F530		;code96_04
+lineinput = $00EE0E		;code96_04
+passmode = $00F8D2		;code96_04
+setpassmode = $00F898		;code96_04
+fightinput = $00C26C		;fight96
+SetLCmode = $00EC30		;code96_03
+SPAlist = $005F96		;frames96
+SPAgdive = $49A		;SPA value (frames96)
+SPAgglover = $12E		;SPA value (frames96)
+SPAgglovel = $1CA		;SPA value (frames96)
+SPAgstackr = $440		;SPA value (frames96)
+SPAgstackl = $3E6		;SPA value (frames96)
+SPAgstickr = $266		;SPA value (frames96)
+SPAgstickl = $20C		;SPA value (frames96)
+SPA099A = $99A		;SPA value (frames96)
+SPAhook = $1792		;SPA value (frames96)
+SPA288C = $288C		;SPA value (frames96)
+startpause1 = $014D6E		;data96_01
+startpause2 = $014D74		;data96_01
+startpause3 = $014D7C		;data96_01
+startpause4 = $014D84		;data96_01
+getGoalieSCnum = $0168B8		;code96_06
+burst = $016934		;code96_06
+holdplayer = $016988		;code96_06
+chgplayer = $016A46		;code96_06
+setc1player = $016C52		;code96_06
+setc2player = $016C5C		;code96_06
+setc3player = $016C68		;code96_06
+setc4player = $016C74		;code96_06
+setpads = $016D6A		;code96_06
+goaliesave = $017C58		;code96_07
+checkob = $0187D4		;code96_07
+assreplace = $01A3DA		;code96_08
+vtoa = $01A3EE		;code96_08
+SetSPA = $01A614		;code96_08
+doplayeracc = $01A62A		;code96_08
+sroot = $01B0DE		;code96_08
+ReadJoy1 = $01B348		;code96_08
+ReadJoy2 = $01B360		;code96_08
+ReadJoy3 = $01B378		;code96_08
+ReadJoy4 = $01B390		;code96_08
+checkcoll = $01D7FE		;code96_09
+doassignment = $024380		;data96_02
+PuckOnAttackHalf = $1D6B66		;code96_14
+ShortenMsgTimer = $1D8676		;code96_14
+sub_1D920A = $1D920A		;code96_15
+
+
+; Main segment code
+	include	engine\input96.asm

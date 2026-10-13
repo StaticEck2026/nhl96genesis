@@ -14,7 +14,7 @@
 ; External addresses outside, read from lst/nhl96.bin.
 TeamList = $00077E		;teamdata96
 SPAlist = $005F96		;frames96
-updatepadinput = $00A4DC		;code96_02
+updatepadinput = $00A4DC		;input96
 SetSPA = $01A614		;code96_08
 dirtab = $01AE60		;code96_08
 ReadJoy1 = $01B348		;code96_08

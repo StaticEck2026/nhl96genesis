@@ -30,6 +30,12 @@
    "name": "code96_02",
    "kind": "code",
    "start": 38632,
+   "end": 42203
+  },
+  {
+   "name": "input96",
+   "kind": "code",
+   "start": 42204,
    "end": 45133
   },
   {

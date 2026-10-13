@@ -82,7 +82,7 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 1. `engine/fight96.asm` — done. `checkfight` through `sub_C51C`.
 2. `engine/fourway96.asm` — done. `Detect4WayPlay` through `ReadJoySwapPad4`.
 3. `engine/goal96.asm` — done. `SetContTeams` through `ReadAllPads`.
-4. `engine/input96.asm` — `updatepadinput` through `sub_AFDA` (doinput, including the goalie parts that 95G kept in skate95; they are inside doinput here).
+4. `engine/input96.asm` — done. `updatepadinput` through `PadOnTeam` (doinput, including the goalie parts that 95G kept in skate95; they are inside doinput here). `PadOnTeam` follows `sub_AFDA` and `doinput` branches to it, so it stays in this file.
 5. `engine/faceoff96.asm` — `faceoffinput` through `Endfaceoff`. What remains of code96_02 is `WriteSRAMBits` / `ReadSRAMBits`.
 6. Those two bit routines stay in their own include `src/srambits96.asm` (new in 96). The 95G save-RAM block is later and is the file that gets the name `src/sram96.asm`.
 7. `engine/logic96.asm` — `asstab` through the assignment bytes in code96_03. Penalty texts that sit in the middle of that run stay in the file (guest) until penalty96 is the next include and the bytes are contiguous with it.

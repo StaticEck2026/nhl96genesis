@@ -323,4 +323,5 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   with `engine/fight96.asm` (checkfight through sub_C51C, $00B6A0-$00C547) and `engine/fourway96.asm`
   (Detect4WayPlay through ReadJoySwapPad4, $00B5C8-$00B69F). code96_03 starts at asstab.
   `engine/goal96.asm` is the controller setup (SetContTeams through ReadAllPads, $00B04E-$00B5C7).
-  Next: `engine/input96.asm` (updatepadinput through sub_AFDA). Unsure list is in the plan.
+  `engine/input96.asm` is the pad input (updatepadinput through PadOnTeam, $00A4DC-$00B04D).
+  Next: `engine/faceoff96.asm` (faceoffinput through Endfaceoff). Unsure list is in the plan.

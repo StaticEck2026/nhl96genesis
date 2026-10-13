@@ -30,12 +30,18 @@
    "name": "code96_02",
    "kind": "code",
    "start": 38632,
-   "end": 47197
+   "end": 46751
+  },
+  {
+   "name": "fight96",
+   "kind": "code",
+   "start": 46752,
+   "end": 50503
   },
   {
    "name": "code96_03",
    "kind": "code",
-   "start": 47198,
+   "start": 50504,
    "end": 60525
   },
   {

@@ -319,6 +319,6 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   has a label unk_88A18 (a map code96_20 draws). MATCH (segment and ROM).
 - Every row of the ROM map is matched. Left for later passes: the labelled byte runs (code the listing does not
   decode), the sub_ / unk_ names, and the RAM words still under IDA names.
-- Align-with-95 audit (no source move): `docs/align95_plan.md`. 928 labels already use a 95G name; the file
-  split is still the mechanical `code96_*` / `data96_*` slices. Next: `engine/fight96.asm` (checkfight through
-  the byte before asstab), one module per commit, MATCH before each push. Unsure list is in the plan.
+- Align-with-95 audit: `docs/align95_plan.md`. 928 labels already use a 95G name. The file split started
+  with `engine/fight96.asm` (checkfight through sub_C51C, $00B6A0-$00C547). code96_02 now ends at
+  ReadJoySwapPad4; code96_03 starts at asstab. Next: `engine/fourway96.asm`. Unsure list is in the plan.

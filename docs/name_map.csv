@@ -358,17 +358,17 @@ $00903A,SPAfight_table,,SPA30A4_table,frames96
 $009152,SPAfhigh_table,,SPA31BC_table,frames96
 $009222,SPAfgrab_table,,SPA328C_table,frames96
 $00925C,SPAflow_table,,SPA32C6_table,frames96
-$00B6A0,checkfight,sub_B6A0,,code96_02
-$00B85E,startfight,sub_B85E,,code96_03
-$00B8D0,SetInst,sub_B8D0,,code96_03
-$00B8FC,.tm (SetInst),loc_B8FC,,code96_03
-$00B986,rtsfight,locret_B986,,code96_03
-$00B988,assfight,,,code96_03
-$00C068,loc_C068,,,code96_03
-$00C0A2,ClearMessageLine,sub_C0A2,,code96_03
-$00C1C8,assfwatch,,,code96_03
-$00C26C,fightinput,loc_C26C,,code96_03
-$00C51C,sub_C51C,,,code96_03
+$00B6A0,checkfight,sub_B6A0,,fight96
+$00B85E,startfight,sub_B85E,,fight96
+$00B8D0,SetInst,sub_B8D0,,fight96
+$00B8FC,.tm (SetInst),loc_B8FC,,fight96
+$00B986,rtsfight,locret_B986,,fight96
+$00B988,assfight,,,fight96
+$00C068,loc_C068,,,fight96
+$00C0A2,ClearMessageLine,sub_C0A2,,fight96
+$00C1C8,assfwatch,,,fight96
+$00C26C,fightinput,loc_C26C,,fight96
+$00C51C,sub_C51C,,,fight96
 $00C548,asstab,,,code96_03
 $00C60E,loc_C60E,,,code96_03
 $00C7EC,loc_C7EC,,,code96_03

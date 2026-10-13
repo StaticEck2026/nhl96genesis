@@ -14,8 +14,8 @@
 ; External addresses outside, read from lst/nhl96.bin.
 TeamList = $00077E		;teamdata96
 limitfo = $00A370		;code96_02
-checkfight = $00B6A0		;code96_02
-ClearMessageLine = $00C0A2		;code96_03
+checkfight = $00B6A0		;fight96
+ClearMessageLine = $00C0A2		;fight96
 sub_10CF2 = $010CF2		;code96_05
 sub_112DA = $0112DA		;code96_05
 sub_11510 = $011510		;code96_05

@@ -90,6 +90,7 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 8b. `engine/input96_shot.asm` — done. `shotdiradj` through `sub_1008E` (the helpers after `passtoa0`). `sub_EF02`, the team line writer, stays in code96_04 with `NullSaveClear`.
 8c. `front/trade96.asm` and `front/season96_sim.asm` — done. Roster names through the tables before `SimGameStats`, then the simulation. The sim reads `unk_107F9` from the roster file.
 8d. `front/season96.asm` — done as a rename of code96_05, not a split. The routines stay `sub_` until the bodies are read.
+8e. `src/schedule96.asm` — done. The `SeasonSchedule` table only. The team graphics pointers stay in data96_01. The rest of that file is `src/data96_01b.asm` until it splits into awards, hockey, pause and setup.
 9. Continue down the table above. Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ

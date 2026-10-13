@@ -84,6 +84,13 @@ doassignment = $024380		;data96_02
 FaceOffMap = $091D46		;data96_05
 ControllerBgMap = $173C7A		;data96_07
 RosterFont = $179168		;data96_08
+PadIconMap1 = $1B53C4		;data96_09
+PadIconMap2 = $1B5942		;data96_09
+PadIconMap3 = $1B5EC0		;data96_09
+PadIconMap4 = $1B643E		;data96_09
+PadCursorMap = $1B69BC		;data96_09
+ControllerTitleMap = $1B6F3A		;data96_09
+unk_1B773A = $1B773A		;data96_09
 
 
 ; Main segment code

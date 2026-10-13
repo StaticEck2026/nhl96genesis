@@ -706,13 +706,13 @@ LoadSmallFont	;Load the small font tiles (SmallFontMap+8) at char d4 (smallfontc
 	dc.b	$A1,$23,$2F,$AB,$D1,$AA,$CD,$EF	;remap table
 	rts
 
-LoadBigFonts	;Load the fonts at char d4: unk_1B89D0 (word_FFB016), then the big font unk_1B941E (BigFontChars); d4 =
+LoadBigFonts	;Load the fonts at char d4: BigFontMap+8 (word_FFB016), then the big font BigFontMap3+8 (BigFontChars); d4 =
 	;next char
 	move.w	d4,(word_FFB016).w
-	movea.l	#unk_1B89D0,a2
+	movea.l	#BigFontMap+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	move.w	d4,(BigFontChars).w
-	movea.l	#unk_1B941E,a2
+	movea.l	#BigFontMap3+8,a2
 	jmp	DecompressGraphicsPlain
 
 sub_243DA	;Called from the player code.

@@ -2120,11 +2120,11 @@ printbigz	;printbig with the String after the call
 printbigcur	;printbigtext with the font map already at bigfontptr
 	bra.w	printbigtext
 
-printbig	;print String a1 with the big font at printx / printy: BigFontMap, BigFontMap2 with sflags11 bit 2
-	move.l	#BigFontMap,(bigfontptr).l
+printbig	;print String a1 with the big font at printx / printy: BigFontMap2, BigFontMap4 with sflags11 bit 2
+	move.l	#BigFontMap2,(bigfontptr).l
 	btst	#2,(sflags11).w
 	beq.w	printbigtext
-	move.l	#BigFontMap2,(bigfontptr).l
+	move.l	#BigFontMap4,(bigfontptr).l
 
 printbigtext	;Print with the font map at bigfontptr. Lower case is printed as upper case
 	move.w	(disflags).w,-(sp)

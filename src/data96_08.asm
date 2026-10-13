@@ -1,4 +1,4 @@
-;	Graphics: the fonts (RosterFont, SmallFontMap, SmallFontMap2, BigFontMap, BigFontMap2) and the screen maps used
+;	Graphics: the fonts (RosterFont, SmallFontMap, SmallFontMap2, BigFontMap2, BigFontMap4) and the screen maps used
 ;	from other code. A map is its 8-byte header (palette and map offsets), the tiles (count, then 32 bytes each), the
 ;	palette and the map (width, height, then a word per cell).
 
@@ -382,8 +382,8 @@ SmallFontMap2	;The second small font map; +8 the tiles
 	dc.w	$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000
 	dc.w	$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000,$0039,$0000,$003A,$0000,$003B
 
-BigFontMap	;The big font map (printbig, bigfontptr); +8 the tiles
-	dc.l	.pal-BigFontMap,.map-BigFontMap
+BigFontMap2	;The big font map (printbig, bigfontptr); +8 the tiles
+	dc.l	.pal-BigFontMap2,.map-BigFontMap2
 	dc.w	$56	;tiles
 	dc.b	$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$04,$47,$00
 	dc.b	$00,$04,$48,$00,$00,$24,$42,$70,$00,$42,$74,$80,$00,$48,$04,$87
@@ -570,8 +570,8 @@ BigFontMap	;The big font map (printbig, bigfontptr); +8 the tiles
 	dc.w	$603B,$603C,$603D,$603E,$6039,$603F,$6040,$6041,$6042,$6043,$6039,$6033,$6044,$6045,$6046,$6047
 	dc.w	$6048,$6049,$604A,$604B,$6021,$604C,$604D,$604E,$604F,$6050,$6051,$6052,$6852,$6053,$6054,$6055
 
-BigFontMap2	;The big font map printbig takes with sflags11 bit 2; +8 the tiles
-	dc.l	.pal-BigFontMap2,.map-BigFontMap2
+BigFontMap4	;The big font map printbig takes with sflags11 bit 2; +8 the tiles
+	dc.l	.pal-BigFontMap4,.map-BigFontMap4
 	dc.w	$57	;tiles
 	dc.b	$44,$44,$44,$44,$AA,$AA,$AA,$AA,$BB,$BB,$BB,$BB,$BB,$B4,$47,$BB
 	dc.b	$BB,$B4,$48,$BB,$BB,$24,$42,$7B,$BB,$42,$74,$8B,$BB,$48,$B4,$87

@@ -75,6 +75,8 @@ RefTiles = $097E72		;data96_05
 RefTilesHor = $098F30		;data96_05
 EnergyBarMap = $13D290		;data96_06
 EASNmap = $13D59E		;data96_06
+BigFontMap = $1B89C8		;data96_09
+BigFontMap3 = $1B9416		;data96_09
 
 
 ; Main segment code

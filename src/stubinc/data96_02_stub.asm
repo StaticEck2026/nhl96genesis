@@ -31,6 +31,8 @@ rtss2 = $01F84A		;code96_10
 SetOriginalLines = $02154E		;code96_11
 AbortGame = $021A2E		;code96_11
 SmallFontMap = $179A76		;data96_08
+BigFontMap = $1B89C8		;data96_09
+BigFontMap3 = $1B9416		;data96_09
 
 ; Main segment code
 	include	data96_02.asm

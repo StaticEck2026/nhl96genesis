@@ -1529,7 +1529,7 @@ ControllerSetupScreen	;Build the controller setup screen: vram, fonts, the pad g
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	-(TXPRI+TXMAP1),$B,1,0
-	movea.l	#unk_1B6F3A,a0
+	movea.l	#ControllerTitleMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

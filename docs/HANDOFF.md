@@ -247,4 +247,8 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   maps. A label at every address the code uses (unk_ names where the purpose is not known; their +8 tile references
   are written Label+8); a labelled region that parses as a map is written as a map, a further map in it as numbers
   under ";The next map", anything else dc.b. MATCH (segment and ROM).
-- Next: data96_09.
+- data96_09 converted the same way as data96_08: the screen maps (unk_ names), the controller setup pad icons,
+  cursor and ControllerTitleMap, and the big fonts. The big font names follow 95 by the print routine: printbig1 uses
+  BigFontMap, printbig BigFontMap2, printbig2 BigFontMap3; the font printbig takes with sflags11 bit 2 is BigFontMap4
+  (data96_08's BigFontMap / BigFontMap2 renamed, old names in name_map). MATCH (segment and ROM).
+- Next: data96_10.

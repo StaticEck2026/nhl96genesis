@@ -86,15 +86,15 @@ printbigz2	;printbig2 with the String after the call
 	movea.l	(sp)+,a1
 	rts
 
-printbig1	;printbigcur with the font map unk_1B89C8 (chars word_FFB016)
+printbig1	;printbigcur with the font map BigFontMap (chars word_FFB016)
 	bclr	#2,(sflags11).w
-	move.l	#unk_1B89C8,(bigfontptr).l
+	move.l	#BigFontMap,(bigfontptr).l
 	move.w	(word_FFB016).w,(word_FFB014).w
 	jmp	printbigcur
 
-printbig2	;printbigcur with the font map unk_1B9416 (chars BigFontChars)
+printbig2	;printbigcur with the font map BigFontMap3 (chars BigFontChars)
 	bclr	#2,(sflags11).w
-	move.l	#unk_1B9416,(bigfontptr).l
+	move.l	#BigFontMap3,(bigfontptr).l
 	move.w	(BigFontChars).w,(word_FFB014).w
 	jmp	printbigcur
 	;After printbig2: code that nothing in the listing reaches.

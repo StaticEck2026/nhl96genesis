@@ -2,17 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-PadIconMap1	equ	$1B53C4
-PadIconMap2	equ	$1B5942
-PadIconMap3	equ	$1B5EC0
-PadIconMap4	equ	$1B643E
-PadCursorMap	equ	$1B69BC
-unk_1B6F3A	equ	$1B6F3A	;controller setup screen map
-unk_1B773A	equ	$1B773A	;controller setup screen background
-unk_1B89C8	equ	$1B89C8
-unk_1B89D0	equ	$1B89D0
-unk_1B9416	equ	$1B9416
-unk_1B941E	equ	$1B941E
 loc_1D6872	equ	$1D6872	;asstab entry
 PuckOnAttackHalf	equ	$1D6B66
 sub_1D6D22	equ	$1D6D22

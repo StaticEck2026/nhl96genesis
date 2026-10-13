@@ -213,11 +213,11 @@ $00B378,ControllerSetupScreen,sub_B378,,code96_02
 $00B51E,PrintSetupStr,sub_B51E,,code96_02
 $00B540,PrintSetupStrHi,,,code96_02
 $00B562,ReadAllPads,sub_B562,,code96_02
-$00B5C8,Detect4WayPlay,sub_B5C8,,code96_02
-$00B630,ReadJoySwapPad1,,,code96_02
-$00B64C,ReadJoySwapPad2,,,code96_02
-$00B668,ReadJoySwapPad3,,,code96_02
-$00B684,ReadJoySwapPad4,,,code96_02
+$00B5C8,Detect4WayPlay,sub_B5C8,,fourway96
+$00B630,ReadJoySwapPad1,,,fourway96
+$00B64C,ReadJoySwapPad2,,,fourway96
+$00B668,ReadJoySwapPad3,,,fourway96
+$00B684,ReadJoySwapPad4,,,fourway96
 $00EC30,SetLCmode,loc_EC30,,code96_03
 $00F496,SetShotMode,loc_F496,,code96_04
 $00F530,ShotMode,loc_F530,,code96_04

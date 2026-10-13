@@ -320,5 +320,6 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - Every row of the ROM map is matched. Left for later passes: the labelled byte runs (code the listing does not
   decode), the sub_ / unk_ names, and the RAM words still under IDA names.
 - Align-with-95 audit: `docs/align95_plan.md`. 928 labels already use a 95G name. The file split started
-  with `engine/fight96.asm` (checkfight through sub_C51C, $00B6A0-$00C547). code96_02 now ends at
-  ReadJoySwapPad4; code96_03 starts at asstab. Next: `engine/fourway96.asm`. Unsure list is in the plan.
+  with `engine/fight96.asm` (checkfight through sub_C51C, $00B6A0-$00C547) and `engine/fourway96.asm`
+  (Detect4WayPlay through ReadJoySwapPad4, $00B5C8-$00B69F). code96_03 starts at asstab.
+  Next: `engine/goal96.asm` (SetContTeams through ReadAllPads). Unsure list is in the plan.

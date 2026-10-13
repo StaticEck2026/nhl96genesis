@@ -12,7 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-Detect4WayPlay = $00B5C8		;code96_02
+Detect4WayPlay = $00B5C8		;fourway96
 sub_FD14 = $00FD14		;code96_04
 sub_FFD0 = $00FFD0		;code96_04
 sub_11226 = $011226		;code96_05

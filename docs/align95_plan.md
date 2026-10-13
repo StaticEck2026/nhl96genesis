@@ -80,7 +80,7 @@ there is no single engine list to include once. Folders still match: `engine/`,
 One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH`, then commit and push, then `docs/HANDOFF.md`. A split is a new file, its stub, its `seg:` script, the `nhl96.asm` include, the ROM map row, and the `module` column in `docs/name_map.csv`. Segment builds already branch to equates in other files (`bne.w rtsfight` from code96_02), so a split on a label boundary is safe when every cross-edge is a branch to a global label or a `jsr` / `jmp`.
 
 1. `engine/fight96.asm` — done. `checkfight` through `sub_C51C`.
-2. `engine/fourway96.asm` — `Detect4WayPlay` through `ReadJoySwapPad4`.
+2. `engine/fourway96.asm` — done. `Detect4WayPlay` through `ReadJoySwapPad4`.
 3. `engine/goal96.asm` — `SetContTeams` through `ReadAllPads` (95G's controller setup lives in goal95).
 4. `engine/input96.asm` — `updatepadinput` through `sub_AFDA` (doinput, including the goalie parts that 95G kept in skate95; they are inside doinput here).
 5. `engine/faceoff96.asm` — `faceoffinput` through `Endfaceoff`. What remains of code96_02 is `WriteSRAMBits` / `ReadSRAMBits`.

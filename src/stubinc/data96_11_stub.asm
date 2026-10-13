@@ -14,6 +14,8 @@
 ; External addresses outside, read from lst/nhl96.bin.
 PAttribOverallMask = $023456		;data96_02
 GAttribOverallMask = $0235B8		;data96_02
+SignFreeAgents = $1DFBAC		;code96_17
+ReleasePlayers = $1E0536		;code96_17
 
 ; Main segment code
 	include	data96_11.asm

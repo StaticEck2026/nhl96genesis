@@ -518,13 +518,13 @@ ClearSRAM	;Clear RAM $0-$1FFF and the save RAM, then write the defaults: the opt
 	move.w	#6,(Opt1team).w
 	move.w	#$C,(Opt2team).w
 	clr.w	(OptPerlen).w
-	clr.w	(word_FFD25E).w
-	clr.w	(word_FFD260).w
+	clr.w	(OptGoalie).w
+	clr.w	(OptUserRec).w
 	move.w	#1,(OptPen).w
 	clr.w	(OptLine).w
-	clr.w	(word_FFD266).w
-	move.w	#1,(word_FFD268).w
-	clr.w	(word_FFD26A).w
+	clr.w	(OptFighting).w
+	move.w	#1,(OptSkill).w
+	clr.w	(OptRosters).w
 	movea.l	#OptPlayMode,a0
 	move.l	#$1EC6,d0
 	moveq	#$18,d1
@@ -543,7 +543,7 @@ ClearSRAM	;Clear RAM $0-$1FFF and the save RAM, then write the defaults: the opt
 	movea.l	#M68K_RAM+$1B00,a0
 	bsr.w	WriteSRAM
 	jsr	(NullSaveClear).l
-	jsr	(sub_1DFA34).l
+	jsr	(ClearCreatedPlayers).l
 	move.l	#$DB4,d0
 	moveq	#$28,d1
 	movea.l	#M68K_RAM+$DB4,a0

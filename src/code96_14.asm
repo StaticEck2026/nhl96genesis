@@ -585,7 +585,7 @@ UpdateRecords	;With save RAM (ValidSRAM) and user records on (OptUserRec 0), upd
 	;record of each pad (UpdateUserRecord), then the save RAM checksum
 	tst.w	(ValidSRAM).w
 	bmi.w	.x
-	tst.w	(word_FFD260).w
+	tst.w	(OptUserRec).w
 	bne.w	.x
 	movem.l	d0-d7/a0-a6,-(sp)
 	bsr.w	CountGoalies

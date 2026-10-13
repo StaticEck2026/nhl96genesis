@@ -1654,7 +1654,7 @@ ReadJoySwapPad4	;Unreferenced. The same for pad 4
 checkfight	;Look for the start of a fight between players a2 and a3 (impact $A or more on both, no
 	;animation lock, no goalie, no faceoff): SetInst both ways, then startfight for both and the other
 	;players watch (assignment $15)
-	tst.w	(word_FFD266).w
+	tst.w	(OptFighting).w
 	bne.w	.5
 	btst	#5,(GameFlags).w
 	bne.w	rtsfight

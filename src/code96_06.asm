@@ -487,7 +487,7 @@ updateplayers	;This routine calls all collision/animation/assignment code for al
 	beq.w	.23
 	move.w	(word_FFD286).w,d4
 .23
-	cmpi.w	#2,(word_FFD268).w
+	cmpi.w	#2,(OptSkill).w
 	bne.w	.24
 	btst	#3,pflags(a3)
 	beq.w	.24

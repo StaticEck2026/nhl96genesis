@@ -281,4 +281,12 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   written out, then CalcAttribRating (source), MinOverallRating and the weight list copies (OvrPlayerWgtList2,
   OvrGoalWgtList2, AttribWgtList2). code96_16's PlayoffMenuRoutines is now dc.l labels. MATCH (segment and ROM).
   RAM: attribsum, attribcount, CreatePoints. sub_1DFBAC / sub_1E0536 (free agents, release player) are code96_17.
-- Next: code96_17.
+- code96_17 converted: the created players list (ClearCreatedPlayers, DeleteCreatedPlayer, GetCreatedId,
+  ReadCreateList, WriteCreateList), SignFreeAgents and ReleasePlayers (labelled bytes by 95 masked byte matches;
+  FreeAgentMsgText / ReleaseMsgText written out), then the game options screen, new in 96: OptionsScreen,
+  OptionVars, OptionsMenuList (its ...Item routines are bytes, the ...Text tables Strings), OptionsScreenSetup,
+  ClearGameRAM, ReadOptions / WriteOptions (save RAM $1EC6) and SetPlayMode. MATCH (segment and ROM).
+  RAM: OptGoalie, OptUserRec, OptFighting, OptSkill, OptRosters (by the menu rows and OptionVars).
+- A String with more than about 32 arguments fails ("Too many parameters in macro call"): group control bytes
+  as one argument, String <$8F,$03,$09>,'Play mode:',... (same bytes).
+- Next: code96_18.

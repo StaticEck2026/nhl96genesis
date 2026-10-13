@@ -1445,7 +1445,7 @@ loc_217BE
 	clr.l	(a0)+
 	cmpa.w	#$D240,a0
 	blt.s	.4
-	jsr	(sub_1E0DDE).l
+	jsr	(OptionsScreen).l
 .5
 	bset	#5,(sflags10).w
 	btst	#7,(GameFlags).w

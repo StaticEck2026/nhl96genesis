@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_17. <- CURRENT
+code96_18. <- CURRENT
 
 ## Sources
 
@@ -87,7 +87,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | code96_15 | matched, 9260 bytes | $1D8E5C | $1DB287 | code | middle95, goal95, injury95, logic95, penalty95, pause95, season95, playoff95, stats95 | LoadReplayIcon, LoadHomeTeamGfx, TeamGfxList, PrintPlayerAssists, PrintPlayerGoals, PrintParenNumber, PlaceBoardFall, getFgtbyte, chkFgtBit1, HiScoreScreen, ReadGoaliePulled, EndOneTimer, ClearPenalties, clrTmPdst, SetMenuPadSide, StandingsPoints, StandingsGroups, StandingsGroupTbl, StandingsGroup0-4, SortStandings, SetSframe; TeamLogoPalettes, LeadSong, CanBlock, LeadersScrollArrows, SortValuesUp (bytes) |
 | code96_16 | matched, 3508 bytes | $1DB288 | $1DC03B | code | - | WaitAnyPad, the SeasonPlayoffStats helpers (PStatsArrows ... PStatsPalette, PStatsCategoryTxt, PStatsColumns), PlayoffMenuScreen, PlayoffMenuRoutines, PlayoffMenuDraw, PlayoffMenuInit, PlayoffMenuSetup, ClearPlayoffSave |
 | data96_11 | matched, 14816 bytes | $1DC03C | $1DFA1B | data | create95, trade95 | RosterMenuList, YesNoMenuList, MenuCreatePlayers / MenuSignFreeAgents / MenuReleasePlayer, TradePlayers, CheckTrade, InvalidTradeText, CreatePlayer, the Field... / Edit... routines and lists, CommitAttribJumps, CreateRatingsGfx, CalcAttribRating, MinOverallRating, OvrPlayerWgtList2, OvrGoalWgtList2, AttribWgtList2 |
-| code96_17 | incbin | $1DFA1C | $1E1A3B | code | - | |
+| code96_17 | matched, 8224 bytes | $1DFA1C | $1E1A3B | code | create95 | ClearCreatedPlayers, DeleteCreatedPlayer, GetCreatedId, ReadCreateList, WriteCreateList, SignFreeAgents, ReleasePlayers and their helpers, OptionsScreen, OptionVars, OptionsMenuList with the ...Item routines and ...Text tables, OptionsScreenSetup, ClearGameRAM, ReadOptions, WriteOptions, SetPlayMode |
 | code96_18 | incbin | $1E1A3C | $1E2E75 | code | stats95 | |
 | data96_12 | incbin | $1E2E76 | $1E6161 | data | summary95, shootout95, records95 | |
 | code96_19 | incbin | $1E6162 | $1E824B | code | create95, records95 | |

@@ -165,6 +165,7 @@ HiScoreScreen = $1D9114		;code96_15
 ClearPenalties = $1D97F4		;code96_15
 SetMenuPadSide = $1D9844		;code96_15
 SeasonPlayoffStats = $1DB020		;code96_15
+sub_1DFA1C = $1DFA1C		;code96_17
 
 
 ; Main segment code

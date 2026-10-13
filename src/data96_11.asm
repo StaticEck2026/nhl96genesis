@@ -43,11 +43,11 @@ MenuCreatePlayers	;Roster menu item Create Players
 	rts
 
 MenuSignFreeAgents	;Roster menu item Sign Free Agents
-	jsr	(sub_1DFBAC).l
+	jsr	(SignFreeAgents).l
 	rts
 
 MenuReleasePlayer	;Roster menu item Release Player
-	jsr	(sub_1E0536).l
+	jsr	(ReleasePlayers).l
 	rts
 
 TradePlayers	;The trade screen (roster menu item Trade Players): the two rosters with position and rating

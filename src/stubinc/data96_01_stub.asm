@@ -167,6 +167,7 @@ SetMenuPadSide = $1D9844		;code96_15
 SeasonPlayoffStats = $1DB020		;code96_15
 sub_1DFA1C = $1DFA1C		;code96_17
 ReturnToGame = $1E2688		;code96_18
+PlayerStatsList = $1E55BC		;data96_12
 
 
 ; Main segment code

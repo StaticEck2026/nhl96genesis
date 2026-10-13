@@ -296,4 +296,11 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   RestoreGameScreen, ClearOldFrames, and sub_1E2970 (bytes, called from code96_04's undecoded bytes) with
   PeriodText, DigitText and PrintDigit. MATCH (segment and ROM). word_FFD284 / word_FFD286 are set by skill level
   (SkillLevelTbl / SkillLevelPalTbl); not renamed.
-- Next: data96_12.
+- data96_12 converted: about 10 KB of code the listing does not decode, labelled bytes: the pause menu screens
+  (TeamRosterScreen, ScoringSummaryScreen, PenaltySummaryScreen, PeriodStatsScreen, GameStatisticsScreen,
+  RecordHoldersScreen, PlayerStatsScreen), ShootoutShooters, and 95 masked byte matches inside them
+  (PeriodStatsTeam, TeamStatTextTbl, PrintShooterList, ShootersPick, PrintRecordName, CalcWinPercents,
+  ReadTeamRecords; the record texts as Strings). Then PlayerStatsList (source: the game / playoff stats screen of
+  a team, d7 = 0 / 1, as in 95) with ReadAnyPad and the PList... helpers. One printcurz block in PListArrows was
+  written by hand from the ROM bytes. MATCH (segment and ROM).
+- Next: code96_19.

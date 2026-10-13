@@ -1766,7 +1766,7 @@ WeightTbl	;RatingToWeight: the weight in lb of each rating
 	dc.w	140,148,152,164,172,180,188,196
 	dc.w	204,212,220,228,236,244,252,260
 
-PlayoffStatsMenu	;Pause menu Playoff Stats: with GameFlags bit 7 set jump to SeasonPlayoffStats, else sub_1E55BC for the team struct
+PlayoffStatsMenu	;Pause menu Playoff Stats: with GameFlags bit 7 set jump to SeasonPlayoffStats, else PlayerStatsList for the team struct
 	;of team potree + potreeteam
 	btst	#7,(GameFlags).w
 	beq.w	.0
@@ -1783,7 +1783,7 @@ PlayoffStatsMenu	;Pause menu Playoff Stats: with GameFlags bit 7 set jump to Sea
 	adda.w	#$39E,a2
 .1
 	moveq	#1,d7
-	jsr	(sub_1E55BC).l
+	jsr	(PlayerStatsList).l
 	movem.l	(sp)+,a2
 	rts
 

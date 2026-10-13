@@ -73,6 +73,7 @@ MenuCreatePlayers = $1DC140		;data96_11
 MenuSignFreeAgents = $1DC148		;data96_11
 MenuReleasePlayer = $1DC150		;data96_11
 TradePlayers = $1DC158		;data96_11
+TeamRosterScreen = $1E2EFC		;data96_12
 
 ; Main segment code
 	include	code96_16.asm

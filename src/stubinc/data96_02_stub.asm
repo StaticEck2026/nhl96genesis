@@ -38,6 +38,14 @@ ClearCreatedPlayers = $1DFA34		;code96_17
 LineEditor = $1E1B18		;code96_18
 LoadTeamLine = $1E2310		;code96_18
 SaveTeamLine = $1E239E		;code96_18
+TeamRosterScreen = $1E2EFC		;data96_12
+ScoringSummaryScreen = $1E352A		;data96_12
+PenaltySummaryScreen = $1E38E6		;data96_12
+PeriodStatsScreen = $1E3C7C		;data96_12
+GameStatisticsScreen = $1E3FDE		;data96_12
+ShootoutShooters = $1E4582		;data96_12
+RecordHoldersScreen = $1E4DCC		;data96_12
+PlayerStatsScreen = $1E55BA		;data96_12
 
 ; Main segment code
 	include	data96_02.asm

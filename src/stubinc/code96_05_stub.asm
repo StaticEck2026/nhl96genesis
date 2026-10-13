@@ -47,6 +47,12 @@ ReadSRAM = $0241E8		;data96_02
 ClearSRAMBytes = $024208		;data96_02
 song = $088586		;data96_04
 ControllerBgMap = $173C7A		;data96_07
+BigFontMap = $17AA72		;data96_08
+unk_17ECEA = $17ECEA		;data96_08
+unk_1808B8 = $1808B8		;data96_08
+unk_18C136 = $18C136		;data96_08
+unk_18C936 = $18C936		;data96_08
+unk_18DE04 = $18DE04		;data96_08
 
 
 ; Main segment code

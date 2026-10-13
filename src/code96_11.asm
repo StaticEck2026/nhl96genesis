@@ -655,13 +655,13 @@ QueuePadLabel	;Queue the 3 character label of a pad object. d1 = label code: bit
 	moveq	#2,d0
 
 RenderSmallFontChar	;Dma one small font tile to the object's chars. d2 = ascii char, d0 = char slot, a0 = object
-	movea.l	#unk_179A76,a3
+	movea.l	#SmallFontMap,a3
 	adda.l	4(a3),a3
 	add.w	d2,d2
 	move.w	4(a3,d2.w),d2
 	andi.w	#$7FF,d2
 	asl.w	#5,d2	;32 bytes per tile
-	movea.l	#unk_179A76,a3
+	movea.l	#SmallFontMap,a3
 	lea	$A(a3,d2.w),a3
 	move.l	a3,(a5)+
 	move.w	#$10,(a5)+	;words to transfer

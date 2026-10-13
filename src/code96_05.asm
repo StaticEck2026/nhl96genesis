@@ -1043,11 +1043,11 @@ sub_11BF8
 .0
 	bsr.w	sub_1217A
 	move.w	d4,(word_FFB014).w
-	movea.l	#unk_17AA7A,a2
+	movea.l	#BigFontMap+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	bclr	#2,(sflags11).w
 	move.w	d4,(BigFontChars).w
-	movea.l	#unk_17AA7A,a2
+	movea.l	#BigFontMap+8,a2
 	jsr	(DecompressGraphicsWithCallback).l
 	dc.b	$01,$2A,$15,$6E,$F9,$AB,$CD,$EF	;remap table
 	move.w	d4,(word_FF2716).l

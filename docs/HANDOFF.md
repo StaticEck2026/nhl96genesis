@@ -243,4 +243,8 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   known yet), the setup team blocks, team logos and small logos, named per team from the data96_01 pointer tables
   (TeamBlockPtrs, TeamLogoPtrs, SmallLogoPtrs, now dc.l of the labels), and ControllerBgMap. One unreferenced block
   stays dc.b. MATCH (segment and ROM).
-- Next: data96_08.
+- data96_08 converted: the fonts (RosterFont, SmallFontMap, SmallFontMap2, BigFontMap, BigFontMap2) and the screen
+  maps. A label at every address the code uses (unk_ names where the purpose is not known; their +8 tile references
+  are written Label+8); a labelled region that parses as a map is written as a map, a further map in it as numbers
+  under ";The next map", anything else dc.b. MATCH (segment and ROM).
+- Next: data96_09.

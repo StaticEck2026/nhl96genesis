@@ -83,6 +83,7 @@ MakeSRAMChecksum = $0241AA		;data96_02
 doassignment = $024380		;data96_02
 FaceOffMap = $091D46		;data96_05
 ControllerBgMap = $173C7A		;data96_07
+RosterFont = $179168		;data96_08
 
 
 ; Main segment code

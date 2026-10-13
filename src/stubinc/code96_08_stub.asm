@@ -23,6 +23,10 @@ GoalieInCrease = $02441E		;data96_02
 SoundCmd = $08839E		;data96_04
 Framermap = $091B86		;data96_05
 HotList = $13938E		;data96_06
+RosterFont = $179168		;data96_08
+SmallFontMap = $179A76		;data96_08
+BigFontMap = $17AA72		;data96_08
+BigFontMap2 = $17B680		;data96_08
 
 
 ; Main segment code

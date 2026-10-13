@@ -699,9 +699,9 @@ doassignment	;Run the current assignment of player a3 (asslist entry assnum, ass
 	jsr	(a0)
 	rts
 
-LoadSmallFont	;Load the small font tiles (unk_179A7E) at char d4 (smallfontchars) with the remap below; d4 = next char
+LoadSmallFont	;Load the small font tiles (SmallFontMap+8) at char d4 (smallfontchars) with the remap below; d4 = next char
 	move.w	d4,(smallfontchars).w
-	movea.l	#unk_179A7E,a2
+	movea.l	#SmallFontMap+8,a2
 	jsr	(DecompressGraphicsWithCallback).l
 	dc.b	$A1,$23,$2F,$AB,$D1,$AA,$CD,$EF	;remap table
 	rts

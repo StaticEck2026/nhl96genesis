@@ -77,6 +77,7 @@ EnergyBarMap = $13D290		;data96_06
 EASNmap = $13D59E		;data96_06
 EASportsMap = $13DA74		;data96_06
 RevRinkTilelist = $13E99A		;data96_06
+SmallFontMap = $179A76		;data96_08
 
 
 ; Main segment code

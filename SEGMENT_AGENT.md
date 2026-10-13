@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-data96_08. <- CURRENT
+data96_09. <- CURRENT
 
 ## Sources
 
@@ -80,7 +80,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | data96_05 | matched, 593262 bytes | $08F2C6 | $120033 | data | graphics95 | maps (header, tiles, .pal, .map): unk_8F2C6, unk_90686, unk_911B8, Framermap, FaceOffMap, Rinktilelist, RefTiles, RefTilesHor; Sprites header, Spritetiles (start) |
 | data96_06 | matched, 133842 bytes | $120034 | $140B05 | data | graphics95 | Spritetiles (rest), SpritePalette, frameSprData, HotList, HotList2, CrowdFrameList, FaceOffSprites, EnergyBarMap, EASNmap (maps), EASportsMap, RevRinkTilelist, ReplayIconMap (start) |
 | data96_07 | matched, 231010 bytes | $140B06 | $179167 | data | graphics95 | maps: ReplayIconMap (rest), ReplayBannerMap, unk_1417B6, unk_1468D6, unk_147896, TeamBlock<team>, TeamLogo<team>, SmallLogo<team>, unk_170B0C, ControllerBgMap |
-| data96_08 | incbin | $179168 | $199BE3 | data | - | |
+| data96_08 | matched, 133756 bytes | $179168 | $199BE3 | data | graphics95 | RosterFont, SmallFontMap, SmallFontMap2, BigFontMap, BigFontMap2, the screen maps and data used from other code (unk_ names) |
 | data96_09 | incbin | $199BE4 | $1BDCDB | data | - | |
 | data96_10 | incbin | $1BDCDC | $1D6B65 | data | - | |
 | code96_14 | incbin | $1D6B66 | $1D8E5B | code | shootout95, middle95, scout95 | |

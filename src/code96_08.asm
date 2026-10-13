@@ -1818,7 +1818,7 @@ printz	;print with the String after the call
 	movea.l	(sp)+,a1
 	rts
 
-print	;print String a1 at printx / printy with the font map unk_179A76: a negative byte sets printa / printm /
+print	;print String a1 at printx / printy with the font map SmallFontMap: a negative byte sets printa / printm /
 	;printx / printy from the next bytes, $40 a blank, $5E a new line, lower case printed as upper case
 	move.w	(disflags).w,-(sp)
 	bset	#2,(disflags).w
@@ -1867,7 +1867,7 @@ print	;print String a1 at printx / printy with the font map unk_179A76: a negati
 	addi.b	#-$20,d0
 .1
 	asl.w	#1,d0
-	movea.l	#unk_179A76,a2
+	movea.l	#SmallFontMap,a2
 	adda.l	4(a2),a2
 	move.w	4(a2,d0.w),d0
 	btst	#3,(sflags6).w
@@ -2120,11 +2120,11 @@ printbigz	;printbig with the String after the call
 printbigcur	;printbigtext with the font map already at bigfontptr
 	bra.w	printbigtext
 
-printbig	;print String a1 with the big font at printx / printy: unk_17AA72, unk_17B680 with sflags11 bit 2
-	move.l	#unk_17AA72,(bigfontptr).l
+printbig	;print String a1 with the big font at printx / printy: BigFontMap, BigFontMap2 with sflags11 bit 2
+	move.l	#BigFontMap,(bigfontptr).l
 	btst	#2,(sflags11).w
 	beq.w	printbigtext
-	move.l	#unk_17B680,(bigfontptr).l
+	move.l	#BigFontMap2,(bigfontptr).l
 
 printbigtext	;Print with the font map at bigfontptr. Lower case is printed as upper case
 	move.w	(disflags).w,-(sp)

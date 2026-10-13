@@ -30,6 +30,7 @@ loadTeamStruct = $01D328		;code96_09
 rtss2 = $01F84A		;code96_10
 SetOriginalLines = $02154E		;code96_11
 AbortGame = $021A2E		;code96_11
+SmallFontMap = $179A76		;data96_08
 
 ; Main segment code
 	include	data96_02.asm

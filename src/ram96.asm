@@ -22,7 +22,7 @@ word_FF2714 equ $FFFF2714
 word_FF2716 equ $FFFF2716
 word_FF2718 equ $FFFF2718
 word_FF2720 equ $FFFF2720
-word_FF7536 equ $FFFF7536
+CreatePoints equ $FFFF7536
 replayend equ $FFFFAF64	;End of the replay buffer from M68K_RAM: updatereplay wraps recbpr there
 VSCRLPM equ $FFFFB000
 VSPRITES equ $FFFFB002
@@ -398,8 +398,8 @@ word_FFD488 equ $FFFFD488
 SongNum equ $FFFFD48A
 HmTeam equ $FFFFD48C
 SongIndex equ $FFFFD48E
-word_FFD490 equ $FFFFD490
-word_FFD492 equ $FFFFD492
+attribsum equ $FFFFD490
+attribcount equ $FFFFD492
 word_FFD81C equ $FFFFD81C
 byte_FFDCA6 equ $FFFFDCA6
 songdelay equ $FFFFDCC0

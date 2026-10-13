@@ -724,8 +724,8 @@ AppendTeamName	;Append the city name of team d0 (TeamList block Strings) to a1 (
 CalcAttrib	;The overall rating of player d0: his attributes weighted by OvrPlayerWgtList (skaters) or OvrGoalWgtList
 	;(goalies), and by AttribWgtList. Called from getNameandAttrib and PrintOverallRating
 	move.l	a6,-(sp)	;push a6 to stack
-	clr.w	(word_FFD490).w
-	clr.w	(word_FFD492).w
+	clr.w	(attribsum).w
+	clr.w	(attribcount).w
 	movea.l	#AttribWgtList,a6
 	cmp.l	(PAttribOverallMask).l,d4	;compare long word (1FBA000A) to d4
 	bne.w	.0
@@ -802,8 +802,8 @@ CalcAttrib	;The overall rating of player d0: his attributes weighted by OvrPlaye
 	move.w	d7,-(sp)
 	move.b	-1(a4,d2.w),d7
 	ext.w	d7
-	add.w	d7,(word_FFD490).w
-	addq.w	#1,(word_FFD492).w
+	add.w	d7,(attribsum).w
+	addq.w	#1,(attribcount).w
 	move.w	(sp)+,d7
 	neg.w	d2
 	bra.w	.add
@@ -827,9 +827,9 @@ CalcAttrib	;The overall rating of player d0: his attributes weighted by OvrPlaye
 	beq.w	.11
 	move.w	#$64,d1
 	movem.l	d6-d7,-(sp)
-	move.w	(word_FFD490).w,d6
+	move.w	(attribsum).w,d6
 	ext.l	d6
-	move.w	(word_FFD492).w,d7
+	move.w	(attribcount).w,d7
 	divs.w	d7,d6
 	add.w	d6,d0
 	movem.l	(sp)+,d6-d7
@@ -839,7 +839,7 @@ CalcAttrib	;The overall rating of player d0: his attributes weighted by OvrPlaye
 	move.w	d0,d1
 	subq.w	#1,d0
 .7
-	jsr	(sub_1DF9C2).l
+	jsr	(MinOverallRating).l
 	movea.l	(sp)+,a6
 	rts
 

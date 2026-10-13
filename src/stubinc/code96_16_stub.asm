@@ -67,6 +67,12 @@ unk_18E152 = $18E152		;data96_08
 unk_18E932 = $18E932		;data96_08
 unk_190380 = $190380		;data96_08
 unk_1DAE32 = $1DAE32		;code96_15
+RosterMenuList = $1DC03C		;data96_11
+YesNoMenuList = $1DC10E		;data96_11
+MenuCreatePlayers = $1DC140		;data96_11
+MenuSignFreeAgents = $1DC148		;data96_11
+MenuReleasePlayer = $1DC150		;data96_11
+TradePlayers = $1DC158		;data96_11
 
 ; Main segment code
 	include	code96_16.asm

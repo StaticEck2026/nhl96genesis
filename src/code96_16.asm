@@ -549,7 +549,7 @@ PStatsPalette	;The palette of unk_17C2AE to palfadenew+$20
 	rts
 
 PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (ReadPassData, ReadPassBits, maketree), then the
-	;menu loop of unk_1DC03C; item 0 can clear the saved playoffs (ClearPlayoffSave)
+	;roster menu loop (RosterMenuList); Reset Rosters asks Yes / No (YesNoMenuList) before ClearPlayoffSave
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	#$FFFF,(word_FFDDBE).w
 	move.w	(GameFlags).w,-(sp)
@@ -614,14 +614,14 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 .2
 	bra.s	.draw
 .3
-	cmpi.l	#unk_1DC03C,(menulist).l
+	cmpi.l	#RosterMenuList,(menulist).l
 	beq.w	.5
 	tst.w	(menuitem).w
 	bne.w	.4
 	bsr.w	ClearPlayoffSave
 .4
 	move.l	#$772,(dword_FFDDAC).w
-	move.l	#unk_1DC03C,(menulist).l
+	move.l	#RosterMenuList,(menulist).l
 	clr.w	(menuitem).w
 	clr.w	(word_FFD000).w
 	move.w	#6,(word_FFD00A).w
@@ -644,7 +644,7 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 	beq.w	.7
 	cmpi.l	#ClearPlayoffSave,(dword_FFDDAC).l
 	bne.w	.6
-	move.l	#unk_1DC10E,(menulist).l
+	move.l	#YesNoMenuList,(menulist).l
 	clr.w	(menuitem).w
 	clr.w	(word_FFD000).w
 	move.w	#2,(word_FFD00A).w
@@ -672,8 +672,8 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 	rts
 
 PlayoffMenuRoutines	;PlayoffMenuScreen: the routine of each menu item
-	dc.b	$00,$1D,$C1,$58,$00,$1D,$C1,$40,$00,$1D,$C1,$48,$00,$1D,$C1,$50
-	dc.b	$00,$1D,$BF,$8A,$00,$1E,$2E,$FC,$00,$01,$22,$A4
+	dc.l	TradePlayers,MenuCreatePlayers,MenuSignFreeAgents,MenuReleasePlayer,ClearPlayoffSave,TeamRosterScreen
+	dc.l	unk_122A4
 
 PlayoffMenuDraw	;PlayoffMenuScreen: draw the menu (PrintMenuList2)
 	movem.l	d0-d7/a0-a6,-(sp)
@@ -683,8 +683,8 @@ PlayoffMenuDraw	;PlayoffMenuScreen: draw the menu (PrintMenuList2)
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-PlayoffMenuInit	;PlayoffMenuScreen: menulist = unk_1DC03C, item 0
-	move.l	#unk_1DC03C,(menulist).l
+PlayoffMenuInit	;PlayoffMenuScreen: menulist = RosterMenuList, item 0
+	move.l	#RosterMenuList,(menulist).l
 .0
 	clr.w	(menuitem).w
 	clr.w	(word_FFD000).w

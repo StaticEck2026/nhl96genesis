@@ -273,4 +273,12 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   (code96_15's loc_1DB020 is now SeasonPlayoffStats; the helpers are PStats...), and the playoff menu screen
   (PlayoffMenuScreen, its routine table and ClearPlayoffSave). A few inline Strings after printcurz were written
   by hand from the ROM bytes. MATCH (segment and ROM).
-- Next: data96_11.
+- data96_11 converted: the roster menu (RosterMenuList, YesNoMenuList: Strings, then item routines that return
+  their text in a1; MenuCreatePlayers / MenuSignFreeAgents / MenuReleasePlayer), the trade and create player
+  screens (code the listing does not decode: labelled bytes by 95 masked byte matches and by the tables: the
+  Field... / Edit... routines follow SkaterFieldList / GoalieFieldList / SkaterEditList / GoalieEditList and the
+  rating labels; 96 has no Aggression row and its Checking row sits where 95 kept Aggression), the texts and tables
+  written out, then CalcAttribRating (source), MinOverallRating and the weight list copies (OvrPlayerWgtList2,
+  OvrGoalWgtList2, AttribWgtList2). code96_16's PlayoffMenuRoutines is now dc.l labels. MATCH (segment and ROM).
+  RAM: attribsum, attribcount, CreatePoints. sub_1DFBAC / sub_1E0536 (free agents, release player) are code96_17.
+- Next: code96_17.

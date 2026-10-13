@@ -37,6 +37,7 @@ GAttribOverallMask = $0235B8		;data96_02
 WriteSRAM = $024188		;data96_02
 MakeSRAMChecksum = $0241AA		;data96_02
 ReadSRAM = $0241E8		;data96_02
+MinOverallRating = $1DF9C2		;data96_11
 
 ; Main segment code
 	include	code96_14.asm

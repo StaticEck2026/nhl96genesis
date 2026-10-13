@@ -430,14 +430,14 @@ sub_F1F0
 	addq.w	#8,a1
 	movea.l	a1,a0
 	movea.l	#$F300,a4
-	movea.l	#unk_1DF9FC,a6
+	movea.l	#OvrGoalWgtList2,a6
 	move.l	(GAttribOverallMask).l,d4
 	tst.w	d5
 	beq.w	.2
-	movea.l	#unk_1DF9EC,a6
+	movea.l	#OvrPlayerWgtList2,a6
 	move.l	(PAttribOverallMask).l,d4
 .2
-	jsr	(sub_1DF8AC).l
+	jsr	(CalcAttribRating).l
 	move.b	d0,(a5)+
 .4
 	movem.l	(sp)+,d2-d3

@@ -57,6 +57,9 @@ OneTimerTarget = $1D6718		;data96_10
 CalcAttrib = $1D7DF8		;code96_14
 PSandSOpassdir = $1D8B26		;code96_14
 ReadGoaliePulled = $1D9352		;code96_15
+CalcAttribRating = $1DF8AC		;data96_11
+OvrPlayerWgtList2 = $1DF9EC		;data96_11
+OvrGoalWgtList2 = $1DF9FC		;data96_11
 
 
 ; Main segment code

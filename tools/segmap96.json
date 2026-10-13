@@ -87,9 +87,15 @@
    "end": 65727
   },
   {
-   "name": "code96_04b",
+   "name": "trade96",
    "kind": "code",
    "start": 65728,
+   "end": 67865
+  },
+  {
+   "name": "season96_sim",
+   "kind": "code",
+   "start": 67866,
    "end": 68785
   },
   {

@@ -87,7 +87,8 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 6. `src/srambits96.asm` — done. `WriteSRAMBits` / `ReadSRAMBits` and the unreferenced bytes that follow them. The 95G save-RAM block is later and is the file that gets the name `src/sram96.asm`.
 7. `engine/logic96.asm` — done. `asstab` through `unk_EBF8`. The penalty texts sit at the end of that run and stay in the file until penalty96 is the next include. `SetLCmode` is what remains of code96_03.
 8. `engine/lines96.asm` — done. `SetLCmode` through `lcfound2`. `lcfound` branches to `rtss`, which moved with the pass.
-8b. `engine/input96_shot.asm` — done. `shotdiradj` through `sub_1008E` (the helpers after `passtoa0`). `sub_EF02`, the team line writer, stays in code96_04 with `NullSaveClear`. Roster names and the season simulation are `src/code96_04b.asm` until they split into `front/trade96.asm` and `front/season96_sim.asm`.
+8b. `engine/input96_shot.asm` — done. `shotdiradj` through `sub_1008E` (the helpers after `passtoa0`). `sub_EF02`, the team line writer, stays in code96_04 with `NullSaveClear`.
+8c. `front/trade96.asm` and `front/season96_sim.asm` — done. Roster names through the tables before `SimGameStats`, then the simulation. The sim reads `unk_107F9` from the roster file.
 9. Continue down the table above. Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ

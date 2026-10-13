@@ -1,0 +1,27 @@
+;	Segment build for front\season96_sim.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
+
+; region code
+	org	$01091A
+
+; includes for stubs to replace removed code
+	include	stubinc\ports.inc	;IO_* / VDP_* ports
+	include	stubinc\equals.inc	;VDP status bits
+	include	ram96.asm		;RAM map
+	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String
+
+; External addresses outside, read from lst/nhl96.bin.
+sub_10CB2 = $010CB2		;code96_05
+sub_10CF2 = $010CF2		;code96_05
+TeamList = $00077E		;teamdata96
+GetGoalieCountD7 = $015774		;code96_06
+randomd0 = $01B0A6		;code96_08
+PAttribAggressMask = $023574		;data96_02
+CalcAttrib = $1D7DF8		;code96_14
+SetSeasonInjuries = $1E8840		;code96_20
+unk_107F9 = $0107F9		;trade96
+
+
+; Main segment code
+	include	front\season96_sim.asm

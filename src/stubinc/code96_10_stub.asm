@@ -12,8 +12,8 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-GetRosterName = $0101E6		;code96_04b
-GetJerseyNumber = $0102B8		;code96_04b
+GetRosterName = $0101E6		;trade96
+GetJerseyNumber = $0102B8		;trade96
 GetPeriodTime = $0148A2		;data96_01
 GetPlayerCount = $0157F4		;code96_06
 LockScroll = $016786		;code96_06

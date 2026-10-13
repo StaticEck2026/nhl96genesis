@@ -13,8 +13,8 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 TeamList = $00077E		;teamdata96
-FormatPlayerNameD7 = $01017A		;code96_04b
-GetCreatedName = $0101DC		;code96_04b
+FormatPlayerNameD7 = $01017A		;trade96
+GetCreatedName = $0101DC		;trade96
 sub_1217A = $01217A		;code96_05
 sub_1218A = $01218A		;code96_05
 unk_122A4 = $0122A4		;code96_05

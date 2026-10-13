@@ -19,8 +19,8 @@ GAttribOverallMask = $0235B8		;data96_02
 CalcAttribRating = $1DF8AC		;data96_11
 OvrPlayerWgtList2 = $1DF9EC		;data96_11
 OvrGoalWgtList2 = $1DF9FC		;data96_11
-GetRosterName = $0101E6		;code96_04b
-sub_103AA = $0103AA		;code96_04b
+GetRosterName = $0101E6		;trade96
+sub_103AA = $0103AA		;trade96
 
 
 ; Main segment code

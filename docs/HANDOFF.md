@@ -329,5 +329,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/logic96.asm` is asstab through the penalty texts ($00C548-$00EC2F).
   `engine/lines96.asm` is the line change box (SetLCmode through lcfound2, $00EC30-$00EEFF). code96_03 is gone.
   `engine/input96_shot.asm` is the shot and the pass (shotdiradj through sub_1008E, $00F374-$0100BF).
-  code96_04 is the team line writer (NullSaveClear, sub_EF02). code96_04b is roster names and the season simulation, still to split into trade96 and season96_sim.
-  Next: `front/trade96.asm` (DefaultRosters through the name helpers) and `front/season96_sim.asm`. Unsure list is in the plan.
+  code96_04 is the team line writer (NullSaveClear, sub_EF02).
+  `front/trade96.asm` is the roster names (DefaultRosters through the name tables, $0100C0-$010919).
+  `front/season96_sim.asm` is the season simulation (SimGameStats through PickSimGoalie, $01091A-$010CB1).
+  Next: `front/season96.asm` for code96_05 once the bodies are read. Unsure list is in the plan.

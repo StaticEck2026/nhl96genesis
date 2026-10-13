@@ -1,4 +1,4 @@
-;	Segment build for code96_04b.asm: sets its origin and the outside routines and data it uses,
+;	Segment build for front\trade96.asm: sets its origin and the outside routines and data it uses,
 ;	then includes the file on its own for checking against the ROM.
 
 ; region code
@@ -13,21 +13,17 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 sub_10CB2 = $010CB2		;code96_05
-sub_10CF2 = $010CF2		;code96_05
 TeamList = $00077E		;teamdata96
-GetGoalieCountD7 = $015774		;code96_06
 GetGoalieCount = $0157A2		;code96_06
 GetPlayerCount = $0157F4		;code96_06
 randomd0 = $01B0A6		;code96_08
 FinalizeTextBuffer = $0230AA		;code96_12
 ConvertByteToDigits = $0230C4		;code96_12
 PAttribOverallMask = $023456		;data96_02
-PAttribAggressMask = $023574		;data96_02
 GAttribOverallMask = $0235B8		;data96_02
 ReadSRAM = $0241E8		;data96_02
 CalcAttrib = $1D7DF8		;code96_14
-SetSeasonInjuries = $1E8840		;code96_20
 
 
 ; Main segment code
-	include	code96_04b.asm
+	include	front\trade96.asm

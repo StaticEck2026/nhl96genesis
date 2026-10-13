@@ -12,8 +12,8 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-DefaultRosters = $0100C0		;code96_04b
-FormatPlayerNameD7 = $01017A		;code96_04b
+DefaultRosters = $0100C0		;trade96
+FormatPlayerNameD7 = $01017A		;trade96
 sub_10F02 = $010F02		;code96_05
 sub_11582 = $011582		;code96_05
 sub_1217A = $01217A		;code96_05

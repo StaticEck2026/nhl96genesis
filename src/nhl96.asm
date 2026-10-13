@@ -23,7 +23,8 @@
 	include	engine\lines96.asm	; $00EC30  line change box
 	include	code96_04.asm		; $00EF00  team lines
 	include	engine\input96_shot.asm	; $00F374  shot and pass
-	include	code96_04b.asm		; $0100C0  roster names and season simulation
+	include	front\trade96.asm	; $0100C0  roster names
+	include	front\season96_sim.asm	; $01091A  season game simulation
 	include	code96_05.asm		; $010CB2  code
 	include	data96_01.asm		; $012BFE  data
 	include	code96_06.asm		; $015774  code

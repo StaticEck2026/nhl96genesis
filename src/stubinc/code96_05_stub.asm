@@ -21,7 +21,7 @@ TeamBlockPtrs = $012BFE		;data96_01
 TeamLogoPtrs = $012C6E		;data96_01
 unk_12D46 = $012D46		;data96_01
 SeasonSchedule = $013558		;data96_01
-ResolveGames = $013EA2		;data96_01
+ResolveDayGames = $013EA2		;data96_01
 GetTeamPOSlot = $0143A8		;data96_01
 GetGoalieCountD7 = $015774		;code96_06
 randomd0 = $01B0A6		;code96_08
@@ -40,6 +40,7 @@ PushNumberWidth = $01BE1C		;code96_08
 printbigz = $01BED6		;code96_08
 printbig = $01BEEC		;code96_08
 NewPO = $021C28		;code96_11
+GetShifter = $0224E2		;code96_12
 
 
 ; Main segment code

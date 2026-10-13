@@ -22,7 +22,7 @@ SetLCmode2	;Open the line change box: wait for the box, then draw the line choic
 	bset	#0,(sflags3).w
 	bra.w	.1
 .box
-	jsr	(sub_22E58).l
+	jsr	(box).l
 	bsr.w	setlccords
 .1
 	jsr	(Framer).l
@@ -1562,8 +1562,8 @@ FormatPlayerNameD7
 	movea.w	#(TextBuffer-M68K_RAM),a1
 	adda.w	(a0),a0
 	jsr	(GetJerseyNumber).l
-	move.b	(word_FFDDAA+1).w,d0
-	jsr	(sub_230C4).l
+	move.b	(jerseynum+1).w,d0
+	jsr	(ConvertByteToDigits).l
 	move.b	#$20,(a1)+
 	movea.l	(sp)+,a0
 	move.w	(a0)+,d0
@@ -1575,7 +1575,7 @@ FormatPlayerNameD7
 	move.b	(a0)+,(a1)+
 	cmpa.l	a0,a2
 	bne.s	.copy
-	jsr	(sub_230AA).l
+	jsr	(FinalizeTextBuffer).l
 	movem.l	(sp)+,d0-d3/d7-a0/a2
 	rts
 
@@ -1583,7 +1583,7 @@ sub_101BE
 	movem.l	d0/d7/a2,-(sp)
 	bra.w	loc_101CE
 
-getplayername
+GetPlayerNamePointer	;a0 = name string of player d0 (roster offset) of team struct a2 (GetRosterName)
 	movem.l	d0/d7/a2,-(sp)
 	move.w	$28(a2),d7
 
@@ -1689,8 +1689,8 @@ GetJerseyNumber	;The jersey number byte of player d0 of team d7
 .next
 	dbf	d0,.skip
 	adda.w	(a0),a0
-	clr.w	(word_FFDDAA).w
-	move.b	(a0),(word_FFDDAA+1).w
+	clr.w	(jerseynum).w
+	move.b	(a0),(jerseynum+1).w
 	move.w	(sp)+,d7
 	bra.w	.2
 .0
@@ -1706,14 +1706,14 @@ GetJerseyNumber	;The jersey number byte of player d0 of team d7
 	movea.l	#SaveRAM,a0
 	move.w	(a0,d0.w),d0
 	andi.w	#$FF,d0
-	move.w	d0,(word_FFDDAA).w
+	move.w	d0,(jerseynum).w
 	bra.w	.2
 .1
 	jsr	(GetRosterName).l
 	adda.w	(a1),a1
 	clr.w	d0
 	move.b	(a1),d0
-	move.w	d0,(word_FFDDAA).w
+	move.w	d0,(jerseynum).w
 .2
 	movem.l	(sp)+,d0-d1/a0-a1
 	rts

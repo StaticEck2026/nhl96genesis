@@ -1304,9 +1304,9 @@ SetContTeams	;The controller setup screen: pick the team of each pad (cont1team 
 	move.w	(VSCRLPM).w,d0
 	jsr	(Vmaddr).l
 	move.w	#0,(a0)
-	move.w	(word_FFD31A).w,d0
+	move.w	(homegoalies).w,d0
 	move.w	d0,(a0)
-	addq.w	#1,(word_FFD31A).w
+	addq.w	#1,(homegoalies).w
 	cmpi.w	#$5460,(carddelay).w
 	bge.w	.clear
 	bsr.w	ReadAllPads
@@ -1678,7 +1678,7 @@ checkfight	;Look for the start of a fight between players a2 and a3 (impact $A o
 	beq.w	rtsfight
 	btst	#0,(gmode).w
 	bne.w	rtsfight
-	btst	#0,(byte_FFB7C1).w
+	btst	#0,(puck_pflags2).w
 	bne.w	rtsfight
 	cmpi.w	#$10A,Ypos(a3)
 	bgt.w	rtsfight

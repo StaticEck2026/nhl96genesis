@@ -77,7 +77,7 @@ puckvy equ $FFFFB788
 puckvz equ $FFFFB78A
 byte_FFB7BC equ $FFFFB7BC
 puckc equ $FFFFB7BE
-byte_FFB7C1 equ $FFFFB7C1
+puck_pflags2 equ $FFFFB7C1
 byte_FFB7F7 equ $FFFFB7F7
 Ylist equ $FFFFB85E
 OOlistpos equ $FFFFB87E
@@ -158,7 +158,7 @@ word_FFBF58 equ $FFFFBF58
 word_FFBF5A equ $FFFFBF5A
 word_FFBF5C equ $FFFFBF5C
 word_FFBF5E equ $FFFFBF5E
-word_FFBF7C equ $FFFFBF7C
+recwins equ $FFFFBF7C
 word_FFBF88 equ $FFFFBF88
 smallfontptr equ $FFFFBF8A
 onetimerplayer equ $FFFFBFA6
@@ -233,7 +233,7 @@ PenBuf equ $FFFFC3A6
 Pencntdwn equ $FFFFC3E8
 Penaltytimer equ $FFFFC3EA
 PBnum equ $FFFFC3EC
-word_FFC442 equ $FFFFC442
+InjCntDown equ $FFFFC442
 penmsgtimer equ $FFFFC444
 RefCnt equ $FFFFC446
 RefStep equ $FFFFC448
@@ -243,6 +243,7 @@ gsp equ $FFFFC4BC
 gameclock equ $FFFFC4BE
 PerTimeTotal equ $FFFFC4C2
 ChkCnt equ $FFFFC4C4
+unk_FFC4C6 equ $FFFFC4C6
 TempPlOffset equ $FFFFC4C8
 ScoreSumbytes equ $FFFFC4CA
 ScoreSum equ $FFFFC4CC
@@ -269,8 +270,10 @@ word_FFCAEA equ $FFFFCAEA
 word_FFCAEC equ $FFFFCAEC
 byte_FFCAF4 equ $FFFFCAF4
 byte_FFCB68 equ $FFFFCB68
+statsbuffer equ $FFFFCE62
 word_FFCF42 equ $FFFFCF42
 gsstruct equ $FFFFCF44
+unk_FFCFB4 equ $FFFFCFB4
 gamenum equ $FFFFCFC4
 postarts equ $FFFFCFC6
 bosgames equ $FFFFCFC8
@@ -347,7 +350,8 @@ word_FFD284 equ $FFFFD284
 word_FFD286 equ $FFFFD286
 TmpOptLine2 equ $FFFFD288
 TempOptPlayMode equ $FFFFD28A
-unk_FFD296 equ $FFFFD296
+tpassbits equ $FFFFD28C
+pwddatabuffer equ $FFFFD296
 PlayingSong equ $FFFFD2A2
 BA_Team equ $FFFFD2D2
 BA_Sktr_SCnum equ $FFFFD2D4
@@ -368,8 +372,8 @@ setupvis equ $FFFFD2FE
 word_FFD300 equ $FFFFD300
 word_FFD310 equ $FFFFD310
 carddelay equ $FFFFD312
-word_FFD31A equ $FFFFD31A
-word_FFD31C equ $FFFFD31C
+homegoalies equ $FFFFD31A
+awaygoalies equ $FFFFD31C
 word_FFD31E equ $FFFFD31E
 word_FFD320 equ $FFFFD320
 word_FFD326 equ $FFFFD326
@@ -419,12 +423,12 @@ dword_FFDD82 equ $FFFFDD82
 word_FFDD86 equ $FFFFDD86
 byte_FFDD88 equ $FFFFDD88
 byte_FFDD89 equ $FFFFDD89
-word_FFDDAA equ $FFFFDDAA
+jerseynum equ $FFFFDDAA
 dword_FFDDAC equ $FFFFDDAC
 word_FFDDB0 equ $FFFFDDB0
 word_FFDDB4 equ $FFFFDDB4
 word_FFDDB6 equ $FFFFDDB6
-word_FFDDB8 equ $FFFFDDB8
+injurygames equ $FFFFDDB8
 word_FFDDBC equ $FFFFDDBC
 word_FFDDBE equ $FFFFDDBE
 word_FFDDC4 equ $FFFFDDC4

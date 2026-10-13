@@ -50,6 +50,13 @@ sub_1C184 = $01C184		;code96_09
 Intermission = $01D3CE		;code96_09
 UpdateScores = $01D518		;code96_09
 rtss2 = $01F84A		;code96_10
+ReadPassBits = $0221D4		;code96_12
+EncodePW = $02229C		;code96_12
+ReadPassData = $022386		;code96_12
+WritePassData = $0223B0		;code96_12
+WritePassBits = $0223EA		;code96_12
+GetShifter = $0224E2		;code96_12
+AddPlayoffTeamStats = $0224FA		;code96_12
 
 
 ; Main segment code

@@ -52,6 +52,12 @@ rtss2 = $01F84A		;code96_10
 ResetBench = $01FDF4		;code96_10
 sub_1FE58 = $01FE58		;code96_10
 setplayer = $01FEA0		;code96_10
+GetShifter = $0224E2		;code96_12
+ShowThreeStars = $022820		;code96_12
+PenaltyShotBox = $022B70		;code96_12
+ShowGoalBox = $022C5E		;code96_12
+GetPlayerName = $022E70		;code96_12
+GetPlayerNumInitial = $022ED6		;code96_12
 
 
 ; Main segment code

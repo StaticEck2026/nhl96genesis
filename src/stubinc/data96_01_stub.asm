@@ -54,7 +54,12 @@ ExitToOpening = $0216EE		;code96_11
 Opening = $0216F2		;code96_11
 EASportsScreen = $021A4C		;code96_11
 DefaultMenus = $021B82		;code96_11
-sub_21CF4 = $021CF4		;code96_11
+maketree = $021CF4		;code96_11
+WritePassData = $0223B0		;code96_12
+WritePassBits = $0223EA		;code96_12
+GetShifter = $0224E2		;code96_12
+ReadTeamStats = $0225E0		;code96_12
+ShowInjuryBox = $022A2C		;code96_12
 
 
 ; Main segment code

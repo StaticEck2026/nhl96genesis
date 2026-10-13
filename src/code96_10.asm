@@ -284,7 +284,7 @@ loc_1E462
 	bsr.w	SetSPA
 	exg	a2,a3
 .3
-	move.w	#4,(word_FFC442).w
+	move.w	#4,(InjCntDown).w
 	moveq	#$14,d0
 	tst.w	$34(a3)
 	beq.w	.7
@@ -1727,7 +1727,7 @@ setplayer	;Bring player onto the ice and set his attributes. d3 = offset of play
 	adda.w	(a1),a1
 	movea.l	a1,a0
 	movem.l	(sp)+,d0/d7/a1
-	move.b	(word_FFDDAA+1).w,$70(a3)
+	move.b	(jerseynum+1).w,$70(a3)
 	move.b	1(a0),d3	;move Wgt/Agl byte to d3
 	andi.w	#$F0,d3	;Mask Wgt nibble
 	lsr.w	#1,d3	;shift d3 1 bit right (This is taking Wgt and mult by 8)

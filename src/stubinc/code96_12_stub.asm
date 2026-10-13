@@ -9,8 +9,32 @@
 	include	stubinc\equals.inc	;VDP status bits
 	include	ram96.asm		;RAM map
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+Penaltylist = $00E818		;code96_03
+lcfound2 = $00EEC4		;code96_04
+GetPlayerNamePointer = $0101C6		;code96_04
+GetJerseyNumber = $0102B8		;code96_04
+sub_10F02 = $010F02		;code96_05
+sub_10F22 = $010F22		;code96_05
+GetGoalieCountD7 = $015774		;code96_06
+randomd0 = $01B0A6		;code96_08
+eraser = $01B976		;code96_08
+Framer = $01B9B0		;code96_08
+printz = $01BB8E		;code96_08
+print = $01BBA0		;code96_08
+printcurz = $01BC72		;code96_08
+printcur = $01BC84		;code96_08
+PushNumberWidth = $01BE1C		;code96_08
+appendz = $01BE78		;code96_08
+appstring = $01BE80		;code96_08
+printbigz2 = $01C12C		;code96_09
+printbig2 = $01C15A		;code96_09
+prefmes = $01C9FA		;code96_09
+sub_1CFE4 = $01CFE4		;code96_09
+rtss2 = $01F84A		;code96_10
+maketree = $021CF4		;code96_11
 
 
 ; Main segment code

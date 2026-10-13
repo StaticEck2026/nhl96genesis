@@ -2,22 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-sub_221D4	equ	$0221D4
-sub_2229C	equ	$02229C
-sub_22386	equ	$022386
-sub_223B0	equ	$0223B0
-sub_223EA	equ	$0223EA
-sub_224FA	equ	$0224FA
-sub_225E0	equ	$0225E0
-sub_22820	equ	$022820
-loc_22A2C	equ	$022A2C
-sub_22B70	equ	$022B70
-loc_22C5E	equ	$022C5E
-sub_22E70	equ	$022E70
-sub_22ED6	equ	$022ED6
-AdrErr		equ	$023144	;bus and address error handler
-InvOpCode	equ	$02316C	;illegal instruction handler
-DivBy0		equ	$023196	;zero divide handler
 unk_23248	equ	$023248
 unk_232C8	equ	$0232C8
 linelist	equ	$023342	;line names
@@ -86,6 +70,8 @@ AttributeCalc	equ	$1D6F66
 sub_1D72F6	equ	$1D72F6
 sub_1D733C	equ	$1D733C
 UpdateRecords	equ	$1D7BC6
+CountGoalies	equ	$1D7D0E
+ShootoutModeBox	equ	$1D7FA6
 CountShootoutGoals	equ	$1D8208
 sub_1D82A2	equ	$1D82A2
 nullsub_5	equ	$1D84D4
@@ -96,6 +82,8 @@ nullsub_6	equ	$1D8782
 nullsub_7	equ	$1D8A86
 sub_1D8E5C	equ	$1D8E5C
 sub_1D8E6C	equ	$1D8E6C
+PrintPlayerAssists	equ	$1D8EF6
+PrintPlayerGoals	equ	$1D8F0C
 PlaceBoardFall	equ	$1D8F66
 sub_1D9062	equ	$1D9062
 sub_1D906C	equ	$1D906C
@@ -113,6 +101,7 @@ sub_1E55BC	equ	$1E55BC
 sub_1E6C4C	equ	$1E6C4C
 sub_1E700A	equ	$1E700A
 loc_1E7664	equ	$1E7664
+loc_1E78C4	equ	$1E78C4
 sub_1E7AC4	equ	$1E7AC4
 sub_1E827A	equ	$1E827A
 sub_1E8544	equ	$1E8544
@@ -133,9 +122,6 @@ sub_1D9352	equ	$1D9352
 sub_1DF8AC	equ	$1DF8AC
 sub_1E7A78	equ	$1E7A78
 sub_1E8840	equ	$1E8840
-sub_22E58	equ	$22E58
-sub_230AA	equ	$230AA
-sub_230C4	equ	$230C4
 sub_241E8	equ	$241E8
 sfx	equ	$88470
 unk_1DF9EC	equ	$1DF9EC
@@ -144,7 +130,6 @@ unk_44120	equ	$44120
 Create_HotCold_Table	equ	$1D6F24
 sub_1D8262	equ	$1D8262
 sub_1DA6C0	equ	$1DA6C0
-sub_224E2	equ	$0224E2
 sub_24188	equ	$024188
 sub_24208	equ	$024208
 song	equ	$088586

@@ -1327,7 +1327,7 @@ IntermissionStart	;The end of a period: ResetClock, restart the sound driver, In
 	bsr.w	UpdateScores
 	cmpi.w	#4,(gsp).w	;check if cont playoffs
 	bne.w	.4
-	bsr.w	sub_224FA
+	bsr.w	AddPlayoffTeamStats
 .4
 	bsr.w	Intermission
 	cmpi.w	#4,(gsp).w
@@ -1336,7 +1336,7 @@ IntermissionStart	;The end of a period: ResetClock, restart the sound driver, In
 	jsr	(sub_1E2688).l
 	jmp	StartPer
 .0
-	bsr.w	sub_2229C
+	bsr.w	EncodePW
 	jsr	(nullsub_2).l
 	tst.w	(OptPlayMode).w
 	beq.w	.checkadjust
@@ -1404,8 +1404,8 @@ loc_217BE
 	btst	#7,(GameFlags).w
 	beq.w	.3
 	movea.l	#$FFFFD296,a3
-	jsr	(sub_223EA).l
-	jsr	(sub_223B0).l
+	jsr	(WritePassBits).l
+	jsr	(WritePassData).l
 	movea.l	#$FFFF0000,a0
 	movea.l	#$FFFFCF44,a1
 	move.w	#$1F,d0
@@ -1429,8 +1429,8 @@ loc_217BE
 	jsr	(sub_1149E).l
 	btst	#2,(dword_FFDD7E+2).w
 	beq.w	.2
-	jsr	(sub_22386).l
-	jsr	(sub_21CF4).l
+	jsr	(ReadPassData).l
+	jsr	(maketree).l
 	jsr	(ContinuePlayoffs).l
 	btst	#1,(dword_FFDD7E+2).w
 	bne.w	*+4
@@ -1629,11 +1629,11 @@ defmenuoptions	;DefaultMenus: the default options
 ContinuePlayoffs	;Continue the playoffs: read the saved bits (ReadPassBits)
 	movem.l	d0-d7/a0-a3,-(sp)
 	movea.l	#$FFFFD296,a3
-	bsr.w	sub_221D4
+	bsr.w	ReadPassBits
 	move.w	(gamelevel).w,d0
 	or.w	(bosgames).w,d0
 	beq.w	.x
-	bsr.w	sub_21CF4
+	bsr.w	maketree
 	moveq	#7,d0
 	tst.w	(FourWayPlay).w
 	beq.w	.0
@@ -1722,7 +1722,8 @@ NewPO	;New playoff tree
 .4
 	clr.w	(WinBits).w
 
-sub_21CF4	;Called after the playoff results (ResolveGames, BeginPlayoffs)
+maketree	;Make the playoff tree (potree) from the playoff seeds and WinBits, then FigureJoy; with GameFlags bit 7
+	;the seeds come from save RAM. Called after ResolveGames, ResolveDayGames and BeginPlayoffs
 	movem.l	d0-d4/a0-a3,-(sp)
 	btst	#7,(GameFlags).w
 	beq.w	.0
@@ -1894,7 +1895,7 @@ loc_21F3E
 	bsr.w	sub_21DD4
 .0
 	movem.l	(sp)+,d5-d6/a4-a5
-	bsr.w	sub_224E2
+	bsr.w	GetShifter
 	tst.w	d1
 	bmi.w	loc_21F94
 	movea.w	#(potree-M68K_RAM),a0
@@ -1947,7 +1948,7 @@ FigureJoy	;Set cont1team ... cont4team
 	beq.w	loc_22156
 	btst	#0,(gmode2).w
 	bne.w	loc_22156
-	bsr.w	sub_224E2
+	bsr.w	GetShifter
 	movea.w	#(potree-M68K_RAM),a0
 	move.w	(potreeteam).w,d2
 	move.b	(a0,d2.w),d2

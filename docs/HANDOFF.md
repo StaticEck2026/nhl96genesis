@@ -181,4 +181,15 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   to IntermissionStart.
 - RAM: DMAList, DMAlistend, Satt, sso, pads, padcont, fofdata2, Joy1/3/4Struct, potree, postarts, potreeteam,
   pojoy, OptNOP, Opt1team, Opt2team, animchars, faceoffvrcset, Oldrow, Hscroll, Vscroll, zamx.
-- Next: code96_12.
+- code96_12 converted: the playoff pass bits (ReadPassBits, EncodePW, WritePassBits, the 5 word arithmetic), the
+  playoff team stats in save RAM, ResolveGames, the Stars of the Game box, the injury, penalty shot and goal boxes,
+  the player name strings and the exception vectors (crash, the 94 handler). MATCH (segment and ROM).
+- ResolveGames is $22670 (95 ResolveGames by bytes); the data96_01 routine that had the name is ResolveDayGames.
+  $21CF4 (code96_11) is maketree (EncodePW calls ResolveGames then it); $14AD4 (data96_01) is CheckInjury, the
+  timer head of ShowInjuryBox. The injury box ($22A2C) was undecoded in the listing and is written out by hand.
+- getplayername ($101C6) is GetPlayerNamePointer as in the 95 source: SNASM labels ignore case, so it clashed
+  with GetPlayerName ($22E70).
+- Outside: CountGoalies, PrintPlayerGoals, PrintPlayerAssists, ShootoutModeBox (externs96).
+- RAM: tpassbits, pwddatabuffer, statsbuffer, recwins, homegoalies, awaygoalies, InjCntDown, jerseynum, injurygames,
+  puck_pflags2.
+- Next: data96_02.

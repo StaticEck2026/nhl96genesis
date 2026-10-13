@@ -48,7 +48,7 @@ goaliesave	;The goalie a3 makes a save of the puck crossing at a0: the save SPA 
 	beq.w	.1
 	eori.w	#1,d0
 .1
-	move.w	d0,(word_FFDDAA).w
+	move.w	d0,(jerseynum).w
 	cmpi.w	#8,(puckz).w	;high shot: shoulder saves
 	bgt.w	.6
 	cmpi.w	#$800,(puckvz).w
@@ -151,7 +151,7 @@ goaliesave	;The goalie a3 makes a save of the puck crossing at a0: the save SPA 
 	cmp.w	#$A,d0
 	blt.w	.5
 	move.w	#SPA0074,d1
-	btst	#0,(word_FFDDAA+1).w
+	btst	#0,(jerseynum+1).w
 	beq.w	.3
 	move.w	#SPA02C0,d1
 .3

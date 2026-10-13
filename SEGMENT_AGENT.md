@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_12. <- CURRENT
+data96_02. <- CURRENT
 
 ## Sources
 
@@ -72,7 +72,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | code96_09 | matched, 8572 bytes | $01BF94 | $01E10F | code | collide95, penalty95, lines95, middle95, faceoff95 | PrintBigChar, PutBigTile, printbig1/2 (printbigz1/2), AddPenalty, AddPenalty2, PenaltyManager, chkprogress, PenShotChk, getBAplayerInfo, InProgress, coinsearch, checkfornewpen, Stop4Pen, UpdatePA, SetPA(2), PushRef, prefmes, PenaltyTimeTxt, PenGoalStuff, updatepentime, ProcessPenaltyList, releasepl, GetLowestPen, updatepwrplay, EASNLogo, linebar, getlinee, AvgCline, ChkShotStat, SetupTeamForIntermission, SetupTeamLine, RestoreTeamEnergy, Intermission, UpdateScores, SetScore, sctab, PrintBigListItem, PrintSmallListItem, SkipStrings, checkcoll, checkplcoll, checkcx, checkint, CCStart, checkagr, holdcheck |
 | code96_10 | matched, 8374 bytes | $01E110 | $0201C5 | code | collide95, players95, shootout95 | FallDown, setInjuryType, checkwallcoll, checkgoal, AssignTeam, GetPeriodTimeRemaining, checkgoalp, CheckBump, wallcollb, wallcoll, setd0player, rtss2, makepde, getpde, setpde, setpersonel, SetPlList, TryAddPlayerToList, ResetBench, setplayer; as labelled bytes: puckbody, SetupPenaltyShot, forcepldata |
 | code96_11 | matched, 8206 bytes | $0201C6 | $0221D3 | code | players95, display95, video95, hockey95, setup95 | ClampNibble, VBlank, vb2 (bytes), IRQ7, setvideo, updatescroll, showref, checkfo, showcrowd, ShowCrowdPb, ShowCrowdFrame, checksso, setsortcords, setffo, uppads, QueuePadLabel, RenderSmallFontChar, addframe, addframe2, find3d, KillCrowd, setupice, defaultsprites(2), SprSort, clearTeamStats, InitTeamStructure, setplayercolors, IntermissionStart, ExitToOpening, Opening, Opening2, EASportsScreen, VBlank_SetOptions, DefaultMenus, defmenuoptions, ContinuePlayoffs, NewPO, SetTreeGameTeams, FigureJoy; DumpSprites, resetplstuff, UpdatePlayoffLevel (bytes) |
-| code96_12 | incbin | $0221D4 | $023247 | code | setup95 | |
+| code96_12 | matched, 4212 bytes | $0221D4 | $023247 | code | setup95, stats95, injury95, goal95, shootout95, middle95, main95 | ReadPassBits, EncodePW, ReadPassData, WritePassData, WritePassBits, PushBits, ClrPassBits, SuperAdd, SuperMult, SuperDiv, GetShifter, AddPlayoffTeamStats, ReadTeamStats, ResolveGames, ShowThreeStars, TakeTopStarScore, ShowInjuryBox, PenaltyShotBox, PenShotBigTxt, ShowGoalBox, GoalBigTxt, PPGoalBigTxt, box, GetPlayerName, getname, GetPlayerNumInitial, FormatPlayerNumInitial, FormatPlayerName, FinalizeTextBuffer, ConvertByteToDigits, AdrErr, InvOpCode, DivBy0, crash; CalcStarScores, CalcTeamStarScores, FormatPlayerNumInitialShort, GetPlayerNumLast, FormatPlayerNameLast, FormatPlayerNameShort, FormatLastName, GetPlayerInitial, FormatPlayerInitial, PushNumberWidthZero (bytes) |
 | data96_02 | incbin | $023248 | $04411F | data | sound95, setup95, middle95 | |
 | data96_03 | incbin | $044120 | $07A409 | data | - | |
 | data96_04 | incbin | $07A40A | $0887E3 | data | sound95 | |

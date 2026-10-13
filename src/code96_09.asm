@@ -200,7 +200,7 @@ chkprogress	;Control the progress of the ref and the game through penalty events
 	movem.l	(sp)+,d0-d7/a0-a6
 	bra.w	.ex
 .sops
-	jsr	(sub_22B70).l
+	jsr	(PenaltyShotBox).l
 	bclr	#7,(BA_PS_flags).w
 .ex
 	rts
@@ -627,7 +627,7 @@ UpdatePA	;Animate the ref in the ref window (RefCnt, SetPA2)
 .contplay
 	cmpi.w	#4,(RefPen).w	;check if cont playoffs
 	bne.w	.0
-	bsr.w	sub_22820
+	bsr.w	ShowThreeStars
 .0
 	sub.w	d7,(penmsgtimer).w
 	bpl.w	rtss2
@@ -635,7 +635,7 @@ UpdatePA	;Animate the ref in the ref window (RefCnt, SetPA2)
 	bsr.w	sub_1CC32
 	bsr.w	printz
 	String	$BF,$11,$0B
-	bsr.w	sub_22E70
+	bsr.w	GetPlayerName
 	move.w	(a1),d0
 	lsr.w	#1,d0
 	sub.w	d0,(printx).w
@@ -651,7 +651,7 @@ SetPA	;Start ref animation d0 (penalty number)
 	bsr.w	prefmes
 	cmp.w	#$E,d0	;goal
 	bne.w	.1
-	bsr.w	loc_22C5E
+	bsr.w	ShowGoalBox
 .1
 	btst	#0,(gmode2).w
 	beq.w	.2
@@ -829,7 +829,7 @@ prefmes	;Print the penalty message: the player, the penalty and its length (Pena
 	adda.w	d0,a1
 	clr.w	d0
 	move.b	$67(a1),d0
-	jsr	(sub_22ED6).l
+	jsr	(GetPlayerNumInitial).l
 	jsr	(printz).l
 	String	$BF,$0C,$06
 	cmpi.b	#$20,2(a1)
@@ -1480,7 +1480,7 @@ unk_1D4A6	;Intermission table
 sub_1D4CE	;Early in the playoffs (gamelevel 0-1): random goals for the other games of the day (SetScore)
 	cmpi.w	#1,(gamelevel).w
 	bgt.w	rtss2
-	bsr.w	sub_224E2
+	bsr.w	GetShifter
 	movea.w	#(gsstruct-M68K_RAM),a0
 	moveq	#$10,d0
 	mulu.w	d1,d0
@@ -1504,7 +1504,7 @@ sub_1D4CE	;Early in the playoffs (gamelevel 0-1): random goals for the other gam
 	rts
 
 UpdateScores	;Update the ticker score values of the other games (SetScore). Called from PeriodOver
-	bsr.w	sub_224E2
+	bsr.w	GetShifter
 	move.w	d1,(TickerNum).w
 	movea.w	#(gsstruct-M68K_RAM),a0
 	moveq	#$10,d0

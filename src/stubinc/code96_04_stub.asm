@@ -42,6 +42,9 @@ loadTeamStruct = $01D328		;code96_09
 SkipStrings = $01D7F2		;code96_09
 makepde = $01FAFA		;code96_10
 setpersonel = $01FB52		;code96_10
+box = $022E58		;code96_12
+FinalizeTextBuffer = $0230AA		;code96_12
+ConvertByteToDigits = $0230C4		;code96_12
 
 
 ; Main segment code

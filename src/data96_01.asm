@@ -361,12 +361,12 @@ SeasonSchedule	;The season schedule (sub_1116A, sub_11226): a day count, then a 
 nullsub_3
 	rts
 
-ResolveGames	;Compute winners and losers for playoff matchups: the series wins of the games of the day (gsstruct),
+ResolveDayGames	;Compute winners and losers for the playoff matchups of the day: the series wins (gsstruct),
 	;WinBits and gamelevel when the round is over; at gamelevel 4 the final flags in dword_FFDD7E, else
-	;sub_21CF4; then the save RAM write
+	;maketree; then the save RAM write
 	movem.l	d0-d7/a0-a6,-(sp)
 	clr.w	(rosterscroll).w
-	jsr	(sub_224E2).l
+	jsr	(GetShifter).l
 	movea.l	#gsstruct,a0
 	moveq	#$10,d3
 	mulu.w	d1,d3
@@ -401,7 +401,7 @@ ResolveGames	;Compute winners and losers for playoff matchups: the series wins o
 	bra.w	.4
 .1
 	clr.w	(bosgames).w
-	jsr	(sub_224E2).l
+	jsr	(GetShifter).l
 	movea.w	#(gsstruct-M68K_RAM),a0
 	moveq	#$10,d3
 	mulu.w	d1,d3
@@ -466,11 +466,11 @@ ResolveGames	;Compute winners and losers for playoff matchups: the series wins o
 	movem.l	(sp)+,d0/a0-a1
 	bra.w	.8
 .7
-	jsr	(sub_21CF4).l
+	jsr	(maketree).l
 .8
-	movea.w	#(unk_FFD296-M68K_RAM),a3
-	jsr	(sub_223EA).l
-	jsr	(sub_223B0).l
+	movea.w	#(pwddatabuffer-M68K_RAM),a3
+	jsr	(WritePassBits).l
+	jsr	(WritePassData).l
 	bclr	#4,(sflags).w
 	move.w	#$FFFF,(lastsfx).w
 	move.l	#M68K_RAM,(recbpr).w
@@ -487,7 +487,7 @@ BeginPlayoffs	;Seed the playoffs with sflags11 bit 0 (the pairings to POPairings
 	btst	#1,(sflags11).w
 	bsr.w	SetupPlayoffs
 	bsr.w	InitPlayoffs
-	jsr	(sub_21CF4).l
+	jsr	(maketree).l
 	bclr	#6,(GameFlags).w
 	jsr	(sub_241AA).l
 	rts
@@ -1163,13 +1163,13 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 	jsr	(sub_883AC).l
 	jsr	(sub_8842E).l
 	bsr.w	RestoreBenchEnergy
-	bsr.w	sub_14AD4
+	bsr.w	CheckInjury
 	jmp	updatepwrplay
 
-sub_14AD4
-	subq.w	#1,(word_FFC442).w
+CheckInjury	;The injury message when its timer (InjCntDown) runs out (ShowInjuryBox)
+	subq.w	#1,(InjCntDown).w
 	bne.w	rtss8
-	jmp	loc_22A2C
+	jmp	ShowInjuryBox
 
 RestoreBenchEnergy	;Unless OptLine: every bench player of both teams gets 9 energy, up to $1000
 	tst.w	(OptLine).w
@@ -1773,7 +1773,7 @@ PlayoffStatsMenu	;Pause menu Playoff Stats: with GameFlags bit 7 set jump to loc
 	jmp	loc_1DB020
 .0
 	movem.l	a2,-(sp)
-	jsr	(sub_225E0).l
+	jsr	(ReadTeamStats).l
 	movea.w	#(potree-M68K_RAM),a0
 	move.w	(potreeteam).w,d0
 	move.b	(a0,d0.w),d0

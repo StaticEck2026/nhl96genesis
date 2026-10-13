@@ -313,10 +313,10 @@ sub_11024
 	bsr.w	sub_11226
 	btst	#2,(dword_FFDD7E+2).w
 	beq.w	.9
-	jsr	(ResolveGames).l
+	jsr	(ResolveDayGames).l
 	btst	#1,(dword_FFDD7E+2).w
 	bne.w	.10
-	jsr	(sub_224E2).l
+	jsr	(GetShifter).l
 	movea.l	#$FFFFCF44,a0
 	clr.w	d0
 	move.b	(dword_FFDD82+2).w,d0
@@ -1443,7 +1443,7 @@ sub_12640
 	move.w	(VSCRLPM).w,d0
 	jsr	(Vmaddr).l
 	move.w	#0,(a0)
-	move.w	(word_FFD31A).w,d0
+	move.w	(homegoalies).w,d0
 	move.w	d0,(a0)
 	rts
 	;Code the listing does not decode: kept as bytes

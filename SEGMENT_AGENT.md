@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_20. <- CURRENT
+None: every row of the ROM map is matched. <- CURRENT
 
 ## Sources
 
@@ -91,7 +91,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | code96_18 | matched, 5178 bytes | $1E1A3C | $1E2E75 | code | stats95, pause95 | SetGoalieModes, FlipUserRec, SetLineOption, SetPenOption, SetSkillLevel and their tables, OptionsAnimFrame, LineEditor, PrintAttribHeader, DrawLineIcons, ClearLineEditorTop, ClearMenuFlags, LineIconPosTable, LineCursorTable, SetLineSlot, LoadTeamLine, SaveTeamLine, ReturnToGame, RestoreGameScreen, ClearOldFrames, PeriodText, DigitText, PrintDigit |
 | data96_12 | matched, 13036 bytes | $1E2E76 | $1E6161 | data | stats95, shootout95, records95 | labelled bytes (PeriodStatsTeam, TeamStatTextTbl, PrintShooterList, ShootersPick, PrintRecordName, CalcWinPercents, ReadTeamRecords, the record texts), PlayerStatsList, ReadAnyPad, the PList... helpers, PListPlayoffCats, PListGameCats, PListColumns |
 | code96_19 | matched, 8426 bytes | $1E6162 | $1E824B | code | records95, playoff95, middle95, awards95 | PListPrint, PListValue, PListMark, NameEntryScreen and its helpers (records95 names), UserNameEntry, PlayoffScreen and its helpers (playoff95 names), showclock, showclockdma, ClockDigitChar, ShowBigScore, ClearBigScore, SeasonAwards, DrawAwardPicture, AwardPictures, AwardNames, AwardDescs, PrintAwardWinner, AwardsScreenSetup |
-| code96_20 | incbin | $1E824C | $1E90D1 | code | - | |
+| code96_20 | matched, 3718 bytes | $1E824C | $1E90D1 | code | injury95 | GetAwardWinner, the award record writers, RandomInjuryGames, SetInjuryGames, SetSeasonInjuries, GetInjuryGames, the opening screens new in 96 (sub_ names), ValidationRoutine |
 
 ## New in 96
 

@@ -61,6 +61,7 @@ CalcAttribRating = $1DF8AC		;data96_11
 OvrPlayerWgtList2 = $1DF9EC		;data96_11
 OvrGoalWgtList2 = $1DF9FC		;data96_11
 ClearBigScore = $1E7A78		;code96_19
+SetSeasonInjuries = $1E8840		;code96_20
 
 
 ; Main segment code

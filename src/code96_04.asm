@@ -2075,9 +2075,9 @@ SimGameStats
 	move.w	(VisTeam).w,$28(a2)
 	movem.l	a2,-(sp)
 	movea.l	#tmstruct,a2
-	jsr	(sub_1E8840).l
+	jsr	(SetSeasonInjuries).l
 	movea.l	#AwShots,a2
-	jsr	(sub_1E8840).l
+	jsr	(SetSeasonInjuries).l
 	movem.l	(sp)+,a2
 	clr.w	d0
 	move.b	2(a0),d0

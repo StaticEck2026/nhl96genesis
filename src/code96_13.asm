@@ -27,7 +27,7 @@ ScoutTextScript	;Unreferenced. The scouting text lines of 95, each ended by $D; 
 	dc.b	"Lately $ has been playing well.",$D
 	dc.b	"Lately $ has been playing extremely well.",$D
 
-	;Data nothing in the listing references
+unk_88A18	;A map used from code96_20
 	dc.b	$00,$00,$5F,$6A,$00,$00,$5F,$EA,$02,$FB,$00,$00,$00,$00,$00,$00
 	dc.b	$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	dc.b	$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00

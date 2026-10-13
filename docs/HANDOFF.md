@@ -312,4 +312,10 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   labels in data96_09 now (HartPic ... PearsonPic). About 20 instructions after inline Strings were written by
   hand from the ROM bytes (the listing is lossy there). MATCH (segment and ROM). RAM: NameEntryLen, namelogsel,
   nameentryvis, pad1user ... pad4user (the 95 block layout), new namelog, NameEntryBuf.
-- Next: code96_20.
+- code96_20 converted: GetAwardWinner and two award record writers, the season injuries with the injury95 names
+  (RandomInjuryGames, SetInjuryGames, SetSeasonInjuries, GetInjuryGames as labelled bytes), the opening screens
+  new in 96 (kept as sub_ names with their callers), and ValidationRoutine with ChecksumLongs (the number $7A40A)
+  and ChecksumValue. SegaIDTable96 has a ProductCode label for the header long the checksum leaves out. code96_13
+  has a label unk_88A18 (a map code96_20 draws). MATCH (segment and ROM).
+- Every row of the ROM map is matched. Left for later passes: the labelled byte runs (code the listing does not
+  decode), the sub_ / unk_ names, and the RAM words still under IDA names.

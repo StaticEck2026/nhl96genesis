@@ -1788,7 +1788,7 @@ PrintAwardWinner	;Print the winner of award word_FFD034: a team (TeamAwardFlags)
 	bset	#2,(sflags11).w
 	jsr	(printbigz).l
 	String	$F8,$04,$01,$17,$15,'              '
-	bsr.w	sub_1E824C
+	bsr.w	GetAwardWinner
 	movea.l	#TeamAwardFlags,a0
 	move.w	(word_FFD034).w,d1
 	tst.b	(a0,d1.w)

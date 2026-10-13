@@ -88,6 +88,11 @@ UserNameEntry = $1E6C4C		;code96_19
 PlayoffScreen = $1E700A		;code96_19
 showclock = $1E7664		;code96_19
 SeasonAwards = $1E7AC4		;code96_19
+sub_1E827A = $1E827A		;code96_20
+sub_1E8544 = $1E8544		;code96_20
+sub_1E889C = $1E889C		;code96_20
+sub_1E89FC = $1E89FC		;code96_20
+sub_1E8C5E = $1E8C5E		;code96_20
 
 
 ; Main segment code

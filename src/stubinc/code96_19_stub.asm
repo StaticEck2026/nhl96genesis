@@ -89,6 +89,8 @@ WriteNameLog = $1D7B46		;code96_14
 ReadNameLog = $1D7B50		;code96_14
 unk_1DAE32 = $1DAE32		;code96_15
 PListColumns = $1E6142		;data96_12
+GetAwardWinner = $1E824C		;code96_20
+sub_1E83E6 = $1E83E6		;code96_20
 
 ; Main segment code
 	include	code96_19.asm

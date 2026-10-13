@@ -6,6 +6,7 @@
 	dc.b	'(C)T-50 1995.JUL'	; 02	$110	company ID / release date (YYYY.MMM) (16 bytes)
 	dc.b	'NHL ''96                                         '	; 03	$120	game title for US market (48 bytes)
 	dc.b	'NHL ''96                                         '	; 04	$150	game title for Japanese market (48 bytes)
+ProductCode	;The serial number; the long at +$C holds the checksum word (ValidationRoutine)
 	dc.b	'GM T-172036-00'	; 05	$180	cartridge cat., product no., version no. (14 bytes)
 	IF CHECKSUM=1 ; Security check enabled
 		dc.w	$DB17		; 06	$18E	check sum data (installed by checsum program) (2 bytes)

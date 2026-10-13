@@ -350,7 +350,7 @@ setInjuryType	;a2 injured: out for the period ($FFFD) or the game ($FFFC); in a 
 	move.w	#$FFFC,$6C(a0,d1.w)
 	btst	#7,(GameFlags).w
 	beq.w	.1
-	jsr	(sub_1E8794).l
+	jsr	(RandomInjuryGames).l
 .1
 	move.w	(sp)+,d0
 	rts
@@ -1418,7 +1418,7 @@ setpersonel	;Put team a2 on the ice: the players of PlList (SetPlList) with setp
 	movem.l	d0-d5/a0-a4,-(sp)
 	btst	#7,(GameFlags).w
 	beq.w	.0
-	jsr	(sub_1E8840).l
+	jsr	(SetSeasonInjuries).l
 .0
 	movea.w	$22(a2),a3
 	moveq	#5,d4

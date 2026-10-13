@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_18. <- CURRENT
+data96_12. <- CURRENT
 
 ## Sources
 
@@ -88,7 +88,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | code96_16 | matched, 3508 bytes | $1DB288 | $1DC03B | code | - | WaitAnyPad, the SeasonPlayoffStats helpers (PStatsArrows ... PStatsPalette, PStatsCategoryTxt, PStatsColumns), PlayoffMenuScreen, PlayoffMenuRoutines, PlayoffMenuDraw, PlayoffMenuInit, PlayoffMenuSetup, ClearPlayoffSave |
 | data96_11 | matched, 14816 bytes | $1DC03C | $1DFA1B | data | create95, trade95 | RosterMenuList, YesNoMenuList, MenuCreatePlayers / MenuSignFreeAgents / MenuReleasePlayer, TradePlayers, CheckTrade, InvalidTradeText, CreatePlayer, the Field... / Edit... routines and lists, CommitAttribJumps, CreateRatingsGfx, CalcAttribRating, MinOverallRating, OvrPlayerWgtList2, OvrGoalWgtList2, AttribWgtList2 |
 | code96_17 | matched, 8224 bytes | $1DFA1C | $1E1A3B | code | create95 | ClearCreatedPlayers, DeleteCreatedPlayer, GetCreatedId, ReadCreateList, WriteCreateList, SignFreeAgents, ReleasePlayers and their helpers, OptionsScreen, OptionVars, OptionsMenuList with the ...Item routines and ...Text tables, OptionsScreenSetup, ClearGameRAM, ReadOptions, WriteOptions, SetPlayMode |
-| code96_18 | incbin | $1E1A3C | $1E2E75 | code | stats95 | |
+| code96_18 | matched, 5178 bytes | $1E1A3C | $1E2E75 | code | stats95, pause95 | SetGoalieModes, FlipUserRec, SetLineOption, SetPenOption, SetSkillLevel and their tables, OptionsAnimFrame, LineEditor, PrintAttribHeader, DrawLineIcons, ClearLineEditorTop, ClearMenuFlags, LineIconPosTable, LineCursorTable, SetLineSlot, LoadTeamLine, SaveTeamLine, ReturnToGame, RestoreGameScreen, ClearOldFrames, PeriodText, DigitText, PrintDigit |
 | data96_12 | incbin | $1E2E76 | $1E6161 | data | summary95, shootout95, records95 | |
 | code96_19 | incbin | $1E6162 | $1E824B | code | create95, records95 | |
 | code96_20 | incbin | $1E824C | $1E90D1 | code | - | |

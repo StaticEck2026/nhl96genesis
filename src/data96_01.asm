@@ -1436,7 +1436,7 @@ Pausemode	;Game is in pause mode now: restart the sound driver, run the pause me
 	move.w	#7,d0
 	move.w	#1,d1
 	jsr	(SoundCmd).l
-	jmp	sub_1E2688
+	jmp	ReturnToGame
 	;After Pausemode: code that nothing in the listing reaches.
 	;Code the listing does not decode: kept as bytes
 	dc.b	$4E,$B9,$00,$01,$D0,$1E,$4E,$B9,$00,$08,$85,$FC,$30,$3C,$00,$09

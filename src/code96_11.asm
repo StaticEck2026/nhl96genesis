@@ -1336,7 +1336,7 @@ IntermissionStart	;The end of a period: ResetClock, restart the sound driver, In
 	cmpi.w	#4,(gsp).w
 	beq.w	.0	;finished playoffs
 	bset	#5,(sflags11).w
-	jsr	(sub_1E2688).l
+	jsr	(ReturnToGame).l
 	jmp	StartPer
 .0
 	bsr.w	EncodePW

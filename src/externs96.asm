@@ -2,16 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-sub_1E1A3C	equ	$1E1A3C
-sub_1E1A5E	equ	$1E1A5E
-sub_1E1A66	equ	$1E1A66
-sub_1E1A8E	equ	$1E1A8E
-sub_1E1AA8	equ	$1E1AA8
-sub_1E1AD4	equ	$1E1AD4
-LineEditor	equ	$1E1B18
-LoadTeamLine	equ	$1E2310
-SaveTeamLine	equ	$1E239E
-sub_1E2688	equ	$1E2688
 TeamRosterScreen	equ	$1E2EFC
 ScoringSummaryScreen	equ	$1E352A
 PenaltySummaryScreen	equ	$1E38E6

@@ -35,6 +35,9 @@ BigFontMap = $1B89C8		;data96_09
 BigFontMap3 = $1B9416		;data96_09
 ManualGoalieMenu = $1D86A4		;code96_14
 ClearCreatedPlayers = $1DFA34		;code96_17
+LineEditor = $1E1B18		;code96_18
+LoadTeamLine = $1E2310		;code96_18
+SaveTeamLine = $1E239E		;code96_18
 
 ; Main segment code
 	include	data96_02.asm

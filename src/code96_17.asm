@@ -453,7 +453,7 @@ OptionsScreen	;The game options screen: play mode, rosters, period length, goali
 	addq.w	#1,d0
 	cmp.w	#8,d0
 	blt.w	.5
-	bsr.w	sub_1E1AD4
+	bsr.w	OptionsAnimFrame
 	addq.w	#1,(word_FFB8C6).w
 	andi.w	#7,(word_FFB8C6).w
 	clr.w	d0
@@ -900,8 +900,8 @@ SetPlayMode	;Set the game flags for the chosen play mode: season (continue or ne
 	beq.w	.fix
 	bset	#4,(sflags11).w
 .fix
-	bsr.w	sub_1E1A5E
-	bsr.w	sub_1E1A3C
+	bsr.w	FlipUserRec
+	bsr.w	SetGoalieModes
 	cmpi.w	#4,(OptPlayMode).w
 	bne.w	.3
 	clr.w	(OptPlayMode).w
@@ -925,9 +925,9 @@ SetPlayMode	;Set the game flags for the chosen play mode: season (continue or ne
 	jsr	(ClearShootout).l
 	bra.w	.5
 .4
-	bsr.w	sub_1E1A66
-	bsr.w	sub_1E1A8E
-	jsr	(sub_1E1AA8).l
+	bsr.w	SetLineOption
+	bsr.w	SetPenOption
+	jsr	(SetSkillLevel).l
 .5
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts

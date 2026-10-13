@@ -83,6 +83,7 @@ nullsub_5 = $1D84D4		;code96_14
 LoadReplayIcon = $1D8E5C		;code96_15
 LoadHomeTeamGfx = $1D8E6C		;code96_15
 OptionsScreen = $1E0DDE		;code96_17
+ReturnToGame = $1E2688		;code96_18
 
 
 ; Main segment code

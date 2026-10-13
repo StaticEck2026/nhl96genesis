@@ -289,4 +289,11 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   RAM: OptGoalie, OptUserRec, OptFighting, OptSkill, OptRosters (by the menu rows and OptionVars).
 - A String with more than about 32 arguments fails ("Too many parameters in macro call"): group control bytes
   as one argument, String <$8F,$03,$09>,'Play mode:',... (same bytes).
-- Next: code96_18.
+- code96_18 converted: the option helpers SetPlayMode calls (SetGoalieModes, FlipUserRec, SetLineOption,
+  SetPenOption, SetSkillLevel and their tables), OptionsAnimFrame, the line editor (labelled bytes: LineEditor,
+  PrintAttribHeader, DrawLineIcons, ClearLineEditorTop, ClearMenuFlags, LineIconPosTable, LineCursorTable,
+  SetLineSlot, LoadTeamLine, SaveTeamLine), ReturnToGame (the tail of 95's Pausemode as its own routine),
+  RestoreGameScreen, ClearOldFrames, and sub_1E2970 (bytes, called from code96_04's undecoded bytes) with
+  PeriodText, DigitText and PrintDigit. MATCH (segment and ROM). word_FFD284 / word_FFD286 are set by skill level
+  (SkillLevelTbl / SkillLevelPalTbl); not renamed.
+- Next: data96_12.

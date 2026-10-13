@@ -46,6 +46,12 @@ unk_1C4C4E = $1C4C4E		;data96_10
 ClearShootout = $1D8180		;code96_14
 PStatsPalette = $1DBB92		;code96_16
 PlayoffMenuScreen = $1DBBB2		;code96_16
+SetGoalieModes = $1E1A3C		;code96_18
+FlipUserRec = $1E1A5E		;code96_18
+SetLineOption = $1E1A66		;code96_18
+SetPenOption = $1E1A8E		;code96_18
+SetSkillLevel = $1E1AA8		;code96_18
+OptionsAnimFrame = $1E1AD4		;code96_18
 
 ; Main segment code
 	include	code96_17.asm

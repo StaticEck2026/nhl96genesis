@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-code96_13. <- CURRENT
+data96_05. <- CURRENT
 
 ## Sources
 
@@ -76,7 +76,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | data96_02 | matched, 134872 bytes | $023248 | $04411F | data | sound95, sram95, setup95, middle95, players95, lines95, video95, logic95, crowd95 | CrowdFrameTbl, bfasciicon, linelist, PlayerPositionText, PerLabels(2), sizetab, sublist, priolist, PAttribColumns, PAttribOverall(Mask), PAttribAggressMask, GAttribColumns, GAttribOverall(Mask), the pause / intermission / line menus (PauseMenu ... LineMenu2), InitSaveRAM, SRAMWaitVblank, ValidateSRAM, ClearSRAM, WriteSRAM, MakeSRAMChecksum, ReadSRAM, ClearSRAMBytes, doassignment, LoadSmallFont, LoadBigFonts, GoalieInCrease, SndDriver, SndJumpTable, Z80Program, SoundBanks (SndItem table); VBcount, ReadJoyData, ReadPad*, PadDirTable, ResetZ80Bus, PlayGame, p_music_vblank, the Snd* driver routines, Z80BusRequest / Release (bytes) |
 | data96_03 | matched, 221930 bytes | $044120 | $07A409 | data | sound95 | SoundBanks item data: samples 16 (part) to 94, patches 0-94, song 0 (part); no labels |
 | data96_04 | matched, 58330 bytes | $07A40A | $0887E3 | data | sound95 | SoundBanks item data (song 0 part to list 1); SoundCmd, UpdateCwdExcite, updatesound, CheckLateGameSong, sfx, sfxplay, SfxTable, song, StartSong, stop_current_song, SoundOff, ChooseSong, TeamSongs, RandomSongs; stop_current_song2, KillCrowd2, p_initialZ80, ClearAllTrackAndSFXSlots (bytes) |
-| code96_13 | incbin | $0887E4 | $08F2C5 | code | - | |
+| code96_13 | matched, 27362 bytes | $0887E4 | $08F2C5 | code | sound95, scout95 | newcheck, ScoutTextScript (unreferenced text); unreferenced data after it |
 | data96_05 | incbin | $08F2C6 | $120033 | data | - | |
 | data96_06 | incbin | $120034 | $140B05 | data | - | |
 | data96_07 | incbin | $140B06 | $179167 | data | - | |

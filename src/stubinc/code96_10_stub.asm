@@ -43,6 +43,7 @@ sfx = $088470		;data96_04
 song = $088586		;data96_04
 stop_current_song = $0885FC		;data96_04
 ChooseSong = $088688		;data96_04
+newcheck = $0887E4		;code96_13
 SPA0F14 = $F14		;SPA value (frames96)
 SPA12EC = $12EC		;SPA value (frames96)
 SPA15B8 = $15B8		;SPA value (frames96)

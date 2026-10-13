@@ -303,7 +303,7 @@ loc_1E462
 	jsr	(song).l
 	rts
 .6
-	jmp	sub_887E4
+	jmp	newcheck
 .7
 	jmp	AddPenalty2
 

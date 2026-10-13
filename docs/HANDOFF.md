@@ -221,4 +221,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - The listing's unk_7A40A (from off_1E9028) is a number: the code at $1E9038 compares with it (cmp.l off_1E9028(pc)),
   so no label here; write that dc.l as $7A40A when its segment is converted.
 - RAM: asv, periodendtime, MaxCwdExciteLvl, NumCwdExciteLvl, SumCwdExciteLvl, SndSeqPtr, SndSeqId.
-- Next: code96_13.
+- code96_13 converted: newcheck (95), then data nothing references: ScoutTextScript, the 95 scouting text lines
+  (95 masked byte match; written as dc.b strings with $D), and a $68AE byte block after it with no 95 match and no
+  reference (kept as dc.b). MATCH (segment and ROM). RAM: ltack.
+- Next: data96_05.

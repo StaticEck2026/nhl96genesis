@@ -1204,3 +1204,6 @@ $0886E4,TeamSongs,unk_886E4,,data96_04
 $08878C,RandomSongs,unk_8878C,,data96_04
 $088794,p_initialZ80,,,data96_04
 $0887DC,ClearAllTrackAndSFXSlots,,,data96_04
+$FFFFC062,ltack,word_FFC062,,ram96
+$0887E4,newcheck,sub_887E4,,code96_13
+$08880A,ScoutTextScript,,,code96_13

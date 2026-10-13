@@ -1822,7 +1822,7 @@ checkcx	;d4 = obj. # * 2 for possible collision so check x range and distance fo
 	cmp.w	SCnum(a2),d0
 	bne.w	.4
 .1
-	jsr	(sub_887E4).l
+	jsr	(newcheck).l
 .4
 	bsr.w	checkint
 	bsr.w	sub_1DCC0

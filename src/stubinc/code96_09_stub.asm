@@ -69,6 +69,7 @@ PlayoffGameOverMenu = $023D88		;data96_02
 sfx = $088470		;data96_04
 song = $088586		;data96_04
 stop_current_song = $0885FC		;data96_04
+newcheck = $0887E4		;code96_13
 
 
 ; Main segment code

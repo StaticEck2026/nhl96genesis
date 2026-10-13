@@ -183,7 +183,7 @@ TextBuffer equ $FFFFBFF4
 unk_FFC010 equ $FFFFC010
 PushWidthBuf equ $FFFFC056
 unk_FFC058 equ $FFFFC058
-word_FFC062 equ $FFFFC062
+ltack equ $FFFFC062
 lastsfx equ $FFFFC064
 Satt equ $FFFFC066
 Sattsize equ $FFFFC336

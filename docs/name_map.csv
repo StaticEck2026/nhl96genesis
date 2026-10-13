@@ -443,7 +443,7 @@ $FFFFC34E,sflags9,byte_FFC34E,,ram96
 $FFFFC354,sflags11,byte_FFC354,,ram96
 $FFFFC380,passmodetimer,word_FFC380,,ram96
 $FFFFD2E6,onetimerheight,word_FFD2E6,,ram96
-$012B84,DrawSetupTeamBlock,sub_12B84,,code96_05
+$012B84,DrawSetupTeamBlock,sub_12B84,,season96
 $FFFFC336,Sattsize,word_FFC336,,ram96
 $FFFF0000,AwardIds,,,ram96
 $FFFF0032,SeedStandings,,,ram96

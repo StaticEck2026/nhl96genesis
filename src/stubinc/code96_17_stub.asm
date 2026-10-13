@@ -12,10 +12,10 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-sub_1149E = $01149E		;code96_05
-sub_1217A = $01217A		;code96_05
-sub_1218A = $01218A		;code96_05
-sub_12640 = $012640		;code96_05
+sub_1149E = $01149E		;season96
+sub_1217A = $01217A		;season96
+sub_1218A = $01218A		;season96
+sub_12640 = $012640		;season96
 unk_12D46 = $012D46		;data96_01
 PrintMenuList2 = $01455A		;data96_01
 sub_1B282 = $01B282		;code96_08

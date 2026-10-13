@@ -332,4 +332,5 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   code96_04 is the team line writer (NullSaveClear, sub_EF02).
   `front/trade96.asm` is the roster names (DefaultRosters through the name tables, $0100C0-$010919).
   `front/season96_sim.asm` is the season simulation (SimGameStats through PickSimGoalie, $01091A-$010CB1).
-  Next: `front/season96.asm` for code96_05 once the bodies are read. Unsure list is in the plan.
+  `front/season96.asm` is code96_05 renamed (season and save screens, $010CB2-$012BFD). The routines stay `sub_` until the bodies are read.
+  Next: `src/schedule96.asm` for the schedule table in data96_01. Unsure list is in the plan.

@@ -1,5 +1,5 @@
-;	Segment build for code96_05.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_05.asm on its own for checking against the ROM.
+;	Segment build for front\season96.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
 	org	$010CB2
@@ -59,4 +59,4 @@ SetSframe = $1DA6C0		;code96_15
 
 
 ; Main segment code
-	include	code96_05.asm
+	include	front\season96.asm

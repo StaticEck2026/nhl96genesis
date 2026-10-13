@@ -89,6 +89,7 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 8. `engine/lines96.asm` — done. `SetLCmode` through `lcfound2`. `lcfound` branches to `rtss`, which moved with the pass.
 8b. `engine/input96_shot.asm` — done. `shotdiradj` through `sub_1008E` (the helpers after `passtoa0`). `sub_EF02`, the team line writer, stays in code96_04 with `NullSaveClear`.
 8c. `front/trade96.asm` and `front/season96_sim.asm` — done. Roster names through the tables before `SimGameStats`, then the simulation. The sim reads `unk_107F9` from the roster file.
+8d. `front/season96.asm` — done as a rename of code96_05, not a split. The routines stay `sub_` until the bodies are read.
 9. Continue down the table above. Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ

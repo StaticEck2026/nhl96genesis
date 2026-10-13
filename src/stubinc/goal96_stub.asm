@@ -12,7 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-DrawSetupTeamBlock = $012B84		;code96_05
+DrawSetupTeamBlock = $012B84		;season96
 ZeroLong = $000772		;main96
 vcountwait = $0151E0		;data96_01
 orjoy = $01B2C4		;code96_08

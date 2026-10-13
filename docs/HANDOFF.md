@@ -321,10 +321,11 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   decode), the sub_ / unk_ names, and the RAM words still under IDA names.
 - Align-with-95 audit: `docs/align95_plan.md`. 928 labels already use a 95G name. The file split started
   with `engine/fight96.asm` (checkfight through sub_C51C, $00B6A0-$00C547) and `engine/fourway96.asm`
-  (Detect4WayPlay through ReadJoySwapPad4, $00B5C8-$00B69F). code96_03 starts at asstab.
+  (Detect4WayPlay through ReadJoySwapPad4, $00B5C8-$00B69F).
   `engine/goal96.asm` is the controller setup (SetContTeams through ReadAllPads, $00B04E-$00B5C7).
   `engine/input96.asm` is the pad input (updatepadinput through PadOnTeam, $00A4DC-$00B04D).
   `engine/faceoff96.asm` is the faceoff (faceoffinput through Endfaceoff, $0099CA-$00A4DB).
   `src/srambits96.asm` is WriteSRAMBits and ReadSRAMBits ($0096E8-$0099C9). code96_02 is gone.
-  `engine/logic96.asm` is asstab through the penalty texts ($00C548-$00EC2F). code96_03 is SetLCmode.
-  Next: `engine/lines96.asm` (SetLCmode through lcfound2). Unsure list is in the plan.
+  `engine/logic96.asm` is asstab through the penalty texts ($00C548-$00EC2F).
+  `engine/lines96.asm` is the line change box (SetLCmode through lcfound2, $00EC30-$00EEFF). code96_03 is gone. code96_04 starts at NullSaveClear.
+  Next: `engine/input96_shot.asm` (shotdiradj through passtoa0). Unsure list is in the plan.

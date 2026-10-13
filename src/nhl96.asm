@@ -20,8 +20,8 @@
 	include	engine\fourway96.asm	; $00B5C8  4 way play adaptor
 	include	engine\fight96.asm	; $00B6A0  fighting
 	include	engine\logic96.asm	; $00C548  assignment table, penalty texts
-	include	code96_03.asm		; $00EC30  line change box
-	include	code96_04.asm		; $00EC6E  code
+	include	engine\lines96.asm	; $00EC30  line change box
+	include	code96_04.asm		; $00EF00  shot, pass, rosters, simulation
 	include	code96_05.asm		; $010CB2  code
 	include	data96_01.asm		; $012BFE  data
 	include	code96_06.asm		; $015774  code

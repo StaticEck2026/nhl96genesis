@@ -56,6 +56,7 @@ OneTimerPass = $1D66AC		;data96_10
 OneTimerTarget = $1D6718		;data96_10
 CalcAttrib = $1D7DF8		;code96_14
 PSandSOpassdir = $1D8B26		;code96_14
+ReadGoaliePulled = $1D9352		;code96_15
 
 
 ; Main segment code

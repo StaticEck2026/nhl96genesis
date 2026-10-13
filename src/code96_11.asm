@@ -900,8 +900,8 @@ setupice	;Set all variables, send non purgeable graphics, build sprite frame lis
 	beq.w	*+4
 .1
 	bsr.w	DecompressGraphicsPlain
-	jsr	(sub_1D8E6C).l
-	jsr	(sub_1D8E5C).l
+	jsr	(LoadHomeTeamGfx).l
+	jsr	(LoadReplayIcon).l
 	move.w	d4,(EASNcset).w
 	bsr.w	setupEASNmap
 	move.w	d4,(energybarchars).w

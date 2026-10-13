@@ -162,7 +162,7 @@ recwins equ $FFFFBF7C
 word_FFBF88 equ $FFFFBF88
 smallfontptr equ $FFFFBF8A
 onetimerplayer equ $FFFFBFA6
-word_FFBFB0 equ $FFFFBFB0
+onetimerflags equ $FFFFBFB0
 disflags equ $FFFFBFB2
 ltplayer equ $FFFFBFB4
 ltx equ $FFFFBFB6
@@ -302,20 +302,23 @@ word_FFD038 equ $FFFFD038
 word_FFD03A equ $FFFFD03A
 setupvalues equ $FFFFD03C
 ThreeStars equ $FFFFD130
+CalTeam equ $FFFFD130	;CalendarScreen team (StandingsScreen: the group size). Shares ThreeStars
+CalMonth equ $FFFFD132	;CalendarScreen month (StandingsScreen: the 26 team points table)
 dword_FFD134 equ $FFFFD134
 dword_FFD138 equ $FFFFD138
 dword_FFD13C equ $FFFFD13C
 dword_FFD140 equ $FFFFD140
 dword_FFD144 equ $FFFFD144
-word_FFD14C equ $FFFFD14C
+StandingsMode equ $FFFFD14C
+StandingsOrder equ $FFFFD14E	;StandingsScreen games of the 26 teams
 dword_FFD150 equ $FFFFD150
 dword_FFD154 equ $FFFFD154
 dword_FFD158 equ $FFFFD158
 dword_FFD15C equ $FFFFD15C
 byte_FFD160 equ $FFFFD160
-byte_FFD168 equ $FFFFD168
+StandingsBuf equ $FFFFD168
 byte_FFD173 equ $FFFFD173
-byte_FFD1B6 equ $FFFFD1B6
+StandingsList equ $FFFFD1B6
 nibblebuffer equ $FFFFD230
 dword_FFD234 equ $FFFFD234
 word_FFD238 equ $FFFFD238

@@ -244,7 +244,7 @@ sub_EF02
 	move.w	#2,d1
 	bsr.w	sub_F050
 	bsr.w	sub_F102
-	move.b	(byte_FFD160).w,(byte_FFD168).w
+	move.b	(byte_FFD160).w,(StandingsBuf).w
 	movea.l	#$FFFFD169,a0
 	move.w	#3,d1
 	bsr.w	sub_F030
@@ -794,7 +794,7 @@ doshot	;Shoot the puck
 	bne.w	.perf
 	cmp.w	#$C8,d3	;C8 = 200 decimal
 	bhi.w	.notperf
-	jsr	(sub_1D9352).l	;checks if shooting team's G pulled
+	jsr	(ReadGoaliePulled).l	;checks if shooting team's G pulled
 	bmi.w	.perf
 	btst	#0,(gmode2).w	;check if shootout
 	bne.w	.perf

@@ -55,6 +55,7 @@ unk_18C936 = $18C936		;data96_08
 unk_18DE04 = $18DE04		;data96_08
 Create_HotCold_Table = $1D6F24		;code96_14
 InitShooters = $1D8262		;code96_14
+SetSframe = $1DA6C0		;code96_15
 
 
 ; Main segment code

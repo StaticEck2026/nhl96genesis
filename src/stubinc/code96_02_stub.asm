@@ -93,6 +93,7 @@ ControllerTitleMap = $1B6F3A		;data96_09
 unk_1B773A = $1B773A		;data96_09
 PuckOnAttackHalf = $1D6B66		;code96_14
 ShortenMsgTimer = $1D8676		;code96_14
+sub_1D920A = $1D920A		;code96_15
 
 
 ; Main segment code

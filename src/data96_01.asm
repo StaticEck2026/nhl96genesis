@@ -917,7 +917,7 @@ Begin	;Cold start, entered from Start. Clear RAM, init sound and menus, go to th
 	jsr	(Detect4WayPlay).l
 	jsr	(EASportsScreen).l
 	jsr	(InitSaveRAM).l
-	jsr	(sub_1D9114).l
+	jsr	(HiScoreScreen).l
 	jsr	(DefaultMenus).l
 	move.w	(OptLine).w,(TmpOptLine2).w
 	move.w	(OptPlayMode).w,(TempOptPlayMode).w
@@ -1401,7 +1401,7 @@ Pausemode	;Game is in pause mode now: restart the sound driver, run the pause me
 	jsr	(SoundCmd).l
 	move.w	(sflags).w,-(sp)
 	bsr.w	seta2
-	jsr	(sub_1D9844).l
+	jsr	(SetMenuPadSide).l
 	movea.l	#PauseMenu,a0
 	lea	SetupPauseScreen(pc),a1
 	btst	#0,(gmode2).w

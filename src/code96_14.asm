@@ -406,7 +406,7 @@ setSlotBit	;sflags6 bit 5 (the slot) = the puck carrier is in the slot
 .x
 	rts
 
-TeamLogoPalettes	;The team logo palettes
+TeamLogoPalettes2	;Team logo palettes, a second set (nothing in the listing uses it)
 	dc.b	$0E,$EA,$00,$00,$00,$42,$0E,$EA,$0E,$EA,$0E,$EE,$00,$00,$08,$88
 	dc.b	$0A,$AA,$00,$68,$00,$8A,$00,$CE,$02,$60,$00,$40,$06,$64,$0E,$8E
 	dc.b	$0E,$EA,$0E,$EA,$0E,$EA,$00,$00,$00,$42,$0E,$EE,$00,$00,$08,$88

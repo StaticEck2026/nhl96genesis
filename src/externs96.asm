@@ -2,20 +2,16 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-sub_1D8E5C	equ	$1D8E5C
-sub_1D8E6C	equ	$1D8E6C
-PrintPlayerAssists	equ	$1D8EF6
-PrintPlayerGoals	equ	$1D8F0C
-PlaceBoardFall	equ	$1D8F66
-sub_1D9062	equ	$1D9062
-sub_1D906C	equ	$1D906C
-sub_1D9114	equ	$1D9114
-sub_1D920A	equ	$1D920A
-sub_1D92EC	equ	$1D92EC
-sub_1D9376	equ	$1D9376
-ClearPenalties	equ	$1D97F4
-sub_1D9844	equ	$1D9844
-loc_1DB020	equ	$1DB020
+sub_1DB288	equ	$1DB288
+loc_1DB30E	equ	$1DB30E
+sub_1DB364	equ	$1DB364
+sub_1DB390	equ	$1DB390
+sub_1DB526	equ	$1DB526
+sub_1DB558	equ	$1DB558
+sub_1DB5C4	equ	$1DB5C4
+sub_1DB674	equ	$1DB674
+sub_1DB716	equ	$1DB716
+sub_1DB996	equ	$1DB996
 sub_1DF9C2	equ	$1DF9C2
 sub_1DFA1C	equ	$1DFA1C
 sub_1DFA34	equ	$1DFA34
@@ -45,10 +41,8 @@ sub_1E889C	equ	$1E889C
 sub_1E89FC	equ	$1E89FC
 sub_1E8C5E	equ	$1E8C5E
 ValidationRoutine	equ	$1E9038	;ROM checksum
-sub_1D9352	equ	$1D9352
 sub_1DF8AC	equ	$1DF8AC
 sub_1E7A78	equ	$1E7A78
 sub_1E8840	equ	$1E8840
 unk_1DF9EC	equ	$1DF9EC
 unk_1DF9FC	equ	$1DF9FC
-sub_1DA6C0	equ	$1DA6C0

@@ -1302,7 +1302,7 @@ sub_1218A
 	ori.w	#$6000,d3
 	movea.l	#$FFFFC066,a6
 	move.w	#1,d6
-	jsr	(sub_1DA6C0).l
+	jsr	(SetSframe).l
 	clr.b	-5(a6)
 	move.l	a6,d0
 	subi.l	#$FFFFC066,d0

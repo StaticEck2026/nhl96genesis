@@ -161,6 +161,10 @@ Create_HotCold_Table = $1D6F24		;code96_14
 setSlotBit = $1D733C		;code96_14
 ManualGoalieMenu = $1D86A4		;code96_14
 nullsub_6 = $1D8782		;code96_14
+HiScoreScreen = $1D9114		;code96_15
+ClearPenalties = $1D97F4		;code96_15
+SetMenuPadSide = $1D9844		;code96_15
+loc_1DB020 = $1DB020		;code96_15
 
 
 ; Main segment code

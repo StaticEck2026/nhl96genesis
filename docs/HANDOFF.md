@@ -263,4 +263,10 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   weight lists, the string helpers, the shootout code and skate paths, GetTeamNickname / GetTeamArena. Undecoded
   routines are labelled bytes by 95 masked byte matches. MATCH (segment and ROM).
 - ShowCrowdFrame2 is a copy of code96_11's ShowCrowdFrame that nothing reaches.
-- Next: code96_15.
+- code96_15 converted: LoadReplayIcon, LoadHomeTeamGfx and TeamGfxList, the goal / assist counts, PlaceBoardFall,
+  getFgtbyte / chkFgtBit1 (96 reads $75 / $77 of the player), HiScoreScreen, ReadGoaliePulled, EndOneTimer,
+  ClearPenalties, the standings code and group tables, SetSframe; labelled bytes for TeamLogoPalettes (exact 95 bytes;
+  code96_14's near copy is now TeamLogoPalettes2), LeadSong, CanBlock, LeadersScrollArrows, SortValuesUp.
+  MATCH (segment and ROM). RAM: StandingsMode, StandingsBuf, StandingsList, CalTeam (= ThreeStars), CalMonth,
+  StandingsOrder, onetimerflags.
+- Next: code96_16.

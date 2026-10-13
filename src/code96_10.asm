@@ -331,7 +331,7 @@ setInjuryType	;a2 injured: out for the period ($FFFD) or the game ($FFFC); in a 
 	ext.w	d1	;sign extend - in this case just makes upper bye of word 00
 	add.w	d1,d1	;add d1 to itself
 	exg	a2,a3	;swap a2 and a3
-	jsr	(sub_1D9062).l	;get the Fgt byte (divided by 4)
+	jsr	(getFgtbyte).l	;get the Fgt byte (divided by 4)
 	exg	a2,a3	;swap back
 	tst.w	d0	;check if d0 is zero
 	bne.w	.not0
@@ -343,7 +343,7 @@ setInjuryType	;a2 injured: out for the period ($FFFD) or the game ($FFFC); in a 
 	beq.w	.2
 	bclr	#5,(sflags7).w
 	move.w	#$FFFD,$6C(a0,d1.w)
-	jsr	(sub_1D906C).l	;check Fgt bit 1 of player.
+	jsr	(chkFgtBit1).l	;check Fgt bit 1 of player.
 	beq.w	.1
 .2
 	bset	#5,(sflags7).w	;set injury game bit
@@ -781,7 +781,7 @@ AssignTeam	;Give assignment d0 to every player of team a2 on the ice (assinsert)
 	bclr	#2,pflags(a3)
 	bclr	#3,pflags3(a3)
 	beq.w	.0
-	jsr	(sub_1D9376).l
+	jsr	(EndOneTimer).l
 .0
 	bsr.w	assinsert
 .next

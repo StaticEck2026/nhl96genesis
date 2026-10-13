@@ -43,6 +43,8 @@ Rinktilelist = $0923E4		;data96_05
 CountGoalies = $1D7D0E		;code96_14
 ShootoutModeBox = $1D7FA6		;code96_14
 nullsub_7 = $1D8A86		;code96_14
+PrintPlayerAssists = $1D8EF6		;code96_15
+PrintPlayerGoals = $1D8F0C		;code96_15
 
 
 ; Main segment code

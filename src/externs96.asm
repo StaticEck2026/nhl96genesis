@@ -2,16 +2,8 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-sub_1DB288	equ	$1DB288
-loc_1DB30E	equ	$1DB30E
-sub_1DB364	equ	$1DB364
-sub_1DB390	equ	$1DB390
-sub_1DB526	equ	$1DB526
-sub_1DB558	equ	$1DB558
-sub_1DB5C4	equ	$1DB5C4
-sub_1DB674	equ	$1DB674
-sub_1DB716	equ	$1DB716
-sub_1DB996	equ	$1DB996
+unk_1DC03C	equ	$1DC03C
+unk_1DC10E	equ	$1DC10E
 sub_1DF9C2	equ	$1DF9C2
 sub_1DFA1C	equ	$1DFA1C
 sub_1DFA34	equ	$1DFA34

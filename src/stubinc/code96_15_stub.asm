@@ -35,6 +35,16 @@ ReplayIconMap = $140AFE		;data96_06
 unk_1468D6 = $1468D6		;data96_07
 unk_147896 = $147896		;data96_07
 unk_18B4F8 = $18B4F8		;data96_08
+WaitAnyPad = $1DB288		;code96_16
+PStatsArrows = $1DB30E		;code96_16
+PStatsClearList = $1DB364		;code96_16
+PStatsSetup = $1DB390		;code96_16
+PStatsTeamBlock = $1DB526		;code96_16
+PStatsHeading = $1DB558		;code96_16
+PStatsHelp = $1DB5C4		;code96_16
+PStatsCategory = $1DB674		;code96_16
+PStatsBuildList = $1DB716		;code96_16
+PStatsPrintList = $1DB996		;code96_16
 
 ; Main segment code
 	include	code96_15.asm

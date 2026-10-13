@@ -164,7 +164,7 @@ nullsub_6 = $1D8782		;code96_14
 HiScoreScreen = $1D9114		;code96_15
 ClearPenalties = $1D97F4		;code96_15
 SetMenuPadSide = $1D9844		;code96_15
-loc_1DB020 = $1DB020		;code96_15
+SeasonPlayoffStats = $1DB020		;code96_15
 
 
 ; Main segment code

@@ -269,4 +269,8 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   code96_14's near copy is now TeamLogoPalettes2), LeadSong, CanBlock, LeadersScrollArrows, SortValuesUp.
   MATCH (segment and ROM). RAM: StandingsMode, StandingsBuf, StandingsList, CalTeam (= ThreeStars), CalMonth,
   StandingsOrder, onetimerflags.
-- Next: code96_16.
+- code96_16 converted (new in 96, no 95 match): WaitAnyPad, the helpers of the season playoff stats screen
+  (code96_15's loc_1DB020 is now SeasonPlayoffStats; the helpers are PStats...), and the playoff menu screen
+  (PlayoffMenuScreen, its routine table and ClearPlayoffSave). A few inline Strings after printcurz were written
+  by hand from the ROM bytes. MATCH (segment and ROM).
+- Next: data96_11.

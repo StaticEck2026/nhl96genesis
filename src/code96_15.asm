@@ -934,13 +934,14 @@ unk_1DAE32	;A String of blanks (used from code96_14, code96_16 and data96_12)
 	dc.b	$01,$07,$08,$23,$F8,$04,$01,$0B,$08,$50,$4C,$41,$59,$45,$52,$F8
 	dc.b	$04,$01,$18,$08,$54,$45,$41,$4D,$46,$FC,$25,$00,$4E,$75
 
-loc_1DB020	;A screen loop (word_FFBF56 the cursor): GetPOSlotTeam, GetGoalieCountD7 ...
+SeasonPlayoffStats	;The playoff stats screen in a season (PlayoffStatsMenu with GameFlags bit 7): the players or goalies of a
+	;team by category (word_FFBF56), the PStats helpers of code96_16
 	movem.l	d0-d7/a0-a6,-(sp)
 	clr.w	(carddelay).w
 	clr.w	(word_FFBF56).w
 	clr.w	(word_FF2720).l
 	bset	#5,(sflags12).w
-	bsr.w	sub_1DB390
+	bsr.w	PStatsSetup
 	movea.l	#unk_18B4F8,a0
 	jsr	(sub_1218A).l
 	move.w	#$18,(palcount).w
@@ -969,35 +970,35 @@ loc_1DB020	;A screen loop (word_FFBF56 the cursor): GetPOSlotTeam, GetGoalieCoun
 	subq.w	#1,d0
 	move.w	d0,(word_FFBF5E).w
 .draw
-	bsr.w	sub_1DB716
+	bsr.w	PStatsBuildList
 	move.w	(vcount).w,d0
 .loop2
 	cmp.w	(vcount).w,d0
 	beq.s	.loop2
-	bsr.w	sub_1DB364
+	bsr.w	PStatsClearList
 .4
 	move.w	(vcount).w,d0
 .7
 	cmp.w	(vcount).w,d0
 	beq.s	.7
-	bsr.w	sub_1DB674
-	bsr.w	sub_1DB526
-	bsr.w	sub_1DB5C4
-	bsr.w	sub_1DB558
+	bsr.w	PStatsCategory
+	bsr.w	PStatsTeamBlock
+	bsr.w	PStatsHelp
+	bsr.w	PStatsHeading
 	move.w	(vcount).w,d0
 .loop3
 	cmp.w	(vcount).w,d0
 	beq.s	.loop3
 	bset	#2,(disflags).w
 	jsr	(sub_12640).l
-	bsr.w	sub_1DB996
+	bsr.w	PStatsPrintList
 	jsr	(sub_12640).l
 	move	#$2500,sr
-	bsr.w	loc_1DB30E
+	bsr.w	PStatsArrows
 	jsr	(sub_12640).l
 	bclr	#2,(disflags).w
 .input
-	bsr.w	sub_1DB288
+	bsr.w	WaitAnyPad
 	tst.w	d1
 	beq.w	.17
 	btst	#7,d1

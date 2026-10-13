@@ -112,7 +112,7 @@ updatescroll	;Scroll the rink window: Hscroll / Vscroll from Hpos / Vpos
 	moveq	#$1F,d3	;max lines to update
 	cmp.w	d4,d1
 	beq.w	rtss2
-	movea.l	#unk_923E4,a0
+	movea.l	#Rinktilelist,a0
 	btst	#4,(sflags4).w
 	beq.w	.0
 	movea.l	#unk_13E99A,a0
@@ -699,7 +699,7 @@ addframe2	;d0/d1 = x/y coord on screen, a3 = object, a5 = dma trans, a6 = sprite
 	eor.w	d4,attribute(a3)
 	move.w	frame(a3),d4
 	andi.w	#$7FF,d4
-	movea.l	#unk_9AA9E,a2
+	movea.l	#Sprites,a2
 	adda.l	attribute(a2),a2
 	asl.w	#1,d4
 	cmp.w	(a2),d4
@@ -762,7 +762,7 @@ addframe2	;d0/d1 = x/y coord on screen, a3 = object, a5 = dma trans, a6 = sprite
 	ext.l	d2
 	asl.l	#5,d2
 	movem.l	d0/a2,-(sp)
-	movea.l	#unk_9AA9E,a2
+	movea.l	#Sprites,a2
 	move.l	a2,d0
 	addi.l	#$A,d0
 	add.l	d0,d2
@@ -895,7 +895,7 @@ setupice	;Set all variables, send non purgeable graphics, build sprite frame lis
 	bsr.w	DoFill
 	clr.w	d4
 	move.w	d4,(word_FFB022).w
-	movea.l	#unk_923EC,a2
+	movea.l	#Rinktilelist+8,a2
 	btst	#4,(sflags4).w
 	beq.w	*+4
 .1
@@ -911,7 +911,7 @@ setupice	;Set all variables, send non purgeable graphics, build sprite frame lis
 	jsr	(sub_210D0).l
 	move.w	d4,(word_FFB02E).w
 	bsr.w	defaultsprites
-	bsr.w	sub_2109A
+	bsr.w	setupIceRinkPal
 	bsr.w	sub_1C184
 	move.w	d4,(word_FFB038).w
 	jsr	(LoadSmallFont).l
@@ -979,8 +979,8 @@ sub_21046	;setupice: the sprites of the pads, the sort objects and the screen ob
 	bsr.w	sub_202FA
 	rts
 
-sub_2109A	;palfadenew = the palettes of unk_923E4
-	movea.l	#unk_923E4,a0
+setupIceRinkPal	;Copy the rink palettes (at the Rinktilelist header) to palfadenew
+	movea.l	#Rinktilelist,a0
 	adda.l	(a0),a0
 	moveq	#$F,d0
 	movea.w	#(palfadenew-M68K_RAM),a1

@@ -70,6 +70,9 @@ sfx = $088470		;data96_04
 song = $088586		;data96_04
 stop_current_song = $0885FC		;data96_04
 newcheck = $0887E4		;code96_13
+Framermap = $091B86		;data96_05
+RefTiles = $097E72		;data96_05
+RefTilesHor = $098F30		;data96_05
 
 
 ; Main segment code

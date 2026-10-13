@@ -1662,7 +1662,7 @@ Framer	;Draw a d0 x d1 frame at printx / printy from the framer map
 	movem.w	d0-d1,-(sp)
 	move.w	(printa).w,d2
 	add.w	(framercset).w,d2
-	movea.l	#unk_91B86,a1
+	movea.l	#Framermap,a1
 	adda.l	4(a1),a1
 	addq.w	#4,a1
 	clr.w	d4

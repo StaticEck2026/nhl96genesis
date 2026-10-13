@@ -21,6 +21,7 @@ setpde = $01FB44		;code96_10
 vb2 = $0202C4		;code96_11
 GoalieInCrease = $02441E		;data96_02
 SoundCmd = $08839E		;data96_04
+Framermap = $091B86		;data96_05
 
 
 ; Main segment code

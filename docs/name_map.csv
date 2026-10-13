@@ -984,7 +984,7 @@ $020BEE,addframe,sub_20BEE,,code96_11
 $020C16,addframe2,sub_20C16,,code96_11
 $020DD2,find3d,sub_20DD2,,code96_11
 $021046,sub_21046,sub_21046,,code96_11
-$02109A,sub_2109A,sub_2109A,,code96_11
+$02109A,setupIceRinkPal,sub_2109A,,code96_11
 $0210B0,sub_210B0,sub_210B0,,code96_11
 $0210C2,sub_210C2,,,code96_11
 $0210D0,sub_210D0,sub_210D0,,code96_11
@@ -1207,3 +1207,12 @@ $0887DC,ClearAllTrackAndSFXSlots,,,data96_04
 $FFFFC062,ltack,word_FFC062,,ram96
 $0887E4,newcheck,sub_887E4,,code96_13
 $08880A,ScoutTextScript,,,code96_13
+$08F2C6,unk_8F2C6,unk_8F2C6,,data96_05
+$090686,unk_90686,,,data96_05
+$0911B8,unk_911B8,,,data96_05
+$091B86,Framermap,unk_91B86,,data96_05
+$0923E4,Rinktilelist,unk_923E4,,data96_05
+$097E72,RefTiles,unk_97E72,,data96_05
+$098F30,RefTilesHor,unk_98F30,,data96_05
+$09AA9E,Sprites,unk_9AA9E,,data96_05
+$09AAA8,Spritetiles,,,data96_05

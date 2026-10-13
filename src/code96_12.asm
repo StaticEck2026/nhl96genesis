@@ -1025,7 +1025,7 @@ DivBy0	;Vector 5: "Division by zero" and the pc, falls into crash
 	move.l	2(sp),d0
 	move.l	d0,d1
 
-crash	;Print d1 then d0 as hex, set the vdp up, copy 8 longs from the unk_923E4 palette + $20 to cram $20 and
+crash	;Print d1 then d0 as hex, set the vdp up, copy 8 longs from the Rinktilelist palette + $20 to cram $20 and
 	;hang. Branched to from AdrErr and InvOpCode, falls in from DivBy0
 	movea.w	#(mesarea-M68K_RAM),a0
 	move.w	#$18,(a0)+
@@ -1051,7 +1051,7 @@ crash	;Print d1 then d0 as hex, set the vdp up, copy 8 longs from the unk_923E4 
 	move.w	#$9206,4(a0)
 	move.w	#$8F02,4(a0)
 	move.l	#$C0200000,4(a0)
-	movea.l	#unk_923E4,a1
+	movea.l	#Rinktilelist,a1
 	adda.l	(a1),a1
 .5
 	adda.w	#$20,a1

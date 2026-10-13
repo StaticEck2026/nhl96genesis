@@ -69,6 +69,8 @@ SoundCmd = $08839E		;data96_04
 song = $088586		;data96_04
 stop_current_song = $0885FC		;data96_04
 SoundOff = $088676		;data96_04
+Rinktilelist = $0923E4		;data96_05
+Sprites = $09AA9E		;data96_05
 
 
 ; Main segment code

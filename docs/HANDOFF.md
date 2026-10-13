@@ -224,4 +224,13 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - code96_13 converted: newcheck (95), then data nothing references: ScoutTextScript, the 95 scouting text lines
   (95 masked byte match; written as dc.b strings with $D), and a $68AE byte block after it with no 95 match and no
   reference (kept as dc.b). MATCH (segment and ROM). RAM: ltack.
-- Next: data96_05.
+- data96_05 converted: graphics. The maps chain one after another, each as its header (dc.l .pal-X,.map-X), the
+  tile count and tiles (dc.b), the palette (.pal, dc.w) and the map (.map: width, height, the words): unk_8F2C6,
+  unk_90686, unk_911B8 (used from code96_20, purpose not known yet), Framermap, FaceOffMap, Rinktilelist, RefTiles,
+  RefTilesHor (95 names by use); then Sprites (header: the palette and frameSprData offsets land in data96_06) and
+  the start of Spritetiles. MATCH (segment and ROM).
+- The +8 references (the tiles) are written Label+8 in the other files. code96_11's sub_2109A is setupIceRinkPal.
+- The listing's unk_A0000 (from data96_10, move.l #unk_A0000,d1 before a divu) is the number $A0000: no label; write
+  it as #$A0000 when data96_10 is converted. data96_06 holds the sprite palette at $12F588 (Sprites + $94AEA)
+  and frameSprData at $12F608 (Sprites + $94B6A).
+- Next: data96_06.

@@ -39,6 +39,7 @@ WriteSRAM = $024188		;data96_02
 MakeSRAMChecksum = $0241AA		;data96_02
 ReadSRAM = $0241E8		;data96_02
 song = $088586		;data96_04
+Rinktilelist = $0923E4		;data96_05
 
 
 ; Main segment code

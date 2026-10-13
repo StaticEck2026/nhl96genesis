@@ -2,15 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-unk_91B86	equ	$091B86
-unk_91B8E	equ	$091B8E
-FaceOffMap	equ	$091D46	;faceoff window bitmap
-unk_923E4	equ	$0923E4
-unk_923EC	equ	$0923EC
-unk_97E72	equ	$097E72
-unk_98F30	equ	$098F30
-unk_98F38	equ	$098F38
-unk_9AA9E	equ	$09AA9E
 unk_13938E	equ	$13938E
 unk_13AA96	equ	$13AA96
 unk_13AA9E	equ	$13AA9E

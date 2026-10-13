@@ -81,6 +81,7 @@ VBlank_SetOptions = $021B52		;code96_11
 linelist = $023342		;data96_02
 MakeSRAMChecksum = $0241AA		;data96_02
 doassignment = $024380		;data96_02
+FaceOffMap = $091D46		;data96_05
 
 
 ; Main segment code

@@ -101,8 +101,8 @@ printbig2	;printbigcur with the font map unk_1B9416 (chars BigFontChars)
 	;Code the listing does not decode: kept as bytes
 	dc.b	$31,$C4,$B0,$1C,$24,$7C,$00,$17,$9A,$7E,$60,$00,$F5,$AE
 
-sub_1C184	;DecompressGraphicsPlain of unk_91B8E (the framer tiles) at char d4 (framercset)
-	movea.l	#unk_91B8E,a2
+sub_1C184	;DecompressGraphicsPlain of Framermap+8 (the framer tiles) at char d4 (framercset)
+	movea.l	#Framermap+8,a2
 	move.w	d4,(framercset).w
 	bra.w	DecompressGraphicsPlain
 
@@ -243,7 +243,7 @@ chkprogress	;Control the progress of the ref and the game through penalty events
 	bset	#6,(sflags).w
 .5
 	move.w	(ExtraChars).w,d4	;load horizontal ref tiles
-	movea.l	#unk_98F38,a2
+	movea.l	#RefTilesHor+8,a2
 	bsr.w	DecompressGraphicsPlain
 	st	(puckc).w
 	movea.w	#(puckx-M68K_RAM),a3
@@ -708,10 +708,10 @@ PushRef	;Tell vblank what to display: ref frame d0
 	cmp.w	#$40,d0
 	beq.w	.clearit
 	mulu.w	#$70,d0	;refwidth*refheight*2
-	movea.l	#unk_97E72,a0
+	movea.l	#RefTiles,a0
 	btst	#4,(sflags9).w
 	beq.w	.m1
-	movea.l	#unk_98F30,a0
+	movea.l	#RefTilesHor,a0
 .m1
 	adda.l	4(a0),a0
 	addq.w	#4,a0

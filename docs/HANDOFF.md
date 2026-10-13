@@ -212,4 +212,13 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - data96_03 converted: SoundBanks item data from inside sample 16 to inside song 0 (the samples, the patches), dc.b
   with one comment per item. MATCH (segment and ROM). No labels: the listing's unk_44120 was the constant
   move.l #$44120,(a1) in code96_04 (String length 4, 'A '), now written as the constant.
-- Next: data96_04.
+- data96_04 converted: the rest of the SoundBanks items (songs, the load lists; one comment per item) and the
+  game's sound calls as in 95 sound95: SoundCmd, UpdateCwdExcite, updatesound, CheckLateGameSong, sfx / sfxplay with
+  SfxTable, song, StartSong, stop_current_song, SoundOff, ChooseSong with TeamSongs and RandomSongs. MATCH (segment
+  and ROM).
+- The unreferenced 95 leftovers are labelled bytes: stop_current_song2, KillCrowd2 (a copy of code96_11's KillCrowd,
+  so the name), p_initialZ80 (cut down to the Z80 reset), ClearAllTrackAndSFXSlots.
+- The listing's unk_7A40A (from off_1E9028) is a number: the code at $1E9038 compares with it (cmp.l off_1E9028(pc)),
+  so no label here; write that dc.l as $7A40A when its segment is converted.
+- RAM: asv, periodendtime, MaxCwdExciteLvl, NumCwdExciteLvl, SumCwdExciteLvl, SndSeqPtr, SndSeqId.
+- Next: code96_13.

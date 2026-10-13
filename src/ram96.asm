@@ -62,9 +62,9 @@ recbpr equ $FFFFB04E
 vcount equ $FFFFB052
 oldvcount equ $FFFFB054
 repeatdelayframes equ $FFFFB056
-word_FFB058 equ $FFFFB058
+asv equ $FFFFB058
 lldisp equ $FFFFB05A
-word_FFB05C equ $FFFFB05C
+periodendtime equ $FFFFB05C
 SortCords equ $FFFFB05E
 unk_FFB65E equ $FFFFB65E
 unk_FFB6DE equ $FFFFB6DE
@@ -93,9 +93,9 @@ padiconchars4 equ $FFFFB8B6
 crowdcnt equ $FFFFB8B6	;updatecrowdf: frames to the next crowd frame. Shares padiconchars4
 padcursorchars equ $FFFFB8B8	;ControllerSetupScreen: PadCursorMap chars
 CwdExciteLvl equ $FFFFB8B8	;Crowd excitement (StartPer: gamelevel * 16). Shares padcursorchars
-word_FFB8BA equ $FFFFB8BA
-word_FFB8BC equ $FFFFB8BC
-dword_FFB8BE equ $FFFFB8BE
+MaxCwdExciteLvl equ $FFFFB8BA
+NumCwdExciteLvl equ $FFFFB8BC
+SumCwdExciteLvl equ $FFFFB8BE
 zamx equ $FFFFB8C2
 word_FFB8C4 equ $FFFFB8C4
 word_FFB8C6 equ $FFFFB8C6
@@ -435,6 +435,8 @@ word_FFDDC4 equ $FFFFDDC4
 varend equ $FFFFDDC6	;End of the variables Begin clears from VSCRLPM
 Stack equ $FFFFFDFA
 SndDrvRAM equ $FFFFFDFC	;Sound driver RAM base: word $1234 = driver on, 0 = off
+SndSeqPtr equ $FFFFFDFE	;8 song slots: song data (-1 = free)
+SndSeqId equ $FFFFFE3E	;8 words: the id SndStartSeq gave the slot
 unk_FFFFF6 equ $FFFFFFF6
 unk_FFFFFF equ $FFFFFFFF
 Z80_RAM equ $A00000

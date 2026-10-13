@@ -65,6 +65,10 @@ LoadSmallFont = $0243A0		;data96_02
 LoadBigFonts = $0243BA		;data96_02
 Z80Program = $025500		;data96_02
 SoundBanks = $027026		;data96_02
+SoundCmd = $08839E		;data96_04
+song = $088586		;data96_04
+stop_current_song = $0885FC		;data96_04
+SoundOff = $088676		;data96_04
 
 
 ; Main segment code

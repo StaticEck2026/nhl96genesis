@@ -24,6 +24,7 @@ ReadJoy4 = $01B390		;code96_08
 loadTeamStruct = $01D328		;code96_09
 getpde = $01FB24		;code96_10
 setpde = $01FB44		;code96_10
+sfx = $088470		;data96_04
 SPA037A = $37A		;SPA value (frames96)
 SPA052C = $52C		;SPA value (frames96)
 SPA0AA2 = $AA2		;SPA value (frames96)

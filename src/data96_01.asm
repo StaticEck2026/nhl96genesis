@@ -1022,10 +1022,10 @@ ResetClock	;gameclock = PerTimeTotal = the period length (GetPeriodTime; overtim
 .2
 	move.w	d0,(gameclock).w
 	move.w	d0,(PerTimeTotal).w
-	move.w	d0,(word_FFB05C).w
+	move.w	d0,(periodendtime).w
 	asr.w	#1,d0
 	jsr	(randomd0).l
-	sub.w	d0,(word_FFB05C).w
+	sub.w	d0,(periodendtime).w
 	bset	#0,(gmode).w
 	rts
 
@@ -1152,7 +1152,7 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 	jsr	(PenaltyManager).l
 	bsr.w	updatecrowdf
 	jsr	(nullsub_6).l
-	jsr	(sub_883D4).l
+	jsr	(updatesound).l
 	bsr.w	clockcont
 	btst	#7,(sflags).w
 	bne.w	rtss8
@@ -1160,8 +1160,8 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 	bpl.w	rtss8
 	addi.w	#$18,(lldisp).w
 	bsr.w	ChkGoalies
-	jsr	(sub_883AC).l
-	jsr	(sub_8842E).l
+	jsr	(UpdateCwdExcite).l
+	jsr	(CheckLateGameSong).l
 	bsr.w	RestoreBenchEnergy
 	bsr.w	CheckInjury
 	jmp	updatepwrplay

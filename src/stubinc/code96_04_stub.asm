@@ -50,6 +50,7 @@ PAttribOverallMask = $023456		;data96_02
 PAttribAggressMask = $023574		;data96_02
 GAttribOverallMask = $0235B8		;data96_02
 ReadSRAM = $0241E8		;data96_02
+sfx = $088470		;data96_04
 
 
 ; Main segment code

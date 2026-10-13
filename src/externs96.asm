@@ -2,13 +2,6 @@
 ;	segment, is an equate here: one name, one line, in address order. When its segment is converted the
 ;	equate moves out (the label in the segment replaces it). Included by nhl96.asm and every stub.
 
-SoundCmd	equ	$08839E
-sub_883AC	equ	$0883AC
-sub_883D4	equ	$0883D4
-sub_8842E	equ	$08842E
-stop_current_song	equ	$0885FC
-SoundOff	equ	$088676
-ChooseSong	equ	$088688
 sub_887E4	equ	$0887E4
 unk_91B86	equ	$091B86
 unk_91B8E	equ	$091B8E
@@ -116,13 +109,11 @@ sub_1D9352	equ	$1D9352
 sub_1DF8AC	equ	$1DF8AC
 sub_1E7A78	equ	$1E7A78
 sub_1E8840	equ	$1E8840
-sfx	equ	$88470
 unk_1DF9EC	equ	$1DF9EC
 unk_1DF9FC	equ	$1DF9FC
 Create_HotCold_Table	equ	$1D6F24
 sub_1D8262	equ	$1D8262
 sub_1DA6C0	equ	$1DA6C0
-song	equ	$088586
 unk_17AA7A	equ	$17AA7A
 unk_1808B8	equ	$1808B8
 unk_18C136	equ	$18C136

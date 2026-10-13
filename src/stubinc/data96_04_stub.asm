@@ -11,7 +11,8 @@
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
 
 ; External addresses outside, read from lst/nhl96.bin.
-
+randomd0 = $01B0A6		;code96_08
+SndDriver = $024496		;data96_02
 
 ; Main segment code
 	include	data96_04.asm

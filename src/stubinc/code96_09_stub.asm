@@ -66,6 +66,9 @@ PlayoffPregameMenu = $023AF4		;data96_02
 IntermissionMenu = $023BA8		;data96_02
 GameOverMenu = $023CBC		;data96_02
 PlayoffGameOverMenu = $023D88		;data96_02
+sfx = $088470		;data96_04
+song = $088586		;data96_04
+stop_current_song = $0885FC		;data96_04
 
 
 ; Main segment code

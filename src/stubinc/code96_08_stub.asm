@@ -20,6 +20,7 @@ getpde = $01FB24		;code96_10
 setpde = $01FB44		;code96_10
 vb2 = $0202C4		;code96_11
 GoalieInCrease = $02441E		;data96_02
+SoundCmd = $08839E		;data96_04
 
 
 ; Main segment code

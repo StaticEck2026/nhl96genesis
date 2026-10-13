@@ -69,6 +69,15 @@ MakeSRAMChecksum = $0241AA		;data96_02
 ClearSRAMBytes = $024208		;data96_02
 Z80Program = $025500		;data96_02
 SoundBanks = $027026		;data96_02
+SoundCmd = $08839E		;data96_04
+UpdateCwdExcite = $0883AC		;data96_04
+updatesound = $0883D4		;data96_04
+CheckLateGameSong = $08842E		;data96_04
+sfx = $088470		;data96_04
+song = $088586		;data96_04
+stop_current_song = $0885FC		;data96_04
+SoundOff = $088676		;data96_04
+ChooseSong = $088688		;data96_04
 
 
 ; Main segment code

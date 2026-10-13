@@ -38,6 +38,7 @@ maketree = $021CF4		;code96_11
 WriteSRAM = $024188		;data96_02
 MakeSRAMChecksum = $0241AA		;data96_02
 ReadSRAM = $0241E8		;data96_02
+song = $088586		;data96_04
 
 
 ; Main segment code

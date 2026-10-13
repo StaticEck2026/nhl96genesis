@@ -63,9 +63,15 @@
    "end": 50503
   },
   {
-   "name": "code96_03",
+   "name": "logic96",
    "kind": "code",
    "start": 50504,
+   "end": 60463
+  },
+  {
+   "name": "code96_03",
+   "kind": "code",
+   "start": 60464,
    "end": 60525
   },
   {

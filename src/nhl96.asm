@@ -19,7 +19,8 @@
 	include	engine\goal96.asm	; $00B04E  controller setup screen
 	include	engine\fourway96.asm	; $00B5C8  4 way play adaptor
 	include	engine\fight96.asm	; $00B6A0  fighting
-	include	code96_03.asm		; $00C548  asstab, penalty texts
+	include	engine\logic96.asm	; $00C548  assignment table, penalty texts
+	include	code96_03.asm		; $00EC30  line change box
 	include	code96_04.asm		; $00EC6E  code
 	include	code96_05.asm		; $010CB2  code
 	include	data96_01.asm		; $012BFE  data

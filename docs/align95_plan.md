@@ -85,7 +85,7 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 4. `engine/input96.asm` — done. `updatepadinput` through `PadOnTeam` (doinput, including the goalie parts that 95G kept in skate95; they are inside doinput here). `PadOnTeam` follows `sub_AFDA` and `doinput` branches to it, so it stays in this file.
 5. `engine/faceoff96.asm` — done. `faceoffinput` through `Endfaceoff`. What remains of code96_02 is `WriteSRAMBits` / `ReadSRAMBits` and the unreferenced bytes between them and the faceoff.
 6. `src/srambits96.asm` — done. `WriteSRAMBits` / `ReadSRAMBits` and the unreferenced bytes that follow them. The 95G save-RAM block is later and is the file that gets the name `src/sram96.asm`.
-7. `engine/logic96.asm` — `asstab` through the assignment bytes in code96_03. Penalty texts that sit in the middle of that run stay in the file (guest) until penalty96 is the next include and the bytes are contiguous with it.
+7. `engine/logic96.asm` — done. `asstab` through `unk_EBF8`. The penalty texts sit at the end of that run and stay in the file until penalty96 is the next include. `SetLCmode` is what remains of code96_03.
 8. `engine/lines96.asm` — `SetLCmode` through `lcfound2`.
 9. Continue down the table above. Do not start graphics or the sound bank until the extraction step.
 

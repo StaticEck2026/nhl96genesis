@@ -14,7 +14,7 @@
 ; External addresses outside, read from lst/nhl96.bin.
 Start = $000200		;main96
 WriteSRAMBits = $0096E8		;srambits96
-asstab = $00C548		;code96_03
+asstab = $00C548		;logic96
 NullSaveClear = $00EF00		;code96_04
 DefaultRosters = $0100C0		;code96_04
 sub_1147E = $01147E		;code96_05

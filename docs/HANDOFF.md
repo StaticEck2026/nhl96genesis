@@ -326,4 +326,5 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/input96.asm` is the pad input (updatepadinput through PadOnTeam, $00A4DC-$00B04D).
   `engine/faceoff96.asm` is the faceoff (faceoffinput through Endfaceoff, $0099CA-$00A4DB).
   `src/srambits96.asm` is WriteSRAMBits and ReadSRAMBits ($0096E8-$0099C9). code96_02 is gone.
-  Next: `engine/logic96.asm` (asstab through the assignment bytes in code96_03). Unsure list is in the plan.
+  `engine/logic96.asm` is asstab through the penalty texts ($00C548-$00EC2F). code96_03 is SetLCmode.
+  Next: `engine/lines96.asm` (SetLCmode through lcfound2). Unsure list is in the plan.

@@ -322,4 +322,5 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
 - Align-with-95 audit: `docs/align95_plan.md`. 928 labels already use a 95G name. The file split started
   with `engine/fight96.asm` (checkfight through sub_C51C, $00B6A0-$00C547) and `engine/fourway96.asm`
   (Detect4WayPlay through ReadJoySwapPad4, $00B5C8-$00B69F). code96_03 starts at asstab.
-  Next: `engine/goal96.asm` (SetContTeams through ReadAllPads). Unsure list is in the plan.
+  `engine/goal96.asm` is the controller setup (SetContTeams through ReadAllPads, $00B04E-$00B5C7).
+  Next: `engine/input96.asm` (updatepadinput through sub_AFDA). Unsure list is in the plan.

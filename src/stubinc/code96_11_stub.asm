@@ -14,7 +14,7 @@
 ; External addresses outside, read from lst/nhl96.bin.
 TeamList = $00077E		;teamdata96
 ReadSRAMBits = $00975A		;code96_02
-SetContTeams = $00B04E		;code96_02
+SetContTeams = $00B04E		;goal96
 sub_EF02 = $00EF02		;code96_04
 sub_10FB4 = $010FB4		;code96_05
 sub_11024 = $011024		;code96_05

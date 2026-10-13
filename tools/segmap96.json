@@ -30,6 +30,12 @@
    "name": "code96_02",
    "kind": "code",
    "start": 38632,
+   "end": 45133
+  },
+  {
+   "name": "goal96",
+   "kind": "code",
+   "start": 45134,
    "end": 46535
   },
   {

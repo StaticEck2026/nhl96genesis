@@ -14,7 +14,7 @@
 ; External addresses outside, read from lst/nhl96.bin.
 sub_10CB2 = $010CB2		;code96_05
 sub_10CF2 = $010CF2		;code96_05
-rtss7 = $00A3DA		;code96_02
+rtss7 = $00A3DA		;faceoff96
 TeamList = $00077E		;teamdata96
 GetGoalieCountD7 = $015774		;code96_06
 GetGoalieCount = $0157A2		;code96_06

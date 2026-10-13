@@ -12,7 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-DrawFaceoffWindow = $00A2A0		;code96_02
+DrawFaceoffWindow = $00A2A0		;faceoff96
 forceblack = $01AF52		;code96_08
 DoFill = $01B52E		;code96_08
 setVram_0 = $01B594		;code96_08

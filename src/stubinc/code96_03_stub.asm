@@ -12,11 +12,11 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-rtss7 = $00A3DA		;code96_02
-assfaceoff = $009A24		;code96_02
-assfaceoffpl = $009A40		;code96_02
-puckfaceoff = $009AD6		;code96_02
-puckfaceoff2 = $009E52		;code96_02
+rtss7 = $00A3DA		;faceoff96
+assfaceoff = $009A24		;faceoff96
+assfaceoffpl = $009A40		;faceoff96
+puckfaceoff = $009AD6		;faceoff96
+puckfaceoff2 = $009E52		;faceoff96
 assbench = $016E40		;code96_06
 asseben = $016FCE		;code96_06
 asspenalty = $017058		;code96_06

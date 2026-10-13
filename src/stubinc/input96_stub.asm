@@ -12,8 +12,8 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-faceoffinput = $0099CA		;code96_02
-rtss7 = $00A3DA		;code96_02
+faceoffinput = $0099CA		;faceoff96
+rtss7 = $00A3DA		;faceoff96
 SetShotMode = $00F496		;code96_04
 ShotMode = $00F530		;code96_04
 lineinput = $00EE0E		;code96_04

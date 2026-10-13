@@ -169,24 +169,24 @@ $00968E,SPA36F8_table,,,frames96
 $FFFFD244,vbint,dword_FFD244,,ram96
 $0096E8,WriteSRAMBits,sub_96E8,,code96_02
 $00975A,ReadSRAMBits,sub_975A,,code96_02
-$0099CA,faceoffinput,loc_99CA,,code96_02
-$009A24,assfaceoff,,,code96_02
-$009A40,assfaceoffpl,,,code96_02
-$009AD6,puckfaceoff,,,code96_02
-$009D0C,SetFaceoffComputerLine,,,code96_02
-$009D58,StartFaceoffLineChange,,,code96_02
-$009DA4,rtsfaceoff,,,code96_02
-$009DA6,WaitForFaceoffLineChanges,,,code96_02
-$009DE6,UpdateFaceoffLineChangeTimer,,,code96_02
-$009E52,puckfaceoff2,,,code96_02
-$00A26C,.apl (puckfaceoff2),,,code96_02
-$00A284,.ptab (puckfaceoff2),,,code96_02
-$00A2A0,DrawFaceoffWindow,sub_A2A0,,code96_02
-$00A370,limitfo,sub_A370,,code96_02
-$00A388,.lf (limitfo),sub_A388,,code96_02
-$00A3DA,rtss7,locret_A3DA,,code96_02
-$00A3DC,Endfaceoff,,,code96_02
-$00A4D6,.ftab (Endfaceoff),,,code96_02
+$0099CA,faceoffinput,loc_99CA,,faceoff96
+$009A24,assfaceoff,,,faceoff96
+$009A40,assfaceoffpl,,,faceoff96
+$009AD6,puckfaceoff,,,faceoff96
+$009D0C,SetFaceoffComputerLine,,,faceoff96
+$009D58,StartFaceoffLineChange,,,faceoff96
+$009DA4,rtsfaceoff,,,faceoff96
+$009DA6,WaitForFaceoffLineChanges,,,faceoff96
+$009DE6,UpdateFaceoffLineChangeTimer,,,faceoff96
+$009E52,puckfaceoff2,,,faceoff96
+$00A26C,.apl (puckfaceoff2),,,faceoff96
+$00A284,.ptab (puckfaceoff2),,,faceoff96
+$00A2A0,DrawFaceoffWindow,sub_A2A0,,faceoff96
+$00A370,limitfo,sub_A370,,faceoff96
+$00A388,.lf (limitfo),sub_A388,,faceoff96
+$00A3DA,rtss7,locret_A3DA,,faceoff96
+$00A3DC,Endfaceoff,,,faceoff96
+$00A4D6,.ftab (Endfaceoff),,,faceoff96
 $00A4DC,updatepadinput,sub_A4DC,,input96
 $00A598,doinput,sub_A598,,input96
 $00A72E,.20 (doinput),sub_A72E,,input96

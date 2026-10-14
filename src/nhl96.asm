@@ -28,7 +28,8 @@
 	include	front\season96.asm	; $010CB2  season and save screens
 	include	data96_01.asm		; $012BFE  team graphics pointers
 	include	schedule96.asm		; $013558  season schedule
-	include	data96_01b.asm		; $013EA0  seeding, game loop, pause, attributes
+	include	front\awards96.asm	; $013EA0  playoff seeding
+	include	data96_01b.asm		; $0143FE  menus, cold start, game loop, pause
 	include	code96_06.asm		; $015774  code
 	include	code96_07.asm		; $017C06  code
 	include	code96_08.asm		; $019F3E  code

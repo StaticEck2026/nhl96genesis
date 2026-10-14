@@ -334,4 +334,6 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `front/season96_sim.asm` is the season simulation (SimGameStats through PickSimGoalie, $01091A-$010CB1).
   `front/season96.asm` is code96_05 renamed (season and save screens, $010CB2-$012BFD). The routines stay `sub_` until the bodies are read.
   `src/schedule96.asm` is the season schedule (SeasonSchedule, $013558-$013E9F). data96_01 keeps the team graphics pointers. data96_01b is the seeding, the game loop, the pause menu and the attribute columns.
-  Next: `front/awards96.asm` for the playoff seeding in data96_01b (ResolveDayGames through BuildPOSlots). Unsure list is in the plan.
+  `front/awards96.asm` is the playoff seeding (nullsub_3 through BuildPOSlots, $013EA0-$0143FD).
+  data96_01b now starts at PrintMenuList.
+  Next: `src/hockey96.asm` (Begin through the frame loop). Unsure list is in the plan.

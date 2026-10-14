@@ -13,17 +13,17 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 rtss7 = $00A3DA		;faceoff96
-loadTeamStruct = $01D328		;code96_09
+loadTeamStruct = $01D328		;lines96_bar
 doplayeracc = $01A62A		;skate96
 eraser = $01B976		;video96
 Framer = $01B9B0		;video96
 printz = $01BB8E		;video96
 print = $01BBA0		;video96
-sub_1CFE4 = $01CFE4		;code96_09
-nullsub_4 = $01D062		;code96_09
-linebar = $01D14E		;code96_09
-SkipStrings = $01D7F2		;code96_09
-setpersonel = $01FB52		;code96_10
+sub_1CFE4 = $01CFE4		;penalty96
+nullsub_4 = $01D062		;penalty96
+linebar = $01D14E		;lines96_bar
+SkipStrings = $01D7F2		;hockey96_inter
+setpersonel = $01FB52		;players96
 box = $022E58		;code96_12
 linelist = $023342		;data96_02
 ClearBigScore = $1E7A78		;code96_19

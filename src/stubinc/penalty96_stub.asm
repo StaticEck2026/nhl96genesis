@@ -1,5 +1,5 @@
-;	Segment build for code96_09.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_09.asm on its own for checking against the ROM.
+;	Segment build for engine\penalty96.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
 	org	$01BF94
@@ -12,28 +12,11 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-TeamList = $00077E		;teamdata96
 limitfo = $00A370		;faceoff96
-checkfight = $00B6A0		;fight96
 ClearMessageLine = $00C0A2		;fight96
-sub_10CF2 = $010CF2		;season96
-sub_112DA = $0112DA		;season96
-sub_11510 = $011510		;season96
-SetupPauseScreen = $014F14		;pause96
-InitMenuState = $014F70		;pause96
-HandleMenuInput = $014FA8		;pause96
-vcountwait = $0151E0		;pause96
 getGoalieSCnum = $0168B8		;control96
 assinsert = $01A3D0		;logic96_vec
 assreplace = $01A3DA		;logic96_vec
-vtoa = $01A3EE		;logic96_vec
-GetHot = $01A458		;logic96_vec
-SetSPA = $01A614		;skate96
-WeightedRandomSelect = $01AED4		;skate96
-forceblack = $01AF52		;video96
-randomd0 = $01B0A6		;video96
-sub_1B282 = $01B282		;video96
-ProcessInputWithRepeat = $01B320		;video96
 Vmaddr = $01B678		;video96
 dobitmap = $01B692		;video96
 DecompressGraphicsPlain = $01B730		;video96
@@ -45,14 +28,10 @@ PushTime = $01BD84		;video96
 appendz = $01BE78		;video96
 appstring = $01BE80		;video96
 printbigcur = $01BEE8		;video96
-FallDown = $01E110		;code96_10
-checkwallcoll = $01E630		;code96_10
-GetPeriodTimeRemaining = $01EBCC		;code96_10
-rtss2 = $01F84A		;code96_10
-ResetBench = $01FDF4		;code96_10
-sub_1FE58 = $01FE58		;code96_10
-setplayer = $01FEA0		;code96_10
-GetShifter = $0224E2		;code96_12
+GetPeriodTimeRemaining = $01EBCC		;collide96
+rtss2 = $01F84A		;collide96
+sub_1FE58 = $01FE58		;players96
+setplayer = $01FEA0		;players96
 ShowThreeStars = $022820		;code96_12
 PenaltyShotBox = $022B70		;code96_12
 ShowGoalBox = $022C5E		;code96_12
@@ -60,28 +39,19 @@ GetPlayerName = $022E70		;code96_12
 GetPlayerNumInitial = $022ED6		;code96_12
 bfasciicon = $0232C8		;data96_02
 priolist = $023426		;data96_02
-ShootoutIntermissionMenu = $0239D4		;data96_02
-PregameMenu = $023A58		;data96_02
-PlayoffPregameMenu = $023AF4		;data96_02
-IntermissionMenu = $023BA8		;data96_02
-GameOverMenu = $023CBC		;data96_02
-PlayoffGameOverMenu = $023D88		;data96_02
 sfx = $088470		;data96_04
 song = $088586		;data96_04
 stop_current_song = $0885FC		;data96_04
-newcheck = $0887E4		;code96_13
 Framermap = $091B86		;data96_05
 RefTiles = $097E72		;data96_05
 RefTilesHor = $098F30		;data96_05
-EnergyBarMap = $13D290		;data96_06
 EASNmap = $13D59E		;data96_06
 BigFontMap = $1B89C8		;data96_09
 BigFontMap3 = $1B9416		;data96_09
-wallcollduringcheck = $1D72F6		;code96_14
-UpdateRecords = $1D7BC6		;code96_14
 ShootoutWonBy = $1D82A2		;code96_14
 updatePPTeamTime = $1D8618		;code96_14
+SkipStrings = $01D7F2		;hockey96_inter
 
 
 ; Main segment code
-	include	code96_09.asm
+	include	engine\penalty96.asm

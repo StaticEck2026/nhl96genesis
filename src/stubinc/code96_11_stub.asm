@@ -2,7 +2,7 @@
 ;	then includes code96_11.asm on its own for checking against the ROM.
 
 ; region code
-	org	$0201C6
+	org	$0201DC
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -46,10 +46,10 @@ setVram_0 = $01B594		;video96
 dobitmap = $01B692		;video96
 DecompressGraphicsPlain = $01B730		;video96
 printz = $01BB8E		;video96
-sub_1C184 = $01C184		;code96_09
-Intermission = $01D3CE		;code96_09
-UpdateScores = $01D518		;code96_09
-rtss2 = $01F84A		;code96_10
+sub_1C184 = $01C184		;penalty96
+Intermission = $01D3CE		;hockey96_inter
+UpdateScores = $01D518		;hockey96_inter
+rtss2 = $01F84A		;collide96
 ReadPassBits = $0221D4		;code96_12
 EncodePW = $02229C		;code96_12
 ReadPassData = $022386		;code96_12

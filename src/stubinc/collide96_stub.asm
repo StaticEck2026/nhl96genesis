@@ -1,8 +1,8 @@
-;	Segment build for code96_10.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_10.asm on its own for checking against the ROM.
+;	Segment build for engine\collide96.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
-	org	$01E110
+	org	$01D7FE
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -12,46 +12,38 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-GetRosterName = $0101E6		;trade96
-GetJerseyNumber = $0102B8		;trade96
-GetPeriodTime = $0148A2		;hockey96
-GetPlayerCount = $0157F4		;players96_count
+checkfight = $00B6A0		;fight96
+assinsert = $01A3D0		;logic96_vec
+assreplace = $01A3DA		;logic96_vec
+vtoa = $01A3EE		;logic96_vec
+GetHot = $01A458		;logic96_vec
+SetSPA = $01A614		;skate96
+randomd0 = $01B0A6		;video96
+sfx = $088470		;data96_04
+song = $088586		;data96_04
+stop_current_song = $0885FC		;data96_04
+newcheck = $0887E4		;code96_13
+wallcollduringcheck = $1D72F6		;code96_14
 LockScroll = $016786		;control96
 setc1player = $016C52		;control96
 setc2player = $016C5C		;control96
 setc3player = $016C68		;control96
 setc4player = $016C74		;control96
-chkpk2 = $018410		;logic96_puck
 EndPenaltyShotPlay = $01971A		;shootout96
 puckflip = $019F3E		;logic96_vec
-assinsert = $01A3D0		;logic96_vec
-assreplace = $01A3DA		;logic96_vec
-vtoa = $01A3EE		;logic96_vec
-SetSPA = $01A614		;skate96
 randomd0s = $01B09A		;video96
-randomd0 = $01B0A6		;video96
 sroot = $01B0DE		;video96
-AddPenalty2 = $01C1D2		;code96_09
-Stop4Pen = $01C784		;code96_09
-PenGoalStuff = $01CC52		;code96_09
-nullsub_4 = $01D062		;code96_09
-ChkShotStat = $01D218		;code96_09
-ClampNibble = $0201C6		;code96_11
-sublist = $0233BC		;data96_02
-priolist = $023426		;data96_02
-sfx = $088470		;data96_04
-song = $088586		;data96_04
-stop_current_song = $0885FC		;data96_04
+AddPenalty2 = $01C1D2		;penalty96
+Stop4Pen = $01C784		;penalty96
+PenGoalStuff = $01CC52		;penalty96
+nullsub_4 = $01D062		;penalty96
+ChkShotStat = $01D218		;lines96_bar
 ChooseSong = $088688		;data96_04
-newcheck = $0887E4		;code96_13
-AttributeCalc = $1D6F66		;code96_14
-wallcollduringcheck = $1D72F6		;code96_14
 nullsub_7 = $1D8A86		;code96_14
 getFgtbyte = $1D9062		;code96_15
 chkFgtBit1 = $1D906C		;code96_15
 EndOneTimer = $1D9376		;code96_15
 RandomInjuryGames = $1E8794		;code96_20
-SetSeasonInjuries = $1E8840		;code96_20
 SPA0F14 = $F14		;SPA value (frames96)
 SPA12EC = $12EC		;SPA value (frames96)
 SPA15B8 = $15B8		;SPA value (frames96)
@@ -62,7 +54,10 @@ SPA26C8 = $26C8		;SPA value (frames96)
 SPAboardleft = $2360		;SPA value (frames96)
 SPAboardmidl = $2084		;SPA value (frames96)
 SPAboardmidr = $24C4		;SPA value (frames96)
+AddPenalty = $01C192		;penalty96
+PenShotChk = $01C3E0		;penalty96
+sub_1C3C6 = $01C3C6		;penalty96
 
 
 ; Main segment code
-	include	code96_10.asm
+	include	engine\collide96.asm

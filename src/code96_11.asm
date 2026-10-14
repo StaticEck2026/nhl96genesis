@@ -2,17 +2,6 @@
 ;	find3d, SprSort), setupice, the team setup, the game flow between periods and games (IntermissionStart,
 ;	Opening, Opening2, GameOver), the EA Sports screen, DefaultMenus, the playoff tree and FigureJoy.
 
-ClampNibble	;Clamp byte d3 to 0-$1E. Called by setplayer
-	tst.b	d3	;test if d3 is zero or higher
-	bpl.w	.pos
-	clr.w	d3	;if negative, clear
-.pos
-	cmp.b	#$1E,d3	;compare upper limit
-	ble.w	.withinlimits
-	move.w	#$1E,d3	;if higher, set to 1E
-.withinlimits
-	rts
-
 VBlank	;The game vertical blank handler (vbint): the dma list, sprites, scroll, palette fade, pads.
 	;Code the listing does not decode: kept as bytes
 	dc.b	$48,$E7,$FF,$FE,$08,$38,$00,$02,$BF,$B2,$66,$00,$00,$14,$08,$B8

@@ -44,9 +44,12 @@
 	include	engine\logic96_vec.asm	; $019F3E  puck vectors
 	include	engine\skate96.asm	; $01A614  skating
 	include	engine\video96.asm	; $01AF00  screen and print
-	include	code96_09.asm		; $01BF94  code
-	include	code96_10.asm		; $01E110  code
-	include	code96_11.asm		; $0201C6  code
+	include	engine\penalty96.asm	; $01BF94  penalties
+	include	engine\lines96_bar.asm	; $01D14E  line energy
+	include	hockey96_inter.asm	; $01D3CE  intermission
+	include	engine\collide96.asm	; $01D7FE  collisions
+	include	engine\players96.asm	; $01FB52  on the ice
+	include	code96_11.asm		; $0201DC  code
 	include	code96_12.asm		; $0221D4  code
 	include	data96_02.asm		; $023248  data
 	include	data96_03.asm		; $044120  data

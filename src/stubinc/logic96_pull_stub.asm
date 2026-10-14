@@ -12,8 +12,8 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-rtss2 = $01F84A		;code96_10
-setpersonel = $01FB52		;code96_10
+rtss2 = $01F84A		;collide96
+setpersonel = $01FB52		;players96
 
 
 ; Main segment code

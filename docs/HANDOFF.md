@@ -351,4 +351,9 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/logic96_vec.asm` is the puck flip and the hot spots (puckflip through the GetHot variants, $019F3E-$01A613).
   `engine/skate96.asm` is the skating (SetSPA through WeightedRandomSelect, $01A614-$01AEFF).
   `engine/video96.asm` is the screen and the print routines (remap through printbigtext, $01AF00-$01BF93). code96_08 is gone.
-  Next: `engine/penalty96.asm`, `engine/lines96_bar.asm` and `src/hockey96` intermission from code96_09, then one `engine/collide96.asm` across the code96_10 boundary. Unsure list is in the plan.
+  `engine/penalty96.asm` is the penalties, with big-print in front of AddPenalty ($01BF94-$01D14D).
+  `engine/lines96_bar.asm` is the line energy bar (linebar through sub_1D3A6, $01D14E-$01D3CD).
+  `src/hockey96_inter.asm` is the intermission and the ticker (Intermission through SkipStrings, $01D3CE-$01D7FD).
+  `engine/collide96.asm` is the collisions across the old file boundary (checkcoll through setpde, $01D7FE-$01FB51). rtss2 stays here.
+  `engine/players96.asm` is who is on the ice (setpersonel through ClampNibble, $01FB52-$0201DB). code96_09 and code96_10 are gone. code96_11 now starts at VBlank.
+  Next: `src/display96.asm` (VBlank through the sprite sort), `src/control96_team.asm`, `src/hockey96_open.asm` and `engine/playoff96.asm` from code96_11, then the boxes, `engine/middle96.asm` and `src/crash96.asm` from code96_12. Unsure list is in the plan.

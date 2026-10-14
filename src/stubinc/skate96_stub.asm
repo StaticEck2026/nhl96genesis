@@ -13,9 +13,9 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 AdjustFacingDirection = $017C06		;logic96_puck
-rtss2 = $01F84A		;code96_10
-getpde = $01FB24		;code96_10
-setpde = $01FB44		;code96_10
+rtss2 = $01F84A		;collide96
+getpde = $01FB24		;collide96
+setpde = $01FB44		;collide96
 GoalieInCrease = $02441E		;data96_02
 stopfast = $1D6E0E		;code96_14
 vtoa = $01A3EE		;logic96_vec

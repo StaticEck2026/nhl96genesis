@@ -12,8 +12,8 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-ReadMenuJoy = $015CD8		;code96_06
-rtss8 = $0162EE		;code96_06
+ReadMenuJoy = $015CD8		;replay96
+rtss8 = $0162EE		;replay96
 forceblack = $01AF52		;code96_08
 ProcessInputWithRepeat = $01B320		;code96_08
 ReadJoy1 = $01B348		;code96_08

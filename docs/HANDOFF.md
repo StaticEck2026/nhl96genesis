@@ -333,7 +333,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `front/trade96.asm` is the roster names (DefaultRosters through the name tables, $0100C0-$010919).
   `front/season96_sim.asm` is the season simulation (SimGameStats through PickSimGoalie, $01091A-$010CB1).
   `front/season96.asm` is code96_05 renamed (season and save screens, $010CB2-$012BFD). The routines stay `sub_` until the bodies are read.
-  `src/schedule96.asm` is the season schedule (SeasonSchedule, $013558-$013E9F). data96_01 keeps the team graphics pointers. data96_01b is the seeding, the game loop, the pause menu and the attribute columns.
+  `src/schedule96.asm` is the season schedule (SeasonSchedule, $013558-$013E9F). data96_01 keeps the team graphics pointers.
   `front/awards96.asm` is the playoff seeding (nullsub_3 through BuildPOSlots, $013EA0-$0143FD).
   `src/hockey96.asm` is the cold start and the game loop (Begin through clockcont, $01464C-$014CC7).
   data96_01b is the menu list printers.
@@ -341,4 +341,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/setup96.asm` is the roster attribute columns (GetNameandAttrib through WeightTbl, $0151FA-$01548F).
   `engine/pause96_menu.asm` is PlayoffStatsMenu, TimeoutMenu and SelectGoalieMenu ($015490-$015773).
   data96_01 is the team graphics pointers. data96_01b is the menu list printers (PrintMenuList, PrintMenuList2).
-  Next: `engine/replay96.asm` from code96_06. Unsure list is in the plan.
+  `engine/replay96.asm` is the instant replay (ReplayMode through rtss8, $01581C-$0162EF). ReadMenuJoy stays in that file.
+  code96_06 is the team counts and WaitVSyncAndReadInput ($015774-$01581B).
+  code96_06b is the player frame update and the assignment entries ($0162F0-$017C05).
+  Next: `src/control96.asm` from code96_06b (updateplayers through setpads). The assignment entries are `engine/logic96_ass.asm`. Unsure list is in the plan.

@@ -1,8 +1,8 @@
-;	Segment build for code96_12.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_12.asm on its own for checking against the ROM.
+;	Segment build for engine\goal96_box.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
-	org	$0221D4
+	org	$022820
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -12,34 +12,19 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+printz = $01BB8E		;video96
+rtss2 = $01F84A		;collide96
+song = $088586		;data96_04
 Penaltylist = $00E818		;logic96
 lcfound2 = $00EEC4		;lines96
-GetPlayerNamePointer = $0101C6		;trade96
-GetJerseyNumber = $0102B8		;trade96
-sub_10F02 = $010F02		;season96
-sub_10F22 = $010F22		;season96
-GetGoalieCountD7 = $015774		;players96_count
-randomd0 = $01B0A6		;video96
 eraser = $01B976		;video96
 Framer = $01B9B0		;video96
-printz = $01BB8E		;video96
 print = $01BBA0		;video96
-printcurz = $01BC72		;video96
-printcur = $01BC84		;video96
 PushNumberWidth = $01BE1C		;video96
-appendz = $01BE78		;video96
-appstring = $01BE80		;video96
 printbigz2 = $01C12C		;penalty96
 printbig2 = $01C15A		;penalty96
 prefmes = $01C9FA		;penalty96
 sub_1CFE4 = $01CFE4		;penalty96
-rtss2 = $01F84A		;collide96
-maketree = $021CF4		;code96_11
-WriteSRAM = $024188		;data96_02
-MakeSRAMChecksum = $0241AA		;data96_02
-ReadSRAM = $0241E8		;data96_02
-song = $088586		;data96_04
-Rinktilelist = $0923E4		;data96_05
 CountGoalies = $1D7D0E		;code96_14
 ShootoutModeBox = $1D7FA6		;code96_14
 nullsub_7 = $1D8A86		;code96_14
@@ -47,7 +32,11 @@ PrintPlayerAssists = $1D8EF6		;code96_15
 PrintPlayerGoals = $1D8F0C		;code96_15
 ShowBigScore = $1E78C4		;code96_19
 ClearBigScore = $1E7A78		;code96_19
+FormatPlayerName = $022FB2		;middle96
+FormatPlayerNumInitial = $022F44		;middle96
+GetPlayerNumInitial = $022ED6		;middle96
+getname = $022E92		;middle96
 
 
 ; Main segment code
-	include	code96_12.asm
+	include	engine\goal96_box.asm

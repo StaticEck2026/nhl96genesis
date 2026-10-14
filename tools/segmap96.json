@@ -243,15 +243,51 @@
    "end": 131547
   },
   {
-   "name": "code96_11",
+   "name": "display96",
    "kind": "code",
    "start": 131548,
-   "end": 139731
+   "end": 136321
   },
   {
-   "name": "code96_12",
+   "name": "control96_team",
    "kind": "code",
-   "start": 139732,
+   "start": 136322,
+   "end": 136667
+  },
+  {
+   "name": "hockey96_open",
+   "kind": "code",
+   "start": 136668,
+   "end": 138065
+  },
+  {
+   "name": "setup96_menu",
+   "kind": "code",
+   "start": 138066,
+   "end": 138159
+  },
+  {
+   "name": "playoff96",
+   "kind": "code",
+   "start": 138160,
+   "end": 141343
+  },
+  {
+   "name": "goal96_box",
+   "kind": "code",
+   "start": 141344,
+   "end": 142959
+  },
+  {
+   "name": "middle96",
+   "kind": "code",
+   "start": 142960,
+   "end": 143683
+  },
+  {
+   "name": "crash96",
+   "kind": "code",
+   "start": 143684,
    "end": 143943
   },
   {

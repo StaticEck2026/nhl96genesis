@@ -13,10 +13,10 @@
 ; External addresses outside, read from lst/nhl96.bin.
 VBjsr = $000776		;vertical blank interrupt, jumps through vbint
 Begin = $01464C		;hockey96
-IRQ7 = $0202E4		;code96_11
-AdrErr = $023144		;code96_12
-InvOpCode = $02316C		;code96_12
-DivBy0 = $023196		;code96_12
+IRQ7 = $0202E4		;display96
+AdrErr = $023144		;crash96
+InvOpCode = $02316C		;crash96
+DivBy0 = $023196		;crash96
 ValidationRoutine = $1E9038		;code96_20
 
 

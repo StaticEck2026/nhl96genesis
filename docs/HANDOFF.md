@@ -356,4 +356,12 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `src/hockey96_inter.asm` is the intermission and the ticker (Intermission through SkipStrings, $01D3CE-$01D7FD).
   `engine/collide96.asm` is the collisions across the old file boundary (checkcoll through setpde, $01D7FE-$01FB51). rtss2 stays here.
   `engine/players96.asm` is who is on the ice (setpersonel through ClampNibble, $01FB52-$0201DB). code96_09 and code96_10 are gone. code96_11 now starts at VBlank.
-  Next: `src/display96.asm` (VBlank through the sprite sort), `src/control96_team.asm`, `src/hockey96_open.asm` and `engine/playoff96.asm` from code96_11, then the boxes, `engine/middle96.asm` and `src/crash96.asm` from code96_12. Unsure list is in the plan.
+  `src/display96.asm` is the picture (VBlank through resetplstuff, $0201DC-$021481). The crowd stays in that file. VBlank stays here; 95 keeps it in video.
+  `src/control96_team.asm` is the two team structs (clearTeamStats through setplayercolors, $021482-$0215DB).
+  `src/hockey96_open.asm` is the title and the end of a period (sub_215DC through UpdatePlayoffLevel, $0215DC-$021B51).
+  `engine/setup96_menu.asm` is the default menu choices (VBlank_SetOptions through defmenuoptions, $021B52-$021BAF).
+  `engine/playoff96.asm` is the tree and the saved series (ContinuePlayoffs through ResolveGames, $021BB0-$02281F).
+  `engine/goal96_box.asm` is the whistle boxes (ShowThreeStars through box, $022820-$022E6F). The stars, the injury and the penalty shot stay in that file.
+  `engine/middle96.asm` is the player names (GetPlayerName through PushNumberWidthZero, $022E70-$023143).
+  `src/crash96.asm` is the exception screen (AdrErr through crash, $023144-$023247). code96_11 and code96_12 are gone.
+  Next: the front end, `front/shootout96_path.asm` from code96_14, then the standings and the season menu. Unsure list is in the plan.

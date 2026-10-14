@@ -49,8 +49,14 @@
 	include	hockey96_inter.asm	; $01D3CE  intermission
 	include	engine\collide96.asm	; $01D7FE  collisions
 	include	engine\players96.asm	; $01FB52  on the ice
-	include	code96_11.asm		; $0201DC  code
-	include	code96_12.asm		; $0221D4  code
+	include	display96.asm		; $0201DC  picture
+	include	control96_team.asm	; $021482  team setup
+	include	hockey96_open.asm	; $0215DC  title and periods
+	include	engine\setup96_menu.asm	; $021B52  default menus
+	include	engine\playoff96.asm	; $021BB0  playoff tree
+	include	engine\goal96_box.asm	; $022820  goal box
+	include	engine\middle96.asm	; $022E70  player names
+	include	crash96.asm		; $023144  exceptions
 	include	data96_02.asm		; $023248  data
 	include	data96_03.asm		; $044120  data
 	include	data96_04.asm		; $07A40A  data

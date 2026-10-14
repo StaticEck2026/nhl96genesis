@@ -4,11 +4,12 @@ Audit only. No source bytes were moved in this commit. 95G was read on GitHub
 (`SEGMENT_AGENT.md`, `PROMPT.md`, `docs/HANDOFF.md`, `src/nhl95.asm`, the include lists,
 `docs/name_map.csv`, `tools/extractAssets95.js`). 95G has no `START_HERE.md`.
 
-95G is one file per subsystem, in folders, included in ROM order. 96G is still the
-first mechanical cut (`code96_*`, `data96_*`): one file per ROM slice, several
-subsystems in each slice. Names already follow 95G where an earlier pass matched
-the body. What is left is the file split, the labels that still differ, and
-extracting graphics and sound the way 95G does.
+95G is one file per subsystem, in folders, included in ROM order. The 96 file
+split and the asset extraction are done. `src/nhl96.asm` includes each file in
+96 ROM order, and the folders match 95G. What is left is the symbols pass and
+the Unsure list at the bottom of this file (also in `docs/HANDOFF.md`).
+`code96_14` and `code96_15` stay numbered. Names already follow 95G where an
+earlier pass matched the body.
 
 Matching used three checks:
 
@@ -57,7 +58,7 @@ there is no single engine list to include once. Folders still match: `engine/`,
 | code96_10 | `$01E110-$0201C5` | collide95, players95, middle95 (energy) | Done. `collide96` runs through setpde. `engine/players96.asm` is setpersonel through setplayer, plus ClampNibble. |
 | code96_11 | `$0201DC-$0221D3` | video95 (vblank), display95, crowd95, control95, hockey95, setup95 | Done with code96_12. `src/display96.asm` (VBlank stays here; 95 keeps it in video, and the crowd stays in this file), `src/control96_team.asm`, `src/hockey96_open.asm`, `engine/setup96_menu.asm`, and the start of `engine/playoff96.asm`. |
 | code96_12 | `$0221D4-$023247` | setup95 (pass bits), stats95, goal95, middle95 (names), main95 (exceptions) | Done. `playoff96` runs through ResolveGames. `engine/goal96_box.asm` holds the stars, the injury, the penalty shot and the goal box. `engine/middle96.asm` is the name formatters. `src/crash96.asm` is AdrErr through crash. |
-| data96_02 | `$023248-$04411F` | tables, sram95, video95 pads, sound95 driver, start of the bank | Done. Tables are second pieces at this address (`display96_crowd`, `middle96_ascii`, `lines96_list`, `setup96_pos`, `middle96_per`, `video96_size`, `players96_sub`, `setup96_attr`, `pause96_items`, `lines96_menu`). `src/sram96.asm`, `engine/video96_pad.asm`, `engine/logic96_do.asm`, `engine/video96_font.asm`, `engine/logic96_crease.asm`, `engine/pause96_play.asm`, `src/sound96.asm` (driver, Z80 program, bank directory). The bank bytes stay `data96_02`. |
+| data96_02 | `$023248-$04411F` | tables, sram95, video95 pads, sound95 driver, start of the bank | Done. Tables are second pieces at this address (`display96_crowd`, `middle96_ascii`, `lines96_list`, `setup96_pos`, `middle96_per`, `video96_size`, `players96_sub`, `setup96_attr`, `pause96_items`, `lines96_menu`). `src/sram96.asm`, `engine/video96_pad.asm`, `engine/logic96_do.asm`, `engine/video96_font.asm`, `engine/logic96_crease.asm`, `engine/pause96_play.asm`, `src/sound96.asm` (driver, Z80 program, bank directory). The bank bytes were incbinned into `sound96`. |
 | data96_03 | `$044120-$07A409` | sound95 bank data | Done. Incbins inside `sound96`. |
 | data96_04 | `$07A40A-$0887E3` | sound95 bank tail and the sound calls | Done. The tail of the bank is incbins. The calls are source in `sound96`. |
 | code96_13 | `$0887E4-$08F2C5` | sound95 `newcheck`, scout95 text | Done. `newcheck` is the end of `sound96`. `front/scout96.asm` incbins `ScoutTextScript` and the picture after it. |
@@ -105,10 +106,10 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 12. code96_09 and code96_10 split — done. `engine/penalty96.asm`, `engine/lines96_bar.asm`, `src/hockey96_inter.asm`, `engine/collide96.asm` (through setpde), `engine/players96.asm` (through ClampNibble). code96_11 now starts at VBlank.
 13. code96_11 and code96_12 split — done. `src/display96.asm`, `src/control96_team.asm`, `src/hockey96_open.asm`, `engine/setup96_menu.asm`, `engine/playoff96.asm`, `engine/goal96_box.asm`, `engine/middle96.asm`, `src/crash96.asm`.
 14. Front end — done. `front/shootout96_path.asm`, `front/season96_stand.asm`, `front/season96_menu.asm`, `front/trade96_edit.asm`, `front/create96.asm`, `front/options96.asm`, `front/stats96.asm`, `engine/pause96_return.asm`, `front/summary96.asm`, `front/stats96_list.asm`, `front/records96.asm`, `engine/playoff96_tree.asm`, `engine/middle96_clock.asm`, `front/awards96_show.asm`, `front/injury96.asm`, `front/title96.asm`, `src/checksum96.asm`. code96_14 and code96_15 keep the mixed heads. code96_16, data96_11, code96_17, code96_18, data96_12, code96_19 and code96_20 are gone.
-15. data96_02 — done. The tables, `src/sram96.asm`, the pads, `logic96_do`, the font loaders, `logic96_crease`, `pause96_play` and `src/sound96.asm`. The bank bytes stay in data96_02, data96_03 and data96_04 until extraction.
+15. data96_02 — done. The tables, `src/sram96.asm`, the pads, `logic96_do`, the font loaders, `logic96_crease`, `pause96_play` and `src/sound96.asm`. The bank dumps were replaced by incbins in the extraction step.
 16. `engine/logic96_timer.asm` — done. puckvzadj through setonetimeranim. The pictures ahead of it are in `graphics96`.
 17. Extraction — done. `tools/extractAssets96.js`. `sound96` incbins the Z80 program and the 168 bank items and keeps the calls plus `newcheck`. `front/scout96.asm` and `src/graphics96.asm` incbin the pictures and the scout text. The team palettes stay.
-18. Next: the three renames, then rewrite `START_HERE.md`, the rules prose in `SEGMENT_AGENT.md`, `PROMPT.md` and `docs/HANDOFF.md`.
+18. Renames and docs — done. FindGoalie, ShootoutInit, CreateLetterGrid. `START_HERE.md`, the rules prose in `SEGMENT_AGENT.md`, `PROMPT.md` and `docs/HANDOFF.md` follow the folders and `extractAssets96.js`. The Unsure list stays below and is copied into the handoff.
 
 ## Names that differ
 
@@ -165,15 +166,12 @@ RAM: 294 names are shared with `src/ram95.asm`. 286 of those sit at a different 
 
 95G: `tools/extractAssets95.js` writes `Extracted/NHL95/...` (team pals, `*.map.jim`, sprite and font bins, arena graphics, `z80_snd_drv95.bin`, `snd95_patch_XX.bin` / `sample` / `song` / `list`, `ScoutTextScript.bin`) and `Extracted/.extract-complete.json`. `tools/prebuild.js` runs it. Source incbins those files. `npm run assets` and `npm run extractassets` are the entry points.
 
-96G today: `tools/extractSegments96.js` writes `Extracted/segments/<name>.bin` plus the team pals under `Extracted/NHL96/Graphics/Pals/*h96.pal`. The marker file and the "ROMs are not included in the repo" stop in `tools/prebuild.js` already match. No converted source incbins a segment slice anymore (only the team pals).
+96G: `tools/extractAssets96.js` does the same for `Extracted/NHL96/`. `prebuild.js` and `npm run extractassets` call it. The marker is written last (`rom`, `romSha1`, `extractor`, `extractorSha1`, `files`) and does not record a map SHA-1. `tools/extractSegments96.js` is not part of the build. `tools/segmap96.json` remains the ROM map the docs and `find95.py` use. A missing ROM still stops in prebuild, including "ROMs are not included in the repo".
 
-Target:
-
-- `tools/extractAssets96.js`, same shape as the 95G extractor (SHA-1 check, asset table, marker last). `prebuild.js` and `npm run extractassets` call it.
-- Keep the team pals. Add graphics (`NHL96/Graphics/<Label>.map.jim` or `.bin`, one file per label whose body is data), the Z80 program, each sound-bank item, and `NHL96/Text/ScoutTextScript.bin`.
-- `graphics96` and `sound96` incbin those files. A map stays one incbin; tiles are `Label+8`, as in 95G. Do not leave a `dc.b` dump of a ROM range in a file 95G extracts.
-- Drop segment-slice extraction once nothing includes `Extracted/segments/`. `tools/segmap96.json` remains the ROM map the docs and `find95.py` use.
-- Missing ROM: the existing prebuild message stays, including "ROMs are not included in the repo".
+- Team pals stay at `NHL96/Graphics/Pals/*h96.pal` (also the `assets` array in the ROM map, inclusive end).
+- Graphics: `NHL96/Graphics/<Label>.map.jim` or `.bin`, one file per label whose body is data. `.bin`: Sprites, Spritetiles, SpritePalette, frameSprData, HotList, HotList2, RevRinkTilelist, RosterFont. A map stays one incbin; tiles are `Label+8`.
+- Z80 program `NHL96/Sound/z80_snd_drv96.bin`, each sound-bank item `NHL96/Sound/Bank/snd96_{patch|sample|song|list}_{id}.bin` (168), and `NHL96/Text/ScoutTextScript.bin`.
+- `graphics96`, `sound96` and `front/scout96.asm` incbin those files. Paths are relative to `src/` (`..\Extracted\...`). Do not put a `dc.b` dump back.
 
 ## Symbols, comments, docs
 
@@ -181,7 +179,7 @@ Where 95G writes `SPA*` / `SPF*`, a RAM field, a team equate or an `SFX_*` id, 9
 
 File headers are already short stories in most converted files. When a file is split, each new file gets a header in that style. No rename history, no ROM addresses, no "from 95G".
 
-After the layout and the extractor exist, update `START_HERE.md`, `SEGMENT_AGENT.md`, `PROMPT.md` and `docs/HANDOFF.md` so the next agent follows the folders and `extractAssets96.js`.
+`START_HERE.md`, `SEGMENT_AGENT.md`, `PROMPT.md` and `docs/HANDOFF.md` follow the folders and `extractAssets96.js`. The symbols pass above is the remaining work.
 
 ## Unsure
 

@@ -18,7 +18,7 @@ Source style:
 - Local labels in 92 style: `.loop`, `.next`, `.done`, `.exit`, and plain numbers (`.0`, `.1`) for trivial jumps. A routine that matches 95G keeps its 95G locals.
 - File headers are short plain-English stories of what the file does, modelled on the 95G file headers (`src/main95.asm`, `src/hockey95.asm`).
 
-Layout: follow 95G (https://github.com/abdulahmad/NHL95Genesis). `src/nhl96.asm` includes every segment in ROM order. Segment build stubs go in `src/stubinc`, tools in `tools/`. The build runs a prebuild ROM check (`tools/prebuild.js`) that names the path, file name, SHA-1 and size of the ROM it needs and extracts the segment slices automatically. Segment files may be renamed for their subsystem once their content is known (`code96_06` -> `display96`): rename the file, its stub, its include line, its `seg:` script and its ROM map row in the same commit.
+Layout: folders match 95G (https://github.com/abdulahmad/NHL95Genesis): `engine/`, `front/`, `sega/`, `stubinc/`, `macros/`, and ROM-wide files in `src/`. `src/nhl96.asm` is a flat include list in 96 ROM order. There is no `engine96.asm` or `front96.asm` (96 interleaves engine and front-end, so those runs are not one include). A second piece of a 95 file gets a suffix on the 95 name (`logic96_puck`). A guest of a few routines stays in the host. Two adjacent runs of the same subsystem are one file. Bytes cannot move into an earlier file. VBlank and the crowd stay in `display96` (95 keeps VBlank in video). Crowd frames are `display96_crowd`. Big-print stays in `penalty96`. Exceptions are `crash96`. `code96_14` and `code96_15` stay numbered: each head mixes several subsystems. Segment build stubs go in `src/stubinc`, tools in `tools/`. `tools/prebuild.js` checks the ROM (path, file name, SHA-1, size) and runs `tools/extractAssets96.js`. `tools/extractSegments96.js` is not part of the build.
 
 Work in small steps: every change is built and checked byte for byte against the reference ROM, then committed and pushed to main (no force push; outside contributors push to their fork and open a PR, see START_HERE.md). Keep `docs/HANDOFF.md` current after each push.
 
@@ -30,13 +30,13 @@ None: every row of the ROM map is matched. <- CURRENT
 
 - Listing: `lst/nhl96.bin.lst`, an IDA LST in ASM68K / MRI mode. It has no address column; a `loc_`, `sub_`, `unk_`, `byte_`, `word_`, `off_` name is the address. Do not disassemble `lst/nhl96.bin` and do not write a disassembler.
 - Reference ROM: `lst/nhl96.bin` (2 MB, SHA-1 `7204633fbb9966ac637e7966d02ba15c5acdee6b`). Bytes and branch displacements come from it.
-- Every segment starts as an `incbin ..\Extracted\segments\<name>.bin` of its range, cut from the ROM by `tools/extractSegments96.js` (run automatically by the prebuild check).
+- Converted source incbins assets from `Extracted/NHL96/`, written by `tools/extractAssets96.js` (run by the prebuild check). `tools/extractSegments96.js` is not the build path. `tools/segmap96.json` is the ROM map (`find95.py` and these docs use it): decimal inclusive start and end, tiled, indent 1.
 - Names: 95G `docs/name_map.csv` (address, name, IDA name, old name, module) and the 95G source. 96 reordered the code a lot against 95, so match by body, never by address. `python3 tools/find95.py <segment>` (or `<start>-<end>` in hex; options `--len`, `--min-distinct`, `--refresh`) lists the 95G labels whose first bytes are found in the range, with the 96 address, the 95G name and file. It downloads the 95G ROM and name map from GitHub into `output/ref95/` once. A hit is a hint; compare the bodies. Routines whose bytes changed (moved data, other RAM addresses) are not found by it.
 
 ## Segment files and stubs
 
 - A segment file has no `org`. Its stub `src/stubinc/<name>_stub.asm` carries the `org`, includes `stubinc\ports.inc`, `stubinc\equals.inc`, `ram96.asm`, `externs96.asm`, then outside equates, then the segment file. Paths are relative to `src/`. Add `include macros\genesis.mac` (copy it from 95G) when the segment uses a macro.
-- `src/externs96.asm`: an equate for every address converted code uses that is still inside an incbin segment. Included by `nhl96.asm` and every stub. When a segment is converted, the equates for its own labels leave this file (otherwise the build fails with a duplicate symbol).
+- `src/externs96.asm`: included by `nhl96.asm` and every stub. It holds no equates; every segment is source. A duplicate symbol means an equate names a label the file already defines.
 - A label another converted segment defines: an equate in your stub only (the full build has the label itself).
 - `src/ram96.asm`: the RAM map, IDA names to start. Rename a variable to its 95G name when you first convert code that uses it (update every use; record it in `docs/name_map.csv`). Define each name once.
 
@@ -48,12 +48,12 @@ None: every row of the ROM map is matched. <- CURRENT
 - Keep each comment line under 200 characters. A longer line makes SNASM write an empty bin.
 - A MATCH of 0 bytes is a failure; the byte count must be the segment's range.
 - Old output can look like a pass: the scripts delete the old bin first. Only a check made this session counts.
-- Data goes in the segment of the code that owns it. Graphics and sound stay incbins (later from an asset extractor), named for the asset, never for an IDA address.
-- An asset inside a converted segment (the team palettes) is listed under `assets` in `tools/segmap96.json` (path, start, end); the extractor writes it to `Extracted/<path>` and the source incbins it from there.
+- Data goes in the segment of the code that owns it. Graphics and sound are incbins, one file per label, named for the asset. A map is `Extracted/NHL96/Graphics/<Label>.map.jim`; the tiles are `Label+8`, not a second file. `.bin` (not `.map.jim`): Sprites, Spritetiles, SpritePalette, frameSprData, HotList, HotList2, RevRinkTilelist, RosterFont. Do not put a `dc.b` dump back.
+- Team palettes are `Extracted/NHL96/Graphics/Pals/*h96.pal` and are also listed under `assets` in `tools/segmap96.json` (path, start, end, inclusive). The extractor's own table also has the graphics, `NHL96/Sound/z80_snd_drv96.bin`, the 168 bank items `NHL96/Sound/Bank/snd96_{patch|sample|song|list}_{id}.bin`, and `NHL96/Text/ScoutTextScript.bin`. Source incbins `..\Extracted\...` (paths are relative to `src/`, the assembler cwd). The marker `Extracted/.extract-complete.json` is written last (`rom`, `romSha1`, `extractor`, `extractorSha1`, `files`). It does not record a map SHA-1. A changed extractor, or a missing or resized file, extracts again.
 
 ## ROM map
 
-The first row whose status is incbin is the current segment. Rows are in ROM order and tile `$000000` up to the `$FF` fill, which `src/nhl96.asm` writes with `dcb.b`. The first split came from `python3 tools/make_segmap96.py` (see its header for the options): it cuts the listing at code / data changes and at `sub_` labels about every 8 KB of code (128 KB of data). The kind is a guess from the listing, and the 95G column lists the 95G files whose routines were found at the start of their bytes in the range (a hint, not a match). Ranges are confirmed from the listing as each segment is converted.
+Every row is matched. Rows are in ROM order and tile `$000000` up to the `$FF` fill, which `src/nhl96.asm` writes with `dcb.b`. The first split came from `python3 tools/make_segmap96.py` (see its header for the options): it cuts the listing at code / data changes and at `sub_` labels about every 8 KB of code (128 KB of data). The kind is a guess from the listing, and the 95G column lists the 95G files whose routines were found at the start of their bytes in the range (a hint, not a match). Ranges are confirmed from the listing as each segment is converted.
 
 | File | Status | Start | End | Kind | 95G hint | Main names |
 |---|---|---|---|---|---|---|

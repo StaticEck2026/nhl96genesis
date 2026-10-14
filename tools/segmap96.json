@@ -75,7 +75,7 @@
    "end": 61183
   },
   {
-   "name": "code96_04",
+   "name": "lines96_set",
    "kind": "code",
    "start": 61184,
    "end": 62323
@@ -105,7 +105,7 @@
    "end": 76797
   },
   {
-   "name": "data96_01",
+   "name": "teamgfx96",
    "kind": "data",
    "start": 76798,
    "end": 79191
@@ -123,7 +123,7 @@
    "end": 82941
   },
   {
-   "name": "data96_01b",
+   "name": "pause96_list",
    "kind": "code",
    "start": 82942,
    "end": 83531
@@ -153,7 +153,7 @@
    "end": 87923
   },
   {
-   "name": "code96_06",
+   "name": "players96_count",
    "kind": "code",
    "start": 87924,
    "end": 88091

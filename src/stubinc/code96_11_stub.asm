@@ -15,7 +15,7 @@
 TeamList = $00077E		;teamdata96
 ReadSRAMBits = $00975A		;srambits96
 SetContTeams = $00B04E		;goal96
-sub_EF02 = $00EF02		;code96_04
+sub_EF02 = $00EF02		;lines96_set
 sub_10FB4 = $010FB4		;season96
 sub_11024 = $011024		;season96
 sub_1116A = $01116A		;season96
@@ -28,7 +28,7 @@ sub_1169C = $01169C		;season96
 sub_11814 = $011814		;season96
 sub_1223E = $01223E		;season96
 unk_122A4 = $0122A4		;season96
-nullsub_2 = $013556		;data96_01
+nullsub_2 = $013556		;teamgfx96
 nullsub_3 = $013EA0		;awards96
 BeginPlayoffs = $014026		;awards96
 StartGame = $014702		;hockey96

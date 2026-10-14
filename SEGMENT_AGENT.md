@@ -69,20 +69,20 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | fight96 | matched, 3752 bytes | $00B6A0 | $00C547 | code | - | new in 96: checkfight, startfight, SetInst, fightinput, ClearMessageLine; assfight and assfwatch as bytes |
 | logic96 | matched, 9960 bytes | $00C548 | $00EC2F | code | logic95, penalty95 | asstab, the assignment routines (bytes, labelled at their asstab entries), Penaltylist, PenShotPenalties, unk_EBF8 |
 | lines96 | matched, 720 bytes | $00EC30 | $00EEFF | code | lines95 | SetLCmode, SetLCmode2, setlccords, getlchoice, lineinput, lcfound, lcfound2 |
-| code96_04 | matched, 1140 bytes | $00EF00 | $00F373 | code | lines95 | NullSaveClear, sub_EF02 (writes a team's lines) |
+| lines96_set | matched, 1140 bytes | $00EF00 | $00F373 | code | lines95 | NullSaveClear, sub_EF02 (writes a team's lines) |
 | input96_shot | matched, 3404 bytes | $00F374 | $0100BF | code | input95 | shotdiradj, shotdirmath, SetShotMode, ShotMode, doshot, setpassmode, passmode, dopass, passtoa0 |
 | trade96 | matched, 2138 bytes | $0100C0 | $010919 | code | trade95 | DefaultRosters, FormatPlayerNameD7, GetRosterName, GetJerseyNumber |
 | season96_sim | matched, 920 bytes | $01091A | $010CB1 | code | season95 | SimGameStats, SimGoalieStats, SimGoalie, PickSimGoalie |
 | season96 | matched, 8012 bytes | $010CB2 | $012BFD | code | - | Season and save RAM handling and its screens, mostly new in 96 (IDA names); DrawSetupTeamBlock |
-| data96_01 | matched, 2394 bytes | $012BFE | $013557 | data | - | TeamBlockPtrs, TeamLogoPtrs, SmallLogoPtrs, unk_12D46 (bytes), nullsub_2 |
+| teamgfx96 | matched, 2394 bytes | $012BFE | $013557 | data | - | TeamBlockPtrs, TeamLogoPtrs, SmallLogoPtrs, unk_12D46 (bytes), nullsub_2 |
 | schedule96 | matched, 2376 bytes | $013558 | $013E9F | data | schedule95 | SeasonSchedule (Day) |
 | awards96 | matched, 1374 bytes | $013EA0 | $0143FD | code | awards95 | nullsub_3, ResolveDayGames, BeginPlayoffs, InitPlayoffs, SeedPairings, SortSeeds, CalcSeedPoints, SetupPlayoffs, GetTeamPOSlot, BuildPOSlots |
-| data96_01b | matched, 590 bytes | $0143FE | $01464B | code | pause95 | PrintMenuList, ScrollClearTxt, PrintMenuList2 |
+| pause96_list | matched, 590 bytes | $0143FE | $01464B | code | pause95 | PrintMenuList, ScrollClearTxt, PrintMenuList2 |
 | hockey96 | matched, 1660 bytes | $01464C | $014CC7 | code | hockey95 | Begin, StartGame, StartPer, Gameloop, DoGameFrame, DoFrameUpdates, ResetClock, restoreteams, RestoreBenchEnergy, updatecrowdf, clockcont |
 | pause96 | matched, 1330 bytes | $014CC8 | $0151F9 | code | pause95 | demoread, EndDemoOnPress, startpause1-4, Pausemode, SetupPauseScreen, seta2, InitMenuState, HandleMenuInput, UpdateMenuSelection, PrintMenuItem, vcountwait |
 | setup96 | matched, 662 bytes | $0151FA | $01548F | code | setup95 | GetNameandAttrib, attribjmp, AttribStatus, AttribEnergy, AttribHanded, AttribWeight, AttribFighting, AttribRating |
 | pause96_menu | matched, 740 bytes | $015490 | $015773 | code | pause95 | PlayoffStatsMenu, TimeoutMenu, SelectGoalieMenu |
-| code96_06 | matched, 168 bytes | $015774 | $01581B | code | players95, middle95, video95 | GetGoalieCount(D7), GetPlayerCount(D7), WaitVSyncAndReadInput |
+| players96_count | matched, 168 bytes | $015774 | $01581B | code | players95, middle95, video95 | GetGoalieCount(D7), GetPlayerCount(D7), WaitVSyncAndReadInput |
 | replay96 | matched, 2772 bytes | $01581C | $0162EF | code | replay95, video95 | ReplayMode, ReadMenuJoy, ShowReplayIcon, EraseReplayIcon, ShowReplayBanner, EraseReplayBanner, suba4, UpdateCameraPos, RevReplayAdj, ClampReplayView, updatereplay, rtss8 |
 | control96 | matched, 2750 bytes | $0162F0 | $016DAD | code | hockey95, display95, goal95, skate95, control95, collide95 | updateplayers, updateanim, LockScroll, checkwindow, getGoalieSCnum, burst, holdplayer, chgplayer, setcplayer, setc1-4player, Sweepcheck, restorepl, setpads |
 | logic96_ass | matched, 3672 bytes | $016DAE | $017C05 | code | logic95 | check4bench, donothing and the asstab entries (assbench, asseben, asspenalty, assdopen, assepen, assgoaliebreakwait, assstanley, assscore, assgoaliectrl, assgoaliecpu) |

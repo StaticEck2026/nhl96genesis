@@ -1,4 +1,4 @@
-;	Segment build for data96_01.asm: sets its origin and the outside routines and data it uses,
+;	Segment build for teamgfx96.asm: sets its origin and the outside routines and data it uses,
 ;	then includes the file on its own for checking against the ROM.
 
 ; region code
@@ -93,4 +93,4 @@ SmallLogoWPG = $17074C		;data96_07
 
 
 ; Main segment code
-	include	data96_01.asm
+	include	teamgfx96.asm

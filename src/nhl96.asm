@@ -21,20 +21,20 @@
 	include	engine\fight96.asm	; $00B6A0  fighting
 	include	engine\logic96.asm	; $00C548  assignment table, penalty texts
 	include	engine\lines96.asm	; $00EC30  line change box
-	include	code96_04.asm		; $00EF00  team lines
+	include	engine\lines96_set.asm	; $00EF00  team lines
 	include	engine\input96_shot.asm	; $00F374  shot and pass
 	include	front\trade96.asm	; $0100C0  roster names
 	include	front\season96_sim.asm	; $01091A  season game simulation
 	include	front\season96.asm	; $010CB2  season and save screens
-	include	data96_01.asm		; $012BFE  team graphics pointers
+	include	teamgfx96.asm		; $012BFE  team graphics pointers
 	include	schedule96.asm		; $013558  season schedule
 	include	front\awards96.asm	; $013EA0  playoff seeding
-	include	data96_01b.asm		; $0143FE  menu lists
+	include	engine\pause96_list.asm	; $0143FE  menu lists
 	include	hockey96.asm		; $01464C  cold start and game loop
 	include	engine\pause96.asm	; $014CC8  demo and pause menu
 	include	engine\setup96.asm	; $0151FA  roster attribute columns
 	include	engine\pause96_menu.asm	; $015490  pause-menu entries
-	include	code96_06.asm		; $015774  team counts
+	include	engine\players96_count.asm	; $015774  team counts
 	include	engine\replay96.asm	; $01581C  instant replay
 	include	control96.asm		; $0162F0  player frame update
 	include	engine\logic96_ass.asm	; $016DAE  assignment entries

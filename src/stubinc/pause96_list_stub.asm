@@ -1,4 +1,4 @@
-;	Segment build for data96_01b.asm: sets its origin and the outside routines and data it uses,
+;	Segment build for engine\pause96_list.asm: sets its origin and the outside routines and data it uses,
 ;	then includes the file on its own for checking against the ROM.
 
 ; region code
@@ -16,4 +16,4 @@ printsmall = $01BA40		;code96_08
 
 
 ; Main segment code
-	include	data96_01b.asm
+	include	engine\pause96_list.asm

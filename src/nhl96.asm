@@ -33,7 +33,7 @@
 	include	hockey96.asm		; $01464C  cold start and game loop
 	include	engine\pause96.asm	; $014CC8  demo and pause menu
 	include	engine\setup96.asm	; $0151FA  roster attribute columns
-	include	data96_01c.asm		; $015490  pause-menu entries
+	include	engine\pause96_menu.asm	; $015490  pause-menu entries
 	include	code96_06.asm		; $015774  code
 	include	code96_07.asm		; $017C06  code
 	include	code96_08.asm		; $019F3E  code

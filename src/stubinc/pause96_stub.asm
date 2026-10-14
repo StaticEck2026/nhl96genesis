@@ -34,8 +34,8 @@ SoundOff = $088676		;data96_04
 ManualGoalieMenu = $1D86A4		;code96_14
 SetMenuPadSide = $1D9844		;code96_15
 ReturnToGame = $1E2688		;code96_18
-TimeoutMenu = $015570		;data96_01c
-SelectGoalieMenu = $015604		;data96_01c
+TimeoutMenu = $015570		;pause96_menu
+SelectGoalieMenu = $015604		;pause96_menu
 
 
 ; Main segment code

@@ -1,4 +1,4 @@
-;	Segment build for data96_01c.asm: sets its origin and the outside routines and data it uses,
+;	Segment build for engine\pause96_menu.asm: sets its origin and the outside routines and data it uses,
 ;	then includes the file on its own for checking against the ROM.
 
 ; region code
@@ -18,4 +18,4 @@ PlayerStatsList = $1E55BC		;data96_12
 
 
 ; Main segment code
-	include	data96_01c.asm
+	include	engine\pause96_menu.asm

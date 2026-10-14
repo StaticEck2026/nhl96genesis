@@ -583,10 +583,10 @@ $015426,HandedTextTbl,,,setup96
 $01543A,AttribWeight,,,setup96
 $01545A,RatingToWeight,,,setup96
 $015470,WeightTbl,,,setup96
-$015490,PlayoffStatsMenu,sub_15490,,data96_01c
-$0154D4,loc_154D4,,,data96_01c
-$015570,TimeoutMenu,unk_15570,,data96_01c
-$015604,SelectGoalieMenu,unk_15604,,data96_01c
+$015490,PlayoffStatsMenu,sub_15490,,pause96_menu
+$0154D4,loc_154D4,,,pause96_menu
+$015570,TimeoutMenu,unk_15570,,pause96_menu
+$015604,SelectGoalieMenu,unk_15604,,pause96_menu
 $FFFFAF64,replayend,,,ram96
 $FFFFB8B0,crowdframe,,,ram96
 $FFFFBD2E,Vpos,word_FFBD2E,,ram96

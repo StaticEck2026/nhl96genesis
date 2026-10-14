@@ -412,7 +412,8 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `tools/extractAssets96.js` writes those files, the team palettes included. `tools/prebuild.js` runs it. data96_02 through data96_10 and code96_13 are gone.
   Three renames, now that the files exist: getGoalieSCnum is FindGoalie (control96), ClearShootout is ShootoutInit (shootout96_path), LetterGrid is CreateLetterGrid (records96). LetterGridPos is a different routine and keeps its name.
   `code96_14` ($1D6B66-$1D7FA5) and `code96_15` ($1D8E5C-$1D9CC5) stay numbered. Each head mixes several subsystems.
-  Next: symbols and immediates that are still hex (SPA/SPF, RAM fields, team equates, SFX ids), only where the bytes do not change and the owning file already exists. season96 `sub_` names stay until a body is read. Do not reopen a numbered graphics or sound dump.
+  Names taken from the matching 95 body: getplayernameD7 and getnamea0 (trade96), chkpk (logic96_puck), PenShotTable and UpdatePenaltyShotEnd (shootout96), a2touchpuck (logic96_pull), SetScroll2 and ClockDigitChar (display96), setteams (control96_team), InitCreateRecord and InitCreateRecord2 (create96). The big-font clock helper in middle96_clock is BigClockDigitChar. SegaInit locals are in the name map.
+  Next: symbols and immediates that are still hex (SPA/SPF, RAM fields, team equates, SFX ids), only where the bytes do not change and the owning file already exists. season96 `sub_` names stay until a body is read. Goal, InitializeGameStructures and GoalTypeTbl are still unnamed. Do not reopen a numbered graphics or sound dump.
 
 ## Unsure
 
@@ -423,19 +424,15 @@ Copied from `docs/align95_plan.md`. Leave these alone.
 - 145 IDA RAM names (`word_FF` / `byte_FF` / `unk_FF`). Rename one only when a converted use matches a 95G RAM name by what the code does. Do not rename from the address alone.
 - 95G `print` versus 96G `print` / `printcur`. Already decided (clash). Do not revisit.
 - Dotted 95G locals (`sortValuesUp`, `createListMove`, `rtsCreate2`). Not copied.
-- Whether ClockDigitChar at $020892 (inside display96, unnamed) is the same routine as middle95 or a second copy. 96G also has ClockDigitChar at $1E7890 in middle96_clock. Do not invent a name at $020892.
+- ClockDigitChar at $020892 is the 95 routine (offset $64, smallfontchars), named in display96. The big-font copy in middle96_clock is BigClockDigitChar.
 
-Labels the masked search found inside bytes, where 96 has no name. Do not invent one on a drive-by. The file that holds the address is in `docs/align95_plan.md`.
+Labels the masked search found inside bytes that are still unnamed. Do not invent one on a drive-by. The file that holds the address is in `docs/align95_plan.md`.
 
-- $018400 chkpk (logic96_puck)
-- $019692 UpdatePenaltyShotEnd (shootout96)
-- $019DA2 a2touchpuck (logic96_pull)
 - $01E8C0 Goal (collide96)
-- $02032C rtss2 and $02032E SetScroll2 (display96; a different rtss2 is $01F84A in collide96)
-- $020892 ClockDigitChar (display96)
-- $021510 setteams (control96_team)
+- $02032C rtss2 (display96; 96 already uses rtss2 for the shared rts in collide96)
 - $022198 InitializeGameStructures (playoff96)
-- $1DE98C InitCreateRecord (create96)
 - $1E36D6 GoalTypeTbl (summary96)
+
+Named from the matching 95 body: chkpk, UpdatePenaltyShotEnd, PenShotTable, a2touchpuck, SetScroll2, ClockDigitChar, setteams, InitCreateRecord, getplayernameD7, getnamea0.
 
 SegaInit locals exist in `src/sega/SegaInit.asm` and are missing from `docs/name_map.csv`. Add the rows. Do not invent a second copy.

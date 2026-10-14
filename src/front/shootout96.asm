@@ -110,10 +110,15 @@ puckpenshot	;asstab entry: the penalty shot / shootout face-off.
 	dc.b	$C3,$90,$66,$00,$00,$10,$4A,$78,$C3,$92,$66,$00,$00,$08,$31,$FC
 	dc.b	$00,$64,$C3,$7E,$31,$FC,$00,$18,$BD,$3C,$4C,$DF,$7F,$FF,$4E,$75
 	dc.b	$08,$F8,$00,$02,$C3,$48,$30,$3C,$00,$18,$61,$00,$0D,$88,$42,$6B
-	dc.b	$00,$28,$42,$6B,$00,$2A,$4E,$75,$00,$01,$02,$03,$04,$05,$06,$00
-	dc.b	$00,$01,$05,$03,$04,$02,$00,$00,$00,$03,$05,$01,$04,$00,$00,$00
-	dc.b	$00,$00,$FF,$06,$FF,$DD,$FF,$CE,$00,$23,$FF,$CE,$FF,$CE,$FF,$F6
-	dc.b	$00,$00,$FF,$F1,$00,$32,$FF,$F6,$00,$00,$FF,$C4,$48,$A7,$80,$00
+	dc.b	$00,$28,$42,$6B,$00,$2A,$4E,$75
+
+PenShotTable	;Penalty shot data
+	dc.b	0,1,2,3,4,5,6,0,0,1,5,3,4,2,0,0
+	dc.b	0,3,5,1,4,0,0,0,0,0
+	dc.w	$FF06,$FFDD,$FFCE,$0023,$FFCE,$FFCE,$FFF6,$0000,$FFF1,$0032,$FFF6,$0000,$FFC4
+
+UpdatePenaltyShotEnd	;The shot ends (BA_PS_flags bit 4) when the goalie has the puck, the loose puck timer or the clock runs out. Runs on into EndPenaltyShotPlay
+	dc.b	$48,$A7,$80,$00
 	dc.b	$30,$38,$B7,$BE,$B0,$78,$D2,$D6,$4C,$9F,$00,$01,$67,$00,$00,$3C
 	dc.b	$08,$38,$00,$05,$C3,$40,$67,$00,$00,$38,$08,$38,$00,$05,$C3,$48
 	dc.b	$66,$00,$00,$10,$4A,$78,$B7,$BE,$6A,$00,$00,$10,$08,$F8,$00,$05

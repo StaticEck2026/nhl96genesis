@@ -66,7 +66,7 @@ DefaultRosters
 
 FormatPlayerNameD7
 	movem.l	d0-d3/d7-a0/a2,-(sp)
-	bsr.w	sub_101BE
+	bsr.w	getplayernameD7
 	move.l	a0,-(sp)
 	movea.w	#(TextBuffer-M68K_RAM),a1
 	adda.w	(a0),a0
@@ -88,15 +88,15 @@ FormatPlayerNameD7
 	movem.l	(sp)+,d0-d3/d7-a0/a2
 	rts
 
-sub_101BE
+getplayernameD7	;Getplayername for team d7
 	movem.l	d0/d7/a2,-(sp)
-	bra.w	loc_101CE
+	bra.w	getnamea0
 
 GetPlayerNamePointer	;a0 = name string of player d0 (roster offset) of team struct a2 (GetRosterName)
 	movem.l	d0/d7/a2,-(sp)
 	move.w	$28(a2),d7
 
-loc_101CE
+getnamea0	;Shared tail of getplayername: GetRosterName, a0 = the name
 	jsr	(GetRosterName).l
 	movea.l	a1,a0
 	movem.l	(sp)+,d0/d7/a2

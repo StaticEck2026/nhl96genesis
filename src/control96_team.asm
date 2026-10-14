@@ -40,6 +40,8 @@ clearTeamStats	;Clear both team structs, keeping the start of each hot / cold ta
 	move.w	(sp)+,(tmstruct+$26).w
 	st	(byte_FFC7CA).w
 	st	(byte_FFCB68).w
+
+setteams	;Use HomeTeam / VisTeam to set team structures (InitTeamStructure for each). Falls in from clearTeamStats
 	movem.l	d0/a0-a2,-(sp)
 	movea.w	#(tmstruct-M68K_RAM),a2
 	move.w	(HomeTeam).w,d0

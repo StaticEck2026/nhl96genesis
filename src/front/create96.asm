@@ -368,8 +368,14 @@ BuildEnteredName	;Build the entered name (from NameEntryBuf, spaces/dashes dropp
 	dc.b	$00,$01,$4C,$9F,$00,$01,$4E,$75
 
 NewCreateRecord	;Same as InitCreateRecord but with bit 2 of sflags8 set (skips the read)
+	bset	#2,(sflags8).w
+	bra.w	InitCreateRecord2
+
+InitCreateRecord	;Read the create record for CreateIndex from save RAM. NewCreateRecord skips that read
+	bclr	#2,(sflags8).w
+
+InitCreateRecord2	;InitCreateRecord without the bclr (NewCreateRecord enters here)
 	;Code the listing does not decode: kept as bytes
-	dc.b	$08,$F8,$00,$02,$C3,$4C,$60,$00,$00,$08,$08,$B8,$00,$02,$C3,$4C
 	dc.b	$48,$E7,$FF,$FE,$20,$7C,$FF,$FF,$75,$38,$42,$80,$30,$39,$FF,$FF
 	dc.b	$55,$FE,$EB,$40,$48,$C0,$06,$80,$00,$00,$12,$CE,$72,$20,$48,$E7
 	dc.b	$C0,$80,$08,$38,$00,$02,$C3,$4C,$66,$00,$00,$08,$4E,$B9,$00,$02

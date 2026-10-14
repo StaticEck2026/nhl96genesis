@@ -139,7 +139,7 @@ Every row is matched. Rows are in ROM order and tile `$000000` up to the `$FF` f
 | stats96_list | matched, 3762 bytes | $1E55BA | $1E646B | code | stats95 | PlayerStatsScreen, PlayerStatsList, the PList... helpers, PListPrint, PListValue, PListMark |
 | records96 | matched, 2974 bytes | $1E646C | $1E7009 | code | records95 | NameEntryScreen, CreateLetterGrid, UserNameEntry, PrintNameLogRecords |
 | playoff96_tree | matched, 1626 bytes | $1E700A | $1E7663 | code | playoff95 | PlayoffScreen, HandlePlayoffInput, PrintSeriesScore, DrawTreeArrow |
-| middle96_clock | matched, 1120 bytes | $1E7664 | $1E7AC3 | code | middle95 | showclock, showclockdma, ClockDigitChar, ShowBigScore, ClearBigScore |
+| middle96_clock | matched, 1120 bytes | $1E7664 | $1E7AC3 | code | middle95 | showclock, showclockdma, BigClockDigitChar, ClockDigitChar2, ShowBigScore, ClearBigScore |
 | awards96_show | matched, 3280 bytes | $1E7AC4 | $1E8793 | code | awards95 | SeasonAwards, DrawAwardPicture, AwardPictures, PrintAwardWinner, GetAwardWinner |
 | injury96 | matched, 264 bytes | $1E8794 | $1E889B | code | injury95 | RandomInjuryGames, SetInjuryGames, SetSeasonInjuries, GetInjuryGames |
 | title96 | matched, 1932 bytes | $1E889C | $1E9027 | code | - | the opening screens new in 96 (sub_ names) |

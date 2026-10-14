@@ -86,19 +86,19 @@ showclockdma	;When dfclock is set queue the clock chars in the dma list (a5)
 .gotclock
 	ext.l	d0
 	divu.w	#$A,d0
-	bsr.w	ClockDigitChar
+	bsr.w	BigClockDigitChar
 	divu.w	#6,d0
-	bsr.w	ClockDigitChar
+	bsr.w	BigClockDigitChar
 	subq.w	#2,a0
 	divu.w	#$A,d0
-	bsr.w	ClockDigitChar
+	bsr.w	BigClockDigitChar
 	swap	d0
 	tst.l	d0
 	bne.w	.1
 	moveq	#-1,d0
 	swap	d0
 .1
-	bsr.w	ClockDigitChar
+	bsr.w	BigClockDigitChar
 	move.w	$52(a1),d0
 	add.w	(word_FFB016).w,d0
 	ori.w	#$8000,d0
@@ -174,7 +174,7 @@ showclockdma	;When dfclock is set queue the clock chars in the dma list (a5)
 	move.w	d0,(a5)+
 	rts
 
-ClockDigitChar	;showclockdma helper: next digit of d0 (divu remainder) as a clock char word to -(a0)
+BigClockDigitChar	;showclockdma helper: next digit of d0 as a big-font clock char word to -(a0)
 	swap	d0
 	asl.w	#1,d0
 	move.w	$38(a1,d0.w),d0

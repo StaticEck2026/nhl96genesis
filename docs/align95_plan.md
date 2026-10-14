@@ -119,17 +119,12 @@ Labels the masked search found inside bytes, where 96 has no name at that addres
 
 | 96 address | 95G name | 95G file | In |
 |---|---|---|---|
-| `$018400` | chkpk | middle95 | logic96_puck |
-| `$019692` | UpdatePenaltyShotEnd | shootout95 | shootout96 |
-| `$019DA2` | a2touchpuck | logic95 | logic96_pull |
 | `$01E8C0` | Goal | goal95 | collide96 |
 | `$02032C` | rtss2 | video95 | display96 |
-| `$02032E` | SetScroll2 | video95 | display96 |
-| `$020892` | ClockDigitChar | middle95 | display96 |
-| `$021510` | setteams | control95 | control96_team |
 | `$022198` | InitializeGameStructures | setup95 | playoff96 |
-| `$1DE98C` | InitCreateRecord | create95 | create96 |
 | `$1E36D6` | GoalTypeTbl | summary95 | summary96 |
+
+Named from the 95 body: chkpk (logic96_puck), UpdatePenaltyShotEnd and PenShotTable (shootout96), a2touchpuck (logic96_pull), SetScroll2 and ClockDigitChar (display96; the big-font copy in middle96_clock is BigClockDigitChar), setteams (control96_team), InitCreateRecord (create96), getplayernameD7 and getnamea0 (trade96). `$02032C` stays unnamed: 96 already uses rtss2 for the shared rts in collide96.
 
 `code96_05` is still `sub_` / `unk_` in the source and those names were never written to `docs/name_map.csv`. Naming them is part of the season96 pass, not a drive-by.
 
@@ -188,4 +183,4 @@ File headers are already short stories in most converted files. When a file is s
 - 145 IDA RAM names. No rename until a use shows the 95G variable.
 - 95G `print` versus 96G `print` / `printcur`. Already decided (clash). Do not revisit.
 - Dotted 95G locals reported by the masked search (`sortValuesUp`, `createListMove`, `rtsCreate2`). Not copied.
-- Whether `ClockDigitChar` at `$020892` is the same routine as middle95 or a second copy. 96G also has `ClockDigitChar` in middle96_clock.
+- Whether `ClockDigitChar` at `$020892` is the same routine as middle95 or a second copy. Resolved: `$020892` is the 95 routine (offset `$64`, smallfontchars) and is `ClockDigitChar` in display96. The big-font copy in middle96_clock is `BigClockDigitChar`.

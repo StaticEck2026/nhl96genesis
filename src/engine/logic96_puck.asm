@@ -300,8 +300,13 @@ asspuckc	;asstab entry: the puck carrier.
 	dc.b	$74,$88,$08,$2B,$00,$03,$00,$63,$66,$00,$74,$7E,$34,$7C,$C7,$26
 	dc.b	$43,$EA,$03,$9E,$08,$2B,$00,$06,$00,$62,$67,$00,$00,$04,$C5,$49
 	dc.b	$61,$00,$4D,$FA,$B0,$7C,$0C,$00,$62,$00,$74,$5E,$61,$00,$14,$78
-	dc.b	$61,$00,$77,$5E,$61,$00,$4C,$6A,$4E,$F9,$00,$00,$F4,$66,$08,$38
-	dc.b	$00,$05,$C3,$3C,$66,$00,$00,$08,$0A,$3C,$00,$04,$4E,$75
+	dc.b	$61,$00,$77,$5E,$61,$00,$4C,$6A,$4E,$F9,$00,$00,$F4,$66
+
+chkpk	;With a power play (sflags2 bit 5) chkpk2, else Z set
+	btst	#5,(sflags2).w
+	bne.w	chkpk2
+	eori	#4,ccr	;Z flag
+	rts
 
 chkpk2	;Z set when a3's team is on the power play (sflags2 bit 6 against pfteam)
 	movem.l	d0-d1,-(sp)

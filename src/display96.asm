@@ -48,8 +48,16 @@ sub_202FA	;Run the dma list from DMAlistend back to DMAList (DoDMA)
 sub_2031C	;Called from the setup and title screens.
 	;Code the listing does not decode: kept as bytes
 	dc.b	$30,$7C,$C0,$66,$30,$38,$C3,$36,$32,$38,$B0,$02,$61,$00,$B0,$C2
-	dc.b	$4E,$75,$30,$38,$B0,$00,$54,$40,$61,$00,$B3,$42,$30,$B8,$BD,$34
-	dc.b	$21,$7C,$40,$02,$00,$10,$00,$04,$30,$B8,$BD,$36,$4E,$75
+	dc.b	$4E,$75
+
+SetScroll2	;Write Hscroll / Vscroll to the vdp
+	move.w	(VSCRLPM).w,d0
+	addq.w	#2,d0
+	bsr.w	Vmaddr
+	move.w	(Hscroll).w,(a0)
+	move.l	#VSRAM_W+(2<<16),Vctrl-Vdata(a0)
+	move.w	(Vscroll).w,(a0)
+	rts
 
 setvideo	;This is not vblank code but sets up ram for vblank transfers. Called once per game frame (DoGameFrame,
 	;Pausemode, ...).
@@ -392,8 +400,18 @@ unk_207C0	;sub_207AE table
 	dc.b	$00,$32,$2A,$C8,$3A,$FC,$00,$05,$32,$7C,$B0,$04,$70,$18,$74,$03
 	dc.b	$08,$38,$00,$07,$C3,$3A,$67,$00,$00,$0A,$32,$7C,$B0,$08,$70,$05
 	dc.b	$74,$0D,$32,$29,$00,$02,$E3,$60,$D0,$42,$E3,$40,$D0,$51,$3A,$C0
-	dc.b	$4E,$75,$48,$40,$E3,$40,$30,$31,$00,$64,$D0,$78,$B0,$1C,$00,$40
-	dc.b	$80,$00,$31,$00,$48,$40,$48,$C0,$4E,$75
+	dc.b	$4E,$75
+
+ClockDigitChar	;Next digit of d0 (divu remainder) as a small-font clock char word to -(a0)
+	swap	d0
+	asl.w	#1,d0
+	move.w	$64(a1,d0.w),d0
+	add.w	(smallfontchars).w,d0
+	ori.w	#$8000,d0
+	move.w	d0,-(a0)
+	swap	d0
+	ext.l	d0
+	rts
 
 checksso	;Do graphics for sso structure: arrows for the players when they are off screen. Called from setvideo. a5 =
 	;dma list, a6 = sprite table, d6 = link counter. Returns on the horizontal rink. Pads 3 and 4 when cont3team /

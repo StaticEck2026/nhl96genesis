@@ -165,7 +165,10 @@ a2offsides	;Offsides on a2 when his team is offside and the puck is past the blu
 	dc.b	$5A,$DE,$30,$7C,$C7,$26,$08,$2A,$00,$06,$00,$62,$67,$00,$00,$06
 	dc.b	$D0,$FC,$03,$9E,$08,$28,$00,$04,$00,$30,$67,$00,$5A,$C2,$08,$38
 	dc.b	$00,$04,$C3,$38,$66,$00,$5A,$B8,$C5,$4B,$70,$10,$4E,$B9,$00,$01
-	dc.b	$C1,$92,$C5,$4B,$4E,$75,$31,$D2,$BF,$B6,$31,$EA,$00,$14,$BF,$B8
+	dc.b	$C1,$92,$C5,$4B,$4E,$75
+
+a2touchpuck	;Player a2 touched the puck: last touch, scorer / assist slots, offsides, icing
+	dc.b	$31,$D2,$BF,$B6,$31,$EA,$00,$14,$BF,$B8
 	dc.b	$31,$EA,$00,$52,$BF,$B4,$30,$7C,$C7,$26,$08,$2A,$00,$06,$00,$62
 	dc.b	$67,$00,$00,$06,$41,$E8,$03,$9E,$42,$40,$10,$2A,$00,$67,$08,$2A
 	dc.b	$00,$03,$00,$64,$67,$00,$00,$08,$08,$F8,$00,$07,$C3,$4C,$B0,$68

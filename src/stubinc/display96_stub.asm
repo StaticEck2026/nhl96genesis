@@ -13,6 +13,7 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 jdtab = $01B3C8		;video96
+Vmaddr = $01B678		;video96
 DoDMA = $01B3EC		;video96
 DoFill = $01B52E		;video96
 setVram = $01B57E		;video96

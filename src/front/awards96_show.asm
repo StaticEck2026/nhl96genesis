@@ -466,7 +466,7 @@ sub_1E8544	;Called from Opening2 (dword_FFDD7E bit 3): a screen with the texts u
 	btst	#3,(dword_FFDD7E+2).w
 	beq.w	.3
 	movem.l	d0-d7/a0-a6,-(sp)
-	move.l	#unk_1E2E76,(vbint).w
+	move.l	#VBlank_SpriteFade,(vbint).w
 	bclr	#0,(disflags).w
 	bset	#2,(disflags).w
 	bclr	#1,(disflags).w

@@ -12,6 +12,9 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+DumpSpriteTable = $02031C	;display96
+cramfade = $01AFD6		;video96
+p_music_vblank = $024486	;sound96
 
 
 ; Main segment code

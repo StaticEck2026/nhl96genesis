@@ -1,12 +1,20 @@
 ;	The pause-menu summaries: roster, scoring, penalties, the periods,
 ;	the game, the shootout shooters and the record holders.
 
-unk_1E2E76	;A vbint routine (sub_1E2970 and code96_20)
-	;Code the listing does not decode: kept as bytes
-	dc.b	$48,$E7,$FF,$FE,$08,$38,$00,$02,$BF,$B2,$66,$00,$00,$18,$08,$B8
-	dc.b	$00,$00,$BF,$B2,$67,$00,$00,$08,$4E,$B9,$00,$02,$03,$1C,$4E,$B9
-	dc.b	$00,$01,$AF,$D6,$52,$78,$B0,$52,$4E,$B9,$00,$02,$44,$86,$4C,$DF
-	dc.b	$7F,$FF,$4E,$73
+VBlank_SpriteFade	;vbint for the period summary and the awards screen: the sprite table when dfok is set, then cramfade unless dfng
+	movem.l	d0-d7/a0-a6,-(sp)
+	btst	#dfng,(disflags).w
+	bne.w	.nograph
+	bclr	#dfok,(disflags).w
+	beq.w	.fade
+	jsr	(DumpSpriteTable).l
+.fade
+	jsr	(cramfade).l
+.nograph
+	addq.w	#1,(vcount).w
+	jsr	(p_music_vblank).l
+	movem.l	(sp)+,d0-d7/a0-a6
+	rte
 
 sub_1E2EAA	;Called from code96_04
 	;Code the listing does not decode: kept as bytes

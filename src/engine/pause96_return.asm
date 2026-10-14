@@ -86,7 +86,7 @@ RestoreGameScreen	;Rebuild the game screen: the vdp maps, palettes, vram, framer
 	movea.l	#CrowdFrameList+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	jsr	(setupEASNmap).l
-	jsr	(sub_21046).l
+	jsr	(DumpPadSprites).l
 	btst	#4,(disflags).w
 	beq.w	.ref
 	btst	#3,(sflags2).w

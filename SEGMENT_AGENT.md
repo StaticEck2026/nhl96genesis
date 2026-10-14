@@ -97,7 +97,7 @@ Every row is matched. Rows are in ROM order and tile `$000000` up to the `$FF` f
 | hockey96_inter | matched, 1072 bytes | $01D3CE | $01D7FD | code | faceoff95, middle95 | Intermission, UpdateScores, SetScore, sctab, PrintBigListItem, PrintSmallListItem, SkipStrings |
 | collide96 | matched, 9044 bytes | $01D7FE | $01FB51 | code | collide95 | checkcoll, checkplcoll, checkcx, checkint, CCStart, checkagr, holdcheck, FallDown, setInjuryType, checkwallcoll, checkgoal, wallcoll, setd0player, puckbody, rtss2, makepde, getpde, setpde |
 | players96 | matched, 1674 bytes | $01FB52 | $0201DB | code | players95 | setpersonel, SetPlList, TryAddPlayerToList, SetupPenaltyShot, ResetBench, setplayer, ClampNibble |
-| display96 | matched, 4774 bytes | $0201DC | $021481 | code | display95, video95 | VBlank, vb2, IRQ7, DumpSprites, setvideo, updatescroll, showref, checkfo, showcrowd, checksso, setsortcords, addframe, find3d, KillCrowd, setupice, defaultsprites, SprSort, resetplstuff |
+| display96 | matched, 4774 bytes | $0201DC | $021481 | code | display95, video95 | VBlank, vb2, IRQ7, DumpSprites, DumpSprites2, DoDMAList, setvideo, updatescroll, showref, checkfo, showcrowd, checksso, setsortcords, addframe, find3d, KillCrowd, setupice, defaultsprites, SprSort, resetplstuff |
 | control96_team | matched, 346 bytes | $021482 | $0215DB | code | control95 | clearTeamStats, InitTeamStructure, SetOriginalLines, setplayercolors |
 | hockey96_open | matched, 1398 bytes | $0215DC | $021B51 | code | hockey95 | IntermissionStart, ExitToOpening, Opening, Opening2, AbortGame, EASportsScreen, UpdatePlayoffLevel |
 | setup96_menu | matched, 94 bytes | $021B52 | $021BAF | code | setup95 | VBlank_SetOptions, DefaultMenus, defmenuoptions |

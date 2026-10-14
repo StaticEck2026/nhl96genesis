@@ -1,8 +1,8 @@
-;	Segment build for code96_18.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_18.asm on its own for checking against the ROM.
+;	Segment build for engine\pause96_return.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
-	org	$1E1A3C
+	org	$1E2688
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -12,13 +12,11 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-DrawFaceoffWindow = $00A2A0		;faceoff96
 forceblack = $01AF52		;video96
-DoFill = $01B52E		;video96
 setVram_0 = $01B594		;video96
-dobitmap = $01B692		;video96
 DecompressGraphicsPlain = $01B730		;video96
-printz = $01BB8E		;video96
+DrawFaceoffWindow = $00A2A0		;faceoff96
+DoFill = $01B52E		;video96
 sub_1C184 = $01C184		;penalty96
 nullsub_4 = $01D062		;penalty96
 VBlank = $0201DC		;display96
@@ -42,9 +40,9 @@ CrowdFrameList = $13AA96		;data96_06
 FaceOffSprites = $13BCB0		;data96_06
 EnergyBarMap = $13D290		;data96_06
 ReplayBannerMap = $141228		;data96_07
-unk_1C4C4E = $1C4C4E		;data96_10
 LoadReplayIcon = $1D8E5C		;code96_15
 LoadHomeTeamGfx = $1D8E6C		;code96_15
 
+
 ; Main segment code
-	include	code96_18.asm
+	include	engine\pause96_return.asm

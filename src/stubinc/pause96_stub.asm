@@ -31,9 +31,9 @@ SoundBanks = $027026		;data96_02
 SoundCmd = $08839E		;data96_04
 stop_current_song = $0885FC		;data96_04
 SoundOff = $088676		;data96_04
-ManualGoalieMenu = $1D86A4		;code96_14
+ManualGoalieMenu = $1D86A4		;shootout96_path
 SetMenuPadSide = $1D9844		;code96_15
-ReturnToGame = $1E2688		;code96_18
+ReturnToGame = $1E2688		;pause96_return
 TimeoutMenu = $015570		;pause96_menu
 SelectGoalieMenu = $015604		;pause96_menu
 

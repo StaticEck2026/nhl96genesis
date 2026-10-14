@@ -48,8 +48,8 @@ RefTilesHor = $098F30		;data96_05
 EASNmap = $13D59E		;data96_06
 BigFontMap = $1B89C8		;data96_09
 BigFontMap3 = $1B9416		;data96_09
-ShootoutWonBy = $1D82A2		;code96_14
-updatePPTeamTime = $1D8618		;code96_14
+ShootoutWonBy = $1D82A2		;shootout96_path
+updatePPTeamTime = $1D8618		;shootout96_path
 SkipStrings = $01D7F2		;hockey96_inter
 
 

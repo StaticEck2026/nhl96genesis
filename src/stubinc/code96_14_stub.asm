@@ -1,5 +1,5 @@
 ;	Segment build for code96_14.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_14.asm on its own for checking against the ROM.
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
 	org	$1D6B66
@@ -12,32 +12,19 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-sub_EF02 = $00EF02		;lines96_set
 GetRosterName = $0101E6		;trade96
 GetGoalieCount = $0157A2		;players96_count
 GetPlayerCount = $0157F4		;players96_count
-LockScroll = $016786		;control96
-assinsert = $01A3D0		;logic96_vec
 randomd0s = $01B09A		;video96
 sroot = $01B0DE		;video96
-Framer = $01B9B0		;video96
-printz = $01BB8E		;video96
-print = $01BBA0		;video96
-PushNumberWidth = $01BE1C		;video96
-printbigz1 = $01C11A		;penalty96
-printbigz2 = $01C12C		;penalty96
-printbig1 = $01C13E		;penalty96
-printbig2 = $01C15A		;penalty96
-prefmes = $01C9FA		;penalty96
 wallcollb = $01EDAE		;collide96
-setplayer = $01FEA0		;players96
-FormatPlayerNumInitial = $022F44		;middle96
 PAttribOverallMask = $023456		;data96_02
 GAttribOverallMask = $0235B8		;data96_02
 WriteSRAM = $024188		;data96_02
 MakeSRAMChecksum = $0241AA		;data96_02
 ReadSRAM = $0241E8		;data96_02
-MinOverallRating = $1DF9C2		;data96_11
+MinOverallRating = $1DF9C2		;create96
+
 
 ; Main segment code
 	include	code96_14.asm

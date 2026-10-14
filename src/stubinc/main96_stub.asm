@@ -17,7 +17,7 @@ IRQ7 = $0202E4		;display96
 AdrErr = $023144		;crash96
 InvOpCode = $02316C		;crash96
 DivBy0 = $023196		;crash96
-ValidationRoutine = $1E9038		;code96_20
+ValidationRoutine = $1E9038		;checksum96
 
 
 ; Main segment code

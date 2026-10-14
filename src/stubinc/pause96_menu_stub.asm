@@ -13,8 +13,8 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 ReadTeamStats = $0225E0		;playoff96
-SeasonPlayoffStats = $1DB020		;code96_15
-PlayerStatsList = $1E55BC		;data96_12
+SeasonPlayoffStats = $1DB020		;season96_menu
+PlayerStatsList = $1E55BC		;stats96_list
 
 
 ; Main segment code

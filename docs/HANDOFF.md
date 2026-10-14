@@ -364,4 +364,23 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/goal96_box.asm` is the whistle boxes (ShowThreeStars through box, $022820-$022E6F). The stars, the injury and the penalty shot stay in that file.
   `engine/middle96.asm` is the player names (GetPlayerName through PushNumberWidthZero, $022E70-$023143).
   `src/crash96.asm` is the exception screen (AdrErr through crash, $023144-$023247). code96_11 and code96_12 are gone.
-  Next: the front end, `front/shootout96_path.asm` from code96_14, then the standings and the season menu. Unsure list is in the plan.
+  `src/code96_14.asm` keeps the crowd meter, the hot and cold players, the team records and the attribute weights ($1D6B66-$1D7FA5).
+  `front/shootout96_path.asm` is the shootout body and the seven skate paths (ShootoutModeBox through UnpackPicture, $1D7FA6-$1D8E5B).
+  `src/code96_15.asm` keeps the replay icon, the home team graphics, the hi-score screen and the penalty clear ($1D8E5C-$1D9CC5).
+  `front/season96_stand.asm` is the standings (StandingsPoints through SortStandings, $1D9CC6-$1DA6BF).
+  `front/season96_menu.asm` is the season stats screen and the playoff menu (SetSframe through ClearPlayoffSave, $1DA6C0-$1DC03B). code96_16 is gone.
+  `front/trade96_edit.asm` is the roster menu and the trade screen (RosterMenuList through PositionLetters, $1DC03C-$1DD915).
+  `front/create96.asm` is the create-player screen and the created-player list (CreatePlayer through sub_1E0D86, $1DD916-$1E0DDD).
+  `front/options96.asm` is the options screen, new in 96 (OptionsScreen through OptionsAnimFrame, $1E0DDE-$1E1B17).
+  `front/stats96.asm` is the line editor (LineEditor through sub_1E2644, $1E1B18-$1E2687).
+  `engine/pause96_return.asm` is the return to the game (ReturnToGame through PrintDigit, $1E2688-$1E2E75).
+  `front/summary96.asm` is the pause-menu pages (the roster through the record holders, $1E2E76-$1E55B9). The shootout shooter list stays here; it is not next to the paths.
+  `front/stats96_list.asm` is the player stats list (PlayerStatsScreen through PListMark, $1E55BA-$1E646B).
+  `front/records96.asm` is name entry (NameEntryScreen through PrintNameLogRecords, $1E646C-$1E7009).
+  `engine/playoff96_tree.asm` is the playoff tree screen (PlayoffScreen through the layout bytes, $1E700A-$1E7663).
+  `engine/middle96_clock.asm` is the ice clock and the big score (showclock through ClearBigScore, $1E7664-$1E7AC3).
+  `front/awards96_show.asm` is the awards show, including GetAwardWinner (SeasonAwards through the award record writers, $1E7AC4-$1E8793).
+  `front/injury96.asm` is the season injuries (RandomInjuryGames through GetInjuryGames, $1E8794-$1E889B).
+  `front/title96.asm` is the opening screens, new in 96 (sub_1E889C through sub_1E8F52, $1E889C-$1E9027).
+  `src/checksum96.asm` is the ROM checksum (ChecksumLongs through ValidationRoutine, $1E9028-$1E90D1). data96_11, data96_12, code96_17, code96_18, code96_19 and code96_20 are gone.
+  Next: data96_02. Tables go into the subsystem that owns them, at this ROM address. Then `src/sram96.asm` and the sound driver as `src/sound96.asm`. The sample bank stays numbered until extraction. After that, `engine/logic96_timer.asm` from the data96_10 tail. Unsure list is in the plan.

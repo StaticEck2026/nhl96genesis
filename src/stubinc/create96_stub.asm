@@ -1,8 +1,8 @@
-;	Segment build for data96_11.asm: sets its origin and the outside routines and data it uses,
-;	then includes data96_11.asm on its own for checking against the ROM.
+;	Segment build for front\create96.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
-	org	$1DC03C
+	org	$1DD916
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -14,8 +14,8 @@
 ; External addresses outside, read from lst/nhl96.bin.
 PAttribOverallMask = $023456		;data96_02
 GAttribOverallMask = $0235B8		;data96_02
-SignFreeAgents = $1DFBAC		;code96_17
-ReleasePlayers = $1E0536		;code96_17
+ClearSRAMBytes = $024208		;data96_02
+
 
 ; Main segment code
-	include	data96_11.asm
+	include	front\create96.asm

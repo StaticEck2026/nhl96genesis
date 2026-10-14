@@ -23,7 +23,7 @@ GetPlayerCount = $0157F4		;players96_count
 chkpk2 = $018410		;logic96_puck
 sublist = $0233BC		;data96_02
 AttributeCalc = $1D6F66		;code96_14
-SetSeasonInjuries = $1E8840		;code96_20
+SetSeasonInjuries = $1E8840		;injury96
 
 
 ; Main segment code

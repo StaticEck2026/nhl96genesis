@@ -354,54 +354,114 @@
    "name": "code96_14",
    "kind": "code",
    "start": 1928038,
+   "end": 1933221
+  },
+  {
+   "name": "shootout96_path",
+   "kind": "code",
+   "start": 1933222,
    "end": 1936987
   },
   {
    "name": "code96_15",
    "kind": "code",
    "start": 1936988,
-   "end": 1946247
+   "end": 1940677
   },
   {
-   "name": "code96_16",
+   "name": "season96_stand",
    "kind": "code",
-   "start": 1946248,
+   "start": 1940678,
+   "end": 1943231
+  },
+  {
+   "name": "season96_menu",
+   "kind": "code",
+   "start": 1943232,
    "end": 1949755
   },
   {
-   "name": "data96_11",
-   "kind": "data",
+   "name": "trade96_edit",
+   "kind": "code",
    "start": 1949756,
-   "end": 1964571
+   "end": 1956117
   },
   {
-   "name": "code96_17",
+   "name": "create96",
    "kind": "code",
-   "start": 1964572,
-   "end": 1972795
+   "start": 1956118,
+   "end": 1969629
   },
   {
-   "name": "code96_18",
+   "name": "options96",
    "kind": "code",
-   "start": 1972796,
+   "start": 1969630,
+   "end": 1973015
+  },
+  {
+   "name": "stats96",
+   "kind": "code",
+   "start": 1973016,
+   "end": 1975943
+  },
+  {
+   "name": "pause96_return",
+   "kind": "code",
+   "start": 1975944,
    "end": 1977973
   },
   {
-   "name": "data96_12",
-   "kind": "data",
+   "name": "summary96",
+   "kind": "code",
    "start": 1977974,
-   "end": 1991009
+   "end": 1988025
   },
   {
-   "name": "code96_19",
+   "name": "stats96_list",
    "kind": "code",
-   "start": 1991010,
-   "end": 1999435
+   "start": 1988026,
+   "end": 1991787
   },
   {
-   "name": "code96_20",
+   "name": "records96",
    "kind": "code",
-   "start": 1999436,
+   "start": 1991788,
+   "end": 1994761
+  },
+  {
+   "name": "playoff96_tree",
+   "kind": "code",
+   "start": 1994762,
+   "end": 1996387
+  },
+  {
+   "name": "middle96_clock",
+   "kind": "code",
+   "start": 1996388,
+   "end": 1997507
+  },
+  {
+   "name": "awards96_show",
+   "kind": "code",
+   "start": 1997508,
+   "end": 2000787
+  },
+  {
+   "name": "injury96",
+   "kind": "code",
+   "start": 2000788,
+   "end": 2001051
+  },
+  {
+   "name": "title96",
+   "kind": "code",
+   "start": 2001052,
+   "end": 2002983
+  },
+  {
+   "name": "checksum96",
+   "kind": "code",
+   "start": 2002984,
    "end": 2003153
   }
  ],

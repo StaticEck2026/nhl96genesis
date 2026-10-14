@@ -31,10 +31,10 @@ EASNmap = $13D59E		;data96_06
 RevRinkTilelist = $13E99A		;data96_06
 SmallFontMap = $179A76		;data96_08
 UpdateCrowdMeter = $1D6D40		;code96_14
-nullsub_5 = $1D84D4		;code96_14
+nullsub_5 = $1D84D4		;shootout96_path
 LoadReplayIcon = $1D8E5C		;code96_15
 LoadHomeTeamGfx = $1D8E6C		;code96_15
-showclock = $1E7664		;code96_19
+showclock = $1E7664		;middle96_clock
 setplayercolors = $0215B2		;control96_team
 
 

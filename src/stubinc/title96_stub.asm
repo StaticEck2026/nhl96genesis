@@ -1,0 +1,50 @@
+;	Segment build for front\title96.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
+
+; region code
+	org	$1E889C
+
+; includes for stubs to replace removed code
+	include	stubinc\ports.inc	;IO_* / VDP_* ports
+	include	stubinc\equals.inc	;VDP status bits
+	include	ram96.asm		;RAM map
+	include	externs96.asm		;outside addresses still in incbin segments. Equates only
+	include	macros\genesis.mac	;String
+
+; External addresses outside, read from lst/nhl96.bin.
+printz = $01BB8E		;video96
+forceblack = $01AF52		;video96
+setVram_0 = $01B594		;video96
+dobitmap = $01B692		;video96
+DecompressGraphicsPlain = $01B730		;video96
+unk_12D46 = $012D46		;teamgfx96
+sub_1B282 = $01B282		;video96
+setVram = $01B57E		;video96
+eraser = $01B976		;video96
+printsmallz = $01BA2E		;video96
+RosterFont = $179168		;data96_08
+DoFill = $01B52E		;video96
+VBlank = $0201DC		;display96
+setupIceRinkPal = $02109A		;display96
+Z80Program = $025500		;data96_02
+SoundBanks = $027026		;data96_02
+SoundCmd = $08839E		;data96_04
+Rinktilelist = $0923E4		;data96_05
+randomd0 = $01B0A6		;video96
+printsmall = $01BA40		;video96
+updatescroll = $0203BC		;display96
+KillCrowd = $020E28		;display96
+updatesound = $0883D4		;data96_04
+sfx = $088470		;data96_04
+song = $088586		;data96_04
+SoundOff = $088676		;data96_04
+unk_88A18 = $088A18		;code96_13
+unk_8F2C6 = $08F2C6		;data96_05
+unk_90686 = $090686		;data96_05
+unk_911B8 = $0911B8		;data96_05
+unk_1CCEE8 = $1CCEE8		;data96_10
+unk_1D5420 = $1D5420		;data96_10
+
+
+; Main segment code
+	include	front\title96.asm

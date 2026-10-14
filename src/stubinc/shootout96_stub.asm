@@ -13,7 +13,7 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 LockScroll = $016786		;control96
-CountShootoutGoals = $1D8208		;code96_14
+CountShootoutGoals = $1D8208		;shootout96_path
 
 
 ; Main segment code

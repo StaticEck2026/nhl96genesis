@@ -19,7 +19,7 @@ GetGoalieCountD7 = $015774		;players96_count
 randomd0 = $01B0A6		;video96
 PAttribAggressMask = $023574		;data96_02
 CalcAttrib = $1D7DF8		;code96_14
-SetSeasonInjuries = $1E8840		;code96_20
+SetSeasonInjuries = $1E8840		;injury96
 unk_107F9 = $0107F9		;trade96
 
 

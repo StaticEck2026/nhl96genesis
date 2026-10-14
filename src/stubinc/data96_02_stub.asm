@@ -33,19 +33,19 @@ AbortGame = $021A2E		;hockey96_open
 SmallFontMap = $179A76		;data96_08
 BigFontMap = $1B89C8		;data96_09
 BigFontMap3 = $1B9416		;data96_09
-ManualGoalieMenu = $1D86A4		;code96_14
-ClearCreatedPlayers = $1DFA34		;code96_17
-LineEditor = $1E1B18		;code96_18
-LoadTeamLine = $1E2310		;code96_18
-SaveTeamLine = $1E239E		;code96_18
-TeamRosterScreen = $1E2EFC		;data96_12
-ScoringSummaryScreen = $1E352A		;data96_12
-PenaltySummaryScreen = $1E38E6		;data96_12
-PeriodStatsScreen = $1E3C7C		;data96_12
-GameStatisticsScreen = $1E3FDE		;data96_12
-ShootoutShooters = $1E4582		;data96_12
-RecordHoldersScreen = $1E4DCC		;data96_12
-PlayerStatsScreen = $1E55BA		;data96_12
+ManualGoalieMenu = $1D86A4		;shootout96_path
+ClearCreatedPlayers = $1DFA34		;create96
+LineEditor = $1E1B18		;stats96
+LoadTeamLine = $1E2310		;stats96
+SaveTeamLine = $1E239E		;stats96
+TeamRosterScreen = $1E2EFC		;summary96
+ScoringSummaryScreen = $1E352A		;summary96
+PenaltySummaryScreen = $1E38E6		;summary96
+PeriodStatsScreen = $1E3C7C		;summary96
+GameStatisticsScreen = $1E3FDE		;summary96
+ShootoutShooters = $1E4582		;summary96
+RecordHoldersScreen = $1E4DCC		;summary96
+PlayerStatsScreen = $1E55BA		;stats96_list
 
 ; Main segment code
 	include	data96_02.asm

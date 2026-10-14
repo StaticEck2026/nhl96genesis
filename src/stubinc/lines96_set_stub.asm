@@ -16,9 +16,9 @@ TeamList = $00077E		;teamdata96
 GetPlayerCountD7 = $0157B2		;players96_count
 PAttribOverallMask = $023456		;data96_02
 GAttribOverallMask = $0235B8		;data96_02
-CalcAttribRating = $1DF8AC		;data96_11
-OvrPlayerWgtList2 = $1DF9EC		;data96_11
-OvrGoalWgtList2 = $1DF9FC		;data96_11
+CalcAttribRating = $1DF8AC		;create96
+OvrPlayerWgtList2 = $1DF9EC		;create96
+OvrGoalWgtList2 = $1DF9FC		;create96
 GetRosterName = $0101E6		;trade96
 sub_103AA = $0103AA		;trade96
 

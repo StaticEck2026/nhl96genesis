@@ -67,13 +67,23 @@
 	include	data96_08.asm		; $179168  data
 	include	data96_09.asm		; $199BE4  data
 	include	data96_10.asm		; $1BDCDC  data
-	include	code96_14.asm		; $1D6B66  code
-	include	code96_15.asm		; $1D8E5C  code
-	include	code96_16.asm		; $1DB288  code
-	include	data96_11.asm		; $1DC03C  data
-	include	code96_17.asm		; $1DFA1C  code
-	include	code96_18.asm		; $1E1A3C  code
-	include	data96_12.asm		; $1E2E76  data
-	include	code96_19.asm		; $1E6162  code
-	include	code96_20.asm		; $1E824C  code
+	include	code96_14.asm	; $1D6B66  records and attributes
+	include	front\shootout96_path.asm	; $1D7FA6  shootout
+	include	code96_15.asm	; $1D8E5C  loads and hi-score
+	include	front\season96_stand.asm	; $1D9CC6  standings
+	include	front\season96_menu.asm	; $1DA6C0  season menu
+	include	front\trade96_edit.asm	; $1DC03C  trades
+	include	front\create96.asm	; $1DD916  create player
+	include	front\options96.asm	; $1E0DDE  options
+	include	front\stats96.asm	; $1E1B18  line editor
+	include	engine\pause96_return.asm	; $1E2688  return to game
+	include	front\summary96.asm	; $1E2E76  pause summaries
+	include	front\stats96_list.asm	; $1E55BA  player stats
+	include	front\records96.asm	; $1E646C  name entry
+	include	engine\playoff96_tree.asm	; $1E700A  playoff tree screen
+	include	engine\middle96_clock.asm	; $1E7664  clock
+	include	front\awards96_show.asm	; $1E7AC4  awards
+	include	front\injury96.asm	; $1E8794  injuries
+	include	front\title96.asm	; $1E889C  opening screens
+	include	checksum96.asm	; $1E9028  checksum
 	dcb.b	$200000-*,$FF		;fill to the 2 MB ROM end

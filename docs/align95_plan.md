@@ -62,16 +62,16 @@ there is no single engine list to include once. Folders still match: `engine/`,
 | data96_04 | `$07A40A-$0887E3` | sound95 bank tail and the sound calls | Same `sound96`. |
 | code96_13 | `$0887E4-$08F2C5` | sound95 `newcheck`, scout95 text | `newcheck` stays at the end of `sound96` (95G did that). `ScoutTextScript` goes to `front/scout96.asm` as an incbin. The unreferenced block after it stays in that file. |
 | data96_05 to data96_09 | `$08F2C6-$1BDCDC` | graphics95 | One `src/graphics96.asm` of incbins, after extraction. Not before: merging the `dc.b` dumps first only makes a larger file to throw away. |
-| data96_10 | `$1BDCDC-$1D6B65` | graphics95, then input95 / logic95 one-timer | Graphics part joins `graphics96`. `puckvzadj` through `setonetimeranim` joins `input96_shot` or `logic96_puck`, whichever is contiguous with nothing between. |
-| code96_14 | `$1D6B66-$1D8E5B` | shootout95, middle95, scout95, records95, collide95 | `front/shootout96.asm` for the paths and the shootout body. Records and scout helpers go to `front/records96.asm` and `front/scout96.asm` when those runs are contiguous; guests stay. |
-| code96_15 | `$1D8E5C-$1DB287` | season95 standings, goal95, injury95, penalty95, playoff95 | `front/season96_stand.asm` for the standings tables. The rest are guests of the surrounding files unless a run is long. |
-| code96_16 | `$1DB288-$1DC03B` | new in 96 (no 95G name) | `front/season96_menu.asm` (season playoff stats and the playoff menu). |
-| data96_11 | `$1DC03C-$1DFA1B` | create95, trade95 | `front/trade96.asm` and `front/create96.asm`. |
-| code96_17 | `$1DFA1C-$1E1A3B` | create95, then the options screen (new) | Create-player list joins `create96`. Options become `front/options96.asm` (new in 96). |
-| code96_18 | `$1E1A3C-$1E2E75` | stats95 line editor, pause95 return-to-game | `front/stats96.asm` and the pause tail joins `pause96` if the branch across the boundary is absolute. |
-| data96_12 | `$1E2E76-$1E6161` | summary95, stats95, shootout95, records95 | `front/summary96.asm`, more of `stats96`, `shootout96`, `records96`. |
-| code96_19 | `$1E6162-$1E824B` | records95, playoff95, awards95, middle95 clock | `front/records96.asm`, `engine/playoff96.asm`, `front/awards96.asm` (second piece: `awards96_show.asm`). |
-| code96_20 | `$1E824C-$1E90D1` | injury95, new opening screens, checksum95 | `front/injury96.asm`, `front/title96.asm` for the opening screens, `src/checksum96.asm` for `ChecksumLongs` through `ValidationRoutine`. |
+| data96_10 | `$1BDCDC-$1D6B65` | graphics95, then input95 / logic95 one-timer | Graphics part joins `graphics96` at extraction. `puckvzadj` through `setonetimeranim` is `engine/logic96_timer.asm` (it is not next to `logic96_puck`). |
+| code96_14 | `$1D6B66-$1D7FA5` | middle95, scout95, records95, collide95 | Done. The head stays numbered: crowd meter, hot/cold, team records, attribute weights. `front/shootout96_path.asm` is ShootoutModeBox through UnpackPicture. |
+| code96_15 | `$1D8E5C-$1D9CC5` | goal95, injury95, penalty95, pause95 | Done. The head stays numbered (replay icon, hi-score, penalty clear). `front/season96_stand.asm` is StandingsPoints through SortStandings. |
+| code96_16 | `$1DA6C0-$1DC03B` | new in 96 (no 95G name) | Done. `front/season96_menu.asm` joins SetSframe and the leaders with the playoff menu. code96_16 is gone. |
+| data96_11 | `$1DC03C-$1DD915` | trade95 | Done. `front/trade96_edit.asm` is the roster menu and TradePlayers. `front/create96.asm` starts at CreatePlayer. |
+| code96_17 | `$1DD916-$1E1B17` | create95, then the options screen (new) | Done. `create96` runs through the created-player list. `front/options96.asm` is OptionsScreen through OptionsAnimFrame. |
+| code96_18 | `$1E1A3C-$1E2E75` | stats95 line editor, pause95 return-to-game | Done. The option setters joined `options96`. `front/stats96.asm` is the line editor. `engine/pause96_return.asm` is ReturnToGame through PrintDigit. |
+| data96_12 | `$1E2E76-$1E646B` | summary95, stats95, shootout95, records95 | Done. `front/summary96.asm` holds the pause pages, including the shootout shooters and the record holders. `front/stats96_list.asm` is PlayerStatsScreen through PListMark. |
+| code96_19 | `$1E646C-$1E824B` | records95, playoff95, awards95, middle95 clock | Done. `front/records96.asm` is name entry. `engine/playoff96_tree.asm` is the tree screen. `engine/middle96_clock.asm` is the ice clock. `front/awards96_show.asm` starts at SeasonAwards. |
+| code96_20 | `$1E7AC4-$1E90D1` | awards95, injury95, new opening screens, checksum95 | Done. `awards96_show` includes GetAwardWinner. `front/injury96.asm`, `front/title96.asm`, `src/checksum96.asm`. |
 
 `src/ram96.asm`, `src/externs96.asm`, `src/stubinc/`, `src/macros/genesis.mac` stay where 95G puts them.
 
@@ -104,7 +104,8 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 11. code96_08 split — done. `engine/logic96_vec.asm` ($019F3E-$01A613), `engine/skate96.asm` ($01A614-$01AEFF), `engine/video96.asm` ($01AF00-$01BF93).
 12. code96_09 and code96_10 split — done. `engine/penalty96.asm`, `engine/lines96_bar.asm`, `src/hockey96_inter.asm`, `engine/collide96.asm` (through setpde), `engine/players96.asm` (through ClampNibble). code96_11 now starts at VBlank.
 13. code96_11 and code96_12 split — done. `src/display96.asm`, `src/control96_team.asm`, `src/hockey96_open.asm`, `engine/setup96_menu.asm`, `engine/playoff96.asm`, `engine/goal96_box.asm`, `engine/middle96.asm`, `src/crash96.asm`.
-9. Continue down the table above. Next is the front end: code96_14 (`front/shootout96_path.asm`), then the standings and the season menu. Do not start graphics or the sound bank until the extraction step.
+14. Front end — done. `front/shootout96_path.asm`, `front/season96_stand.asm`, `front/season96_menu.asm`, `front/trade96_edit.asm`, `front/create96.asm`, `front/options96.asm`, `front/stats96.asm`, `engine/pause96_return.asm`, `front/summary96.asm`, `front/stats96_list.asm`, `front/records96.asm`, `engine/playoff96_tree.asm`, `engine/middle96_clock.asm`, `front/awards96_show.asm`, `front/injury96.asm`, `front/title96.asm`, `src/checksum96.asm`. code96_14 and code96_15 keep the mixed heads. code96_16, data96_11, code96_17, code96_18, data96_12, code96_19 and code96_20 are gone.
+15. Next: data96_02. Tables into the owning subsystem at this ROM address, then `src/sram96.asm`, then the sound driver as `src/sound96.asm`. The sample bank stays in data96_03 and data96_04 until extraction. Then `engine/logic96_timer.asm` from the data96_10 tail (puckvzadj through setonetimeranim). Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ
 
@@ -114,9 +115,9 @@ Rename, the masked body matches and nothing else owns the 95G name:
 
 | 96 address | 96 name | 95G name | File |
 |---|---|---|---|
-| `$0168B8` | getGoalieSCnum | FindGoalie | code96_06 |
-| `$1D8180` | ClearShootout | ShootoutInit | code96_14 |
-| `$1E6B04` | LetterGrid | CreateLetterGrid | code96_19 |
+| `$0168B8` | getGoalieSCnum | FindGoalie | control96 |
+| `$1D8180` | ClearShootout | ShootoutInit | shootout96_path |
+| `$1E6B04` | LetterGrid | CreateLetterGrid | records96 |
 
 `getGoalieSCnum` is the 95G routine 95G now calls `FindGoalie` (d0 = the goalie's SCnum). `ClearShootout` is 95G `ShootoutInit`. `LetterGrid` is 95G `CreateLetterGrid`.
 
@@ -124,17 +125,17 @@ Labels the masked search found inside bytes, where 96 has no name at that addres
 
 | 96 address | 95G name | 95G file | In |
 |---|---|---|---|
-| `$018400` | chkpk | middle95 | code96_07 |
-| `$019692` | UpdatePenaltyShotEnd | shootout95 | code96_07 |
-| `$019DA2` | a2touchpuck | logic95 | code96_07 |
-| `$01E8C0` | Goal | goal95 | code96_10 |
-| `$02032C` | rtss2 | video95 | code96_11 |
-| `$02032E` | SetScroll2 | video95 | code96_11 |
-| `$020892` | ClockDigitChar | middle95 | code96_11 |
-| `$021510` | setteams | control95 | code96_11 |
-| `$022198` | InitializeGameStructures | setup95 | code96_11 |
-| `$1DE98C` | InitCreateRecord | create95 | data96_11 |
-| `$1E36D6` | GoalTypeTbl | summary95 | data96_12 |
+| `$018400` | chkpk | middle95 | logic96_puck |
+| `$019692` | UpdatePenaltyShotEnd | shootout95 | shootout96 |
+| `$019DA2` | a2touchpuck | logic95 | logic96_pull |
+| `$01E8C0` | Goal | goal95 | collide96 |
+| `$02032C` | rtss2 | video95 | display96 |
+| `$02032E` | SetScroll2 | video95 | display96 |
+| `$020892` | ClockDigitChar | middle95 | display96 |
+| `$021510` | setteams | control95 | control96_team |
+| `$022198` | InitializeGameStructures | setup95 | playoff96 |
+| `$1DE98C` | InitCreateRecord | create95 | create96 |
+| `$1E36D6` | GoalTypeTbl | summary95 | summary96 |
 
 `code96_05` is still `sub_` / `unk_` in the source and those names were never written to `docs/name_map.csv`. Naming them is part of the season96 pass, not a drive-by.
 
@@ -147,8 +148,8 @@ RAM: 294 names are shared with `src/ram95.asm`. 286 of those sit at a different 
 | 96 name | Why it stays |
 |---|---|
 | stopfast | Same shape as 95G `stopna2` with step `$7D0`. 96G already has `stopna2` in skate96. Clash rule. |
-| StandingsPoints | Same shape as `CalcSeedPoints`. 96G already has `CalcSeedPoints` in data96_01. |
-| PrintCurLetter | 95G `PrintGridLetter` is already the create-player label in data96_11. This one is name entry. |
+| StandingsPoints | Same shape as `CalcSeedPoints`. 96G already has `CalcSeedPoints` in awards96. |
+| PrintCurLetter | 95G `PrintGridLetter` is already the create-player label in create96. This one is name entry. |
 | DoFrameUpdates | The first words match `CheckNewCarrier`; the routine then does the crowd, the clock and the one-second work. |
 | SetSframe | Masked hit is 95G `AddSpriteFrame`. 95G also has `SetSframe`. The 96 comment matches `SetSframe`. Left alone until the two 95G bodies are compared side by side. |
 | SortValuesUp, CreateListMove, rtsNameCursor | The 95G hit is a local (`GatherAndSort.sortValuesUp`, `CreatePlayer.createListMove`, `rtsCreate2`), not a global to copy. |
@@ -196,4 +197,4 @@ After the layout and the extractor exist, update `START_HERE.md`, `SEGMENT_AGENT
 - 145 IDA RAM names. No rename until a use shows the 95G variable.
 - 95G `print` versus 96G `print` / `printcur`. Already decided (clash). Do not revisit.
 - Dotted 95G locals reported by the masked search (`sortValuesUp`, `createListMove`, `rtsCreate2`). Not copied.
-- Whether `ClockDigitChar` at `$020892` is the same routine as middle95 or a second copy. 96G also has `ClockDigitChar` in code96_19.
+- Whether `ClockDigitChar` at `$020892` is the same routine as middle95 or a second copy. 96G also has `ClockDigitChar` in middle96_clock.

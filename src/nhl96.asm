@@ -31,7 +31,8 @@
 	include	front\awards96.asm	; $013EA0  playoff seeding
 	include	data96_01b.asm		; $0143FE  menu lists
 	include	hockey96.asm		; $01464C  cold start and game loop
-	include	data96_01c.asm		; $014CC8  demo, pause menu, roster columns
+	include	engine\pause96.asm	; $014CC8  demo and pause menu
+	include	data96_01c.asm		; $0151FA  roster columns and pause-menu entries
 	include	code96_06.asm		; $015774  code
 	include	code96_07.asm		; $017C06  code
 	include	code96_08.asm		; $019F3E  code

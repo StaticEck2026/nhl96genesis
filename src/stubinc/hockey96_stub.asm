@@ -62,8 +62,8 @@ setSlotBit = $1D733C		;code96_14
 nullsub_6 = $1D8782		;code96_14
 HiScoreScreen = $1D9114		;code96_15
 ClearPenalties = $1D97F4		;code96_15
-demoread = $014CC8		;data96_01c
-Pausemode = $014D8C		;data96_01c
+demoread = $014CC8		;pause96
+Pausemode = $014D8C		;pause96
 
 
 ; Main segment code

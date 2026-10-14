@@ -336,5 +336,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `src/schedule96.asm` is the season schedule (SeasonSchedule, $013558-$013E9F). data96_01 keeps the team graphics pointers. data96_01b is the seeding, the game loop, the pause menu and the attribute columns.
   `front/awards96.asm` is the playoff seeding (nullsub_3 through BuildPOSlots, $013EA0-$0143FD).
   `src/hockey96.asm` is the cold start and the game loop (Begin through clockcont, $01464C-$014CC7).
-  data96_01b is the menu list printers. data96_01c is the demo, the pause menu and the roster columns.
-  Next: `engine/pause96.asm` (demoread through the pause menu). Unsure list is in the plan.
+  data96_01b is the menu list printers.
+  `engine/pause96.asm` is the demo and the pause menu (demoread through vcountwait, $014CC8-$0151F9).
+  data96_01c is the roster columns plus PlayoffStatsMenu, TimeoutMenu and SelectGoalieMenu.
+  Next: `engine/setup96.asm` for the attribute columns. Unsure list is in the plan.

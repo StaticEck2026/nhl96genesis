@@ -14,7 +14,7 @@
 ; External addresses outside, read from lst/nhl96.bin.
 DrawSetupTeamBlock = $012B84		;season96
 ZeroLong = $000772		;main96
-vcountwait = $0151E0		;data96_01c
+vcountwait = $0151E0		;pause96
 orjoy = $01B2C4		;code96_08
 nodiag = $01B2F8		;code96_08
 ReadJoy1 = $01B348		;code96_08

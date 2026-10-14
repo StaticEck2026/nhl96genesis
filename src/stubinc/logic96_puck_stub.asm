@@ -1,5 +1,5 @@
-;	Segment build for code96_07.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_07.asm on its own for checking against the ROM.
+;	Segment build for engine\logic96_puck.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
 	org	$017C06
@@ -12,13 +12,10 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-LockScroll = $016786		;control96
 vtoa = $01A3EE		;code96_08
 SetSPA = $01A614		;code96_08
 PushRef = $01C978		;code96_09
 rtss2 = $01F84A		;code96_10
-setpersonel = $01FB52		;code96_10
-CountShootoutGoals = $1D8208		;code96_14
 SPA0074 = $74		;SPA value (frames96)
 SPA0170 = $170		;SPA value (frames96)
 SPA02C0 = $2C0		;SPA value (frames96)
@@ -32,4 +29,4 @@ SPAgstickr = $266		;SPA value (frames96)
 
 
 ; Main segment code
-	include	code96_07.asm
+	include	engine\logic96_puck.asm

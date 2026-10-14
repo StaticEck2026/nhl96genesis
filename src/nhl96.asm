@@ -38,7 +38,8 @@
 	include	engine\replay96.asm	; $01581C  instant replay
 	include	control96.asm		; $0162F0  player frame update
 	include	engine\logic96_ass.asm	; $016DAE  assignment entries
-	include	code96_07.asm		; $017C06  code
+	include	engine\logic96_puck.asm	; $017C06  puck assignments
+	include	code96_07b.asm		; $019018  shootout and goalie pull
 	include	code96_08.asm		; $019F3E  code
 	include	code96_09.asm		; $01BF94  code
 	include	code96_10.asm		; $01E110  code

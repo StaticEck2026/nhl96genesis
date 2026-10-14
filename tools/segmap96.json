@@ -177,9 +177,15 @@
    "end": 97285
   },
   {
-   "name": "code96_07",
+   "name": "logic96_puck",
    "kind": "code",
    "start": 97286,
+   "end": 102423
+  },
+  {
+   "name": "code96_07b",
+   "kind": "code",
+   "start": 102424,
    "end": 106301
   },
   {

@@ -12,7 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-AdjustFacingDirection = $017C06		;code96_07
+AdjustFacingDirection = $017C06		;logic96_puck
 PrintBigChar = $01BF94		;code96_09
 unk_1C01C = $01C01C		;code96_09
 rtss2 = $01F84A		;code96_10

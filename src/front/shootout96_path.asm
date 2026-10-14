@@ -75,7 +75,7 @@ ShootoutModeBox	;Shootout round box: "SHOOTOUT MODE" (ShootoutModeBigTxt), the s
 ShootoutModeBigTxt	;ShootoutModeBox big text
 	String	$F8,$04,$01,$04,$03,'      SHOOTOUT MODE      ',$F8,$04,$01,$04,$05
 
-ClearShootout	;Clear the player structs (SortCords) and the shootout state, then the shooter lists of both teams
+ShootoutInit	;Clear the player structs (SortCords) and the shootout state, then the shooter lists of both teams
 	;(InitShooters)
 	movea.l	#SortCords,a0
 	move.w	#$3FF,d0

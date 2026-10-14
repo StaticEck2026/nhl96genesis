@@ -14,9 +14,9 @@
 ; External addresses outside, read from lst/nhl96.bin.
 DecompressGraphicsWithCallback = $01B724		;video96
 DecompressGraphicsPlain = $01B730		;video96
-SmallFontMap = $179A76		;data96_08
-BigFontMap = $1B89C8		;data96_09
-BigFontMap3 = $1B9416		;data96_09
+SmallFontMap = $179A76		;graphics96
+BigFontMap = $1B89C8		;graphics96
+BigFontMap3 = $1B9416		;graphics96
 
 
 ; Main segment code

@@ -22,13 +22,13 @@ setVram = $01B57E		;video96
 eraser = $01B976		;video96
 printsmallz = $01BA2E		;video96
 printcur = $01BC84		;video96
-RosterFont = $179168		;data96_08
+RosterFont = $179168		;graphics96
 TeamBlockPtrs = $012BFE		;teamgfx96
 Vmaddr = $01B678		;video96
 rtss2 = $01F84A		;collide96
-unk_1BDCD4 = $1BDCD4		;data96_09
-unk_1C0302 = $1C0302		;data96_10
-unk_1C4810 = $1C4810		;data96_10
+unk_1BDCD4 = $1BDCD4		;graphics96
+unk_1C0302 = $1C0302		;graphics96
+unk_1C4810 = $1C4810		;graphics96
 
 
 ; Main segment code

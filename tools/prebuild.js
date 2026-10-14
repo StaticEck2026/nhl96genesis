@@ -7,7 +7,7 @@
 // running it; tools/verify_all.sh runs it with Linux node, since there is no node under wine).
 
 const GAME = 'NHL 96 (Sega Genesis)';
-const EXTRACTOR = 'tools/extractSegments96.js';
+const EXTRACTOR = 'tools/extractAssets96.js';
 const ROMS = {
     retail: { label: 'NHL 96 retail (1995.JUL, GM T-172036-00)', file: 'lst/nhl96.bin',
               sha1: '7204633fbb9966ac637e7966d02ba15c5acdee6b', size: 0x200000 },
@@ -59,15 +59,14 @@ function stop(lines) {
 }
 
 // Is Extracted/ complete? The extractor writes the marker last, listing every file it wrote, the
-// ROM it read, its own SHA-1 and the segment map's. Any missing or resized file, an unknown ROM, a
-// changed extractor or a changed map means the folder has to be extracted again.
+// ROM it read and its own SHA-1. Any missing or resized file, an unknown ROM or a changed extractor
+// means the folder has to be extracted again.
 function extractedState() {
     if (!fs.existsSync(EXTRACTED)) return 'Extracted/ is missing';
     if (!fs.existsSync(MARKER)) return 'Extracted/ is incomplete (no .extract-complete.json marker)';
     let m;
     try { m = JSON.parse(fs.readFileSync(MARKER, 'utf8')); } catch (e) { return 'the Extracted/ marker is unreadable'; }
     if (m.extractorSha1 !== sha1Of(fs.readFileSync(path.join(ROOT, EXTRACTOR)))) return `${EXTRACTOR} changed since the last extraction`;
-    if (m.mapSha1 !== sha1Of(fs.readFileSync(path.join(ROOT, 'tools', 'segmap96.json')))) return 'tools/segmap96.json changed since the last extraction';
     if (!Object.values(ROMS).some((r) => r.sha1 === m.romSha1)) return 'Extracted/ came from an unknown ROM';
     if (!Array.isArray(m.files) || m.files.length === 0) return 'the Extracted/ marker lists no files';
     for (const f of m.files) {

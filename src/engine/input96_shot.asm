@@ -154,7 +154,7 @@ prepshot
 	beq.w	.33
 	move.w	#5,d0	;opponent is home
 .33
-	jsr	(getGoalieSCnum).l
+	jsr	(FindGoalie).l
 	tst.w	d0
 	bmi.w	.nogoalie
 	movem.l	a0,-(sp)

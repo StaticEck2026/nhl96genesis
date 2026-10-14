@@ -12,6 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
+randomd0 = $01B0A6		;video96
 
 
 ; Main segment code

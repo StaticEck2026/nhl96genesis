@@ -84,7 +84,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | pause96_menu | matched, 740 bytes | $015490 | $015773 | code | pause95 | PlayoffStatsMenu, TimeoutMenu, SelectGoalieMenu |
 | players96_count | matched, 168 bytes | $015774 | $01581B | code | players95, middle95, video95 | GetGoalieCount(D7), GetPlayerCount(D7), WaitVSyncAndReadInput |
 | replay96 | matched, 2772 bytes | $01581C | $0162EF | code | replay95, video95 | ReplayMode, ReadMenuJoy, ShowReplayIcon, EraseReplayIcon, ShowReplayBanner, EraseReplayBanner, suba4, UpdateCameraPos, RevReplayAdj, ClampReplayView, updatereplay, rtss8 |
-| control96 | matched, 2750 bytes | $0162F0 | $016DAD | code | hockey95, display95, goal95, skate95, control95, collide95 | updateplayers, updateanim, LockScroll, checkwindow, getGoalieSCnum, burst, holdplayer, chgplayer, setcplayer, setc1-4player, Sweepcheck, restorepl, setpads |
+| control96 | matched, 2750 bytes | $0162F0 | $016DAD | code | hockey95, display95, goal95, skate95, control95, collide95 | updateplayers, updateanim, LockScroll, checkwindow, FindGoalie, burst, holdplayer, chgplayer, setcplayer, setc1-4player, Sweepcheck, restorepl, setpads |
 | logic96_ass | matched, 3672 bytes | $016DAE | $017C05 | code | logic95 | check4bench, donothing and the asstab entries (assbench, asseben, asspenalty, assdopen, assepen, assgoaliebreakwait, assstanley, assscore, assgoaliectrl, assgoaliecpu) |
 | logic96_puck | matched, 5138 bytes | $017C06 | $019017 | code | logic95, penalty95 | AdjustFacingDirection, goaliesave, saveanim, assgoalietopuck, breakaway, chkpuckc, asspuckc, chkpk2, EvadePC, checkob, assbreakaway, assnearest, check4check, asspassrec, assshoot |
 | shootout96 | matched, 1898 bytes | $019018 | $019781 | code | shootout95 | puckshootout, SelectPenaltyShotSkater, puckpenshot, EndPenaltyShotPlay |
@@ -121,20 +121,12 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | video96_font | matched, 126 bytes | $0243A0 | $02441D | code | video95 | LoadSmallFont, LoadBigFonts, sub_243DA |
 | logic96_crease | matched, 96 bytes | $02441E | $02447D | code | logic95 | GoalieInCrease |
 | pause96_play | matched, 8 bytes | $02447E | $024485 | code | pause95 | PlayGame |
-| sound96 | matched, 11842 bytes | $024486 | $0272C7 | code | sound95, video95 | p_music_vblank, SndDriver, SndJumpTable, the Snd* driver routines, Z80BusRequest, Z80BusRelease, Z80Program, SoundBanks (the SndItem directory) |
-| data96_02 | matched, 118360 bytes | $0272C8 | $04411F | data | sound95 | Sound bank 0 item bytes (samples, patches, songs, lists). The directory is in sound96 |
-| data96_03 | matched, 221930 bytes | $044120 | $07A409 | data | sound95 | SoundBanks item data: samples 16 (part) to 94, patches 0-94, song 0 (part); no labels |
-| data96_04 | matched, 58330 bytes | $07A40A | $0887E3 | data | sound95 | SoundBanks item data (song 0 part to list 1); SoundCmd, UpdateCwdExcite, updatesound, CheckLateGameSong, sfx, sfxplay, SfxTable, song, StartSong, stop_current_song, SoundOff, ChooseSong, TeamSongs, RandomSongs; stop_current_song2, KillCrowd2, p_initialZ80, ClearAllTrackAndSFXSlots (bytes) |
-| code96_13 | matched, 27362 bytes | $0887E4 | $08F2C5 | code | sound95, scout95 | newcheck, ScoutTextScript (unreferenced text); unreferenced data after it |
-| data96_05 | matched, 593262 bytes | $08F2C6 | $120033 | data | graphics95 | maps (header, tiles, .pal, .map): unk_8F2C6, unk_90686, unk_911B8, Framermap, FaceOffMap, Rinktilelist, RefTiles, RefTilesHor; Sprites header, Spritetiles (start) |
-| data96_06 | matched, 133842 bytes | $120034 | $140B05 | data | graphics95 | Spritetiles (rest), SpritePalette, frameSprData, HotList, HotList2, CrowdFrameList, FaceOffSprites, EnergyBarMap, EASNmap (maps), EASportsMap, RevRinkTilelist, ReplayIconMap (start) |
-| data96_07 | matched, 231010 bytes | $140B06 | $179167 | data | graphics95 | maps: ReplayIconMap (rest), ReplayBannerMap, unk_1417B6, unk_1468D6, unk_147896, TeamBlock<team>, TeamLogo<team>, SmallLogo<team>, unk_170B0C, ControllerBgMap |
-| data96_08 | matched, 133756 bytes | $179168 | $199BE3 | data | graphics95 | RosterFont, SmallFontMap, SmallFontMap2, BigFontMap, BigFontMap2, the screen maps and data used from other code (unk_ names) |
-| data96_09 | matched, 147704 bytes | $199BE4 | $1BDCDB | data | graphics95 | PadIconMap1-4, PadCursorMap, ControllerTitleMap, BigFontMap, BigFontMap3, the screen maps and data used from other code (unk_ names) |
-| data96_10 | matched, 100678 bytes | $1BDCDC | $1D6621 | data | graphics95 | screen maps used from other code (unk_ names) |
+| sound96 | matched, 410500 bytes | $024486 | $088809 | code | sound95, video95 | p_music_vblank, SndDriver, Z80Program, SoundBanks, the 168 bank items, SoundCmd, sfx, song, ChooseSong, newcheck |
+| scout96 | matched, 27324 bytes | $08880A | $08F2C5 | data | scout95 | ScoutTextScript, unk_88A18 |
+| graphics96 | matched, 1340252 bytes | $08F2C6 | $1D6621 | data | graphics95 | one incbin per picture: the screen maps, Sprites, Spritetiles, the fonts, TeamBlock / TeamLogo / SmallLogo, the award pictures |
 | logic96_timer | matched, 1348 bytes | $1D6622 | $1D6B65 | code | logic95, input95 | puckvzadj, OneTimerPass, OneTimerTarget, OneTimerNearTbl, OneTimerFarTbl, OneTimerGoalieTbl, assonetimer, setonetimeranim |
 | code96_14 | matched, 5184 bytes | $1D6B66 | $1D7FA5 | code | middle95, scout95, collide95, records95, lines95 | PuckOnAttackHalf, InitCrowdMeter, UpdateCrowdMeter, stopfast, checkcornercoll, Create_HotCold_Table, AttributeCalc, Read/WriteTeamRecord, UpdateRecords, CountGoalies, CalcAttrib, the attribute weights |
-| shootout96_path | matched, 3766 bytes | $1D7FA6 | $1D8E5B | code | shootout95 | ShootoutModeBox, ClearShootout, CountShootoutGoals, InitShooters, ShootoutPaths 1-7, StartShootoutPath, SkatePath, UnpackPicture |
+| shootout96_path | matched, 3766 bytes | $1D7FA6 | $1D8E5B | code | shootout95 | ShootoutModeBox, ShootoutInit, CountShootoutGoals, InitShooters, ShootoutPaths 1-7, StartShootoutPath, SkatePath, UnpackPicture |
 | code96_15 | matched, 3690 bytes | $1D8E5C | $1D9CC5 | code | middle95, goal95, injury95, penalty95, pause95 | LoadReplayIcon, LoadHomeTeamGfx, PrintPlayerAssists, HiScoreScreen, EndOneTimer, ClearPenalties, SetMenuPadSide |
 | season96_stand | matched, 2554 bytes | $1D9CC6 | $1DA6BF | code | season95 | StandingsPoints, StandingsGroups, StandingsGroup0-4, SortStandings |
 | season96_menu | matched, 6524 bytes | $1DA6C0 | $1DC03B | code | season95, playoff95 | SetSframe, LeadersScrollArrows, SortValuesUp, SeasonPlayoffStats, WaitAnyPad, PlayoffMenuScreen, ClearPlayoffSave |
@@ -145,7 +137,7 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | pause96_return | matched, 2030 bytes | $1E2688 | $1E2E75 | code | pause95 | ReturnToGame, RestoreGameScreen, ClearOldFrames, PeriodText, PrintDigit |
 | summary96 | matched, 10052 bytes | $1E2E76 | $1E55B9 | code | summary95, shootout95, records95 | TeamRosterScreen, ScoringSummaryScreen, PenaltySummaryScreen, PeriodStatsScreen, GameStatistics, ShootoutShooters, RecordHoldersScreen |
 | stats96_list | matched, 3762 bytes | $1E55BA | $1E646B | code | stats95 | PlayerStatsScreen, PlayerStatsList, the PList... helpers, PListPrint, PListValue, PListMark |
-| records96 | matched, 2974 bytes | $1E646C | $1E7009 | code | records95 | NameEntryScreen, LetterGrid, UserNameEntry, PrintNameLogRecords |
+| records96 | matched, 2974 bytes | $1E646C | $1E7009 | code | records95 | NameEntryScreen, CreateLetterGrid, UserNameEntry, PrintNameLogRecords |
 | playoff96_tree | matched, 1626 bytes | $1E700A | $1E7663 | code | playoff95 | PlayoffScreen, HandlePlayoffInput, PrintSeriesScore, DrawTreeArrow |
 | middle96_clock | matched, 1120 bytes | $1E7664 | $1E7AC3 | code | middle95 | showclock, showclockdma, ClockDigitChar, ShowBigScore, ClearBigScore |
 | awards96_show | matched, 3280 bytes | $1E7AC4 | $1E8793 | code | awards95 | SeasonAwards, DrawAwardPicture, AwardPictures, PrintAwardWinner, GetAwardWinner |

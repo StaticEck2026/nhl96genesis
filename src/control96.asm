@@ -425,7 +425,7 @@ checkwindow	;Scroll the window one step toward xc1 / yc1 (sflags bit 6) or the p
 .1
 	rts
 
-getGoalieSCnum	;d0 = SCnum of the goalie of the team of player d0 (the first position 0 going down
+FindGoalie	;d0 = SCnum of the goalie of the team of player d0 (the first position 0 going down
 	;from player d0), -1 none
 	movem.l	d1/a0,-(sp)
 	movea.l	#SortCords,a0

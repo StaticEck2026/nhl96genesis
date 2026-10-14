@@ -181,7 +181,7 @@ NameEntryScreen	;Name entry screen for pad slot a5: the name log, then edit or p
 	jsr	(printsmallz).l
 	String	$FE,$07
 	movea.l	#NameEntryBuf,a0
-	movea.l	#LetterGrid,a1
+	movea.l	#CreateLetterGrid,a1
 	move.b	(a1,d5.w),d0
 	move.b	d0,(a0,d4.w)
 	bra.w	.loop
@@ -207,7 +207,7 @@ NameEntryScreen	;Name entry screen for pad slot a5: the name log, then edit or p
 	bne.w	.20
 	jsr	(printz).l
 	String	$8F,$1A,$0F
-	movea.l	#LetterGrid,a0
+	movea.l	#CreateLetterGrid,a0
 	moveq	#2,d0
 .7
 	moveq	#9,d1
@@ -307,7 +307,7 @@ SyncLetterCursor	;Name entry: grid cursor d5 = grid index of the current letter 
 	bra.w	.2
 .1
 	move.w	d0,d5
-	movea.l	#LetterGrid,a0
+	movea.l	#CreateLetterGrid,a0
 	move.b	(a0,d5.w),(byte_FFD3AC).w
 .2
 	movem.l	(sp)+,d0-d4/a0-a6
@@ -315,7 +315,7 @@ SyncLetterCursor	;Name entry: grid cursor d5 = grid index of the current letter 
 
 FindLetter	;d0 = index of letter d0 in the letter grid, $1E when not found
 	movem.l	d1-d3/a0-a6,-(sp)
-	movea.l	#LetterGrid,a0
+	movea.l	#CreateLetterGrid,a0
 	move.b	d0,d1
 	clr.w	d0
 	move.w	#$1E,d3
@@ -347,7 +347,7 @@ PrintCurLetter	;Name entry: print grid letter d5 when the cursor is on
 	movea.l	#ThreeStars,a1
 	move.w	#4,(a1)
 	move.b	#0,3(a1)
-	movea.l	#LetterGrid,a0
+	movea.l	#CreateLetterGrid,a0
 	move.b	(a0,d5.w),d0
 	move.b	d0,2(a1)
 	jmp	printcur
@@ -441,7 +441,7 @@ PrintNameField	;Name entry: print the name field at a1 ("-" pads) and the curren
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-LetterGrid	;Name entry letter grid (the create player screen uses it too)
+CreateLetterGrid	;Name entry letter grid (the create player screen uses it too)
 	dc.b	$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F,$50
 	dc.b	$51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$2E,$31,$32,$20,$2D,$FF
 

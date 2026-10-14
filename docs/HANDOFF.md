@@ -115,7 +115,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   Z80Program, SoundBanks, Opening, vb2, ChooseSong, sfx, ExitToOpening, ClearPenalties, ClearPenaltyBuffer,
   LockScroll, setupice, Create_HotCold_Table.
 - code96_06 converted: updatereplay, updateplayers, updateanim, checkwindow, the pad switches (chgplayer,
-  setcplayer, setc1-4player, restorepl, setpads), burst, holdplayer, getGoalieSCnum, GetGoalieCount(D7) and
+  setcplayer, setc1-4player, restorepl, setpads), burst, holdplayer, FindGoalie, GetGoalieCount(D7) and
   GetPlayerCount(D7) (96 reads the counts from save RAM SRTeamCounts). MATCH (segment and ROM).
 - The 96 asstab uses the 94 assignment numbers (NHL94Genesis data94.asm asstab), not 95's: entry n of the 96 table
   matches the 94 routine n by bytes (RAM words masked). So the asstab entries take their 95 / 94 names by index:
@@ -401,5 +401,8 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/pause96_play.asm` is the resume-game item (PlayGame, $02447E-$024485).
   `src/sound96.asm` is the sound driver, the Z80 program and the bank directory (p_music_vblank through SoundBanks, $024486-$0272C7).
   `src/data96_02.asm` is now only the sound bank bytes ($0272C8-$04411F). data96_03 and data96_04 stay the rest of the bank until extraction.
-  `engine/logic96_timer.asm` is the one-timer (puckvzadj through setonetimeranim, $1D6622-$1D6B65). `src/data96_10.asm` is the graphics ahead of it ($1BDCDC-$1D6621).
-  Next: extraction. `tools/extractAssets96.js` in the shape of the 95 extractor. Graphics, the Z80 program, each sound-bank item and the scout text become incbins. `newcheck` joins the end of sound96. `front/scout96.asm` holds the scout text. data96_05 through data96_09 and the graphics in data96_10 become `src/graphics96.asm`. Unsure list is in the plan.
+  `src/sound96.asm` now runs from the driver through newcheck ($024486-$088809). The Z80 program and each bank item are incbins. The sound calls and newcheck sit after the bank.
+  `front/scout96.asm` is the scouting text and the picture after it (ScoutTextScript and unk_88A18, $08880A-$08F2C5).
+  `src/graphics96.asm` is the pictures, one incbin per label ($08F2C6-$1D6621). A map is one file; the tiles are eight bytes in.
+  `tools/extractAssets96.js` writes those files, the team palettes included. `tools/prebuild.js` runs it. data96_02 through data96_10 and code96_13 are gone.
+  Next: the three renames (FindGoalie, ShootoutInit, CreateLetterGrid), then rewrite START_HERE, the SEGMENT_AGENT rules, PROMPT and this handoff. Unsure list is in the plan.

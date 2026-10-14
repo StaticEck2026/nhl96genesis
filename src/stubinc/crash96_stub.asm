@@ -12,7 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-Rinktilelist = $0923E4		;data96_05
+Rinktilelist = $0923E4		;graphics96
 printcurz = $01BC72		;video96
 printcur = $01BC84		;video96
 

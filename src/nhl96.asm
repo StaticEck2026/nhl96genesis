@@ -73,17 +73,9 @@
 	include	engine\video96_font.asm	; $0243A0  fonts
 	include	engine\logic96_crease.asm	; $02441E  crease
 	include	engine\pause96_play.asm	; $02447E  resume game
-	include	sound96.asm	; $024486  sound driver
-	include	data96_02.asm	; $0272C8  sound bank
-	include	data96_03.asm		; $044120  data
-	include	data96_04.asm		; $07A40A  data
-	include	code96_13.asm		; $0887E4  code
-	include	data96_05.asm		; $08F2C6  data
-	include	data96_06.asm		; $120034  data
-	include	data96_07.asm		; $140B06  data
-	include	data96_08.asm		; $179168  data
-	include	data96_09.asm		; $199BE4  data
-	include	data96_10.asm	; $1BDCDC  graphics
+	include	sound96.asm		; $024486  sound
+	include	front\scout96.asm	; $08880A  scout text
+	include	graphics96.asm		; $08F2C6  graphics
 	include	engine\logic96_timer.asm	; $1D6622  one-timer
 	include	code96_14.asm	; $1D6B66  records and attributes
 	include	front\shootout96_path.asm	; $1D7FA6  shootout

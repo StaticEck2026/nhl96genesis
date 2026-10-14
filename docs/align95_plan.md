@@ -58,11 +58,11 @@ there is no single engine list to include once. Folders still match: `engine/`,
 | code96_11 | `$0201DC-$0221D3` | video95 (vblank), display95, crowd95, control95, hockey95, setup95 | Done with code96_12. `src/display96.asm` (VBlank stays here; 95 keeps it in video, and the crowd stays in this file), `src/control96_team.asm`, `src/hockey96_open.asm`, `engine/setup96_menu.asm`, and the start of `engine/playoff96.asm`. |
 | code96_12 | `$0221D4-$023247` | setup95 (pass bits), stats95, goal95, middle95 (names), main95 (exceptions) | Done. `playoff96` runs through ResolveGames. `engine/goal96_box.asm` holds the stars, the injury, the penalty shot and the goal box. `engine/middle96.asm` is the name formatters. `src/crash96.asm` is AdrErr through crash. |
 | data96_02 | `$023248-$04411F` | tables, sram95, video95 pads, sound95 driver, start of the bank | Done. Tables are second pieces at this address (`display96_crowd`, `middle96_ascii`, `lines96_list`, `setup96_pos`, `middle96_per`, `video96_size`, `players96_sub`, `setup96_attr`, `pause96_items`, `lines96_menu`). `src/sram96.asm`, `engine/video96_pad.asm`, `engine/logic96_do.asm`, `engine/video96_font.asm`, `engine/logic96_crease.asm`, `engine/pause96_play.asm`, `src/sound96.asm` (driver, Z80 program, bank directory). The bank bytes stay `data96_02`. |
-| data96_03 | `$044120-$07A409` | sound95 bank data | Becomes incbins inside `sound96` (extraction step). |
-| data96_04 | `$07A40A-$0887E3` | sound95 bank tail and the sound calls | Same `sound96`. |
-| code96_13 | `$0887E4-$08F2C5` | sound95 `newcheck`, scout95 text | `newcheck` stays at the end of `sound96` (95G did that). `ScoutTextScript` goes to `front/scout96.asm` as an incbin. The unreferenced block after it stays in that file. |
-| data96_05 to data96_09 | `$08F2C6-$1BDCDC` | graphics95 | One `src/graphics96.asm` of incbins, after extraction. Not before: merging the `dc.b` dumps first only makes a larger file to throw away. |
-| data96_10 | `$1BDCDC-$1D6621` | graphics95 | Done as a split. The graphics stay numbered until extraction, then they join `graphics96`. `engine/logic96_timer.asm` is puckvzadj through setonetimeranim. |
+| data96_03 | `$044120-$07A409` | sound95 bank data | Done. Incbins inside `sound96`. |
+| data96_04 | `$07A40A-$0887E3` | sound95 bank tail and the sound calls | Done. The tail of the bank is incbins. The calls are source in `sound96`. |
+| code96_13 | `$0887E4-$08F2C5` | sound95 `newcheck`, scout95 text | Done. `newcheck` is the end of `sound96`. `front/scout96.asm` incbins `ScoutTextScript` and the picture after it. |
+| data96_05 to data96_10 | `$08F2C6-$1D6621` | graphics95 | Done. `src/graphics96.asm`, one incbin per label. |
+| data96_10 | `$1BDCDC-$1D6621` | graphics95 | Done. Its pictures are the tail of `graphics96`. `engine/logic96_timer.asm` is puckvzadj through setonetimeranim. |
 | code96_14 | `$1D6B66-$1D7FA5` | middle95, scout95, records95, collide95 | Done. The head stays numbered: crowd meter, hot/cold, team records, attribute weights. `front/shootout96_path.asm` is ShootoutModeBox through UnpackPicture. |
 | code96_15 | `$1D8E5C-$1D9CC5` | goal95, injury95, penalty95, pause95 | Done. The head stays numbered (replay icon, hi-score, penalty clear). `front/season96_stand.asm` is StandingsPoints through SortStandings. |
 | code96_16 | `$1DA6C0-$1DC03B` | new in 96 (no 95G name) | Done. `front/season96_menu.asm` joins SetSframe and the leaders with the playoff menu. code96_16 is gone. |
@@ -106,22 +106,13 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 13. code96_11 and code96_12 split — done. `src/display96.asm`, `src/control96_team.asm`, `src/hockey96_open.asm`, `engine/setup96_menu.asm`, `engine/playoff96.asm`, `engine/goal96_box.asm`, `engine/middle96.asm`, `src/crash96.asm`.
 14. Front end — done. `front/shootout96_path.asm`, `front/season96_stand.asm`, `front/season96_menu.asm`, `front/trade96_edit.asm`, `front/create96.asm`, `front/options96.asm`, `front/stats96.asm`, `engine/pause96_return.asm`, `front/summary96.asm`, `front/stats96_list.asm`, `front/records96.asm`, `engine/playoff96_tree.asm`, `engine/middle96_clock.asm`, `front/awards96_show.asm`, `front/injury96.asm`, `front/title96.asm`, `src/checksum96.asm`. code96_14 and code96_15 keep the mixed heads. code96_16, data96_11, code96_17, code96_18, data96_12, code96_19 and code96_20 are gone.
 15. data96_02 — done. The tables, `src/sram96.asm`, the pads, `logic96_do`, the font loaders, `logic96_crease`, `pause96_play` and `src/sound96.asm`. The bank bytes stay in data96_02, data96_03 and data96_04 until extraction.
-16. `engine/logic96_timer.asm` — done. puckvzadj through setonetimeranim. The graphics in data96_10 stay numbered.
-17. Next: extraction. `tools/extractAssets96.js`, then graphics96 and the sound bank and ScoutTextScript become incbins. `newcheck` joins the end of sound96. `front/scout96.asm` incbins the scout text.
+16. `engine/logic96_timer.asm` — done. puckvzadj through setonetimeranim. The pictures ahead of it are in `graphics96`.
+17. Extraction — done. `tools/extractAssets96.js`. `sound96` incbins the Z80 program and the 168 bank items and keeps the calls plus `newcheck`. `front/scout96.asm` and `src/graphics96.asm` incbin the pictures and the scout text. The team palettes stay.
+18. Next: the three renames, then rewrite `START_HERE.md`, the rules prose in `SEGMENT_AGENT.md`, `PROMPT.md` and `docs/HANDOFF.md`.
 
 ## Names that differ
 
-Already the 95G name: 928 labels. Leave them.
-
-Rename, the masked body matches and nothing else owns the 95G name:
-
-| 96 address | 96 name | 95G name | File |
-|---|---|---|---|
-| `$0168B8` | getGoalieSCnum | FindGoalie | control96 |
-| `$1D8180` | ClearShootout | ShootoutInit | shootout96_path |
-| `$1E6B04` | LetterGrid | CreateLetterGrid | records96 |
-
-`getGoalieSCnum` is the 95G routine 95G now calls `FindGoalie` (d0 = the goalie's SCnum). `ClearShootout` is 95G `ShootoutInit`. `LetterGrid` is 95G `CreateLetterGrid`.
+Already the 95G name: 931 labels. Leave them. Three were renamed once the files that hold them existed: `getGoalieSCnum` is `FindGoalie` in control96 (d0 = the goalie's SCnum), `ClearShootout` is `ShootoutInit` in shootout96_path, and `LetterGrid` is `CreateLetterGrid` in records96. `LetterGridPos` is a different routine and keeps its name.
 
 Labels the masked search found inside bytes, where 96 has no name at that address (the 95G name is a global, not a `GatherAndSort.something` local). Confirm the body, then name them. Skip any that land in the middle of a routine that already has a name.
 

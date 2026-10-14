@@ -312,7 +312,7 @@ getBAplayerInfo	;Keep the breakaway shooter, team, goalie and checker for the pe
 	move.w	#1,d2
 .findgoalie
 	move.w	d1,d0
-	jsr	(getGoalieSCnum).l
+	jsr	(FindGoalie).l
 	tst.w	d0
 	bpl.w	.goaliein
 	movem.w	(sp)+,d0	;no goalie

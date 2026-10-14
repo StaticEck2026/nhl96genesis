@@ -16,12 +16,12 @@ PrintBigChar = $01BF94		;penalty96
 unk_1C01C = $01C01C		;penalty96
 rtss2 = $01F84A		;collide96
 vb2 = $0202C4		;display96
-SoundCmd = $08839E		;data96_04
-Framermap = $091B86		;data96_05
-RosterFont = $179168		;data96_08
-SmallFontMap = $179A76		;data96_08
-BigFontMap2 = $17AA72		;data96_08
-BigFontMap4 = $17B680		;data96_08
+SoundCmd = $08839E		;sound96
+Framermap = $091B86		;graphics96
+RosterFont = $179168		;graphics96
+SmallFontMap = $179A76		;graphics96
+BigFontMap2 = $17AA72		;graphics96
+BigFontMap4 = $17B680		;graphics96
 
 
 ; Main segment code

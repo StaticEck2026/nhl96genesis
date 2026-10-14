@@ -538,7 +538,7 @@ SetPlayMode	;Set the game flags for the chosen play mode: season (continue or ne
 	move.w	#1,(OptLine).w
 	clr.w	(OptPen).w
 	bset	#0,(gmode2).w
-	jsr	(ClearShootout).l
+	jsr	(ShootoutInit).l
 	bra.w	.5
 .4
 	bsr.w	SetLineOption

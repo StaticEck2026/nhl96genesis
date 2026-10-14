@@ -24,9 +24,9 @@ dobitmap = $01B692		;video96
 DecompressGraphicsPlain = $01B730		;video96
 sub_1FE78 = $01FE78		;players96
 vb2 = $0202C4		;display96
-ReplayIconMap = $140AFE		;data96_06
-unk_1468D6 = $1468D6		;data96_07
-unk_147896 = $147896		;data96_07
+ReplayIconMap = $140AFE		;graphics96
+unk_1468D6 = $1468D6		;graphics96
+unk_147896 = $147896		;graphics96
 
 
 ; Main segment code

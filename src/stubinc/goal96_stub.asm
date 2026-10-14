@@ -30,15 +30,15 @@ printsmallz = $01BA2E		;video96
 printsmall = $01BA40		;video96
 printz = $01BB8E		;video96
 VBlank_SetOptions = $021B52		;setup96_menu
-ControllerBgMap = $173C7A		;data96_07
-RosterFont = $179168		;data96_08
-PadIconMap1 = $1B53C4		;data96_09
-PadIconMap2 = $1B5942		;data96_09
-PadIconMap3 = $1B5EC0		;data96_09
-PadIconMap4 = $1B643E		;data96_09
-PadCursorMap = $1B69BC		;data96_09
-ControllerTitleMap = $1B6F3A		;data96_09
-unk_1B773A = $1B773A		;data96_09
+ControllerBgMap = $173C7A		;graphics96
+RosterFont = $179168		;graphics96
+PadIconMap1 = $1B53C4		;graphics96
+PadIconMap2 = $1B5942		;graphics96
+PadIconMap3 = $1B5EC0		;graphics96
+PadIconMap4 = $1B643E		;graphics96
+PadCursorMap = $1B69BC		;graphics96
+ControllerTitleMap = $1B6F3A		;graphics96
+unk_1B773A = $1B773A		;graphics96
 
 ; Main segment code
 	include	engine\goal96.asm

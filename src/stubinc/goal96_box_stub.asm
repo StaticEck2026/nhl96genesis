@@ -14,7 +14,7 @@
 ; External addresses outside, read from lst/nhl96.bin.
 printz = $01BB8E		;video96
 rtss2 = $01F84A		;collide96
-song = $088586		;data96_04
+song = $088586		;sound96
 Penaltylist = $00E818		;logic96
 lcfound2 = $00EEC4		;lines96
 eraser = $01B976		;video96

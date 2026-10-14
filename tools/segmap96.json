@@ -390,66 +390,18 @@
    "name": "sound96",
    "kind": "code",
    "start": 148614,
-   "end": 160455
+   "end": 559113
   },
   {
-   "name": "data96_02",
+   "name": "scout96",
    "kind": "data",
-   "start": 160456,
-   "end": 278815
-  },
-  {
-   "name": "data96_03",
-   "kind": "data",
-   "start": 278816,
-   "end": 500745
-  },
-  {
-   "name": "data96_04",
-   "kind": "data",
-   "start": 500746,
-   "end": 559075
-  },
-  {
-   "name": "code96_13",
-   "kind": "code",
-   "start": 559076,
+   "start": 559114,
    "end": 586437
   },
   {
-   "name": "data96_05",
+   "name": "graphics96",
    "kind": "data",
    "start": 586438,
-   "end": 1179699
-  },
-  {
-   "name": "data96_06",
-   "kind": "data",
-   "start": 1179700,
-   "end": 1313541
-  },
-  {
-   "name": "data96_07",
-   "kind": "data",
-   "start": 1313542,
-   "end": 1544551
-  },
-  {
-   "name": "data96_08",
-   "kind": "data",
-   "start": 1544552,
-   "end": 1678307
-  },
-  {
-   "name": "data96_09",
-   "kind": "data",
-   "start": 1678308,
-   "end": 1826011
-  },
-  {
-   "name": "data96_10",
-   "kind": "data",
-   "start": 1826012,
    "end": 1926689
   },
   {

@@ -92,6 +92,7 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 8d. `front/season96.asm` — done as a rename of code96_05, not a split. The routines stay `sub_` until the bodies are read.
 8e. `src/schedule96.asm` — done. The `SeasonSchedule` table only. The team graphics pointers stay in data96_01. The rest of that file is `src/data96_01b.asm` until it splits into hockey, pause and setup.
 8f. `front/awards96.asm` — done. `nullsub_3` through `BuildPOSlots`. `nullsub_3` is the rts in front of `ResolveDayGames`.
+8g. `src/hockey96.asm` — done. `Begin` through `clockcont`. The menu list printers stay in data96_01b. The demo, the pause menu and the roster columns are `src/data96_01c.asm`.
 9. Continue down the table above. Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ

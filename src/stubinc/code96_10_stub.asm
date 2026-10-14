@@ -14,7 +14,7 @@
 ; External addresses outside, read from lst/nhl96.bin.
 GetRosterName = $0101E6		;trade96
 GetJerseyNumber = $0102B8		;trade96
-GetPeriodTime = $0148A2		;data96_01b
+GetPeriodTime = $0148A2		;hockey96
 GetPlayerCount = $0157F4		;code96_06
 LockScroll = $016786		;code96_06
 setc1player = $016C52		;code96_06

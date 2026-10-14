@@ -126,6 +126,18 @@
    "name": "data96_01b",
    "kind": "code",
    "start": 82942,
+   "end": 83531
+  },
+  {
+   "name": "hockey96",
+   "kind": "code",
+   "start": 83532,
+   "end": 85191
+  },
+  {
+   "name": "data96_01c",
+   "kind": "code",
+   "start": 85192,
    "end": 87923
   },
   {

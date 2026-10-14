@@ -12,8 +12,8 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-vtoa = $01A3EE		;code96_08
-SetSPA = $01A614		;code96_08
+vtoa = $01A3EE		;logic96_vec
+SetSPA = $01A614		;skate96
 PushRef = $01C978		;code96_09
 rtss2 = $01F84A		;code96_10
 SPA0074 = $74		;SPA value (frames96)

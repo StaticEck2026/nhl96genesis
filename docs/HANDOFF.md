@@ -348,4 +348,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/logic96_puck.asm` is the puck assignments (AdjustFacingDirection through assshoot, $017C06-$019017).
   `front/shootout96.asm` is the penalty shot and the shootout (puckshootout through EndPenaltyShotPlay, $019018-$019781).
   `engine/logic96_pull.asm` is the goalie pull and the puck checks (ChkGoalies through puckunflip, $019782-$019F3D). code96_07b is gone.
-  Next: `engine/logic96_vec.asm`, `engine/skate96.asm` and `engine/video96.asm` from code96_08. Unsure list is in the plan.
+  `engine/logic96_vec.asm` is the puck flip and the hot spots (puckflip through the GetHot variants, $019F3E-$01A613).
+  `engine/skate96.asm` is the skating (SetSPA through WeightedRandomSelect, $01A614-$01AEFF).
+  `engine/video96.asm` is the screen and the print routines (remap through printbigtext, $01AF00-$01BF93). code96_08 is gone.
+  Next: `engine/penalty96.asm`, `engine/lines96_bar.asm` and `src/hockey96` intermission from code96_09, then one `engine/collide96.asm` across the code96_10 boundary. Unsure list is in the plan.

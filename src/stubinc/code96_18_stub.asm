@@ -13,12 +13,12 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 DrawFaceoffWindow = $00A2A0		;faceoff96
-forceblack = $01AF52		;code96_08
-DoFill = $01B52E		;code96_08
-setVram_0 = $01B594		;code96_08
-dobitmap = $01B692		;code96_08
-DecompressGraphicsPlain = $01B730		;code96_08
-printz = $01BB8E		;code96_08
+forceblack = $01AF52		;video96
+DoFill = $01B52E		;video96
+setVram_0 = $01B594		;video96
+dobitmap = $01B692		;video96
+DecompressGraphicsPlain = $01B730		;video96
+printz = $01BB8E		;video96
 sub_1C184 = $01C184		;code96_09
 nullsub_4 = $01D062		;code96_09
 VBlank = $0201DC		;code96_11

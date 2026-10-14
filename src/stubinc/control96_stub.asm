@@ -15,8 +15,8 @@
 ; External addresses outside, read from lst/nhl96.bin.
 SPAlist = $005F96		;frames96
 updatepadinput = $00A4DC		;input96
-SetSPA = $01A614		;code96_08
-dirtab = $01AE60		;code96_08
+SetSPA = $01A614		;skate96
+dirtab = $01AE60		;skate96
 loadTeamStruct = $01D328		;code96_09
 getpde = $01FB24		;code96_10
 setpde = $01FB44		;code96_10

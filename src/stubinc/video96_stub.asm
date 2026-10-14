@@ -1,8 +1,8 @@
-;	Segment build for code96_08.asm: sets its origin and the outside routines and data it uses,
-;	then includes code96_08.asm on its own for checking against the ROM.
+;	Segment build for engine\video96.asm: sets its origin and the outside routines and data it uses,
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
-	org	$019F3E
+	org	$01AF00
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -12,23 +12,17 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-AdjustFacingDirection = $017C06		;logic96_puck
 PrintBigChar = $01BF94		;code96_09
 unk_1C01C = $01C01C		;code96_09
 rtss2 = $01F84A		;code96_10
-getpde = $01FB24		;code96_10
-setpde = $01FB44		;code96_10
 vb2 = $0202C4		;code96_11
-GoalieInCrease = $02441E		;data96_02
 SoundCmd = $08839E		;data96_04
 Framermap = $091B86		;data96_05
-HotList = $13938E		;data96_06
 RosterFont = $179168		;data96_08
 SmallFontMap = $179A76		;data96_08
 BigFontMap2 = $17AA72		;data96_08
 BigFontMap4 = $17B680		;data96_08
-stopfast = $1D6E0E		;code96_14
 
 
 ; Main segment code
-	include	code96_08.asm
+	include	engine\video96.asm

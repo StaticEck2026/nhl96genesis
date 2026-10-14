@@ -12,10 +12,10 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-ReadJoy1 = $01B348		;code96_08
-ReadJoy2 = $01B360		;code96_08
-ReadJoy3 = $01B378		;code96_08
-ReadJoy4 = $01B390		;code96_08
+ReadJoy1 = $01B348		;video96
+ReadJoy2 = $01B360		;video96
+ReadJoy3 = $01B378		;video96
+ReadJoy4 = $01B390		;video96
 
 
 ; Main segment code

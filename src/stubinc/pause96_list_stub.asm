@@ -12,7 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-printsmall = $01BA40		;code96_08
+printsmall = $01BA40		;video96
 
 
 ; Main segment code

@@ -52,7 +52,7 @@ there is no single engine list to include once. Folders still match: `engine/`,
 | data96_01 | `$012BFE-$015773` | awards95, setup95, hockey95, pause95, schedule95 (`SeasonSchedule`), crowd, injury | Split into `src/schedule96.asm` (the schedule table only), `front/awards96.asm` (seeding), `src/hockey96.asm` (Begin through the frame loop), `engine/pause96.asm`, `engine/setup96.asm` (attribute columns and the roster helpers). Pointer tables at the top stay with the first of these. |
 | code96_06 | `$015774-$017C05` | replay95, control95, logic95 (more `asstab` entries), players95 | Split into `engine/replay96.asm`, `src/control96.asm`, and `engine/logic96_ass.asm` for the assignment entries. The two count helpers at the top stay with control (they are called from the replay / bench path). |
 | code96_07 | `$017C06-$019F3D` | logic95, shootout95, penalty95, lines95 | The logic run joins the logic story as `engine/logic96_puck.asm`. Shootout and penalty runs become `front/shootout96.asm` and `engine/penalty96.asm` only where the run is more than a guest; a single routine stays in the host. |
-| code96_08 | `$019F3E-$01BF93` | video95, middle95, skate95, logic95 (a few assignment tails) | Split into `engine/skate96.asm`, `engine/video96.asm`, `engine/middle96.asm`. The short logic tail at the top stays in skate or moves to `logic96_puck` if it sits before `vtoa` with no fall-through. |
+| code96_08 | `$019F3E-$01BF93` | video95, middle95, skate95, logic95 (a few assignment tails) | Done. `engine/logic96_vec.asm` (puckflip through the GetHot variants), `engine/skate96.asm` (SetSPA through WeightedRandomSelect), `engine/video96.asm` (remap through printbigtext). Print stays with video. `middle96` is the name formatters in code96_12. |
 | code96_09 | `$01BF94-$01E10F` | penalty95, middle95 (big print), lines95, collide95, faceoff95, shootout95 | `engine/penalty96.asm`, `engine/lines96` already started so this run is `engine/lines96_bar.asm`, `engine/collide96.asm`. Big-print stays a guest of penalty or becomes the next piece of `middle96`. |
 | code96_10 | `$01E110-$0201C5` | collide95, players95, middle95 (energy) | Extend `collide96` with the wall and goal code. `engine/players96.asm` for `setpersonel` through `setplayer`. |
 | code96_11 | `$0201C6-$0221D3` | video95 (vblank), display95, crowd95, control95, hockey95, setup95 | `src/display96.asm`, more of `hockey96` (`Opening`), `engine/setup96_menu.asm`. Vblank stays with display (95G puts VBlank in video, but 96G's vblank sits with the sprite code; keep it in display and record that). |
@@ -101,7 +101,8 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 9c. `engine/logic96_puck.asm` — done. AdjustFacingDirection through assshoot ($017C06-$019017). checkob stays in that run. The penalty shot and the shootout start the remainder, `src/code96_07b.asm`.
 9d. `front/shootout96.asm` and `engine/logic96_pull.asm` — done. puckshootout through EndPenaltyShotPlay, then ChkGoalies through puckunflip. code96_07b is gone. CompLine, ChkOffsides and puckIChk stay in the goalie-pull file.
 10. Renames of files that were already one subsystem: `engine/lines96_set.asm` (code96_04), `engine/players96_count.asm` (code96_06), `src/teamgfx96.asm` (data96_01), `engine/pause96_list.asm` (data96_01b).
-9. Continue down the table above. Next is code96_08: `engine/skate96.asm`, `engine/video96.asm` and `engine/middle96.asm`. Do not start graphics or the sound bank until the extraction step.
+11. code96_08 split — done. `engine/logic96_vec.asm` ($019F3E-$01A613), `engine/skate96.asm` ($01A614-$01AEFF), `engine/video96.asm` ($01AF00-$01BF93).
+9. Continue down the table above. Next is code96_09: `engine/penalty96.asm` (AddPenalty through the power-play box, big-print included), `engine/lines96_bar.asm`, then Intermission through SetScore. Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ
 
@@ -143,7 +144,7 @@ RAM: 294 names are shared with `src/ram95.asm`. 286 of those sit at a different 
 
 | 96 name | Why it stays |
 |---|---|
-| stopfast | Same shape as 95G `stopna2` with step `$7D0`. 96G already has `stopna2` in code96_08. Clash rule. |
+| stopfast | Same shape as 95G `stopna2` with step `$7D0`. 96G already has `stopna2` in skate96. Clash rule. |
 | StandingsPoints | Same shape as `CalcSeedPoints`. 96G already has `CalcSeedPoints` in data96_01. |
 | PrintCurLetter | 95G `PrintGridLetter` is already the create-player label in data96_11. This one is name entry. |
 | DoFrameUpdates | The first words match `CheckNewCarrier`; the routine then does the crowd, the clock and the one-second work. |

@@ -41,7 +41,9 @@
 	include	engine\logic96_puck.asm	; $017C06  puck assignments
 	include	front\shootout96.asm	; $019018  penalty shot and shootout
 	include	engine\logic96_pull.asm	; $019782  goalie pull
-	include	code96_08.asm		; $019F3E  code
+	include	engine\logic96_vec.asm	; $019F3E  puck vectors
+	include	engine\skate96.asm	; $01A614  skating
+	include	engine\video96.asm	; $01AF00  screen and print
 	include	code96_09.asm		; $01BF94  code
 	include	code96_10.asm		; $01E110  code
 	include	code96_11.asm		; $0201C6  code

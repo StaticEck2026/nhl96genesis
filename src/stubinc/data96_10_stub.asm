@@ -11,9 +11,9 @@
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
 
 ; External addresses outside, read from lst/nhl96.bin.
-puckflip = $019F3E		;code96_08
-randomd0 = $01B0A6		;code96_08
-sroot = $01B0DE		;code96_08
+puckflip = $019F3E		;logic96_vec
+randomd0 = $01B0A6		;video96
+sroot = $01B0DE		;video96
 
 ; Main segment code
 	include	data96_10.asm

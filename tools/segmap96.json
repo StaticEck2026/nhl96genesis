@@ -195,9 +195,21 @@
    "end": 106301
   },
   {
-   "name": "code96_08",
+   "name": "logic96_vec",
    "kind": "code",
    "start": 106302,
+   "end": 108051
+  },
+  {
+   "name": "skate96",
+   "kind": "code",
+   "start": 108052,
+   "end": 110335
+  },
+  {
+   "name": "video96",
+   "kind": "code",
+   "start": 110336,
    "end": 114579
   },
   {

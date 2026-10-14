@@ -12,11 +12,11 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-assinsert = $01A3D0		;code96_08
-SetSPA = $01A614		;code96_08
-playeracc = $01AB56		;code96_08
-eraser = $01B976		;code96_08
-printz = $01BB8E		;code96_08
+assinsert = $01A3D0		;logic96_vec
+SetSPA = $01A614		;skate96
+playeracc = $01AB56		;skate96
+eraser = $01B976		;video96
+printz = $01BB8E		;video96
 AddPenalty2 = $01C1D2		;code96_09
 setd0player = $01F662		;code96_10
 SPA3128 = $3128		;SPA value (frames96)

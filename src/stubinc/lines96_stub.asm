@@ -14,11 +14,11 @@
 ; External addresses outside, read from lst/nhl96.bin.
 rtss7 = $00A3DA		;faceoff96
 loadTeamStruct = $01D328		;code96_09
-doplayeracc = $01A62A		;code96_08
-eraser = $01B976		;code96_08
-Framer = $01B9B0		;code96_08
-printz = $01BB8E		;code96_08
-print = $01BBA0		;code96_08
+doplayeracc = $01A62A		;skate96
+eraser = $01B976		;video96
+Framer = $01B9B0		;video96
+printz = $01BB8E		;video96
+print = $01BBA0		;video96
 sub_1CFE4 = $01CFE4		;code96_09
 nullsub_4 = $01D062		;code96_09
 linebar = $01D14E		;code96_09

@@ -97,7 +97,8 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 8i. `engine/setup96.asm` — done. `GetNameandAttrib` through `WeightTbl`.
 8j. `engine/pause96_menu.asm` — done. `PlayoffStatsMenu`, `TimeoutMenu` and `SelectGoalieMenu`. data96_01b still holds `PrintMenuList` and `PrintMenuList2`, which sit before `Begin`.
 9a. `engine/replay96.asm` — done. `ReplayMode` through `rtss8` ($01581C-$0162EF). `ReadMenuJoy` sits in that run. The count helpers and `WaitVSyncAndReadInput` stay in code96_06, ahead of the replay. The rest of the old file is `src/code96_06b.asm`.
-9. Continue down the table above. Next from code96_06b: `src/control96.asm` (updateplayers through setpads) and `engine/logic96_ass.asm` (check4bench through the assignment entries). Do not start graphics or the sound bank until the extraction step.
+9b. `src/control96.asm` and `engine/logic96_ass.asm` — done. updateplayers through setpads, then check4bench through the assignment entries. code96_06b is gone. The count helpers stay in code96_06 because the replay sits between them and the pad switches.
+9. Continue down the table above. Next is code96_07: `engine/logic96_puck.asm` for the logic run, then shootout and penalty only where the run is more than a guest. Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ
 

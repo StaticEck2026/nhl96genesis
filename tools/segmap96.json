@@ -165,9 +165,15 @@
    "end": 90863
   },
   {
-   "name": "code96_06b",
+   "name": "control96",
    "kind": "code",
    "start": 90864,
+   "end": 93613
+  },
+  {
+   "name": "logic96_ass",
+   "kind": "code",
+   "start": 93614,
    "end": 97285
   },
   {

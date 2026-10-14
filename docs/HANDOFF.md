@@ -343,5 +343,6 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   data96_01 is the team graphics pointers. data96_01b is the menu list printers (PrintMenuList, PrintMenuList2).
   `engine/replay96.asm` is the instant replay (ReplayMode through rtss8, $01581C-$0162EF). ReadMenuJoy stays in that file.
   code96_06 is the team counts and WaitVSyncAndReadInput ($015774-$01581B).
-  code96_06b is the player frame update and the assignment entries ($0162F0-$017C05).
-  Next: `src/control96.asm` from code96_06b (updateplayers through setpads). The assignment entries are `engine/logic96_ass.asm`. Unsure list is in the plan.
+  `src/control96.asm` is the player frame update and the pad switches (updateplayers through setpads, $0162F0-$016DAD).
+  `engine/logic96_ass.asm` is the assignment entries (check4bench through assgoaliecpu, $016DAE-$017C05). code96_06b is gone.
+  Next: `engine/logic96_puck.asm` from code96_07. Unsure list is in the plan.

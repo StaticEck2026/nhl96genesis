@@ -13,8 +13,8 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 rtss7 = $00A3DA		;faceoff96
-getGoalieSCnum = $0168B8		;code96_06b
-sub_16D36 = $016D36		;code96_06b
+getGoalieSCnum = $0168B8		;control96
+sub_16D36 = $016D36		;control96
 assinsert = $01A3D0		;code96_08
 vtoa = $01A3EE		;code96_08
 GetHot = $01A458		;code96_08

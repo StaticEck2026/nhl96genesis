@@ -1,4 +1,4 @@
-;	Segment build for code96_06b.asm: sets its origin and the outside routines and data it uses,
+;	Segment build for control96.asm: sets its origin and the outside routines and data it uses,
 ;	then includes the file on its own for checking against the ROM.
 
 ; region code
@@ -10,6 +10,7 @@
 	include	ram96.asm		;RAM map
 	include	externs96.asm		;outside addresses still in incbin segments. Equates only
 	include	macros\genesis.mac	;String
+
 
 ; External addresses outside, read from lst/nhl96.bin.
 SPAlist = $005F96		;frames96
@@ -44,4 +45,4 @@ SPAhook = $1792		;SPA value (frames96)
 
 
 ; Main segment code
-	include	code96_06b.asm
+	include	control96.asm

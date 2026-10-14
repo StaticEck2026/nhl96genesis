@@ -36,7 +36,8 @@
 	include	engine\pause96_menu.asm	; $015490  pause-menu entries
 	include	code96_06.asm		; $015774  team counts
 	include	engine\replay96.asm	; $01581C  instant replay
-	include	code96_06b.asm		; $0162F0  player frame update
+	include	control96.asm		; $0162F0  player frame update
+	include	engine\logic96_ass.asm	; $016DAE  assignment entries
 	include	code96_07.asm		; $017C06  code
 	include	code96_08.asm		; $019F3E  code
 	include	code96_09.asm		; $01BF94  code

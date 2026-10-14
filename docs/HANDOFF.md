@@ -346,5 +346,6 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `src/control96.asm` is the player frame update and the pad switches (updateplayers through setpads, $0162F0-$016DAD).
   `engine/logic96_ass.asm` is the assignment entries (check4bench through assgoaliecpu, $016DAE-$017C05). code96_06b is gone.
   `engine/logic96_puck.asm` is the puck assignments (AdjustFacingDirection through assshoot, $017C06-$019017).
-  code96_07b is the penalty shot, the shootout and the goalie pull ($019018-$019F3D).
-  Next: `front/shootout96.asm` from code96_07b (puckshootout through EndPenaltyShotPlay). Unsure list is in the plan.
+  `front/shootout96.asm` is the penalty shot and the shootout (puckshootout through EndPenaltyShotPlay, $019018-$019781).
+  `engine/logic96_pull.asm` is the goalie pull and the puck checks (ChkGoalies through puckunflip, $019782-$019F3D). code96_07b is gone.
+  Next: `engine/skate96.asm` from code96_08. Unsure list is in the plan.

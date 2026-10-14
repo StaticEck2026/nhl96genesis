@@ -183,9 +183,15 @@
    "end": 102423
   },
   {
-   "name": "code96_07b",
+   "name": "shootout96",
    "kind": "code",
    "start": 102424,
+   "end": 104321
+  },
+  {
+   "name": "logic96_pull",
+   "kind": "code",
+   "start": 104322,
    "end": 106301
   },
   {

@@ -99,7 +99,8 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 9a. `engine/replay96.asm` — done. `ReplayMode` through `rtss8` ($01581C-$0162EF). `ReadMenuJoy` sits in that run. The count helpers and `WaitVSyncAndReadInput` stay in code96_06, ahead of the replay. The rest of the old file is `src/code96_06b.asm`.
 9b. `src/control96.asm` and `engine/logic96_ass.asm` — done. updateplayers through setpads, then check4bench through the assignment entries. code96_06b is gone. The count helpers stay in code96_06 because the replay sits between them and the pad switches.
 9c. `engine/logic96_puck.asm` — done. AdjustFacingDirection through assshoot ($017C06-$019017). checkob stays in that run. The penalty shot and the shootout start the remainder, `src/code96_07b.asm`.
-9. Continue down the table above. Next from code96_07b: `front/shootout96.asm` (puckshootout through EndPenaltyShotPlay). The goalie pull after it stays with the logic story. Do not start graphics or the sound bank until the extraction step.
+9d. `front/shootout96.asm` and `engine/logic96_pull.asm` — done. puckshootout through EndPenaltyShotPlay, then ChkGoalies through puckunflip. code96_07b is gone. CompLine, ChkOffsides and puckIChk stay in the goalie-pull file.
+9. Continue down the table above. Next is code96_08: `engine/skate96.asm`, `engine/video96.asm` and `engine/middle96.asm`. Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ
 

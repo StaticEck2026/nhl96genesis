@@ -1,8 +1,8 @@
-;	Segment build for code96_07b.asm: sets its origin and the outside routines and data it uses,
+;	Segment build for engine\logic96_pull.asm: sets its origin and the outside routines and data it uses,
 ;	then includes the file on its own for checking against the ROM.
 
 ; region code
-	org	$019018
+	org	$019782
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -12,11 +12,9 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-LockScroll = $016786		;control96
 rtss2 = $01F84A		;code96_10
 setpersonel = $01FB52		;code96_10
-CountShootoutGoals = $1D8208		;code96_14
 
 
 ; Main segment code
-	include	code96_07b.asm
+	include	engine\logic96_pull.asm

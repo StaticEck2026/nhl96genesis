@@ -39,7 +39,8 @@
 	include	control96.asm		; $0162F0  player frame update
 	include	engine\logic96_ass.asm	; $016DAE  assignment entries
 	include	engine\logic96_puck.asm	; $017C06  puck assignments
-	include	code96_07b.asm		; $019018  shootout and goalie pull
+	include	front\shootout96.asm	; $019018  penalty shot and shootout
+	include	engine\logic96_pull.asm	; $019782  goalie pull
 	include	code96_08.asm		; $019F3E  code
 	include	code96_09.asm		; $01BF94  code
 	include	code96_10.asm		; $01E110  code

@@ -12,7 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-MakeSRAMChecksum = $0241AA		;data96_02
+MakeSRAMChecksum = $0241AA		;sram96
 WriteSRAMBits = $0096E8		;srambits96
 ReadSRAMBits = $00975A		;srambits96
 randomd0 = $01B0A6		;video96

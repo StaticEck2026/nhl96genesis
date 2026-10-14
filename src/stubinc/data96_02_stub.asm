@@ -1,8 +1,8 @@
 ;	Segment build for data96_02.asm: sets its origin and the outside routines and data it uses,
-;	then includes data96_02.asm on its own for checking against the ROM.
+;	then includes the file on its own for checking against the ROM.
 
 ; region code
-	org	$023248
+	org	$0272C8
 
 ; includes for stubs to replace removed code
 	include	stubinc\ports.inc	;IO_* / VDP_* ports
@@ -12,40 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-Start = $000200		;main96
-WriteSRAMBits = $0096E8		;srambits96
-asstab = $00C548		;logic96
-NullSaveClear = $00EF00		;lines96_set
-DefaultRosters = $0100C0		;trade96
-sub_1147E = $01147E		;season96
-vcountwait = $0151E0		;pause96
-PlayoffStatsMenu = $015490		;pause96_menu
-TimeoutMenu = $015570		;pause96_menu
-SelectGoalieMenu = $015604		;pause96_menu
-ReplayMode = $01581C		;replay96
-ReadJoy1 = $01B348		;video96
-DecompressGraphicsWithCallback = $01B724		;video96
-DecompressGraphicsPlain = $01B730		;video96
-loadTeamStruct = $01D328		;lines96_bar
-rtss2 = $01F84A		;collide96
-SetOriginalLines = $02154E		;control96_team
-AbortGame = $021A2E		;hockey96_open
-SmallFontMap = $179A76		;data96_08
-BigFontMap = $1B89C8		;data96_09
-BigFontMap3 = $1B9416		;data96_09
-ManualGoalieMenu = $1D86A4		;shootout96_path
-ClearCreatedPlayers = $1DFA34		;create96
-LineEditor = $1E1B18		;stats96
-LoadTeamLine = $1E2310		;stats96
-SaveTeamLine = $1E239E		;stats96
-TeamRosterScreen = $1E2EFC		;summary96
-ScoringSummaryScreen = $1E352A		;summary96
-PenaltySummaryScreen = $1E38E6		;summary96
-PeriodStatsScreen = $1E3C7C		;summary96
-GameStatisticsScreen = $1E3FDE		;summary96
-ShootoutShooters = $1E4582		;summary96
-RecordHoldersScreen = $1E4DCC		;summary96
-PlayerStatsScreen = $1E55BA		;stats96_list
+
 
 ; Main segment code
 	include	data96_02.asm

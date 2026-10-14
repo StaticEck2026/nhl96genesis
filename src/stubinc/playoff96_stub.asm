@@ -16,13 +16,13 @@ ReadSRAMBits = $00975A		;srambits96
 BeginPlayoffs = $014026		;awards96
 randomd0 = $01B0A6		;video96
 rtss2 = $01F84A		;collide96
-MakeSRAMChecksum = $0241AA		;data96_02
-ReadSRAM = $0241E8		;data96_02
-ClearSRAMBytes = $024208		;data96_02
+MakeSRAMChecksum = $0241AA		;sram96
+ReadSRAM = $0241E8		;sram96
+ClearSRAMBytes = $024208		;sram96
 sub_10F02 = $010F02		;season96
 sub_10F22 = $010F22		;season96
 GetGoalieCountD7 = $015774		;players96_count
-WriteSRAM = $024188		;data96_02
+WriteSRAM = $024188		;sram96
 
 
 ; Main segment code

@@ -12,9 +12,9 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-PAttribOverallMask = $023456		;data96_02
-GAttribOverallMask = $0235B8		;data96_02
-ClearSRAMBytes = $024208		;data96_02
+PAttribOverallMask = $023456		;setup96_attr
+GAttribOverallMask = $0235B8		;setup96_attr
+ClearSRAMBytes = $024208		;sram96
 
 
 ; Main segment code

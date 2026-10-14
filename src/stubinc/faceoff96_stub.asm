@@ -21,7 +21,7 @@ printsmallz = $01BA2E		;video96
 printz = $01BB8E		;video96
 print = $01BBA0		;video96
 SkipStrings = $01D7F2		;hockey96_inter
-linelist = $023342		;data96_02
+linelist = $023342		;lines96_list
 FaceOffMap = $091D46		;data96_05
 
 

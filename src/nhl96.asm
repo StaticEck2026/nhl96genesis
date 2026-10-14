@@ -57,7 +57,24 @@
 	include	engine\goal96_box.asm	; $022820  goal box
 	include	engine\middle96.asm	; $022E70  player names
 	include	crash96.asm		; $023144  exceptions
-	include	data96_02.asm		; $023248  data
+	include	display96_crowd.asm	; $023248  crowd frames
+	include	engine\middle96_ascii.asm	; $0232C8  big font chars
+	include	engine\lines96_list.asm	; $023342  line names
+	include	engine\setup96_pos.asm	; $023370  position names
+	include	engine\middle96_per.asm	; $023384  period names
+	include	engine\video96_size.asm	; $0233AC  sprite sizes
+	include	engine\players96_sub.asm	; $0233BC  line slots
+	include	engine\setup96_attr.asm	; $02342E  attribute columns
+	include	engine\pause96_items.asm	; $0236B0  pause menus
+	include	engine\lines96_menu.asm	; $023E54  line menus
+	include	sram96.asm	; $023F1C  save RAM
+	include	engine\video96_pad.asm	; $024226  pads
+	include	engine\logic96_do.asm	; $024380  assignment
+	include	engine\video96_font.asm	; $0243A0  fonts
+	include	engine\logic96_crease.asm	; $02441E  crease
+	include	engine\pause96_play.asm	; $02447E  resume game
+	include	sound96.asm	; $024486  sound driver
+	include	data96_02.asm	; $0272C8  sound bank
 	include	data96_03.asm		; $044120  data
 	include	data96_04.asm		; $07A40A  data
 	include	code96_13.asm		; $0887E4  code

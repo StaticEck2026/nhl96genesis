@@ -383,4 +383,22 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `front/injury96.asm` is the season injuries (RandomInjuryGames through GetInjuryGames, $1E8794-$1E889B).
   `front/title96.asm` is the opening screens, new in 96 (sub_1E889C through sub_1E8F52, $1E889C-$1E9027).
   `src/checksum96.asm` is the ROM checksum (ChecksumLongs through ValidationRoutine, $1E9028-$1E90D1). data96_11, data96_12, code96_17, code96_18, code96_19 and code96_20 are gone.
-  Next: data96_02. Tables go into the subsystem that owns them, at this ROM address. Then `src/sram96.asm` and the sound driver as `src/sound96.asm`. The sample bank stays numbered until extraction. After that, `engine/logic96_timer.asm` from the data96_10 tail. Unsure list is in the plan.
+  `src/display96_crowd.asm` is the crowd frames (CrowdFrameTbl, $023248-$0232C7).
+  `engine/middle96_ascii.asm` is the big-font ASCII table (bfasciicon, $0232C8-$023341).
+  `engine/lines96_list.asm` is the line names (linelist, $023342-$02336F).
+  `engine/setup96_pos.asm` is the position names (PlayerPositionText, $023370-$023383).
+  `engine/middle96_per.asm` is the period names (PerLabels and PerLabels2, $023384-$0233AB).
+  `engine/video96_size.asm` is the sprite size table (sizetab, $0233AC-$0233BB).
+  `engine/players96_sub.asm` is the line-slot lists (sublist and priolist, $0233BC-$02342D).
+  `engine/setup96_attr.asm` is the attribute columns (PAttribColumns through GAttribOverallMask, $02342E-$0236AF).
+  `engine/pause96_items.asm` is the pause, pregame, intermission and game-over menus ($0236B0-$023E53).
+  `engine/lines96_menu.asm` is the line editor exit menus (LineMenu1 and LineMenu2, $023E54-$023F1B).
+  `src/sram96.asm` is the save RAM (InitSaveRAM through ClearSRAMBytes, $023F1C-$024225).
+  `engine/video96_pad.asm` is the pads (ReadJoyData through ResetZ80Bus, $024226-$02437F).
+  `engine/logic96_do.asm` is the assignment dispatcher (doassignment, $024380-$02439F).
+  `engine/video96_font.asm` is the font loaders (LoadSmallFont through sub_243DA, $0243A0-$02441D).
+  `engine/logic96_crease.asm` is the crease test (GoalieInCrease, $02441E-$02447D).
+  `engine/pause96_play.asm` is the resume-game item (PlayGame, $02447E-$024485).
+  `src/sound96.asm` is the sound driver, the Z80 program and the bank directory (p_music_vblank through SoundBanks, $024486-$0272C7).
+  `src/data96_02.asm` is now only the sound bank bytes ($0272C8-$04411F). data96_03 and data96_04 stay the rest of the bank until extraction.
+  Next: `engine/logic96_timer.asm` from the data96_10 tail (puckvzadj through setonetimeranim). The graphics in data96_10 stay numbered until extraction. Unsure list is in the plan.

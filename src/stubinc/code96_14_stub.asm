@@ -18,11 +18,11 @@ GetPlayerCount = $0157F4		;players96_count
 randomd0s = $01B09A		;video96
 sroot = $01B0DE		;video96
 wallcollb = $01EDAE		;collide96
-PAttribOverallMask = $023456		;data96_02
-GAttribOverallMask = $0235B8		;data96_02
-WriteSRAM = $024188		;data96_02
-MakeSRAMChecksum = $0241AA		;data96_02
-ReadSRAM = $0241E8		;data96_02
+PAttribOverallMask = $023456		;setup96_attr
+GAttribOverallMask = $0235B8		;setup96_attr
+WriteSRAM = $024188		;sram96
+MakeSRAMChecksum = $0241AA		;sram96
+ReadSRAM = $0241E8		;sram96
 MinOverallRating = $1DF9C2		;create96
 
 

@@ -13,9 +13,9 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 printz = $01BB8E		;video96
-WriteSRAM = $024188		;data96_02
-MakeSRAMChecksum = $0241AA		;data96_02
-ReadSRAM = $0241E8		;data96_02
+WriteSRAM = $024188		;sram96
+MakeSRAMChecksum = $0241AA		;sram96
+ReadSRAM = $0241E8		;sram96
 sub_1218A = $01218A		;season96
 sub_12640 = $012640		;season96
 dobitmap = $01B692		;video96

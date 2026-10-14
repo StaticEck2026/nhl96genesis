@@ -25,7 +25,7 @@ linebar = $01D14E		;lines96_bar
 SkipStrings = $01D7F2		;hockey96_inter
 setpersonel = $01FB52		;players96
 box = $022E58		;goal96_box
-linelist = $023342		;data96_02
+linelist = $023342		;lines96_list
 ClearBigScore = $1E7A78		;middle96_clock
 rtss = $00F8D0		;input96_shot
 

@@ -14,8 +14,8 @@
 ; External addresses outside, read from lst/nhl96.bin.
 printz = $01BB8E		;video96
 PushNumberWidth = $01BE1C		;video96
-WriteSRAM = $024188		;data96_02
-MakeSRAMChecksum = $0241AA		;data96_02
+WriteSRAM = $024188		;sram96
+MakeSRAMChecksum = $0241AA		;sram96
 sub_1218A = $01218A		;season96
 unk_122A4 = $0122A4		;season96
 sub_12640 = $012640		;season96
@@ -53,7 +53,7 @@ SkipStrings = $01D7F2		;hockey96_inter
 maketree = $021CF4		;playoff96
 ReadPassBits = $0221D4		;playoff96
 ReadPassData = $022386		;playoff96
-ClearSRAMBytes = $024208		;data96_02
+ClearSRAMBytes = $024208		;sram96
 unk_170B0C = $170B0C		;data96_07
 ControllerBgMap = $173C7A		;data96_07
 RosterFont = $179168		;data96_08

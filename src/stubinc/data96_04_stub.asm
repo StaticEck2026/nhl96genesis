@@ -12,7 +12,7 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 randomd0 = $01B0A6		;video96
-SndDriver = $024496		;data96_02
+SndDriver = $024496		;sound96
 
 ; Main segment code
 	include	data96_04.asm

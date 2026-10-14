@@ -105,7 +105,24 @@ The first row whose status is incbin is the current segment. Rows are in ROM ord
 | goal96_box | matched, 1616 bytes | $022820 | $022E6F | code | goal95, stats95, injury95, shootout95 | ShowThreeStars, ShowInjuryBox, PenaltyShotBox, ShowGoalBox, box |
 | middle96 | matched, 724 bytes | $022E70 | $023143 | code | middle95 | GetPlayerName, getname, FormatPlayerName, FormatPlayerInitial, FinalizeTextBuffer |
 | crash96 | matched, 260 bytes | $023144 | $023247 | code | main95 | AdrErr, InvOpCode, DivBy0, crash |
-| data96_02 | matched, 134872 bytes | $023248 | $04411F | data | sound95, sram95, setup95, middle95, players95, lines95, video95, logic95, crowd95 | CrowdFrameTbl, bfasciicon, linelist, PlayerPositionText, PerLabels(2), sizetab, sublist, priolist, PAttribColumns, PAttribOverall(Mask), PAttribAggressMask, GAttribColumns, GAttribOverall(Mask), the pause / intermission / line menus (PauseMenu ... LineMenu2), InitSaveRAM, SRAMWaitVblank, ValidateSRAM, ClearSRAM, WriteSRAM, MakeSRAMChecksum, ReadSRAM, ClearSRAMBytes, doassignment, LoadSmallFont, LoadBigFonts, GoalieInCrease, SndDriver, SndJumpTable, Z80Program, SoundBanks (SndItem table); VBcount, ReadJoyData, ReadPad*, PadDirTable, ResetZ80Bus, PlayGame, p_music_vblank, the Snd* driver routines, Z80BusRequest / Release (bytes) |
+| display96_crowd | matched, 128 bytes | $023248 | $0232C7 | data | crowd95 | CrowdFrameTbl |
+| middle96_ascii | matched, 122 bytes | $0232C8 | $023341 | data | middle95 | bfasciicon |
+| lines96_list | matched, 46 bytes | $023342 | $02336F | data | lines95 | linelist |
+| setup96_pos | matched, 20 bytes | $023370 | $023383 | data | setup95 | PlayerPositionText |
+| middle96_per | matched, 40 bytes | $023384 | $0233AB | data | middle95 | PerLabels, PerLabels2 |
+| video96_size | matched, 16 bytes | $0233AC | $0233BB | data | video95 | sizetab |
+| players96_sub | matched, 114 bytes | $0233BC | $02342D | data | players95 | sublist, priolist |
+| setup96_attr | matched, 642 bytes | $02342E | $0236AF | data | setup95 | PAttribColumns, PAttribOverall(Mask), PAttribAggressMask, GAttribColumns, GAttribOverall(Mask) |
+| pause96_items | matched, 1956 bytes | $0236B0 | $023E53 | data | pause95 | ShootoutPauseMenu, PauseMenu, PauseMenuNoTimeout, ShootoutIntermissionMenu, PregameMenu, PlayoffPregameMenu, IntermissionMenu, GameOverMenu, PlayoffGameOverMenu |
+| lines96_menu | matched, 200 bytes | $023E54 | $023F1B | data | lines95 | LineMenu1, LineMenu2 |
+| sram96 | matched, 778 bytes | $023F1C | $024225 | code | sram95 | InitSaveRAM, SRAMWaitVblank, VBcount, ValidateSRAM, ClearSRAM, WriteSRAM, MakeSRAMChecksum, ReadSRAM, ClearSRAMBytes |
+| video96_pad | matched, 346 bytes | $024226 | $02437F | code | video95 | ReadJoyData, ReadPad4Way1-4, ReadPad1, ReadPad2, PadDirTable, ResetZ80Bus |
+| logic96_do | matched, 32 bytes | $024380 | $02439F | code | logic95 | doassignment |
+| video96_font | matched, 126 bytes | $0243A0 | $02441D | code | video95 | LoadSmallFont, LoadBigFonts, sub_243DA |
+| logic96_crease | matched, 96 bytes | $02441E | $02447D | code | logic95 | GoalieInCrease |
+| pause96_play | matched, 8 bytes | $02447E | $024485 | code | pause95 | PlayGame |
+| sound96 | matched, 11842 bytes | $024486 | $0272C7 | code | sound95, video95 | p_music_vblank, SndDriver, SndJumpTable, the Snd* driver routines, Z80BusRequest, Z80BusRelease, Z80Program, SoundBanks (the SndItem directory) |
+| data96_02 | matched, 118360 bytes | $0272C8 | $04411F | data | sound95 | Sound bank 0 item bytes (samples, patches, songs, lists). The directory is in sound96 |
 | data96_03 | matched, 221930 bytes | $044120 | $07A409 | data | sound95 | SoundBanks item data: samples 16 (part) to 94, patches 0-94, song 0 (part); no labels |
 | data96_04 | matched, 58330 bytes | $07A40A | $0887E3 | data | sound95 | SoundBanks item data (song 0 part to list 1); SoundCmd, UpdateCwdExcite, updatesound, CheckLateGameSong, sfx, sfxplay, SfxTable, song, StartSong, stop_current_song, SoundOff, ChooseSong, TeamSongs, RandomSongs; stop_current_song2, KillCrowd2, p_initialZ80, ClearAllTrackAndSFXSlots (bytes) |
 | code96_13 | matched, 27362 bytes | $0887E4 | $08F2C5 | code | sound95, scout95 | newcheck, ScoutTextScript (unreferenced text); unreferenced data after it |

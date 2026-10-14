@@ -15,7 +15,7 @@
 dobitmap = $01B692		;video96
 rtss2 = $01F84A		;collide96
 ResetBench = $01FDF4		;players96
-priolist = $023426		;data96_02
+priolist = $023426		;players96_sub
 EnergyBarMap = $13D290		;data96_06
 
 

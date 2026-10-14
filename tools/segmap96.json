@@ -291,9 +291,111 @@
    "end": 143943
   },
   {
-   "name": "data96_02",
+   "name": "display96_crowd",
    "kind": "data",
    "start": 143944,
+   "end": 144071
+  },
+  {
+   "name": "middle96_ascii",
+   "kind": "data",
+   "start": 144072,
+   "end": 144193
+  },
+  {
+   "name": "lines96_list",
+   "kind": "data",
+   "start": 144194,
+   "end": 144239
+  },
+  {
+   "name": "setup96_pos",
+   "kind": "data",
+   "start": 144240,
+   "end": 144259
+  },
+  {
+   "name": "middle96_per",
+   "kind": "data",
+   "start": 144260,
+   "end": 144299
+  },
+  {
+   "name": "video96_size",
+   "kind": "data",
+   "start": 144300,
+   "end": 144315
+  },
+  {
+   "name": "players96_sub",
+   "kind": "data",
+   "start": 144316,
+   "end": 144429
+  },
+  {
+   "name": "setup96_attr",
+   "kind": "data",
+   "start": 144430,
+   "end": 145071
+  },
+  {
+   "name": "pause96_items",
+   "kind": "data",
+   "start": 145072,
+   "end": 147027
+  },
+  {
+   "name": "lines96_menu",
+   "kind": "data",
+   "start": 147028,
+   "end": 147227
+  },
+  {
+   "name": "sram96",
+   "kind": "code",
+   "start": 147228,
+   "end": 148005
+  },
+  {
+   "name": "video96_pad",
+   "kind": "code",
+   "start": 148006,
+   "end": 148351
+  },
+  {
+   "name": "logic96_do",
+   "kind": "code",
+   "start": 148352,
+   "end": 148383
+  },
+  {
+   "name": "video96_font",
+   "kind": "code",
+   "start": 148384,
+   "end": 148509
+  },
+  {
+   "name": "logic96_crease",
+   "kind": "code",
+   "start": 148510,
+   "end": 148605
+  },
+  {
+   "name": "pause96_play",
+   "kind": "code",
+   "start": 148606,
+   "end": 148613
+  },
+  {
+   "name": "sound96",
+   "kind": "code",
+   "start": 148614,
+   "end": 160455
+  },
+  {
+   "name": "data96_02",
+   "kind": "data",
+   "start": 160456,
    "end": 278815
   },
   {

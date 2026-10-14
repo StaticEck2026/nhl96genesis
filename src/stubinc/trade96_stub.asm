@@ -19,9 +19,9 @@ GetPlayerCount = $0157F4		;players96_count
 randomd0 = $01B0A6		;video96
 FinalizeTextBuffer = $0230AA		;middle96
 ConvertByteToDigits = $0230C4		;middle96
-PAttribOverallMask = $023456		;data96_02
-GAttribOverallMask = $0235B8		;data96_02
-ReadSRAM = $0241E8		;data96_02
+PAttribOverallMask = $023456		;setup96_attr
+GAttribOverallMask = $0235B8		;setup96_attr
+ReadSRAM = $0241E8		;sram96
 CalcAttrib = $1D7DF8		;code96_14
 
 

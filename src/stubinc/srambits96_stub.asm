@@ -12,7 +12,7 @@
 	include	macros\genesis.mac	;String
 
 ; External addresses outside, read from lst/nhl96.bin.
-MakeSRAMChecksum = $0241AA		;data96_02
+MakeSRAMChecksum = $0241AA		;sram96
 
 
 ; Main segment code

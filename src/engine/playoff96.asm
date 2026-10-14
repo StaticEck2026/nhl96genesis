@@ -417,12 +417,35 @@ loc_2216C
 
 unk_22172
 	dc.b	$00,$00,$00,$00,$00,$01,$00,$00,$00,$02,$00,$00,$00,$01,$00,$01
-	dc.b	$00,$01,$00,$02,$00,$01,$00,$02,$00,$01,$00,$02,$08,$38,$00,$07
-	dc.b	$C3,$50,$66,$00,$00,$3C,$50,$F8,$CF,$C4,$42,$83,$32,$38,$C3,$A0
-	dc.b	$03,$C3,$32,$38,$C3,$A2,$03,$C3,$32,$7C,$CF,$44,$74,$07,$61,$00
-	dc.b	$00,$16,$32,$80,$61,$00,$00,$10,$33,$40,$00,$02,$D2,$FC,$00,$10
-	dc.b	$51,$CA,$FF,$EC,$4E,$75,$70,$1A,$61,$00,$8E,$DA,$01,$C3,$66,$F6
-	dc.b	$4E,$75
+	dc.b	$00,$01,$00,$02,$00,$01,$00,$02,$00,$01,$00,$02
+	btst	#7,(GameFlags).w
+	bne.w	rtsInitGames
+
+InitializeGameStructures	;Random team pairs for all 8 gsstruct games, none of them HomeTeam or VisTeam
+	st	(gamenum).w
+	clr.l	d3
+	move.w	(HomeTeam).w,d1
+	bset	d1,d3
+	move.w	(VisTeam).w,d1
+	bset	d1,d3
+	movea.w	#(gsstruct-M68K_RAM),a1
+	moveq	#7,d2
+.loop
+	bsr.w	GetRandomUnusedTeam
+	move.w	d0,(a1)
+	bsr.w	GetRandomUnusedTeam
+	move.w	d0,2(a1)
+	adda.w	#$10,a1
+	dbf	d2,.loop
+	rts
+
+GetRandomUnusedTeam	;d0 = a random team 0-25 not yet set in d3, and set its bit
+	moveq	#$1A,d0
+	bsr.w	randomd0
+	bset	d0,d3
+	bne.s	GetRandomUnusedTeam
+rtsInitGames	;GameFlags bit 7 skips the random pairs and returns here
+	rts
 
 ReadPassBits	;Translate the saved bits at a3 (5 words) to the playoff variables; the 5 words are kept
 	moveq	#4,d0

@@ -413,7 +413,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   Three renames, now that the files exist: getGoalieSCnum is FindGoalie (control96), ClearShootout is ShootoutInit (shootout96_path), LetterGrid is CreateLetterGrid (records96). LetterGridPos is a different routine and keeps its name.
   `code96_14` ($1D6B66-$1D7FA5) and `code96_15` ($1D8E5C-$1D9CC5) stay numbered. Each head mixes several subsystems.
   Names taken from the matching 95 body: getplayernameD7 and getnamea0 (trade96), chkpk (logic96_puck), PenShotTable and UpdatePenaltyShotEnd (shootout96), a2touchpuck (logic96_pull), SetScroll2 and ClockDigitChar (display96), setteams (control96_team), InitCreateRecord and InitCreateRecord2 (create96). The big-font clock helper in middle96_clock is BigClockDigitChar. SegaInit locals are in the name map.
-  Next: symbols and immediates that are still hex (SPA/SPF, RAM fields, team equates, SFX ids), only where the bytes do not change and the owning file already exists. season96 `sub_` names stay until a body is read. Goal, InitializeGameStructures and GoalTypeTbl are still unnamed. Do not reopen a numbered graphics or sound dump.
+  Next: symbols and immediates that are still hex (SPA/SPF, RAM fields, team equates, SFX ids), only where the bytes do not change and the owning file already exists. season96 `sub_` names stay until a body is read. Goal and GoalTypeTbl are still unnamed. Do not reopen a numbered graphics or sound dump.
 
 ## Unsure
 
@@ -430,9 +430,8 @@ Labels the masked search found inside bytes that are still unnamed. Do not inven
 
 - $01E8C0 Goal (collide96)
 - $02032C rtss2 (display96; 96 already uses rtss2 for the shared rts in collide96)
-- $022198 InitializeGameStructures (playoff96)
 - $1E36D6 GoalTypeTbl (summary96)
 
-Named from the matching 95 body: chkpk, UpdatePenaltyShotEnd, PenShotTable, a2touchpuck, SetScroll2, ClockDigitChar, setteams, InitCreateRecord, getplayernameD7, getnamea0.
+Named from the matching 95 body: chkpk, UpdatePenaltyShotEnd, PenShotTable, a2touchpuck, SetScroll2, ClockDigitChar, setteams, InitCreateRecord, getplayernameD7, getnamea0, InitializeGameStructures, GetRandomUnusedTeam.
 
-SegaInit locals exist in `src/sega/SegaInit.asm` and are missing from `docs/name_map.csv`. Add the rows. Do not invent a second copy.
+SegaInit locals exist in `src/sega/SegaInit.asm` and in `docs/name_map.csv`. Do not invent a second copy.

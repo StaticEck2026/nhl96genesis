@@ -783,6 +783,9 @@ $02212E,unk_2212E,unk_2212E,,playoff96
 $022156,loc_22156,loc_22156,,playoff96
 $02216C,loc_2216C,loc_2216C,,playoff96
 $022172,unk_22172,unk_22172,,playoff96
+$022198,InitializeGameStructures,,,playoff96
+$0221C8,GetRandomUnusedTeam,,,playoff96
+$0221D2,rtsInitGames,,,playoff96
 $0221D4,ReadPassBits,sub_221D4,,playoff96
 $02229C,EncodePW,sub_2229C,,playoff96
 $022386,ReadPassData,sub_22386,,playoff96

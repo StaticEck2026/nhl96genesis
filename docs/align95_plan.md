@@ -121,14 +121,13 @@ Labels the masked search found inside bytes, where 96 has no name at that addres
 |---|---|---|---|
 | `$01E8C0` | Goal | goal95 | collide96 |
 | `$02032C` | rtss2 | video95 | display96 |
-| `$022198` | InitializeGameStructures | setup95 | playoff96 |
 | `$1E36D6` | GoalTypeTbl | summary95 | summary96 |
 
-Named from the 95 body: chkpk (logic96_puck), UpdatePenaltyShotEnd and PenShotTable (shootout96), a2touchpuck (logic96_pull), SetScroll2 and ClockDigitChar (display96; the big-font copy in middle96_clock is BigClockDigitChar), setteams (control96_team), InitCreateRecord (create96), getplayernameD7 and getnamea0 (trade96). `$02032C` stays unnamed: 96 already uses rtss2 for the shared rts in collide96.
+Named from the 95 body: chkpk (logic96_puck), UpdatePenaltyShotEnd and PenShotTable (shootout96), a2touchpuck (logic96_pull), SetScroll2 and ClockDigitChar (display96; the big-font copy in middle96_clock is BigClockDigitChar), setteams (control96_team), InitCreateRecord (create96), getplayernameD7 and getnamea0 (trade96), InitializeGameStructures and GetRandomUnusedTeam (playoff96). `$02032C` stays unnamed: 96 already uses rtss2 for the shared rts in collide96.
 
 `code96_05` is still `sub_` / `unk_` in the source and those names were never written to `docs/name_map.csv`. Naming them is part of the season96 pass, not a drive-by.
 
-SegaInit locals (`h_s`, `cold_start`, `clr_wk`, ...) already exist in `src/sega/SegaInit.asm`. They are missing from `docs/name_map.csv` only. Add the rows; do not invent a second copy.
+SegaInit locals (`h_s`, `cold_start`, `clr_wk`, ...) already exist in `src/sega/SegaInit.asm` and are in `docs/name_map.csv`. Do not invent a second copy.
 
 RAM: 294 names are shared with `src/ram95.asm`. 286 of those sit at a different address, which is expected (the RAM map moved). 145 RAM names are still `word_FF` / `byte_FF` / `unk_FF`. Rename one when a converted use matches a 95G RAM name by what the code does, and record it in `docs/name_map.csv`. Do not rename from the address alone.
 

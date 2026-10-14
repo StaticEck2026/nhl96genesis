@@ -93,7 +93,8 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 8e. `src/schedule96.asm` — done. The `SeasonSchedule` table only. The team graphics pointers stay in data96_01. The rest of that file is `src/data96_01b.asm` until it splits into hockey, pause and setup.
 8f. `front/awards96.asm` — done. `nullsub_3` through `BuildPOSlots`. `nullsub_3` is the rts in front of `ResolveDayGames`.
 8g. `src/hockey96.asm` — done. `Begin` through `clockcont`. The menu list printers stay in data96_01b.
-8h. `engine/pause96.asm` — done. `demoread` through `vcountwait`. It branches to `TimeoutMenu` and `SelectGoalieMenu`, which stay in data96_01c after the attribute columns.
+8h. `engine/pause96.asm` — done. `demoread` through `vcountwait`. It branches to `TimeoutMenu` and `SelectGoalieMenu`, which stay after the attribute columns.
+8i. `engine/setup96.asm` — done. `GetNameandAttrib` through `WeightTbl`. `PlayoffStatsMenu`, `TimeoutMenu` and `SelectGoalieMenu` remain in data96_01c.
 9. Continue down the table above. Do not start graphics or the sound bank until the extraction step.
 
 ## Names that differ

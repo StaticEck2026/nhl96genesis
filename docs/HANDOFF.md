@@ -338,5 +338,6 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `src/hockey96.asm` is the cold start and the game loop (Begin through clockcont, $01464C-$014CC7).
   data96_01b is the menu list printers.
   `engine/pause96.asm` is the demo and the pause menu (demoread through vcountwait, $014CC8-$0151F9).
-  data96_01c is the roster columns plus PlayoffStatsMenu, TimeoutMenu and SelectGoalieMenu.
-  Next: `engine/setup96.asm` for the attribute columns. Unsure list is in the plan.
+  `engine/setup96.asm` is the roster attribute columns (GetNameandAttrib through WeightTbl, $0151FA-$01548F).
+  data96_01c is PlayoffStatsMenu, TimeoutMenu and SelectGoalieMenu.
+  Next: `engine/pause96_menu.asm` for those three pause-menu entries. Unsure list is in the plan.

@@ -83,7 +83,8 @@
 	include	data96_07.asm		; $140B06  data
 	include	data96_08.asm		; $179168  data
 	include	data96_09.asm		; $199BE4  data
-	include	data96_10.asm		; $1BDCDC  data
+	include	data96_10.asm	; $1BDCDC  graphics
+	include	engine\logic96_timer.asm	; $1D6622  one-timer
 	include	code96_14.asm	; $1D6B66  records and attributes
 	include	front\shootout96_path.asm	; $1D7FA6  shootout
 	include	code96_15.asm	; $1D8E5C  loads and hi-score

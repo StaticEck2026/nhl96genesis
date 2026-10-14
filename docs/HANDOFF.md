@@ -401,4 +401,5 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/pause96_play.asm` is the resume-game item (PlayGame, $02447E-$024485).
   `src/sound96.asm` is the sound driver, the Z80 program and the bank directory (p_music_vblank through SoundBanks, $024486-$0272C7).
   `src/data96_02.asm` is now only the sound bank bytes ($0272C8-$04411F). data96_03 and data96_04 stay the rest of the bank until extraction.
-  Next: `engine/logic96_timer.asm` from the data96_10 tail (puckvzadj through setonetimeranim). The graphics in data96_10 stay numbered until extraction. Unsure list is in the plan.
+  `engine/logic96_timer.asm` is the one-timer (puckvzadj through setonetimeranim, $1D6622-$1D6B65). `src/data96_10.asm` is the graphics ahead of it ($1BDCDC-$1D6621).
+  Next: extraction. `tools/extractAssets96.js` in the shape of the 95 extractor. Graphics, the Z80 program, each sound-bank item and the scout text become incbins. `newcheck` joins the end of sound96. `front/scout96.asm` holds the scout text. data96_05 through data96_09 and the graphics in data96_10 become `src/graphics96.asm`. Unsure list is in the plan.

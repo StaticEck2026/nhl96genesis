@@ -26,9 +26,9 @@ sroot = $01B0DE		;video96
 loadTeamStruct = $01D328		;lines96_bar
 makepde = $01FAFA		;collide96
 sfx = $088470		;data96_04
-puckvzadj = $1D6622		;data96_10
-OneTimerPass = $1D66AC		;data96_10
-OneTimerTarget = $1D6718		;data96_10
+puckvzadj = $1D6622		;logic96_timer
+OneTimerPass = $1D66AC		;logic96_timer
+OneTimerTarget = $1D6718		;logic96_timer
 PSandSOpassdir = $1D8B26		;shootout96_path
 ReadGoaliePulled = $1D9352		;code96_15
 

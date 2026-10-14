@@ -62,7 +62,7 @@ there is no single engine list to include once. Folders still match: `engine/`,
 | data96_04 | `$07A40A-$0887E3` | sound95 bank tail and the sound calls | Same `sound96`. |
 | code96_13 | `$0887E4-$08F2C5` | sound95 `newcheck`, scout95 text | `newcheck` stays at the end of `sound96` (95G did that). `ScoutTextScript` goes to `front/scout96.asm` as an incbin. The unreferenced block after it stays in that file. |
 | data96_05 to data96_09 | `$08F2C6-$1BDCDC` | graphics95 | One `src/graphics96.asm` of incbins, after extraction. Not before: merging the `dc.b` dumps first only makes a larger file to throw away. |
-| data96_10 | `$1BDCDC-$1D6B65` | graphics95, then input95 / logic95 one-timer | Graphics part joins `graphics96` at extraction. `puckvzadj` through `setonetimeranim` is `engine/logic96_timer.asm` (it is not next to `logic96_puck`). |
+| data96_10 | `$1BDCDC-$1D6621` | graphics95 | Done as a split. The graphics stay numbered until extraction, then they join `graphics96`. `engine/logic96_timer.asm` is puckvzadj through setonetimeranim. |
 | code96_14 | `$1D6B66-$1D7FA5` | middle95, scout95, records95, collide95 | Done. The head stays numbered: crowd meter, hot/cold, team records, attribute weights. `front/shootout96_path.asm` is ShootoutModeBox through UnpackPicture. |
 | code96_15 | `$1D8E5C-$1D9CC5` | goal95, injury95, penalty95, pause95 | Done. The head stays numbered (replay icon, hi-score, penalty clear). `front/season96_stand.asm` is StandingsPoints through SortStandings. |
 | code96_16 | `$1DA6C0-$1DC03B` | new in 96 (no 95G name) | Done. `front/season96_menu.asm` joins SetSframe and the leaders with the playoff menu. code96_16 is gone. |
@@ -106,7 +106,8 @@ One module per commit. After each move: `tools/verify_all.sh` ends in `ALL MATCH
 13. code96_11 and code96_12 split — done. `src/display96.asm`, `src/control96_team.asm`, `src/hockey96_open.asm`, `engine/setup96_menu.asm`, `engine/playoff96.asm`, `engine/goal96_box.asm`, `engine/middle96.asm`, `src/crash96.asm`.
 14. Front end — done. `front/shootout96_path.asm`, `front/season96_stand.asm`, `front/season96_menu.asm`, `front/trade96_edit.asm`, `front/create96.asm`, `front/options96.asm`, `front/stats96.asm`, `engine/pause96_return.asm`, `front/summary96.asm`, `front/stats96_list.asm`, `front/records96.asm`, `engine/playoff96_tree.asm`, `engine/middle96_clock.asm`, `front/awards96_show.asm`, `front/injury96.asm`, `front/title96.asm`, `src/checksum96.asm`. code96_14 and code96_15 keep the mixed heads. code96_16, data96_11, code96_17, code96_18, data96_12, code96_19 and code96_20 are gone.
 15. data96_02 — done. The tables, `src/sram96.asm`, the pads, `logic96_do`, the font loaders, `logic96_crease`, `pause96_play` and `src/sound96.asm`. The bank bytes stay in data96_02, data96_03 and data96_04 until extraction.
-16. Next: `engine/logic96_timer.asm` from the data96_10 tail (puckvzadj through setonetimeranim). Do not start graphics or the sound bank until the extraction step.
+16. `engine/logic96_timer.asm` — done. puckvzadj through setonetimeranim. The graphics in data96_10 stay numbered.
+17. Next: extraction. `tools/extractAssets96.js`, then graphics96 and the sound bank and ScoutTextScript become incbins. `newcheck` joins the end of sound96. `front/scout96.asm` incbins the scout text.
 
 ## Names that differ
 

@@ -39,7 +39,7 @@ pucknorm = $019B70		;logic96_pull
 puckunflip = $019F14		;logic96_pull
 puckshadow = $019F58		;logic96_vec
 rtss2 = $01F84A		;collide96
-assonetimer = $1D6872		;data96_10
+assonetimer = $1D6872		;logic96_timer
 assfight = $00B988		;fight96
 assfwatch = $00C1C8		;fight96
 

@@ -450,6 +450,12 @@
    "name": "data96_10",
    "kind": "data",
    "start": 1826012,
+   "end": 1926689
+  },
+  {
+   "name": "logic96_timer",
+   "kind": "code",
+   "start": 1926690,
    "end": 1928037
   },
   {

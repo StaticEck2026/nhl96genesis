@@ -230,7 +230,7 @@ waitx	;Wait -d0 frames, or until a button on any pad (waitxpad = the buttons hel
 	dc.b	$0F,$F0,$4E,$75,$30,$38,$B0,$52,$B0,$78,$B0,$52,$67,$FA,$61,$00
 	dc.b	$00,$48,$67,$F0,$4E,$75
 
-sub_1B282	;menupadnum = the first pad (1-4, 3 and 4 with FourWayPlay) with buttons held
+FindHeldMenuPad	;menupadnum = the first pad (1-4, 3 and 4 with FourWayPlay) with buttons held
 	clr.w	(menupadnum).w
 	bsr.w	ReadJoy1
 	tst.w	d3

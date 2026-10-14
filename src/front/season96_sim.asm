@@ -101,7 +101,7 @@ sub_10A08
 	movem.l	(sp)+,a4/a6
 	move.l	a5,-(sp)
 	movea.l	a6,a5
-	bsr.w	sub_10CB2
+	bsr.w	SortBytesByWords
 	movea.l	(sp)+,a5
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	6(a1),d6

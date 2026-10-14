@@ -1,7 +1,7 @@
 ;	Season and save RAM handling and its screens: mostly new in 96, so most routines keep their IDA names
 ;	until the code around them is known. DrawSetupTeamBlock draws the team logos of the controller setup screen.
 
-sub_10CB2
+SortBytesByWords	;Sort a5 words descending and swap the parallel a4 bytes. Stops at a negative byte
 	movem.l	a4-a5,-(sp)
 .0
 	clr.w	d2
@@ -875,7 +875,7 @@ sub_11814
 	bsr.w	sub_12106
 	bsr.w	sub_11F3A
 .1
-	jsr	(sub_1B282).l
+	jsr	(FindHeldMenuPad).l
 	jsr	(ProcessInputWithRepeat).l
 	tst.w	d1
 	beq.w	.18
@@ -1147,7 +1147,7 @@ sub_11E56
 	jsr	(PushNumberWidth).l
 	jsr	(printbig).l
 	move.w	(sp)+,d0
-	bsr.w	sub_11F94
+	bsr.w	PrintOrdinal
 	move.w	(sp),(printx).w
 	addq.w	#2,(printy).w
 	dbf	d7,.1
@@ -1179,7 +1179,7 @@ sub_11EC8
 	jsr	(PushNumberWidth).l
 	jsr	(printbig).l
 	move.w	(sp)+,d0
-	bsr.w	sub_11F94
+	bsr.w	PrintOrdinal
 	move.w	(sp),(printx).w
 	addq.w	#2,(printy).w
 	dbf	d7,.1
@@ -1206,7 +1206,7 @@ sub_11F3A
 	jsr	(PushNumberWidth).l
 	jsr	(printbig).l
 	move.w	(sp)+,d0
-	bsr.w	sub_11F94
+	bsr.w	PrintOrdinal
 	move.w	(sp),(printx).w
 	addq.w	#2,(printy).w
 	dbf	d7,.0
@@ -1214,29 +1214,36 @@ sub_11F3A
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-sub_11F94
+PrintOrdinal	;printbig the ordinal suffix of d0 (11 through 20 are th)
 	ext.l	d0
 	cmp.w	#$A,d0
 	blt.w	.0
 	cmp.w	#$15,d0
 	bge.w	.0
-	movea.l	#unk_11FF2,a1
+	movea.l	#OrdinalSuffix,a1
 	jmp	printbig
 .0
 	divs.w	#$A,d0
 	swap	d0
 	asl.w	#2,d0
-	movea.l	#unk_11FCA,a0
+	movea.l	#OrdinalSuffixPtr,a0
 	movea.l	(a0,d0.w),a1
 	jmp	printbig
 
-unk_11FCA
-	dc.b	$00,$01,$1F,$F2,$00,$01,$1F,$F6,$00,$01,$1F,$FA,$00,$01,$1F,$FE
-	dc.b	$00,$01,$1F,$F2,$00,$01,$1F,$F2,$00,$01,$1F,$F2,$00,$01,$1F,$F2
-	dc.b	$00,$01,$1F,$F2,$00,$01,$1F,$F2
+OrdinalSuffixPtr	;Ones digit: th, st, nd, rd, then th
+	dc.l	OrdinalSuffix,OrdinalSuffix+4,OrdinalSuffix+8,OrdinalSuffix+12
+	dc.l	OrdinalSuffix,OrdinalSuffix,OrdinalSuffix,OrdinalSuffix,OrdinalSuffix,OrdinalSuffix
 
-unk_11FF2
-	dc.b	$00,$04,$54,$48,$00,$04,$53,$54,$00,$04,$4E,$44,$00,$04,$52,$44
+OrdinalSuffix	;TH, ST, ND, RD
+	dc.w	4
+	dc.b	'TH'
+	dc.w	4
+	dc.b	'ST'
+	dc.w	4
+	dc.b	'ND'
+	dc.w	4
+	dc.b	'RD'
+	;The lookup that follows the four suffixes
 	dc.b	$2F,$08,$48,$80,$20,$7C,$00,$01,$20,$16,$10,$30,$00,$00,$48,$80
 	dc.b	$20,$5F,$4E,$75,$13,$0A,$11,$07,$08,$0B,$02,$19,$0E,$0C,$16,$12
 	dc.b	$05,$10,$0D,$1A,$06,$04,$03,$17,$01,$14,$15,$09,$0F,$18,$01,$01

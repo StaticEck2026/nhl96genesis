@@ -75,7 +75,7 @@ OptionsScreen	;The game options screen: play mode, rosters, period length, goali
 	clr.w	d0
 .5
 	move.w	d0,(word_FFB8C8).w
-	jsr	(sub_1B282).l
+	jsr	(FindHeldMenuPad).l
 	jsr	(ProcessInputWithRepeat).l
 	tst.w	d1
 	beq.w	.6

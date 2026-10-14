@@ -207,29 +207,29 @@ ResetBench	;Remove all players from penalty box / put all players on their own b
 	bpl.s	.rb1
 	rts
 
-sub_1FE58	;assreplace player a3 with the assignment of his position (unk_1FE70)
+AssignByPosition	;assreplace player a3 with the assignment of his position
 	move.w	position(a3),d0
 	bmi.w	rtss2
 	st	$65(a3)
-	lea	unk_1FE70(pc),a0
+	lea	PosAssignTable(pc),a0
 	move.b	(a0,d0.w),d0
 	bra.w	assreplace
 
-unk_1FE70	;sub_1FE58: the assignment of each position
+PosAssignTable	;Assignment byte for each position
 	dc.b	$0E,$02,$02,$03,$05,$03,$05,$FF
 
-sub_1FE78	;The assignment of the position of player a3 (unk_1FE98)
+AssignBySavedPos	;assreplace from the saved index at $65(a3), or from the position
 	move.w	position(a3),d0
 	bmi.w	rtss2
 	tst.b	$65(a3)
 	bmi.w	.0
 	move.b	$65(a3),d0
 .0
-	lea	unk_1FE98(pc),a0
+	lea	PosAssignTable2(pc),a0
 	move.b	(a0,d0.w),d0
 	bra.w	assreplace
 
-unk_1FE98	;sub_1FE78: the assignment of each position
+PosAssignTable2	;Same assignment bytes as PosAssignTable
 	dc.b	$0E,$02,$02,$03,$05,$03,$05,$FF
 
 setplayer	;Bring player onto the ice and set his attributes. d3 = offset of player on roster, a3 = sortcord of player.

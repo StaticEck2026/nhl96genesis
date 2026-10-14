@@ -321,6 +321,10 @@ $01091A,SimGameStats,sub_1091A,,season96_sim
 $010B14,SimGoalieStats,sub_10B14,,season96_sim
 $010B46,SimGoalie,sub_10B46,,season96_sim
 $010B88,PickSimGoalie,sub_10B88,,season96_sim
+$010CB2,SortBytesByWords,sub_10CB2,,season96
+$011F94,PrintOrdinal,sub_11F94,,season96
+$011FCA,OrdinalSuffixPtr,unk_11FCA,,season96
+$011FF2,OrdinalSuffix,unk_11FF2,,season96
 $012B84,DrawSetupTeamBlock,sub_12B84,,season96
 $012BFE,TeamBlockPtrs,unk_12BFE,,teamgfx96
 $012C6E,TeamLogoPtrs,unk_12C6E,,teamgfx96
@@ -521,7 +525,7 @@ $01B09A,randomd0s,sub_1B09A,,video96
 $01B0A6,randomd0,sub_1B0A6,,video96
 $01B0DE,sroot,sub_1B0DE,,video96
 $01B152,waitx,sub_1B152,,video96
-$01B282,sub_1B282,sub_1B282,,video96
+$01B282,FindHeldMenuPad,sub_1B282,,video96
 $01B2C4,orjoy,sub_1B2C4,,video96
 $01B2DA,orjoy4way,loc_1B2DA,,video96
 $01B2F8,nodiag,sub_1B2F8,,video96
@@ -694,10 +698,10 @@ $01FCCC,TryAddPlayerToList,sub_1FCCC,,players96
 $01FD06,SetupPenaltyShot,,,players96
 $01FD82,forcepldata,,,players96
 $01FDF4,ResetBench,sub_1FDF4,,players96
-$01FE58,sub_1FE58,sub_1FE58,,players96
-$01FE70,unk_1FE70,unk_1FE70,,players96
-$01FE78,sub_1FE78,sub_1FE78,,players96
-$01FE98,unk_1FE98,unk_1FE98,,players96
+$01FE58,AssignByPosition,sub_1FE58,,players96
+$01FE70,PosAssignTable,unk_1FE70,,players96
+$01FE78,AssignBySavedPos,sub_1FE78,,players96
+$01FE98,PosAssignTable2,unk_1FE98,,players96
 $01FEA0,setplayer,sub_1FEA0,,players96
 $0201C6,ClampNibble,sub_201C6,,players96
 $0201DC,VBlank,unk_201DC,vb2,display96

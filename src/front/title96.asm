@@ -54,7 +54,7 @@ sub_1E889C	;Called from Opening: a screen
 	bsr.w	sub_1E89F0
 	subq.w	#1,(carddelay).w
 	bmi.w	.1
-	jsr	(sub_1B282).l
+	jsr	(FindHeldMenuPad).l
 	btst	#7,d1
 	beq.s	.0
 .1
@@ -158,7 +158,7 @@ sub_1E89FC	;Called from Opening: a screen with text pages (sub_1E8BB8)
 	bsr.w	sub_1E8BB8
 .0
 	bsr.w	sub_1E8C52
-	jsr	(sub_1B282).l
+	jsr	(FindHeldMenuPad).l
 	tst.w	(word_FFD030).w
 	beq.w	.1
 	btst	#7,d1
@@ -246,7 +246,7 @@ sub_1E8C5E	;Called from Opening2: restart the sound driver, then a screen with s
 .loop2
 	cmp.w	(vcount).w,d0
 	beq.s	.loop2
-	jsr	(sub_1B282).l
+	jsr	(FindHeldMenuPad).l
 	btst	#7,d1
 	bne.w	.3
 .0

@@ -163,7 +163,7 @@ PlayoffScreen	;Bring up the playoff screen if in playoff mode (OptPlayMode nonze
 	bra.s	.9
 
 HandlePlayoffInput	;Read the pads: start leaves PlayoffScreen, right / left scroll the tree
-	jsr	(sub_1B282).l
+	jsr	(FindHeldMenuPad).l
 	btst	#7,d3
 	bne.w	PlayoffScreenExit
 	btst	#3,d3

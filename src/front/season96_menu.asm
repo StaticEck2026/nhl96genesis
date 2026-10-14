@@ -950,7 +950,7 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 	beq.s	.loop2
 	jsr	(sub_12640).l
 	cmpi.w	#$5460,(carddelay).w
-	jsr	(sub_1B282).l
+	jsr	(FindHeldMenuPad).l
 	jsr	(ProcessInputWithRepeat).l
 	tst.w	d1
 	beq.w	.1

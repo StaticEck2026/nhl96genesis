@@ -285,7 +285,7 @@ EndOneTimer	;End a one-timer for a3: the one-timer bits cleared, onetimerplayer 
 	jsr	(assexit).l
 	bra.w	.1
 .0
-	jsr	(sub_1FE78).l
+	jsr	(AssignBySavedPos).l
 .1
 	clr.w	$5A(a3)
 	st	$5C(a3)

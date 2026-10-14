@@ -49,7 +49,7 @@ Intermission	;Before the period: at game over (gsp 4) the records (UpdateRecords
 	bmi.w	.5
 .periodic
 	jsr	(vcountwait).l
-	jsr	(sub_1B282).l
+	jsr	(FindHeldMenuPad).l
 	jsr	(ProcessInputWithRepeat).l
 	jsr	(HandleMenuInput).l
 	bne.s	.4

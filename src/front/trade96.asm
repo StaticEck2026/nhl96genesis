@@ -497,7 +497,7 @@ sub_10688
 	dbf	d2,.1
 	move.b	#$FF,(a4)
 	movem.l	(sp)+,a4-a5
-	bsr.w	sub_10CB2
+	bsr.w	SortBytesByWords
 	move.w	#$D,d0
 	clr.w	d3
 	movea.l	#unk_10760,a2

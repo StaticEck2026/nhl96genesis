@@ -1262,6 +1262,7 @@ checkgoal	;Check object a3 against the goal / net a2: the puck scores (Goal), a 
 .17
 	tst.w	(puckc).w
 	bpl.w	rtss2
+Goal	;A goal: the shootout count, EndPenaltyShotPlay, the score and both teams
 	btst	#2,(BA_PS_flags).w
 	beq.w	.6
 	btst	#0,(gmode2).w

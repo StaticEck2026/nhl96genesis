@@ -413,7 +413,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   Three renames, now that the files exist: getGoalieSCnum is FindGoalie (control96), ClearShootout is ShootoutInit (shootout96_path), LetterGrid is CreateLetterGrid (records96). LetterGridPos is a different routine and keeps its name.
   `code96_14` ($1D6B66-$1D7FA5) and `code96_15` ($1D8E5C-$1D9CC5) stay numbered. Each head mixes several subsystems.
   Names taken from the matching 95 body: getplayernameD7 and getnamea0 (trade96), chkpk (logic96_puck), PenShotTable and UpdatePenaltyShotEnd (shootout96), a2touchpuck (logic96_pull), SetScroll2, ClockDigitChar, DoDMAList, DumpSprites2, rtsShowCrowd and ButtonLabelCharTable (display96), setteams (control96_team), InitCreateRecord and InitCreateRecord2 (create96). The big-font clock helper in middle96_clock is BigClockDigitChar. SegaInit locals are in the name map. LoadEnergyBarTiles, LoadCrowdFrames, LoadRefTiles, LoadRefTilesHor, LoadFaceOffSprites and LoadFaceOffMap decompress those pictures. DumpPadSprites, DumpSpriteTable, SetGloveAndSetupPad and JumpToShowClock are named from what they do. VBlank_SpriteFade (summary96) is the period-summary and awards vbint. setup96_menu already owns VBlank_SetOptions.
-  Next: keep replacing generic IDA names from a 95 body or from what the code clearly does. Named since the display pass: FindHeldMenuPad (video96), SortBytesByWords, PrintOrdinal and OrdinalSuffix (season96), AssignByPosition and AssignBySavedPos (players96). season96 still has many sub_ names, and lines96_set, the graphics unk_ labels and the RAM map are still open. Do not guess. Goal and GoalTypeTbl are still unnamed. Do not reopen a numbered graphics or sound dump.
+  Next: keep replacing generic IDA names from a 95 body or from what the code clearly does. Goal and GoalTypeTbl are named. season96 still has many sub_ names, and lines96_set, the graphics unk_ labels and the RAM map are still open. Do not guess. Do not name the lone rts at $02032C rtss2. Do not reopen a numbered graphics or sound dump.
 
 ## Unsure
 
@@ -428,10 +428,8 @@ Copied from `docs/align95_plan.md`. Leave these alone.
 
 Labels the masked search found inside bytes that are still unnamed. Do not invent one on a drive-by. The file that holds the address is in `docs/align95_plan.md`.
 
-- $01E8C0 Goal (collide96)
 - $02032C rtss2 (display96; 96 already uses rtss2 for the shared rts in collide96)
-- $1E36D6 GoalTypeTbl (summary96)
 
-Named from the matching 95 body: chkpk, UpdatePenaltyShotEnd, PenShotTable, a2touchpuck, SetScroll2, ClockDigitChar, DoDMAList, DumpSprites2, rtsShowCrowd, ButtonLabelCharTable, setteams, InitCreateRecord, getplayernameD7, getnamea0, InitializeGameStructures, GetRandomUnusedTeam. VBlank_SpriteFade is the summary96 vbint. setup96_menu already owns VBlank_SetOptions.
+Named from the matching 95 body: chkpk, UpdatePenaltyShotEnd, PenShotTable, a2touchpuck, SetScroll2, ClockDigitChar, DoDMAList, DumpSprites2, rtsShowCrowd, ButtonLabelCharTable, Goal (collide96), GoalTypeTbl (summary96), setteams, InitCreateRecord, getplayernameD7, getnamea0, InitializeGameStructures, GetRandomUnusedTeam. VBlank_SpriteFade is the summary96 vbint. setup96_menu already owns VBlank_SetOptions. rtsBigClock is the shared return of the big-font clock.
 
 SegaInit locals exist in `src/sega/SegaInit.asm` and in `docs/name_map.csv`. Do not invent a second copy.

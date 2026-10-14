@@ -679,6 +679,7 @@ $01E462,loc_1E462,loc_1E462,,collide96
 $01E576,setInjuryType,sub_1E576,,collide96
 $01E630,checkwallcoll,sub_1E630,,collide96
 $01E704,checkgoal,sub_1E704,,collide96
+$01E8C0,Goal,,,collide96
 $01EB8C,AssignTeam,sub_1EB8C,,collide96
 $01EBCC,GetPeriodTimeRemaining,sub_1EBCC,,collide96
 $01EBE0,checkgoalp,loc_1EBE0,,collide96
@@ -1519,6 +1520,7 @@ $1E2E76,VBlank_SpriteFade,unk_1E2E76,,summary96
 $1E2EAA,sub_1E2EAA,,,summary96
 $1E2EFC,TeamRosterScreen,,,summary96
 $1E352A,ScoringSummaryScreen,,,summary96
+$1E36D6,GoalTypeTbl,,,summary96
 $1E38E6,PenaltySummaryScreen,,,summary96
 $1E3C7C,PeriodStatsScreen,,,summary96
 $1E3D2C,unk_1E3D2C,,,summary96
@@ -1604,7 +1606,7 @@ $1E76EA,PrintClockDigit,sub_1E76EA,,middle96_clock
 $1E76FC,ClockDigitText,unk_1E76FC,,middle96_clock
 $1E7724,showclockdma,loc_1E7724,,middle96_clock
 $1E7890,BigClockDigitChar,sub_1E7890,ClockDigitChar,middle96_clock
-$1E78A6,locret_1E78A6,locret_1E78A6,,middle96_clock
+$1E78A6,rtsBigClock,locret_1E78A6,,middle96_clock
 $1E78A8,ClockDigitChar2,sub_1E78A8,,middle96_clock
 $1E78C4,ShowBigScore,loc_1E78C4,,middle96_clock
 $1E7A1E,ScorePeriodText,unk_1E7A1E,,middle96_clock

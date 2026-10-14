@@ -63,11 +63,11 @@ ClockDigitText	;The digits 0-9
 
 showclockdma	;When dfclock is set queue the clock chars in the dma list (a5)
 	bclr	#3,(disflags).w
-	beq.w	locret_1E78A6
+	beq.w	rtsBigClock
 	btst	#3,(sflags2).w
-	bne.w	locret_1E78A6
+	bne.w	rtsBigClock
 	cmpi.w	#4,(gsp).w
-	beq.w	locret_1E78A6
+	beq.w	rtsBigClock
 	movea.w	#(unk_FFBFCA-M68K_RAM),a0
 	movea.l	#BigFontMap,a1
 	adda.l	4(a1),a1
@@ -184,7 +184,7 @@ BigClockDigitChar	;showclockdma helper: next digit of d0 as a big-font clock cha
 	swap	d0
 	ext.l	d0
 
-locret_1E78A6
+rtsBigClock	;BigClockDigitChar returns here. showclockdma exits here too
 	rts
 
 ClockDigitChar2	;The same from the second char row of the font

@@ -24,7 +24,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-None: every row of the ROM map is matched. <- CURRENT
+None: every row of the ROM map is matched. Remaining work is the finish plan in `docs/align95_plan.md`. <- CURRENT
 
 ## Sources
 

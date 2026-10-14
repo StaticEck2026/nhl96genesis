@@ -11,12 +11,15 @@ Names follow the lineage in the Current rules section of SEGMENT_AGENT.md: a rou
 
 tools/prebuild.js runs tools/extractAssets96.js. Graphics, the Z80 program, each sound-bank item and the scout text are incbins of Extracted/NHL96/. Paths in source are relative to src/ (..\Extracted\...). A map is one incbin; the tiles are the label plus eight. tools/extractSegments96.js is not part of the build. tools/segmap96.json is the ROM map.
 
-What is left, in this order:
-1. Symbols and immediates that 95G writes as a name (SPA* / SPF*, a RAM field, a team equate, an SFX_* id) and 96G still has as hex. Only where the bytes do not change, and only in a file that already owns the symbol.
-2. The season96 sub_ names, once a body is read. No 95G byte match exists for them.
-3. A RAM name still word_FF / byte_FF / unk_FF, only when a use matches a 95G RAM name by what the code does. Do not rename from the address alone.
-4. SegaInit locals that already exist in src/sega/SegaInit.asm and are missing from docs/name_map.csv. Add the rows. Do not invent a second copy.
-5. code96_14 and code96_15 stay numbered. Their heads mix several subsystems.
+What is left is the finish plan in docs/align95_plan.md, in this order. A generic label is finished when it has a real name in the source and in docs/name_map.csv, or a closed-list row with the reason.
+1. Decoded routines, one file per commit. lines96_set first (name each routine from the job; there is no 95G body). Then display96, title96, penalty96, playoff96, trade96 (check trade95), and the files with one or two labels. Name a nullsub_ only when its callers share one job.
+2. season96. New in 96, no 95G byte match. Name a screen only when the text, the vblank, or the menu shows which screen it is.
+3. dc.b entries (logic96, create96, logic96_vec, trade96_edit, and the remaining blobs). Name the entry from the caller or a 95G body. Decode an instruction only when each opcode is checked against the ROM.
+4. One more 95G body search on the labels that are still generic. Take a name only when the body matches. $02032C stays unnamed: rtss2 is already the shared rts in collide96.
+5. Graphics unk_ labels, including unk_88A18. Rename one only when the picture matches a 95G asset by more than the map header, or one caller already says what it is. Update extractAssets96.js, the incbin, and the extracted file, then MATCH. A header-only lookalike stays unk_.
+6. A RAM name still word_FF / byte_FF / unk_FF, only when a converted use matches a 95G RAM name by what the code does. Do not rename from the address alone.
+7. Symbols and immediates that 95G writes as a name (SPA* / SPF*, a RAM field, a team equate, an SFX_* id) and 96G still has as hex. Only where the bytes do not change. The player-struct fields past $60 are a separate step: confirm the one-byte shift against 95G first.
+8. Docs, as each item closes. SegaInit locals are already in src/sega/SegaInit.asm and in docs/name_map.csv. Do not invent a second copy. code96_14 and code96_15 stay numbered. SetSframe stays until it is compared with 95G SetSframe and AddSpriteFrame.
 
 1. Build first (Windows: npm run build:retail; Linux: tools/build_rom.sh). It must print MATCH before you change anything. If it does not, stop and report.
 2. Open the file you are editing and lst/nhl96.bin.lst for that range. Do not disassemble lst/nhl96.bin yourself and do not write a disassembler.

@@ -440,7 +440,7 @@ PStatsClearList	;SeasonPlayoffStats: erase the list area
 
 PStatsSetup	;SeasonPlayoffStats: vram, fonts and the screen bitmaps, the heading, the team block and the help
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).w
+	move.l	#VBlank_Menus,(vbint).w
 	bclr	#0,(disflags).w
 	bset	#2,(disflags).w
 	bclr	#1,(disflags).w
@@ -1057,7 +1057,7 @@ PlayoffMenuInit	;PlayoffMenuScreen: menulist = RosterMenuList, item 0
 
 PlayoffMenuSetup	;PlayoffMenuScreen: vram and the screen bitmaps
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).w
+	move.l	#VBlank_Menus,(vbint).w
 	bclr	#0,(disflags).w
 	bset	#2,(disflags).w
 	bclr	#1,(disflags).w

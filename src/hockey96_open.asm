@@ -1,7 +1,7 @@
 ;	Between periods and back to the title. IntermissionStart ends a period,
 ;	Opening runs the title, and EASportsScreen is the logo.
 
-sub_215DC	;Called from the faceoff code.
+PeriodOver	;End of period: next period, overtime or game over (gsp 4); forceblack, then into IntermissionStart
 	;Code the listing does not decode: kept as bytes
 	dc.b	$52,$78,$C4,$BC,$08,$78,$00,$01,$C3,$38,$0C,$78,$00,$03,$C4,$BC
 	dc.b	$6D,$00,$00,$2C,$67,$00,$00,$16,$31,$FC,$00,$03,$C4,$BC,$4A,$78
@@ -83,7 +83,7 @@ Opening	;Title screen, then into Opening2
 	jsr	(SoundCmd).l
 	jsr	(CreditsScreen).l
 	jsr	(TitleScreen).l
-	bra.w	loc_217BE
+	bra.w	OpeningClear
 
 Opening2	;Restart the sound, reset the stack and clear the variables, then the main menu and the season flow
 	jsr	(stop_current_song).l	;stop the song
@@ -107,12 +107,12 @@ Opening2	;Restart the sound, reset the stack and clear the variables, then the m
 	bne.w	.0
 	move.w	#3,-(sp)
 	jsr	(song).l
-	bra.w	loc_217BE
+	bra.w	OpeningClear
 .0
 	move.w	#0,-(sp)
 	jsr	(song).l
 
-loc_217BE
+OpeningClear	;Reset the stack and clear the game variables (keeping the season data), then the options or the season flow
 	movea.w	#(Stack-M68K_RAM),sp
 	btst	#7,(GameFlags).w
 	beq.w	.3
@@ -224,7 +224,7 @@ loc_217BE
 	jsr	(PlayoffScreen).l
 	btst	#0,(gmode2).w
 	bne.w	.15
-	jsr	(nullsub_3).l
+	jsr	(ScoutingReport).l
 .15
 	jmp	StartGame
 .16

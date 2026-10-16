@@ -30,7 +30,7 @@ updateplayers	;This routine calls all collision/animation/assignment code for al
 	blt.w	.17
 	bset	#6,(sflags7).w
 .17
-	jsr	(sub_1D92EC).l
+	jsr	(SetSflags8Bit1).l
 	tst.w	(puckc).w
 	bmi.w	.18
 	bclr	#7,(sflags8).w
@@ -772,8 +772,7 @@ restorepl	;d1 = old player (back to the computer), d0 = new player (joystick con
 	movem.l	(sp)+,a0
 	rts
 
-sub_16D36	;Direction d0 made relative to facedir and the x flip, then tested against the mask $1E (or $F0 when
-	;flipped): the zero flag
+Findhittype	;Z by direction d0 relative to facedir and the hand (attribute bit 3): forehand or backhand
 	movem.l	d0-d1,-(sp)
 	move.w	#8,d1
 	sub.w	facedir(a3),d1

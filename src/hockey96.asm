@@ -94,7 +94,7 @@ StartGame	;Reset game state for a new game, then start the first period
 	move.b	#$E7,(VDP_PSG).l
 	move.b	#$C8,(VDP_PSG).l
 	move.b	#1,(VDP_PSG).l
-	jsr	(sub_1D4CE).l
+	jsr	(InitScores).l
 	jsr	(setupice).l
 	jsr	(InitCrowdMeter).l
 	jmp	IntermissionStart

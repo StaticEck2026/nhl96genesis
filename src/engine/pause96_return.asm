@@ -75,7 +75,7 @@ RestoreGameScreen	;Rebuild the game screen: the vdp maps, palettes, vram, framer
 	move.w	#$7FF,d2
 	jsr	(DoFill).l
 	move.w	(framercset).w,d4
-	jsr	(sub_1C184).l
+	jsr	(AddFramer).l
 	move.w	(word_FFB038).w,d4
 	jsr	(LoadSmallFont).l
 	jsr	(LoadBigFonts).l
@@ -137,7 +137,7 @@ RestoreGameScreen	;Rebuild the game screen: the vdp maps, palettes, vram, framer
 	cmp.w	(vcount).w,d0
 	beq.s	.wait
 	bset	#3,(disflags).w
-	jsr	(nullsub_4).l
+	jsr	(printscores1).l
 	bset	#7,(sflags11).w
 	btst	#3,(sflags2).w
 	bne.w	.6
@@ -172,7 +172,8 @@ ClearOldFrames	;Oldframe = -1 for the 16 sort objects, the 4 sso and the 8 pads,
 	movem.l	(sp)+,d0-d1/a0-a3
 	rts
 
-sub_1E2970	;Called from code96_04: a screen with its own vbint (data96_12), the period names and digits
+PauseScreenDraw	;Draw the pause screen: its own vbint, the background, period name, clock, team names, scores, shots and
+	;penalties
 	;Code the listing does not decode: kept as bytes
 	dc.b	$2F,$0A,$4E,$B9,$00,$08,$85,$FC,$46,$FC,$27,$00,$23,$FC,$00,$1E
 	dc.b	$2E,$76,$FF,$FF,$D2,$44,$08,$B8,$00,$00,$BF,$B2,$08,$F8,$00,$02
@@ -247,7 +248,7 @@ sub_1E2970	;Called from code96_04: a screen with its own vbint (data96_12), the 
 	dc.b	$30,$02,$4E,$B9,$00,$01,$BD,$84,$4E,$B9,$00,$01,$BC,$84,$31,$DF
 	dc.b	$B0,$40,$52,$78,$B0,$42,$4E,$75
 
-PeriodText	;sub_1E2970: the period names
+PeriodText	;PauseScreenDraw: the period names
 	String	'1st period'
 	String	'2nd period'
 	String	'3rd period'

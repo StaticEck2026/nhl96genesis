@@ -231,7 +231,7 @@ $00ACAC,doinput_chkanim,loc_ACAC,,input96
 $00AD52,doinput_skater,loc_AD52,,input96
 $00ADD4,doinput_ispc,loc_ADD4,,input96
 $00AF5A,doinput_islocked,loc_AF5A,,input96
-$00AFD4,loc_AFD4,,,input96
+$00AFD4,JumpToDoplayeracc,loc_AFD4,,input96
 $00AFDA,sub_AFDA,,,input96
 $00B00E,PadOnTeam,sub_B00E,,input96
 $00B04E,SetContTeams,sub_B04E,,goal96
@@ -261,7 +261,7 @@ $00C068,loc_C068,,,fight96
 $00C0A2,ClearMessageLine,sub_C0A2,,fight96
 $00C1C8,assfwatch,,,fight96
 $00C26C,fightinput,loc_C26C,,fight96
-$00C51C,sub_C51C,,,fight96
+$00C51C,SetFightingMajors,sub_C51C,,fight96
 $00C548,asstab,,,logic96
 $00C60E,asscentero4,loc_C60E,,logic96
 $00C7EC,asscentero5,loc_C7EC,,logic96
@@ -290,6 +290,7 @@ $00EC6E,SetLCmode2,sub_EC6E,,lines96
 $00ED46,setlccords,sub_ED46,,lines96
 $00ED8A,getlchoice,sub_ED8A,,lines96
 $00ED9E,getlchoice2,loc_ED9E,,lines96
+$00EDCE,.tab (getlchoice2),unk_EDCE,,lines96
 $00EE0E,lineinput,loc_EE0E,,lines96
 $00EE92,lcfound,loc_EE92,,lines96
 $00EEC4,lcfound2,sub_EEC4,,lines96
@@ -315,11 +316,16 @@ $00F496,SetShotMode,loc_F496,,input96_shot
 $00F530,ShotMode,loc_F530,,input96_shot
 $00F57A,prepshot,loc_F57A,,input96_shot
 $00F5F8,doshot,loc_F5F8,,input96_shot
+$00F874,shotsets,unk_F874,,input96_shot
 $00F898,setpassmode,loc_F898,,input96_shot
 $00F8D0,rtss,locret_F8D0,,input96_shot
 $00F8D2,passmode,loc_F8D2,,input96_shot
 $00F8F6,dopass,loc_F8F6,,input96_shot
 $00FB46,passtoa0,sub_FB46,,input96_shot
+$010054,.exit (sub_FFD0),locret_10054,,input96_shot
+$010056,ClearTeamRoles,sub_10056,,input96_shot
+$010070,CheckRoles,sub_10070,,input96_shot
+$01008E,CheckTeamRoles,sub_1008E,,input96_shot
 $0100C0,DefaultRosters,sub_100C0,,trade96
 $01017A,FormatPlayerNameD7,sub_1017A,,trade96
 $0101BE,getplayernameD7,sub_101BE,sub_101BE,trade96
@@ -400,10 +406,10 @@ $012BB2,DrawTeamLogoD7,sub_12BB2,,season96
 $012BFE,TeamBlockPtrs,unk_12BFE,,teamgfx96
 $012C6E,TeamLogoPtrs,unk_12C6E,,teamgfx96
 $012CDE,SmallLogoPtrs,unk_12CDE,,teamgfx96
-$012D46,unk_12D46,unk_12D46,,teamgfx96
+$012D46,VBlank_Menus,unk_12D46,,teamgfx96
 $013556,nullsub_2,nullsub_2,,teamgfx96
 $013558,SeasonSchedule,unk_13558,,schedule96
-$013EA0,nullsub_3,nullsub_3,,awards96
+$013EA0,ScoutingReport,nullsub_3,,awards96
 $013EA2,ResolveDayGames,sub_13EA2,ResolveGames,awards96
 $014026,BeginPlayoffs,sub_14026,,awards96
 $01405E,InitPlayoffs,sub_1405E,,awards96
@@ -471,7 +477,7 @@ $01543A,AttribWeight,,,setup96
 $01545A,RatingToWeight,,,setup96
 $015470,WeightTbl,,,setup96
 $015490,PlayoffStatsMenu,sub_15490,,pause96_menu
-$0154D4,loc_154D4,,,pause96_menu
+$0154D4,ExitStatsScreen,loc_154D4,,pause96_menu
 $015570,TimeoutMenu,unk_15570,,pause96_menu
 $015604,SelectGoalieMenu,unk_15604,,pause96_menu
 $015774,GetGoalieCountD7,sub_15774,,players96_count
@@ -480,7 +486,7 @@ $0157B2,GetPlayerCountD7,sub_157B2,,players96_count
 $0157F4,GetPlayerCount,sub_157F4,,players96_count
 $015804,WaitVSyncAndReadInput,,,players96_count
 $01581C,ReplayMode,,,replay96
-$0158C8,loc_158C8,,,replay96
+$0158C8,.top (ReplayMode),loc_158C8,,replay96
 $015CD8,ReadMenuJoy,sub_15CD8,,replay96
 $015CF8,ShowReplayIcon,,,replay96
 $015D2A,EraseReplayIcon,,,replay96
@@ -507,7 +513,7 @@ $016C68,setc3player,loc_16C68,,control96
 $016C74,setc4player,loc_16C74,,control96
 $016C82,Sweepcheck,loc_16C82,,control96
 $016C9C,restorepl,sub_16C9C,,control96
-$016D36,sub_16D36,sub_16D36,,control96
+$016D36,Findhittype,sub_16D36,,control96
 $016D6A,setpads,sub_16D6A,,control96
 $016DAE,check4bench,,,logic96_ass
 $016E40,assbench,,,logic96_ass
@@ -549,12 +555,12 @@ $0197EA,ReturnGoalies,,,logic96_pull
 $01981E,CPgoalie,loc_1981E,,logic96_pull
 $019868,CompLine,,,logic96_pull
 $019966,AssignPads,,,logic96_pull
-$019B16,loc_19B16,,,logic96_pull
+$019B16,updatefaceoff,loc_19B16,,logic96_pull
 $019B70,pucknorm,,,logic96_pull
 $019C50,ChkOffsides,,,logic96_pull
 $019D4C,a2offsides,,,logic96_pull
 $019DA2,a2touchpuck,,,logic96_pull
-$019E6E,sub_19E6E,,,logic96_pull
+$019E6E,ArmIcing,sub_19E6E,,logic96_pull
 $019EB2,puckIChk,,,logic96_pull
 $019F14,puckunflip,,,logic96_pull
 $019F3E,puckflip,sub_19F3E,,logic96_vec
@@ -572,16 +578,16 @@ $01A528,GetHot2b,sub_1A528,,logic96_vec
 $01A59E,GetHot2c,sub_1A59E,,logic96_vec
 $01A614,SetSPA,sub_1A614,,skate96
 $01A62A,doplayeracc,loc_1A62A,,skate96
-$01A820,unk_1A820,unk_1A820,,skate96
+$01A820,.ftab (doplayeracc),unk_1A820,,skate96
 $01A830,goalieacc,loc_1A830,,skate96
 $01AA8A,noturn0,loc_1AA8A,,skate96
 $01AB48,noturn,loc_1AB48,,skate96
 $01AB56,playeracc,sub_1AB56,,skate96
 $01AD2C,MaxSpeed,unk_1AD2C,,skate96
-$01AD6C,loc_1AD6C,loc_1AD6C,,skate96
-$01ADA2,dostop,loc_1ADA2,,skate96
-$01ADCA,loc_1ADCA,loc_1ADCA,,skate96
-$01ADD8,loc_1ADD8,loc_1ADD8,,skate96
+$01AD6C,dostop,loc_1AD6C,,skate96
+$01ADA2,.cpu (dostop),loc_1ADA2,dostop,skate96
+$01ADCA,.stop (dostop),loc_1ADCA,,skate96
+$01ADD8,.glide (dostop),loc_1ADD8,,skate96
 $01AE16,stopna2,sub_1AE16,,skate96
 $01AE60,dirtab,unk_1AE60,,skate96
 $01AE84,dirtab2,unk_1AE84,,skate96
@@ -667,17 +673,17 @@ $01BEEC,printbig,sub_1BEEC,,video96
 $01BF0A,printbigtext,loc_1BF0A,,video96
 $01BF94,PrintBigChar,sub_1BF94,,penalty96
 $01BFF2,PutBigTile,sub_1BFF2,,penalty96
-$01C01C,unk_1C01C,unk_1C01C,,penalty96
+$01C01C,BigControlCodeJumpTable,unk_1C01C,,penalty96
 $01C11A,printbigz1,sub_1C11A,,penalty96
 $01C12C,printbigz2,sub_1C12C,,penalty96
 $01C13E,printbig1,sub_1C13E,,penalty96
 $01C15A,printbig2,sub_1C15A,,penalty96
-$01C184,sub_1C184,sub_1C184,,penalty96
+$01C184,AddFramer,sub_1C184,,penalty96
 $01C192,AddPenalty,sub_1C192,,penalty96
 $01C1D2,AddPenalty2,sub_1C1D2,,penalty96
 $01C272,PenaltyManager,sub_1C272,,penalty96
 $01C282,chkprogress,sub_1C282,,penalty96
-$01C3C6,sub_1C3C6,sub_1C3C6,,penalty96
+$01C3C6,DoubleMinorChk,sub_1C3C6,,penalty96
 $01C3E0,PenShotChk,sub_1C3E0,,penalty96
 $01C444,getBAplayerInfo,sub_1C444,,penalty96
 $01C4EC,InProgress,loc_1C4EC,,penalty96
@@ -690,24 +696,24 @@ $01C90A,SetPA2,sub_1C90A,,penalty96
 $01C978,PushRef,sub_1C978,,penalty96
 $01C9FA,prefmes,sub_1C9FA,,penalty96
 $01CBCE,PenaltyTimeTxt,unk_1CBCE,,penalty96
-$01CC32,sub_1CC32,sub_1CC32,,penalty96
+$01CC32,ErasePenaltyMessage,sub_1CC32,,penalty96
 $01CC52,PenGoalStuff,sub_1CC52,,penalty96
 $01CCB0,ClearPenaltyBuffer,sub_1CCB0,,penalty96
 $01CCBE,updatepentime,sub_1CCBE,,penalty96
 $01CCF8,ProcessPenaltyList,sub_1CCF8,,penalty96
-$01CD04,loc_1CD04,loc_1CD04,,penalty96
-$01CD50,sub_1CD50,sub_1CD50,,penalty96
-$01CD76,loc_1CD76,loc_1CD76,,penalty96
+$01CD04,.next (ProcessPenaltyList),loc_1CD04,,penalty96
+$01CD50,.5 (ProcessPenaltyList),sub_1CD50,,penalty96
+$01CD76,.coinpen (ProcessPenaltyList),loc_1CD76,,penalty96
 $01CD9A,RemovePlayerFromList,sub_1CD9A,,penalty96
 $01CDAA,chkatop,sub_1CDAA,,penalty96
 $01CDE0,releasepl,sub_1CDE0,,penalty96
 $01CE3C,GetLowestPen,sub_1CE3C,,penalty96
 $01CE8A,updatepwrplay,loc_1CE8A,,penalty96
-$01CFCE,sub_1CFCE,sub_1CFCE,,penalty96
-$01CFE4,sub_1CFE4,sub_1CFE4,,penalty96
-$01D004,sub_1D004,sub_1D004,,penalty96
-$01D01E,sub_1D01E,,,penalty96
-$01D062,nullsub_4,nullsub_4,,penalty96
+$01CFCE,.clrpwrplay (updatepwrplay),sub_1CFCE,,penalty96
+$01CFE4,ErasePowerPlayBox,sub_1CFE4,,penalty96
+$01D004,DrawPowerPlayBox,sub_1D004,,penalty96
+$01D01E,ClrHor,sub_1D01E,,penalty96
+$01D062,printscores1,nullsub_4,,penalty96
 $01D064,EASNLogo,sub_1D064,,penalty96
 $01D14E,linebar,sub_1D14E,,lines96_bar
 $01D19C,getlinee,sub_1D19C,,lines96_bar
@@ -717,13 +723,13 @@ $01D328,loadTeamStruct,sub_1D328,,lines96_bar
 $01D33E,SetupTeamForIntermission,sub_1D33E,,lines96_bar
 $01D350,SetupTeamLine,sub_1D350,,lines96_bar
 $01D380,RestoreTeamEnergy,,,lines96_bar
-$01D3A6,sub_1D3A6,sub_1D3A6,,lines96_bar
+$01D3A6,reenergizeteam,sub_1D3A6,,lines96_bar
 $01D3CE,Intermission,sub_1D3CE,,hockey96_inter
 $01D4A6,IntermissionMenus,unk_1D4A6,,hockey96_inter
-$01D4CE,sub_1D4CE,sub_1D4CE,,hockey96_inter
+$01D4CE,InitScores,sub_1D4CE,,hockey96_inter
 $01D518,UpdateScores,sub_1D518,,hockey96_inter
 $01D550,SetScore,sub_1D550,,hockey96_inter
-$01D5BC,sub_1D5BC,sub_1D5BC,,hockey96_inter
+$01D5BC,.3 (SetScore),sub_1D5BC,,hockey96_inter
 $01D612,sctab,unk_1D612,,hockey96_inter
 $01D7E2,PrintBigListItem,,,hockey96_inter
 $01D7EA,PrintSmallListItem,,,hockey96_inter
@@ -793,8 +799,8 @@ $020648,ShowCrowdPb,sub_20648,,display96
 $020668,ShowCrowdFrame,sub_20668,,display96
 $020720,rtsShowCrowd,locret_20720,,display96
 $020722,JumpToShowClock,sub_20722,,display96
-$0207AE,sub_207AE,,,display96
-$0207C0,unk_207C0,,,display96
+$0207AE,.digit (JumpToShowClock),sub_207AE,,display96
+$0207C0,.digits (JumpToShowClock),unk_207C0,,display96
 $020892,ClockDigitChar,,,display96
 $0208AA,checksso,sub_208AA,,display96
 $0209E6,.tab,unk_209E6,,display96
@@ -830,14 +836,14 @@ $021482,clearTeamStats,sub_21482,,control96_team
 $021510,setteams,,,control96_team
 $02153E,InitTeamStructure,sub_2153E,,control96_team
 $02154E,SetOriginalLines,,,control96_team
-$0215A0,sub_215A0,sub_215A0,,control96_team
+$0215A0,SetGoalieFromLines,sub_215A0,,control96_team
 $0215B2,setplayercolors,sub_215B2,,control96_team
-$0215DC,sub_215DC,,,hockey96_open
+$0215DC,PeriodOver,sub_215DC,,hockey96_open
 $02161E,IntermissionStart,loc_2161E,,hockey96_open
 $0216EE,ExitToOpening,loc_216EE,,hockey96_open
 $0216F2,Opening,loc_216F2,,hockey96_open
 $02174A,Opening2,loc_2174A,,hockey96_open
-$0217BE,loc_217BE,loc_217BE,,hockey96_open
+$0217BE,OpeningClear,loc_217BE,,hockey96_open
 $021A2E,AbortGame,,,hockey96_open
 $021A4C,EASportsScreen,sub_21A4C,,hockey96_open
 $021AFC,UpdatePlayoffLevel,,,hockey96_open
@@ -959,7 +965,7 @@ $024364,ResetZ80Bus,,,video96_pad
 $024380,doassignment,sub_24380,,logic96_do
 $0243A0,LoadSmallFont,sub_243A0,,video96_font
 $0243BA,LoadBigFonts,sub_243BA,,video96_font
-$0243DA,sub_243DA,,,video96_font
+$0243DA,TurnGoalieFromNet,sub_243DA,,video96_font
 $02441E,GoalieInCrease,sub_2441E,,logic96_crease
 $02447E,PlayGame,,,pause96_play
 $024486,p_music_vblank,,,sound96
@@ -1242,7 +1248,7 @@ $1D6852,OneTimerGoalieTbl,unk_1D6852,,logic96_timer
 $1D6872,assonetimer,loc_1D6872,,logic96_timer
 $1D6B1A,setonetimeranim,,,logic96_timer
 $1D6B66,PuckOnAttackHalf,sub_1D6B66,,code96_14
-$1D6BE6,sub_1D6BE6,,,code96_14
+$1D6BE6,onetimershot,sub_1D6BE6,,code96_14
 $1D6D10,CheckOneTimerFacing,,,code96_14
 $1D6D22,InitCrowdMeter,sub_1D6D22,,code96_14
 $1D6D40,UpdateCrowdMeter,sub_1D6D40,,code96_14
@@ -1329,7 +1335,7 @@ $1D9062,getFgtbyte,sub_1D9062,,code96_15
 $1D906C,chkFgtBit1,sub_1D906C,,code96_15
 $1D9114,HiScoreScreen,sub_1D9114,,code96_15
 $1D920A,sub_1D920A,sub_1D920A,,code96_15
-$1D92EC,sub_1D92EC,sub_1D92EC,,code96_15
+$1D92EC,SetSflags8Bit1,sub_1D92EC,,code96_15
 $1D9352,ReadGoaliePulled,sub_1D9352,,code96_15
 $1D9376,EndOneTimer,sub_1D9376,,code96_15
 $1D93C8,TeamLogoPalettes,,,code96_15
@@ -1337,7 +1343,7 @@ $1D9748,LeadSong,,,code96_15
 $1D97F4,ClearPenalties,sub_1D97F4,,code96_15
 $1D982E,clrTmPdst,sub_1D982E,,code96_15
 $1D9844,SetMenuPadSide,sub_1D9844,,code96_15
-$1D9876,unk_1D9876,unk_1D9876,,code96_15
+$1D9876,padteams,unk_1D9876,,code96_15
 $1D98EE,CanBlock,,,code96_15
 $1D9CC6,StandingsPoints,sub_1D9CC6,,season96_stand
 $1D9D12,StandingsGroups,sub_1D9D12,,season96_stand
@@ -1582,7 +1588,7 @@ $1E2644,FormatLineName,sub_1E2644,,stats96
 $1E2688,ReturnToGame,sub_1E2688,,pause96_return
 $1E2742,RestoreGameScreen,sub_1E2742,,pause96_return
 $1E291E,ClearOldFrames,sub_1E291E,,pause96_return
-$1E2970,sub_1E2970,,,pause96_return
+$1E2970,PauseScreenDraw,sub_1E2970,,pause96_return
 $1E2DE8,PeriodText,,,pause96_return
 $1E2E3C,DigitText,,,pause96_return
 $1E2E64,PrintDigit,,,pause96_return
@@ -1716,8 +1722,8 @@ $1E8DE4,CupCelebrationSetup,sub_1E8DE4,,title96
 $1E8F52,CupCelebrationSprites,sub_1E8F52,,title96
 $1E9028,ChecksumLongs,off_1E9028,,checksum96
 $1E902C,ChecksumValue,dword_1E902C,,checksum96
-$1E9030,dword_1E9030,dword_1E9030,,checksum96
-$1E9034,dword_1E9034,dword_1E9034,,checksum96
+$1E9030,ChecksumSkipStart,dword_1E9030,,checksum96
+$1E9034,ChecksumSkipEnd,dword_1E9034,,checksum96
 $1E9038,ValidationRoutine,sub_1E9038,,checksum96
 $200000,SaveRAM,,,ram96
 $FFFF0000,AwardIds,,,ram96

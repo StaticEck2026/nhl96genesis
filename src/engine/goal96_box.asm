@@ -8,7 +8,7 @@ ShowThreeStars	;End of game Stars of the Game box. Waits for RefCnt <= $40 and r
 	bset	#7,(gmode).w
 	bne.w	rtss2
 	jsr	(ClearBigScore).l
-	jsr	(sub_1CFE4).l
+	jsr	(ErasePowerPlayBox).l
 	movem.l	d0/a1,-(sp)
 	bset	#3,(disflags).w
 	move.w	(vcount).w,d0

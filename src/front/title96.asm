@@ -5,7 +5,7 @@ TitleScreen	;Title screen: the picture unk_88A18 and song 0, until start or the 
 	move.w	(VDP_CNTR).l,(seed).w
 	move.w	(VDP_CNTR).l,(seed+2).w
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).w
+	move.l	#VBlank_Menus,(vbint).w
 	bclr	#0,(disflags).w
 	bclr	#1,(disflags).w
 	move.w	#5,(Map3col1).w
@@ -80,7 +80,7 @@ CreditsScreen	;The legal and credits pages (CreditsList) over three pictures; st
 	move.w	(VDP_CNTR).l,(seed).w
 	move.w	(VDP_CNTR).l,(seed+2).w
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).w
+	move.l	#VBlank_Menus,(vbint).w
 	bclr	#0,(disflags).w
 	bclr	#1,(disflags).w
 	move.w	#5,(Map3col1).w

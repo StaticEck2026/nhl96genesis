@@ -386,12 +386,12 @@ JumpToShowClock	;setvideo enters showclock here
 	dc.b	$4E,$B9,$00,$02,$07,$AE,$22,$5F,$4E,$B9,$00,$01,$BB,$8E,$00,$06
 	dc.b	$BD,$0D,$05,$00,$4E,$75
 
-sub_207AE	;Called from the code above.
+.digit	;A clock digit for the dead clock code above (.digits)
 	;Code the listing does not decode: kept as bytes
 	dc.b	$22,$7C,$00,$02,$07,$C0,$E5,$40,$D2,$C0,$4E,$B9,$00,$01,$BB,$A0
 	dc.b	$4E,$75
 
-unk_207C0	;sub_207AE table
+.digits	;.digit: the digit chars
 	dc.b	$00,$04,$30,$00,$00,$04,$31,$00,$00,$04,$32,$00,$00,$04,$33,$00
 	dc.b	$00,$04,$34,$00,$00,$04,$35,$00,$00,$04,$36,$00,$00,$04,$37,$00
 	dc.b	$00,$04,$38,$00,$00,$04,$39,$00,$08,$B8,$00,$03,$BF,$B2,$67,$00
@@ -923,7 +923,7 @@ setupice	;Set all variables, send non purgeable graphics, build sprite frame lis
 	move.w	d4,(word_FFB02E).w
 	bsr.w	defaultsprites
 	bsr.w	setupIceRinkPal
-	bsr.w	sub_1C184
+	bsr.w	AddFramer
 	move.w	d4,(word_FFB038).w
 	jsr	(LoadSmallFont).l
 	jsr	(LoadBigFonts).l

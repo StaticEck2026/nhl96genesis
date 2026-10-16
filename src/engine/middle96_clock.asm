@@ -203,7 +203,7 @@ ShowBigScore	;The big score of both teams with the EASN logo; in a shootout also
 	movem.l	d0-d7/a0-a6,-(sp)
 	bset	#2,(sflags12).w
 	bset	#0,(byte_FFC35A).w
-	jsr	(sub_1CFE4).l
+	jsr	(ErasePowerPlayBox).l
 	jsr	(EASNLogo).l
 	jsr	(printbigz2).l
 	String	$F8,$04,$01,$06,$15,$20,$FB,$0F

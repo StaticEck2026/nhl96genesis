@@ -1,8 +1,8 @@
-;	The playoff seeding. nullsub_3 is an rts. ResolveDayGames scores the day's series.
+;	The playoff seeding. ScoutingReport is an rts. ResolveDayGames scores the day's series.
 ;	BeginPlayoffs and InitPlayoffs seed the conferences, and SetupPlayoffs writes the bracket
 ;	into the save RAM.
 
-nullsub_3
+ScoutingReport	;The pre-game scouting report: an empty rts in 96
 	rts
 
 ResolveDayGames	;Compute winners and losers for the playoff matchups of the day: the series wins (gsstruct),

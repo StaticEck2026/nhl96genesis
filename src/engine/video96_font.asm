@@ -16,7 +16,7 @@ LoadBigFonts	;Load the fonts at char d4: BigFontMap+8 (word_FFB016), then the bi
 	movea.l	#BigFontMap3+8,a2
 	jmp	DecompressGraphicsPlain
 
-sub_243DA	;Called from the player code.
+TurnGoalieFromNet	;A pad goalie in his crease facing back at his net turns one step to the side
 	;Code the listing does not decode: kept as bytes
 	dc.b	$08,$2B,$00,$07,$00,$62,$67,$00,$00,$2A,$0C,$6B,$00,$03,$00,$54
 	dc.b	$67,$00,$00,$10,$0C,$6B,$00,$05,$00,$54,$67,$00,$00,$0E,$60,$00

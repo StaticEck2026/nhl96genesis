@@ -62,7 +62,7 @@ IntermissionMenus	;The intermission menu by gsp, then the same with OptPlayMode 
 	dc.l	PregameMenu,IntermissionMenu,IntermissionMenu,IntermissionMenu,GameOverMenu
 	dc.l	PlayoffPregameMenu,IntermissionMenu,IntermissionMenu,IntermissionMenu,PlayoffGameOverMenu
 
-sub_1D4CE	;Early in the playoffs (gamelevel 0-1): random goals for the other games of the day (SetScore)
+InitScores	;Early in the playoffs (gamelevel 0-1): 0-3 random SetScore goals for the other games of the day
 	cmpi.w	#1,(gamelevel).w
 	bgt.w	rtss2
 	bsr.w	GetShifter
@@ -128,17 +128,17 @@ SetScore	;Add to the score of the game in a0. After period 3 a game within one g
 	addq.w	#1,8(a0)
 	move.w	(a0),d0
 	move.w	2(a0),d1
-	bsr.w	sub_1D5BC
+	bsr.w	.3
 	add.w	d0,$A(a0)
 	move.w	2(a0),d0
 	move.w	(a0),d1
-	bsr.w	sub_1D5BC
+	bsr.w	.3
 	add.w	d0,$C(a0)
 .ex
 	movem.l	(sp)+,d0-d1/a0-a1
 	rts
 
-sub_1D5BC	;SetScore: the goal weights of the teams of the game (sctab rows by team rating)
+.3	;SetScore: the goal weights of the teams of the game (sctab rows by team rating)
 	asl.w	#2,d0
 	movea.w	#TeamList,a1
 	movea.l	(a1,d0.w),a1

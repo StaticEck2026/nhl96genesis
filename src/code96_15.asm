@@ -246,7 +246,7 @@ sub_1D920A	;Called before setpassmode / SetShotMode (input96)
 	dc.b	$62,$79,$20,$00,$00,$02,$22,$7C,$00,$1D,$92,$D6,$60,$E2,$48,$E7
 	dc.b	$FF,$BE,$30,$38,$D2,$4A,$60,$00,$FF,$6A
 
-sub_1D92EC	;Called from the game frame code (code96_06): sflags8 bit 1
+SetSflags8Bit1	;Always sets sflags8 bit 1 (the bclr is skipped)
 	bra.w	.0
 	dc.b	$08,$B8,$00,$01,$C3,$4C,$60,$00,$00,$08
 .0
@@ -396,7 +396,7 @@ clrTmPdst	;Set the 26 tmpdst words of team a0 to -2 (bench), then -1
 SetMenuPadSide	;sflags bit 1 set when the team of pad menupadnum is above 1, else cleared. Called from ManualGoalieMenu and
 	;PrintMenuItem
 	movem.l	d0/a0-a1,-(sp)
-	movea.l	#unk_1D9876,a0
+	movea.l	#padteams,a0
 	move.w	(menupadnum).w,d0
 	asl.w	#2,d0
 	movea.l	(a0,d0.w),a0
@@ -410,7 +410,7 @@ SetMenuPadSide	;sflags bit 1 set when the team of pad menupadnum is above 1, els
 .exit
 	rts
 
-unk_1D9876
+padteams	;The team word of each pad: cont1team ... cont4team
 	dc.b	$FF,$FF,$C3,$90,$FF,$FF,$C3,$92,$FF,$FF,$C3,$94,$FF,$FF,$C3,$96
 	dc.b	$08,$38,$00,$03,$C3,$3A,$66,$00,$00,$2E,$48,$E7,$A0,$80,$10,$2B
 	dc.b	$00,$62,$12,$38,$C3,$64,$B3,$00,$08,$00,$00,$06,$67,$00,$00,$44

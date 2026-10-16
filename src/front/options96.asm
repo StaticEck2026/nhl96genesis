@@ -222,7 +222,7 @@ OptionsMenuDraw	;OptionsScreen: draw the menu (PrintMenuList2)
 
 OptionsScreenSetup	;OptionsScreen: vram, fonts, the screen bitmaps and the row labels
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).w
+	move.l	#VBlank_Menus,(vbint).w
 	bclr	#0,(disflags).w
 	bset	#2,(disflags).w
 	bclr	#1,(disflags).w

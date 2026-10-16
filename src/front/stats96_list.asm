@@ -259,7 +259,7 @@ PListArrows	;PlayerStatsList: the scroll marks { (word_FFD032 above 0) and } (mo
 PListSetup	;PlayerStatsList: vram, fonts and the screen bitmaps
 	move.l	a2,-(sp)
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).w
+	move.l	#VBlank_Menus,(vbint).w
 	bclr	#0,(disflags).w
 	bset	#2,(disflags).w
 	bclr	#1,(disflags).w

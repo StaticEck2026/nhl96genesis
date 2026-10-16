@@ -180,7 +180,7 @@ TeamAwardFlags	;Nonzero for a team award
 
 AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).w
+	move.l	#VBlank_Menus,(vbint).w
 	bclr	#0,(disflags).w
 	bset	#2,(disflags).w
 	bclr	#1,(disflags).w

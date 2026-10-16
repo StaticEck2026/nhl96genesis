@@ -301,7 +301,7 @@ loc_C068
 	move.w	#$140,(Pencntdwn).w
 	bra.w	.1
 .0
-	bsr.w	sub_C51C
+	bsr.w	SetFightingMajors
 	bset	#5,(GameFlags).w
 .1
 	movem.l	(sp)+,d0-d3
@@ -550,7 +550,7 @@ fightinput	;Controller processing for fighting
 .34
 	jmp	SetSPA
 
-sub_C51C	;Change the first two penalties $2E in PenBuf to $26, then Pencntdwn $B40
+SetFightingMajors	;Both fighters' roughing minors in PenBuf become fighting majors; Pencntdwn $B40
 	movem.l	a1,-(sp)
 	movea.w	#(PenBuf-2-M68K_RAM),a1
 .0

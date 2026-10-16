@@ -36,7 +36,7 @@ sroot = $01B0DE		;video96
 AddPenalty2 = $01C1D2		;penalty96
 Stop4Pen = $01C784		;penalty96
 PenGoalStuff = $01CC52		;penalty96
-nullsub_4 = $01D062		;penalty96
+printscores1 = $01D062		;penalty96
 ChkShotStat = $01D218		;lines96_bar
 ChooseSong = $088688		;sound96
 StartArenaAnim = $1D8A86		;shootout96_path
@@ -56,7 +56,7 @@ SPAboardmidl = $2084		;SPA value (frames96)
 SPAboardmidr = $24C4		;SPA value (frames96)
 AddPenalty = $01C192		;penalty96
 PenShotChk = $01C3E0		;penalty96
-sub_1C3C6 = $01C3C6		;penalty96
+DoubleMinorChk = $01C3C6		;penalty96
 
 
 ; Main segment code

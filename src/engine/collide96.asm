@@ -499,7 +499,7 @@ CCStart	;Player a3 is checking player a2
 	movea.l	(sp)+,a0
 	jsr	(PenShotChk).l
 	bpl.w	.3
-	jsr	(sub_1C3C6).l
+	jsr	(DoubleMinorChk).l
 .3
 	jsr	(AddPenalty).l
 .4
@@ -1421,7 +1421,7 @@ Goal	;A goal: the shootout count, EndPenaltyShotPlay, the score and both teams
 	bsr.w	ChkShotStat
 	bsr.w	PenGoalStuff
 	bclr	#3,(BA_PS_flags).w
-	bsr.w	nullsub_4
+	bsr.w	printscores1
 	move.w	#$2710,(crowdnoisedelay).w
 	btst	#0,(gmode2).w
 	beq.w	.24

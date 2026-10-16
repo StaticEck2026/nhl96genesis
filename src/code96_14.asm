@@ -30,7 +30,7 @@ PuckOnAttackHalf	;d0 = 1 when the puck is on the half of the goal player a3 shoo
 	movem.w	(sp)+,d0-d1
 	rts
 
-sub_1D6BE6	;Called from code96_10 (GameFlags bit 3: the pads of the teams).
+onetimershot	;Do the one-timer: a pass with GameFlags bit 3, else a shot; offsides, icing, assists and the crowd
 	;Code the listing does not decode: kept as bytes
 	dc.b	$08,$38,$00,$03,$C3,$50,$67,$00,$00,$80,$48,$E7,$FF,$FE,$30,$38
 	dc.b	$BF,$A6,$B0,$78,$C3,$84,$67,$00,$00,$30,$B0,$78,$C3,$86,$67,$00

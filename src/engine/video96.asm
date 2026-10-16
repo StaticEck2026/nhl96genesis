@@ -1273,7 +1273,7 @@ printbigtext	;Print with the font map at bigfontptr. Lower case is printed as up
 	bpl.w	.nocom
 	neg.w	d0
 	asl.w	#2,d0
-	movea.l	#unk_1C01C,a2
+	movea.l	#BigControlCodeJumpTable,a2
 	movea.l	(a2,d0.w),a2
 	jsr	(a2)
 	bra.w	.1

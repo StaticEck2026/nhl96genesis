@@ -1028,7 +1028,7 @@ TeamSelectScreen	;Team select: up / down change the team, left / right pick home
 
 TeamSelectGfx	;Team select video set up: backgrounds, the logos and the five rank names
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).l
+	move.l	#VBlank_Menus,(vbint).l
 	bclr	#0,(disflags).w
 	bset	#2,(disflags).w
 	bclr	#1,(disflags).w

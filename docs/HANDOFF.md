@@ -468,6 +468,19 @@ Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the b
   .droppuck between; FallDown's table and tail are .23, .24, .25, .hitter (95G locals; the hitter's own .0-.7 are .h0-.h7).
   FallDown's comment said a3 falls: a2 falls and a3 is the hitter.
 
+- Engine leftovers. Parent names by body: AddFramer, InitScores, PeriodOver, updatefaceoff, ExitStatsScreen,
+  SetSflags8Bit1 (94G); reenergizeteam, Findhittype, padteams, shotsets, onetimershot, ClrHor (95G / 94G). Call-slot
+  names for empty rts stubs where every caller is a 94 / 95 call site of that routine: printscores1, ScoutingReport.
+  dostop: 95G dostop's body and callers are the routine that was loc_1AD6C; the old dostop label was its inner non-pad
+  branch (.cpu now), with .stop / .glide. Folds: getlchoice2 .tab, ReplayMode .top, doplayeracc .ftab,
+  ProcessPenaltyList .next / .5 / .coinpen, updatepwrplay .clrpwrplay, SetScore .3, JumpToShowClock .digit / .digits
+  (all 95G / 94G locals). loc_10000 was not a label: setpassmode's `cmp.l #$10000,d0` is a constant (95G writes it so);
+  the label and its unused `.0` are gone, and locret_10054 is sub_FFD0's .exit.
+- New names from the code: JumpToDoplayeracc, SetFightingMajors, ClearTeamRoles / CheckRoles / CheckTeamRoles (the role
+  byte $65), VBlank_Menus (95G VBlank_SetOptions shape; that name is taken in 96), ArmIcing, BigControlCodeJumpTable,
+  DoubleMinorChk, ErasePenaltyMessage, Erase/DrawPowerPlayBox, SetGoalieFromLines, OpeningClear, TurnGoalieFromNet,
+  ChecksumSkipStart / End. PauseScreenDraw takes the 95G name by role and caller (body rewritten).
+
 ## Unsure
 
 Copied from `docs/align95_plan.md`. Leave these alone.
@@ -499,3 +512,12 @@ Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidenc
 - For Abdul: names kept from 95G by role and interface where the body is new: SimTeamGoals, SimScorers, SimShots
   (season sim), ClearSeasonData (season96). Swap for new names if role is not enough.
 - For Abdul: the asstab entries $1-$6 are named by role and the 94 numbering, not a byte match (see the logic96 bullet).
+- sub_AFDA (input96): start + dpad sets SPA288C, pflags2 bit 1 and Xvel + $64. What SPA288C is, is not known.
+- loc_C068 (fight96): a fighter engages (SPA3128); the second one turns the roughing calls into fighting majors.
+  Reached from assfight and fightinput, so it stays global; the meaning of SPA3128 is not proven.
+- sub_FD14, sub_FD80, sub_FFD0 (input96_shot): once a second they rework the role byte $65 of each team around its last
+  puck carrier by puck zone. The role scheme is not understood well enough to name them.
+- nullsub_2 (teamgfx96): an rts called once, at game over after EncodePW; 94 / 95 have no call there.
+- sub_14804 (hockey96): clears save RAM $E68-$ECD in StartGame (OptPlayMode above 1); what lives there is not known.
+- sub_1D920A (code96_15): called before setpassmode / SetShotMode and has no effect (the movem undoes the load).
+- For Abdul: PauseScreenDraw (pause96_return) has 95G's caller and job but a rewritten body.

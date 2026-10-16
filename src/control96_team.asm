@@ -76,7 +76,7 @@ SetOriginalLines	;The line sets of team struct a2 from GetTeamLines: with OptLin
 .loop
 	move.l	(a0)+,(a1)+
 	dbf	d0,.loop
-	bsr.w	sub_215A0
+	bsr.w	SetGoalieFromLines
 	rts
 .0
 	moveq	#$D,d0
@@ -89,10 +89,10 @@ SetOriginalLines	;The line sets of team struct a2 from GetTeamLines: with OptLin
 .loop2
 	move.l	(a0)+,(a1)+
 	dbf	d0,.loop2
-	bsr.w	sub_215A0
+	bsr.w	SetGoalieFromLines
 	rts
 
-sub_215A0	;tmgoalie of team a2 = byte $184 - 1
+SetGoalieFromLines	;tmgoalie of team a2 = the first byte of its line sets ($184) - 1
 	move.w	d0,-(sp)
 	clr.w	d0
 	move.b	$184(a2),d0

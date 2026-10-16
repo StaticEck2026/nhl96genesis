@@ -631,7 +631,7 @@ SkipOtherUserName	;Step namelogsel past the name the other team's pad picked, in
 NameEntryGfx	;Name entry: vram, fonts, the screen bitmaps, the pad icon (NameEntryPadIcons), the team block and the
 	;heading
 	bset	#5,(sflags12).w
-	move.l	#unk_12D46,(vbint).w
+	move.l	#VBlank_Menus,(vbint).w
 	bclr	#0,(disflags).w
 	bset	#2,(disflags).w
 	bclr	#1,(disflags).w

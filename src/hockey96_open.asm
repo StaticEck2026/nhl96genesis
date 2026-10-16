@@ -81,8 +81,8 @@ Opening	;Title screen, then into Opening2
 	move.w	#7,d0
 	move.w	#0,d1
 	jsr	(SoundCmd).l
-	jsr	(sub_1E89FC).l
-	jsr	(sub_1E889C).l
+	jsr	(CreditsScreen).l
+	jsr	(TitleScreen).l
 	bra.w	loc_217BE
 
 Opening2	;Restart the sound, reset the stack and clear the variables, then the main menu and the season flow
@@ -199,7 +199,7 @@ loc_217BE
 	bne.w	.12
 	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
 	jsr	(RunSeasonMenu).l
-	jsr	(sub_1E827A).l
+	jsr	(SetSeasonAwardWinners).l
 	jsr	(NewPO).l
 	btst	#1,(sflags11).w
 	bne.w	.16
@@ -241,7 +241,7 @@ loc_217BE
 .18
 	btst	#3,(dword_FFDD7E+2).w
 	beq.w	.19
-	jsr	(sub_1E8C5E).l
+	jsr	(CupCelebration).l
 .19
 	jsr	(PlayoffScreen).l
 	btst	#3,(dword_FFDD7E+2).w
@@ -249,7 +249,7 @@ loc_217BE
 .20
 	move.w	#0,-(sp)
 	jsr	(song).l
-	jsr	(sub_1E8544).l
+	jsr	(CupChampionsScreen).l
 .21
 	jsr	(SeasonAwards).l
 	btst	#1,(sflags13).w

@@ -68,7 +68,7 @@ StandingsPoints = $1D9CC6		;season96_stand
 StandingsGroups = $1D9D12		;season96_stand
 StandingsGroup4 = $1D9D76		;season96_stand
 SortStandings = $1D9D92		;season96_stand
-sub_1DA9EA = $1DA9EA		;season96_menu
+BuildPlayerLeaders = $1DA9EA		;season96_menu
 VBlank_SpriteFade = $1E2E76		;summary96
 
 

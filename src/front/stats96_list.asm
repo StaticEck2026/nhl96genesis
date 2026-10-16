@@ -708,7 +708,7 @@ PListPrint	;PlayerStatsList: print the rows of the list
 	asl.w	#2,d0
 	movea.l	(a5,d0.w),a5
 	move.w	#4,(printx).w
-	movea.l	#unk_1DAE32,a1
+	movea.l	#BlankStatsRow,a1
 	jsr	(printcur).l
 	move.w	d6,d0
 	add.w	(word_FFD032).w,d0

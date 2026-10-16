@@ -141,7 +141,7 @@ PlayoffScreen	;Bring up the playoff screen if in playoff mode (OptPlayMode nonze
 .7
 	move.w	#$18,(palcount).w
 	movem.l	d0/a0,-(sp)
-	movea.l	#unk_1E765A,a0
+	movea.l	#PlayoffScrollStart,a0
 	move.w	(gamelevel).w,d0
 	add.w	d0,d0
 	move.w	(a0,d0.w),d0
@@ -185,7 +185,7 @@ UpdatePlayoffScroll	;Move the tree one step and stop on a page boundary
 .0
 	move.w	#3,d1
 	movem.l	a0,-(sp)
-	movea.l	#unk_1E7650,a0
+	movea.l	#PlayoffScrollStops,a0
 	add.w	d1,d1
 	move.w	(a0,d1.w),d1
 	move.w	d1,(jerseynum).w
@@ -206,7 +206,7 @@ UpdatePlayoffScroll	;Move the tree one step and stop on a page boundary
 	move.w	d1,(word_FFB8C4).w
 .nox
 	ext.l	d0
-	movea.l	#unk_1E7650,a0
+	movea.l	#PlayoffScrollStops,a0
 .1
 	move.w	(a0)+,d0
 	cmp.w	(word_FFD030).w,d0
@@ -214,7 +214,7 @@ UpdatePlayoffScroll	;Move the tree one step and stop on a page boundary
 	neg.w	d0
 	cmp.w	(word_FFD030).w,d0
 	beq.w	.2
-	cmpa.l	#unk_1E7658,a0
+	cmpa.l	#PlayoffScrollStopsEnd,a0
 	blt.s	.1
 	rts
 .2
@@ -358,12 +358,12 @@ PlayoffTreeSetup	;Playoff tree layout by gamelevel. Used by PlayoffScreen
 	dc.b	$0D,$47,$0B,$47,$0D,$29,$18,$40,$18,$34,$11,$05,$0F,$00,$1D,$02
 	dc.b	$2B,$04,$53,$06,$61,$08,$6F,$0A,$FF,$FF
 
-unk_1E7650	;Used from UpdatePlayoffScroll
+PlayoffScrollStops	;Playoff tree scroll page positions; the last entry is the scroll limit
 	dc.b	$00,$00,$00,$88,$00,$88,$01,$40
 
-unk_1E7658	;The end of unk_1E7650
+PlayoffScrollStopsEnd	;The end of PlayoffScrollStops
 	dc.b	$01,$40
 
-unk_1E765A	;Used from PlayoffScreen
+PlayoffScrollStart	;The start scroll of the playoff tree by gamelevel (negated for the other side)
 	dc.b	$01,$40,$01,$40,$00,$88,$00,$00,$00,$00
 

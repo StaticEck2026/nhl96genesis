@@ -4,13 +4,13 @@ SeasonAwards	;End of season awards: left / right go through the 9 awards (pictur
 	;start leaves
 	movem.l	d0-d7/a0-a6,-(sp)
 	jsr	(forceblack).l
-	bsr.w	sub_1E83E6
+	bsr.w	SetPlayoffAwardWinners
 	bsr.w	AwardsScreenSetup
 	move.w	#$18,(palcount).w
 	bclr	#2,(disflags).w
 	clr.w	(word_FFD034).w
 .draw
-	jsr	(sub_1E7B64).l
+	jsr	(DrawAwardWinnerLogo).l
 	jsr	(DrawAwardPicture).l
 	jsr	(PrintAwardName).l
 	jsr	(PrintAwardDesc).l
@@ -48,10 +48,10 @@ SeasonAwards	;End of season awards: left / right go through the 9 awards (pictur
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-sub_1E7B64	;SeasonAwards: a bitmap (sub_1E821C) at 3,8
+DrawAwardWinnerLogo	;The team logo of the winner of award word_FFD034
 	jsr	(printz).l
 	String	$8F,$03,$08
-	bsr.w	sub_1E821C
+	bsr.w	GetAwardWinnerTeam
 	move.w	(word_FFB02C).w,d4
 	clr.w	d5
 	jsr	(DrawTeamLogoD7).l
@@ -262,7 +262,7 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	jsr	(DrawScreenSprite).l
 	rts
 
-sub_1E821C	;Called from sub_1E7B64
+GetAwardWinnerTeam	;d7 = the team of the winner of award word_FFD034 (its save RAM award record)
 	;Code the listing does not decode: kept as bytes
 	dc.b	$20,$7C,$FF,$FF,$D1,$30,$20,$3C,$00,$00,$0D,$94,$32,$38,$D0,$34
 	dc.b	$B2,$7C,$00,$08,$66,$00,$00,$04,$42,$41,$C2,$FC,$00,$04,$D0,$81
@@ -283,10 +283,11 @@ GetAwardWinner	;d0 = the 4-byte winner record of award word_FFD034 (save RAM $D9
 	move.l	(a0),d0
 	rts
 
-sub_1E827A	;Called from Opening2: player records of three lists to save RAM
+SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, Norris, Vezina, Presidents') to save RAM from the
+	;leaders
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	#2,(word_FFBF56).w
-	jsr	(sub_1DA9EA).l
+	jsr	(BuildPlayerLeaders).l
 	movea.l	#$201B28,a6
 	move.w	(word_FF1388).l,d0
 	ext.l	d0
@@ -338,7 +339,7 @@ sub_1E827A	;Called from Opening2: player records of three lists to save RAM
 	move.b	(jerseynum+1).w,3(a6)
 	addq.l	#8,a6
 	move.w	#3,(word_FFBF56).w
-	jsr	(sub_1DA9EA).l
+	jsr	(BuildPlayerLeaders).l
 	move.w	(word_FF1388).l,d0
 	ext.l	d0
 	divu.w	#$1B,d0
@@ -377,10 +378,10 @@ sub_1E827A	;Called from Opening2: player records of three lists to save RAM
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-sub_1E83E6	;Called from SeasonAwards: the award winner records to save RAM
+SetPlayoffAwardWinners	;Write the Conn Smythe, Wales and Campbell winners to save RAM (the finalists, or the conference standings)
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	#2,(word_FFBF56).w
-	jsr	(sub_1DA9EA).l
+	jsr	(BuildPlayerLeaders).l
 	movea.l	#$201B48,a6
 	move.w	(word_FF1388).l,d0
 	btst	#1,(sflags11).w
@@ -462,7 +463,7 @@ sub_1E83E6	;Called from SeasonAwards: the award winner records to save RAM
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-sub_1E8544	;Called from Opening2 (dword_FFDD7E bit 3): a screen with the texts unk_1E877A / unk_1E8788
+CupChampionsScreen	;The user's team won the Cup: a full screen picture with the team palette, small logo and name, until start
 	btst	#3,(dword_FFDD7E+2).w
 	beq.w	.3
 	movem.l	d0-d7/a0-a6,-(sp)
@@ -562,7 +563,7 @@ sub_1E8544	;Called from Opening2 (dword_FFDD7E bit 3): a screen with the texts u
 	adda.w	4(a1),a1
 	cmp.w	#0,d0
 	bne.w	.1
-	movea.l	#unk_1E877A,a1
+	movea.l	#MightyDucksTxt,a1
 .1
 	move.w	(a1),d0
 	subq.w	#2,d0
@@ -583,7 +584,7 @@ sub_1E8544	;Called from Opening2 (dword_FFDD7E bit 3): a screen with the texts u
 	adda.w	(a1),a1
 	cmp.w	#0,d0
 	bne.w	.2
-	movea.l	#unk_1E8788,a1
+	movea.l	#OfAnaheimTxt,a1
 .2
 	move.w	(a1),d0
 	subq.w	#2,d0
@@ -606,9 +607,9 @@ sub_1E8544	;Called from Opening2 (dword_FFDD7E bit 3): a screen with the texts u
 .3
 	rts
 
-unk_1E877A	;Used from sub_1E8544
+MightyDucksTxt	;CupChampionsScreen: Anaheim's first name line
 	String	'mighty ducks'
 
-unk_1E8788	;Used from sub_1E8544
+OfAnaheimTxt	;CupChampionsScreen: Anaheim's second name line
 	String	'of anaheim'
 

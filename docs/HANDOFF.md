@@ -432,6 +432,19 @@ Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the b
   RedrawTeamRanks), RunSeasonMenu and SeasonMenuScreen (its menu text), LoadScreenSprite / DrawScreenSprite (seven
   screens use them), SetMenuScroll, DrawTeamLogoD7. homegoalies doubles as the menu background scroll.
 
+- playoff96: folds. maketree's six inner labels are locals now (.loop, .bypoints, .reseed2, .reseed4, .next, .nogames; the
+  clashing locals renamed .final, .keep, .p1-.p3, .nofinal, .games). FigureJoy keeps its 95G locals (.9, .10, .fjnpo, .ex,
+  16/16 and 20/20 words). FirstRoundSeeds (read by maketree, not SetTreeGameTeams) and NOPJoyTbl (95G, 14/14 words).
+- Arena animation (shootout96_path): 94G names. The three nullsubs are 94G AddArenaAnimSprite, RunArenaAnim and
+  StartArenaAnim with an rts put first (the dead bodies match 47/52, 20/20, 20/20 words, same callers); SetFaceoffAnim and
+  EndArenaAnim match all their words. ShowCrowdFrame2 is the `.spr` tail of AddArenaAnimSprite (folded).
+- title96: TitleScreen, CreditsScreen, PrintCreditsPage, the two wait-frame helpers, VBlank_LineScroll and its unused copy
+  VBlank_LineScroll2 (nothing sets either), the Cup win scene (CupCelebration, its setup, sprites and cheer delays).
+- awards96_show: DrawAwardWinnerLogo, GetAwardWinnerTeam, SetSeasonAwardWinners, SetPlayoffAwardWinners,
+  CupChampionsScreen (MightyDucksTxt / OfAnaheimTxt). season96_menu: BuildPlayerLeaders and PlayerLeaderJumps (95G),
+  BlankStatsRow. stats96: FormatLineName. summary96: BlankMenuBox, PeriodGoalsTxt, PeriodShotsTxt. playoff96_tree: the
+  scroll tables.
+
 ## Unsure
 
 Copied from `docs/align95_plan.md`. Leave these alone.
@@ -454,3 +467,6 @@ SegaInit locals exist in `src/sega/SegaInit.asm` and in `docs/name_map.csv`. Do 
 Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidence below is found.
 - sub_11582 (season96): called last by ClearPlayoffSave (Reset Rosters). Clears the player stat totals and the
   injuries, plus two save RAM blocks whose use is not known yet; name it once those blocks are identified.
+- For Abdul: BlankMenuBox (summary96) has the callers and job of 95G ClearMenuBox (TimeoutMenu, SelectGoalieMenu), but
+  95 calls eraser and 96 prints blank big-font rows, so it was named from the job. Rename to ClearMenuBox if role is enough.
+- For Abdul: CupChampionsScreen (awards96_show) has the job of 95G StanleyCupScreen with a different body; same question.

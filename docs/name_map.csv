@@ -827,20 +827,20 @@ $021B9E,defmenuoptions,unk_21B9E,,setup96_menu
 $021BB0,ContinuePlayoffs,sub_21BB0,,playoff96
 $021C28,NewPO,sub_21C28,,playoff96
 $021CF4,maketree,sub_21CF4,,playoff96
-$021D84,loc_21D84,loc_21D84,,playoff96
-$021DD4,sub_21DD4,sub_21DD4,,playoff96
-$021E62,loc_21E62,loc_21E62,,playoff96
-$021E8E,loc_21E8E,loc_21E8E,,playoff96
-$021F3E,loc_21F3E,loc_21F3E,,playoff96
-$021F94,loc_21F94,loc_21F94,,playoff96
-$021F9A,unk_21F9A,unk_21F9A,,playoff96
+$021D84,.loop (maketree),loc_21D84,,playoff96
+$021DD4,.bypoints (maketree),sub_21DD4,,playoff96
+$021E62,.reseed2 (maketree),loc_21E62,,playoff96
+$021E8E,.reseed4 (maketree),loc_21E8E,,playoff96
+$021F3E,.next (maketree),loc_21F3E,,playoff96
+$021F94,.nogames (maketree),loc_21F94,,playoff96
+$021F9A,FirstRoundSeeds,unk_21F9A,,playoff96
 $021FAA,SetTreeGameTeams,sub_21FAA,,playoff96
 $021FE8,FigureJoy,sub_21FE8,,playoff96
-$02210E,unk_2210E,unk_2210E,,playoff96
-$02212E,unk_2212E,unk_2212E,,playoff96
-$022156,loc_22156,loc_22156,,playoff96
-$02216C,loc_2216C,loc_2216C,,playoff96
-$022172,unk_22172,unk_22172,,playoff96
+$02210E,.9 (FigureJoy),unk_2210E,,playoff96
+$02212E,.10 (FigureJoy),unk_2212E,,playoff96
+$022156,.fjnpo (FigureJoy),loc_22156,,playoff96
+$02216C,.ex (FigureJoy),loc_2216C,,playoff96
+$022172,NOPJoyTbl,unk_22172,,playoff96
 $022198,InitializeGameStructures,,,playoff96
 $0221C8,GetRandomUnusedTeam,,,playoff96
 $0221D2,rtsInitGames,,,playoff96
@@ -1273,15 +1273,15 @@ $1D837C,HomeTxt,,,shootout96_path
 $1D8382,VisitorsTxt,,,shootout96_path
 $1D838C,GetTeamArena,,,shootout96_path
 $1D83B0,EndShootout,sub_1D83B0,,shootout96_path
-$1D84D4,nullsub_5,,,shootout96_path
-$1D853C,ShowCrowdFrame2,,,shootout96_path
+$1D84D4,AddArenaAnimSprite,nullsub_5,,shootout96_path
+$1D853C,.spr (AddArenaAnimSprite),,ShowCrowdFrame2,shootout96_path
 $1D8618,updatePPTeamTime,sub_1D8618,,shootout96_path
 $1D8676,ShortenMsgTimer,sub_1D8676,,shootout96_path
 $1D86A4,ManualGoalieMenu,unk_1D86A4,,shootout96_path
-$1D8782,nullsub_6,,,shootout96_path
-$1D8A86,nullsub_7,,,shootout96_path
-$1D8AB4,sub_1D8AB4,,,shootout96_path
-$1D8AC0,sub_1D8AC0,,,shootout96_path
+$1D8782,RunArenaAnim,nullsub_6,,shootout96_path
+$1D8A86,StartArenaAnim,nullsub_7,,shootout96_path
+$1D8AB4,SetFaceoffAnim,sub_1D8AB4,,shootout96_path
+$1D8AC0,EndArenaAnim,sub_1D8AC0,,shootout96_path
 $1D8ACE,ClearWinRecords,,,shootout96_path
 $1D8B26,PSandSOpassdir,sub_1D8B26,,shootout96_path
 $1D8B4E,passdirlist,unk_1D8B4E,,shootout96_path
@@ -1330,10 +1330,10 @@ $1D9D76,StandingsGroup4,unk_1D9D76,,season96_stand
 $1D9D92,SortStandings,sub_1D9D92,,season96_stand
 $1DA6C0,SetSframe,sub_1DA6C0,,season96_menu
 $1DA85C,LeadersScrollArrows,,,season96_menu
-$1DA9EA,sub_1DA9EA,sub_1DA9EA,,season96_menu
-$1DAA06,unk_1DAA06,unk_1DAA06,,season96_menu
+$1DA9EA,BuildPlayerLeaders,sub_1DA9EA,,season96_menu
+$1DAA06,PlayerLeaderJumps,unk_1DAA06,,season96_menu
 $1DAC5A,SortValuesUp,,,season96_menu
-$1DAE32,unk_1DAE32,unk_1DAE32,,season96_menu
+$1DAE32,BlankStatsRow,unk_1DAE32,,season96_menu
 $1DB020,SeasonPlayoffStats,loc_1DB020,,season96_menu
 $1DB288,WaitAnyPad,sub_1DB288,,season96_menu
 $1DB30E,PStatsArrows,loc_1DB30E,,season96_menu
@@ -1559,7 +1559,7 @@ $1E2154,LineCursorTable,,,stats96
 $1E22E0,SetLineSlot,,,stats96
 $1E2310,LoadTeamLine,,,stats96
 $1E239E,SaveTeamLine,,,stats96
-$1E2644,sub_1E2644,,,stats96
+$1E2644,FormatLineName,sub_1E2644,,stats96
 $1E2688,ReturnToGame,sub_1E2688,,pause96_return
 $1E2742,RestoreGameScreen,sub_1E2742,,pause96_return
 $1E291E,ClearOldFrames,sub_1E291E,,pause96_return
@@ -1568,14 +1568,14 @@ $1E2DE8,PeriodText,,,pause96_return
 $1E2E3C,DigitText,,,pause96_return
 $1E2E64,PrintDigit,,,pause96_return
 $1E2E76,VBlank_SpriteFade,unk_1E2E76,,summary96
-$1E2EAA,sub_1E2EAA,,,summary96
+$1E2EAA,BlankMenuBox,sub_1E2EAA,,summary96
 $1E2EFC,TeamRosterScreen,,,summary96
 $1E352A,ScoringSummaryScreen,,,summary96
 $1E36D6,GoalTypeTbl,,,summary96
 $1E38E6,PenaltySummaryScreen,,,summary96
 $1E3C7C,PeriodStatsScreen,,,summary96
-$1E3D2C,unk_1E3D2C,,,summary96
-$1E3D34,unk_1E3D34,,,summary96
+$1E3D2C,PeriodGoalsTxt,unk_1E3D2C,,summary96
+$1E3D34,PeriodShotsTxt,unk_1E3D34,,summary96
 $1E3D3C,PeriodStatsTeam,,,summary96
 $1E3FDE,GameStatisticsScreen,,,summary96
 $1E420A,TeamStatTextTbl,,,summary96
@@ -1649,9 +1649,9 @@ $1E73B0,DrawTreeArrow,nullsub_8,,playoff96_tree
 $1E73B2,DrawTeamBlocks,sub_1E73B2,,playoff96_tree
 $1E7470,VBlank_Playoff,unk_1E7470,,playoff96_tree
 $1E74E6,PlayoffTreeSetup,unk_1E74E6,,playoff96_tree
-$1E7650,unk_1E7650,unk_1E7650,,playoff96_tree
-$1E7658,unk_1E7658,unk_1E7658,,playoff96_tree
-$1E765A,unk_1E765A,unk_1E765A,,playoff96_tree
+$1E7650,PlayoffScrollStops,unk_1E7650,,playoff96_tree
+$1E7658,PlayoffScrollStopsEnd,unk_1E7658,,playoff96_tree
+$1E765A,PlayoffScrollStart,unk_1E765A,,playoff96_tree
 $1E7664,showclock,loc_1E7664,,middle96_clock
 $1E76EA,PrintClockDigit,sub_1E76EA,,middle96_clock
 $1E76FC,ClockDigitText,unk_1E76FC,,middle96_clock
@@ -1663,7 +1663,7 @@ $1E78C4,ShowBigScore,loc_1E78C4,,middle96_clock
 $1E7A1E,ScorePeriodText,unk_1E7A1E,,middle96_clock
 $1E7A78,ClearBigScore,sub_1E7A78,,middle96_clock
 $1E7AC4,SeasonAwards,sub_1E7AC4,,awards96_show
-$1E7B64,sub_1E7B64,sub_1E7B64,,awards96_show
+$1E7B64,DrawAwardWinnerLogo,sub_1E7B64,,awards96_show
 $1E7B82,DrawAwardPicture,sub_1E7B82,,awards96_show
 $1E7BBC,AwardPictures,unk_1E7BBC,,awards96_show
 $1E7BE0,PrintAwardName,sub_1E7BE0,,awards96_show
@@ -1673,28 +1673,28 @@ $1E7D5A,AwardDescs,unk_1E7D5A,,awards96_show
 $1E7FFA,PrintAwardWinner,sub_1E7FFA,,awards96_show
 $1E80AA,TeamAwardFlags,unk_1E80AA,,awards96_show
 $1E80B4,AwardsScreenSetup,sub_1E80B4,,awards96_show
-$1E821C,sub_1E821C,sub_1E821C,,awards96_show
+$1E821C,GetAwardWinnerTeam,sub_1E821C,,awards96_show
 $1E824C,GetAwardWinner,sub_1E824C,,awards96_show
-$1E827A,sub_1E827A,sub_1E827A,,awards96_show
-$1E83E6,sub_1E83E6,sub_1E83E6,,awards96_show
-$1E8544,sub_1E8544,sub_1E8544,,awards96_show
-$1E877A,unk_1E877A,unk_1E877A,,awards96_show
-$1E8788,unk_1E8788,unk_1E8788,,awards96_show
+$1E827A,SetSeasonAwardWinners,sub_1E827A,,awards96_show
+$1E83E6,SetPlayoffAwardWinners,sub_1E83E6,,awards96_show
+$1E8544,CupChampionsScreen,sub_1E8544,,awards96_show
+$1E877A,MightyDucksTxt,unk_1E877A,,awards96_show
+$1E8788,OfAnaheimTxt,unk_1E8788,,awards96_show
 $1E8794,RandomInjuryGames,sub_1E8794,,injury96
 $1E8806,SetInjuryGames,sub_1E8806,,injury96
 $1E8840,SetSeasonInjuries,sub_1E8840,,injury96
 $1E887A,GetInjuryGames,,,injury96
-$1E889C,sub_1E889C,sub_1E889C,,title96
-$1E89A8,sub_1E89A8,,,title96
-$1E89F0,sub_1E89F0,sub_1E89F0,,title96
-$1E89FC,sub_1E89FC,sub_1E89FC,,title96
-$1E8BB8,sub_1E8BB8,sub_1E8BB8,,title96
-$1E8C0A,sub_1E8C0A,,,title96
-$1E8C52,sub_1E8C52,sub_1E8C52,,title96
-$1E8C5E,sub_1E8C5E,sub_1E8C5E,,title96
-$1E8DD0,unk_1E8DD0,unk_1E8DD0,,title96
-$1E8DE4,sub_1E8DE4,sub_1E8DE4,,title96
-$1E8F52,sub_1E8F52,sub_1E8F52,,title96
+$1E889C,TitleScreen,sub_1E889C,,title96
+$1E89A8,VBlank_LineScroll,sub_1E89A8,,title96
+$1E89F0,TitleWaitFrame,sub_1E89F0,,title96
+$1E89FC,CreditsScreen,sub_1E89FC,,title96
+$1E8BB8,PrintCreditsPage,sub_1E8BB8,,title96
+$1E8C0A,VBlank_LineScroll2,sub_1E8C0A,,title96
+$1E8C52,CreditsWaitFrame,sub_1E8C52,,title96
+$1E8C5E,CupCelebration,sub_1E8C5E,,title96
+$1E8DD0,CupCheerDelays,unk_1E8DD0,,title96
+$1E8DE4,CupCelebrationSetup,sub_1E8DE4,,title96
+$1E8F52,CupCelebrationSprites,sub_1E8F52,,title96
 $1E9028,ChecksumLongs,off_1E9028,,checksum96
 $1E902C,ChecksumValue,dword_1E902C,,checksum96
 $1E9030,dword_1E9030,dword_1E9030,,checksum96

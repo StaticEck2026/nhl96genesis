@@ -19,7 +19,7 @@ TeamLogoPtrs	;The team logo bitmap of each team, a long pointer per team (DrawTe
 	dc.l	TeamLogoSTL,TeamLogoTB,TeamLogoTOR,TeamLogoVAN
 	dc.l	TeamLogoWSH,TeamLogoWPG,TeamLogoCHI,TeamLogoCHI
 
-SmallLogoPtrs	;The small team logo of each team, a long pointer per team (read by sub_1E8544)
+SmallLogoPtrs	;The small team logo of each team, a long pointer per team (read by CupChampionsScreen)
 	dc.l	SmallLogoANH,SmallLogoBOS,SmallLogoBUF,SmallLogoCGY
 	dc.l	SmallLogoCHI,SmallLogoDAL,SmallLogoDET,SmallLogoEDM
 	dc.l	SmallLogoFLA,SmallLogoHFD,SmallLogoLA,SmallLogoMTL

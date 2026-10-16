@@ -270,7 +270,7 @@ DoFrameUpdates	;The frame updates of DoGameFrame: the new puck carrier check, th
 .1
 	jsr	(PenaltyManager).l
 	bsr.w	updatecrowdf
-	jsr	(nullsub_6).l
+	jsr	(RunArenaAnim).l
 	jsr	(updatesound).l
 	bsr.w	clockcont
 	btst	#7,(sflags).w

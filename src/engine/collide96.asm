@@ -867,7 +867,7 @@ FallDown	;Player a3 falls down (a check or the puck): the fall animation, the in
 	blt.w	.2
 	move.w	d0,-(sp)
 	move.w	#7,d0
-	jsr	(nullsub_7).l
+	jsr	(StartArenaAnim).l
 	move.w	(sp)+,d0
 	addq.w	#3,(ChkCnt).w
 	move.w	#SPAboardmidl,d1

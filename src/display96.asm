@@ -79,7 +79,7 @@ setvideo	;This is not vblank code but sets up ram for vblank transfers. Called o
 	bsr.w	setsortcords
 	bsr.w	setffo
 	bsr.w	JumpToShowClock
-	jsr	(nullsub_5).l
+	jsr	(AddArenaAnimSprite).l
 	bsr.w	showcrowd
 	jsr	(showref).l
 	jsr	(UpdateCrowdMeter).l

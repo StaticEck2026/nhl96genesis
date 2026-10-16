@@ -267,7 +267,7 @@ ShowGoalBox	;Goal box: close both line change boxes (lcfound2), then the scorer 
 	cmp.w	(HomeTeam).w,d0
 	bne.w	.3
 	move.w	#0,d0
-	jsr	(nullsub_7).l
+	jsr	(StartArenaAnim).l
 .3
 	move.w	(sp)+,d0
 .print

@@ -48,7 +48,7 @@ SmallFontMap2 = $17A164		;graphics96
 BigFontMap4 = $17B680		;graphics96
 unk_18948A = $18948A		;graphics96
 unk_18B916 = $18B916		;graphics96
-unk_1DAE32 = $1DAE32		;season96_menu
+BlankStatsRow = $1DAE32		;season96_menu
 PStatsPalette = $1DBB92		;season96_menu
 unk_1AC7C6 = $1AC7C6		;graphics96
 

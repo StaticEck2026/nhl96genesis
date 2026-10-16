@@ -86,16 +86,16 @@ LeadersScrollArrows	;League Leaders: draw up/down scroll arrows depending on lis
 	dc.b	$05,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20
 	dc.b	$20,$20,$20,$20,$20,$20,$20,$00,$4C,$DF,$7F,$FF,$4E,$75
 
-sub_1DA9EA	;Jump through unk_1DAA06 by word_FFBF56
+BuildPlayerLeaders	;League leaders: build and sort the list of category word_FFBF56 through PlayerLeaderJumps
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.w	(word_FFBF56).w,d0
 	asl.w	#2,d0
-	movea.l	#unk_1DAA06,a0
+	movea.l	#PlayerLeaderJumps,a0
 	movea.l	(a0,d0.w),a0
 	jmp	(a0)
 	dc.b	$4C,$DF,$7F,$FF,$4E,$75
 
-unk_1DAA06	;sub_1DA9EA jump table
+PlayerLeaderJumps	;BuildPlayerLeaders handler per category: goals, assists, points, goals against average
 	dc.b	$00,$1D,$AA,$56,$00,$1D,$AA,$88,$00,$1D,$AA,$BA,$00,$1D,$AA,$16
 	dc.b	$22,$3C,$00,$00,$59,$8C,$74,$0E,$76,$03,$28,$3C,$00,$00,$5D,$D0
 	dc.b	$7C,$0D,$08,$38,$00,$02,$DD,$80,$67,$00,$00,$14,$22,$3C,$00,$00
@@ -168,7 +168,7 @@ SortValuesUp	;Bubble sort the values at LeaderValues / players at LeaderPlayers 
 	dc.b	$00,$01,$BC,$84,$52,$78,$B0,$42,$52,$46,$BC,$78,$BF,$5C,$6D,$00
 	dc.b	$FE,$9C,$60,$00,$00,$02,$4E,$75
 
-unk_1DAE32	;A String of blanks (used from code96_14, code96_16 and data96_12)
+BlankStatsRow	;A String of blanks that clears a stats list row
 	dc.b	$00,$24,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20
 	dc.b	$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20,$20
 	dc.b	$20,$20,$20,$20,$08,$F8,$00,$05,$C3,$56,$21,$FC,$00,$01,$2D,$46
@@ -783,7 +783,7 @@ PStatsPrintList	;SeasonPlayoffStats: print the rows of the list
 	asl.w	#2,d0
 	movea.l	(a5,d0.w),a5
 	move.w	#4,(printx).w
-	movea.l	#unk_1DAE32,a1
+	movea.l	#BlankStatsRow,a1
 	jsr	(printcur).l
 	move.w	d6,d0
 	add.w	(word_FFBF58).w,d0

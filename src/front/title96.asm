@@ -1,6 +1,6 @@
 ;	The opening screens. New in 96.
 
-sub_1E889C	;Called from Opening: a screen
+TitleScreen	;Title screen: the picture unk_88A18 and song 0, until start or the time runs out
 	move	#$2700,sr
 	move.w	(VDP_CNTR).l,(seed).w
 	move.w	(VDP_CNTR).l,(seed+2).w
@@ -51,7 +51,7 @@ sub_1E889C	;Called from Opening: a screen
 	move.w	#$18,(palcount).w
 	move.w	#$384,(carddelay).w
 .0
-	bsr.w	sub_1E89F0
+	bsr.w	TitleWaitFrame
 	subq.w	#1,(carddelay).w
 	bmi.w	.1
 	jsr	(FindHeldMenuPad).l
@@ -60,7 +60,7 @@ sub_1E889C	;Called from Opening: a screen
 .1
 	rts
 
-sub_1E89A8	;A vblank handler
+VBlank_LineScroll	;A vblank handler nothing sets: the line scroll table (SortCords), Vscroll, cramfade, vcount, the music
 	;Code the listing does not decode: kept as bytes
 	dc.b	$48,$E7,$FF,$FE,$08,$38,$00,$02,$BF,$B2,$66,$00,$00,$2C,$30,$7C
 	dc.b	$B0,$5E,$32,$38,$B0,$00,$30,$3C,$01,$C0,$4E,$B9,$00,$01,$B3,$EC
@@ -68,14 +68,14 @@ sub_1E89A8	;A vblank handler
 	dc.b	$BD,$36,$4E,$B9,$00,$01,$AF,$D6,$52,$78,$B0,$52,$4E,$B9,$00,$02
 	dc.b	$44,$86,$4C,$DF,$7F,$FF,$4E,$73
 
-sub_1E89F0	;Wait for the next frame (vcount)
+TitleWaitFrame	;TitleScreen: wait for the next frame (vcount)
 	move.w	(vcount).w,d0
 .loop
 	cmp.w	(vcount).w,d0
 	beq.s	.loop
 	rts
 
-sub_1E89FC	;Called from Opening: a screen with text pages (sub_1E8BB8)
+CreditsScreen	;The legal and credits pages (CreditsList) over three pictures; start skips after the first page
 	move	#$2700,sr
 	move.w	(VDP_CNTR).l,(seed).w
 	move.w	(VDP_CNTR).l,(seed+2).w
@@ -155,9 +155,9 @@ sub_1E89FC	;Called from Opening: a screen with text pages (sub_1E8BB8)
 	clr.w	(word_FFD030).w
 	clr.w	(word_FFD032).w
 	move.l	#$5732,(setupvalues).w
-	bsr.w	sub_1E8BB8
+	bsr.w	PrintCreditsPage
 .0
-	bsr.w	sub_1E8C52
+	bsr.w	CreditsWaitFrame
 	jsr	(FindHeldMenuPad).l
 	tst.w	(word_FFD030).w
 	beq.w	.1
@@ -178,13 +178,13 @@ sub_1E89FC	;Called from Opening: a screen with text pages (sub_1E8BB8)
 	addq.w	#1,(word_FFD030).w
 	cmpi.w	#5,(word_FFD030).w
 	beq.w	.5
-	bsr.w	sub_1E8BB8
+	bsr.w	PrintCreditsPage
 .4
 	bra.s	.0
 .5
 	rts
 
-sub_1E8BB8	;sub_1E89FC: print the text page at setupvalues
+PrintCreditsPage	;Print the CreditsList page at setupvalues, one String a row up to the empty String, then step setupvalues
 	jsr	(printz).l
 	String	$AF,$10,$01
 	moveq	#$18,d0
@@ -206,7 +206,7 @@ sub_1E8BB8	;sub_1E89FC: print the text page at setupvalues
 	move.l	a1,(setupvalues).w
 	rts
 
-sub_1E8C0A	;A vblank handler
+VBlank_LineScroll2	;A copy of VBlank_LineScroll; nothing sets it
 	;Code the listing does not decode: kept as bytes
 	dc.b	$48,$E7,$FF,$FE,$08,$38,$00,$02,$BF,$B2,$66,$00,$00,$2C,$30,$7C
 	dc.b	$B0,$5E,$32,$38,$B0,$00,$30,$3C,$01,$C0,$4E,$B9,$00,$01,$B3,$EC
@@ -214,14 +214,14 @@ sub_1E8C0A	;A vblank handler
 	dc.b	$BD,$36,$4E,$B9,$00,$01,$AF,$D6,$52,$78,$B0,$52,$4E,$B9,$00,$02
 	dc.b	$44,$86,$4C,$DF,$7F,$FF,$4E,$73
 
-sub_1E8C52	;Wait for the next frame (vcount)
+CreditsWaitFrame	;CreditsScreen: wait for the next frame (vcount)
 	move.w	(vcount).w,d0
 .loop
 	cmp.w	(vcount).w,d0
 	beq.s	.loop
 	rts
 
-sub_1E8C5E	;Called from Opening2: restart the sound driver, then a screen with sprites (sub_1E8F52)
+CupCelebration	;The user's team won the Cup: the rink scene with the team's sprites and random crowd cheers until start
 	movem.l	d0-d7/a0-a6,-(sp)
 	jsr	(SoundOff).l	;stop the song
 	move.w	#9,d0	;restart the sound driver as Begin does
@@ -237,7 +237,7 @@ sub_1E8C5E	;Called from Opening2: restart the sound driver, then a screen with s
 	move.w	#7,d0
 	move.w	#1,d1
 	jsr	(SoundCmd).l
-	bsr.w	sub_1E8DE4
+	bsr.w	CupCelebrationSetup
 	move.w	#$B,-(sp)
 	jsr	(sfx).l
 	move.w	#1,(padiconchars1).w
@@ -265,7 +265,7 @@ sub_1E8C5E	;Called from Opening2: restart the sound driver, then a screen with s
 	bpl.w	.2
 	move.w	#$A,d0
 	jsr	(randomd0).l
-	movea.l	#unk_1E8DD0,a0
+	movea.l	#CupCheerDelays,a0
 	add.w	d0,d0
 	move.w	(a0,d0.w),(word_FFD032).w
 	move.w	#$B,-(sp)
@@ -277,7 +277,7 @@ sub_1E8C5E	;Called from Opening2: restart the sound driver, then a screen with s
 	jsr	(updatesound).l
 	movea.w	#(Satt-M68K_RAM),a6	;sprite attribute table area
 	moveq	#1,d6	;link counter
-	jsr	(sub_1E8F52).l
+	jsr	(CupCelebrationSprites).l
 	cmpa.w	#$C066,a6	;no sprites: one blank sprite
 	bne.w	.n
 	clr.l	(a6)+
@@ -311,10 +311,10 @@ sub_1E8C5E	;Called from Opening2: restart the sound driver, then a screen with s
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-unk_1E8DD0	;Used from sub_1E8C5E
+CupCheerDelays	;CupCelebration: frames to the next crowd cheer, one picked at random
 	dc.w	$E6,$E1,$EB,$D7,$DC,$F0,$FA,$D2,$F0,$F0
 
-sub_1E8DE4	;sub_1E8C5E: vram, palettes and the screen
+CupCelebrationSetup	;CupCelebration: vram, the team and rink palettes, the rink and sprite tiles, the picture
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.l	#$FFFFFFFF,(padcont).w
 	move.l	#$FFFFFFFF,(dword_FFBEB2).w
@@ -401,7 +401,7 @@ sub_1E8DE4	;sub_1E8C5E: vram, palettes and the screen
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-sub_1E8F52	;sub_1E8C5E: the sprites
+CupCelebrationSprites	;CupCelebration: the sprites of the current frame that are in view
 	movea.l	#unk_1CCEE8,a1
 	adda.l	4(a1),a1
 	move.w	(Hpos).w,d4

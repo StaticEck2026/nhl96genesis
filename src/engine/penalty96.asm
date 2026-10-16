@@ -258,7 +258,7 @@ chkprogress	;Control the progress of the ref and the game through penalty events
 	move.w	#$18,(palcount).w
 	rts
 
-sub_1C3C6	;d0 = the unk_EBF8 word of penalty d0 when it is not negative
+sub_1C3C6	;d0 = the DoubleMinorPenalties word of penalty d0 when it is not negative
 	movem.l	d1-d3/a0,-(sp)
 	movea.l	#$EBF8,a0
 	move.w	(a0,d0.w),d1

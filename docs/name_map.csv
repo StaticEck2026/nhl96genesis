@@ -263,27 +263,27 @@ $00C1C8,assfwatch,,,fight96
 $00C26C,fightinput,loc_C26C,,fight96
 $00C51C,sub_C51C,,,fight96
 $00C548,asstab,,,logic96
-$00C60E,loc_C60E,,,logic96
-$00C7EC,loc_C7EC,,,logic96
-$00C97A,loc_C97A,,,logic96
-$00CAEA,loc_CAEA,,,logic96
-$00CCE0,loc_CCE0,,,logic96
-$00CCE2,loc_CCE2,,,logic96
-$00CE70,loc_CE70,,,logic96
-$00CE72,loc_CE72,,,logic96
-$00D06A,loc_D06A,,,logic96
-$00D32A,loc_D32A,,,logic96
-$00D5EA,loc_D5EA,,,logic96
-$00D7A4,loc_D7A4,,,logic96
-$00D956,loc_D956,,,logic96
-$00DCDE,loc_DCDE,,,logic96
-$00DFEC,loc_DFEC,,,logic96
-$00E1F8,loc_E1F8,,,logic96
-$00E4C4,loc_E4C4,,,logic96
-$00E63E,loc_E63E,,,logic96
+$00C60E,asscentero4,loc_C60E,,logic96
+$00C7EC,asscentero5,loc_C7EC,,logic96
+$00C97A,asscenterd4,loc_C97A,,logic96
+$00CAEA,asscenterd5,loc_CAEA,,logic96
+$00CCE0,asswingo4,loc_CCE0,,logic96
+$00CCE2,asswingo5,loc_CCE2,,logic96
+$00CE70,asswingd4,loc_CE70,,logic96
+$00CE72,asswingd5,loc_CE72,,logic96
+$00D06A,assdefo4,loc_D06A,,logic96
+$00D32A,assdefo5,loc_D32A,,logic96
+$00D5EA,assdefd4,loc_D5EA,,logic96
+$00D7A4,assdefd5,loc_D7A4,,logic96
+$00D956,assdefd,loc_D956,,logic96
+$00DCDE,asswingd,loc_DCDE,,logic96
+$00DFEC,asscenterd,loc_DFEC,,logic96
+$00E1F8,assdefo,loc_E1F8,,logic96
+$00E4C4,asscentero,loc_E4C4,,logic96
+$00E63E,asswingo,loc_E63E,,logic96
 $00E818,Penaltylist,,,logic96
 $00EBC2,PenShotPenalties,,,logic96
-$00EBF8,unk_EBF8,,,logic96
+$00EBF8,DoubleMinorPenalties,unk_EBF8,,logic96
 $00EC30,SetLCmode,loc_EC30,,lines96
 $00EC30,SetLCmode,loc_EC30,,lines96
 $00EC6E,SetLCmode2,sub_EC6E,,lines96
@@ -560,16 +560,16 @@ $019F14,puckunflip,,,logic96_pull
 $019F3E,puckflip,sub_19F3E,,logic96_vec
 $019F58,puckshadow,,,logic96_vec
 $019FCE,findpc,,,logic96_vec
-$01A050,sub_1A050,,,logic96_vec
-$01A384,sub_1A384,,,logic96_vec
+$01A050,skateto,sub_1A050,,logic96_vec
+$01A384,FacePuck,sub_1A384,,logic96_vec
 $01A3BE,assexit,sub_1A3BE,,logic96_vec
 $01A3D0,assinsert,sub_1A3D0,,logic96_vec
 $01A3DA,assreplace,sub_1A3DA,,logic96_vec
 $01A3EE,vtoa,sub_1A3EE,,logic96_vec
 $01A458,GetHot,sub_1A458,,logic96_vec
-$01A4B2,sub_1A4B2,,,logic96_vec
-$01A528,sub_1A528,,,logic96_vec
-$01A59E,sub_1A59E,,,logic96_vec
+$01A4B2,GetHot2a,sub_1A4B2,,logic96_vec
+$01A528,GetHot2b,sub_1A528,,logic96_vec
+$01A59E,GetHot2c,sub_1A59E,,logic96_vec
 $01A614,SetSPA,sub_1A614,,skate96
 $01A62A,doplayeracc,loc_1A62A,,skate96
 $01A820,unk_1A820,unk_1A820,,skate96
@@ -731,22 +731,22 @@ $01D7F2,SkipStrings,sub_1D7F2,,hockey96_inter
 $01D7FE,checkcoll,sub_1D7FE,,collide96
 $01D8F8,checkplcoll,sub_1D8F8,,collide96
 $01D96C,checkcx,sub_1D96C,,collide96
-$01DB62,loc_1DB62,loc_1DB62,,collide96
-$01DB68,sub_1DB68,sub_1DB68,,collide96
-$01DBB6,loc_1DBB6,loc_1DBB6,,collide96
+$01DB62,.exit (checkcx),loc_1DB62,,collide96
+$01DB68,.droppuck (checkcx),sub_1DB68,,collide96
+$01DBB6,.exit4 (checkcx),loc_1DBB6,,collide96
 $01DBBA,checkint,sub_1DBBA,,collide96
-$01DCC0,sub_1DCC0,sub_1DCC0,,collide96
+$01DCC0,checkcheck,sub_1DCC0,,collide96
 $01DD08,CCStart,sub_1DD08,,collide96
-$01DE70,unk_1DE70,unk_1DE70,,collide96
-$01DE80,unk_1DE80,unk_1DE80,,collide96
+$01DE70,checkinglist,unk_1DE70,,collide96
+$01DE80,CheckPenalties,unk_1DE80,,collide96
 $01DE88,checkagr,sub_1DE88,,collide96
-$01DF52,loc_1DF52,loc_1DF52,,collide96
-$01E060,holdcheck,loc_1E060,,collide96
+$01DF52,holdcheck,loc_1DF52,,collide96
+$01E060,Bcheck,loc_1E060,holdcheck,collide96
 $01E110,FallDown,sub_1E110,,collide96
-$01E40A,unk_1E40A,unk_1E40A,,collide96
-$01E41A,loc_1E41A,loc_1E41A,,collide96
-$01E434,loc_1E434,loc_1E434,,collide96
-$01E462,loc_1E462,loc_1E462,,collide96
+$01E40A,.23 (FallDown),unk_1E40A,,collide96
+$01E41A,.24 (FallDown),loc_1E41A,,collide96
+$01E434,.25 (FallDown),loc_1E434,,collide96
+$01E462,.hitter (FallDown),loc_1E462,,collide96
 $01E576,setInjuryType,sub_1E576,,collide96
 $01E630,checkwallcoll,sub_1E630,,collide96
 $01E704,checkgoal,sub_1E704,,collide96
@@ -760,7 +760,7 @@ $01EE78,wallcoll,sub_1EE78,,collide96
 $01F662,setd0player,sub_1F662,,collide96
 $01F7AE,puckbody,,,collide96
 $01F84A,rtss2,locret_1F84A,,collide96
-$01F84C,sub_1F84C,,,collide96
+$01F84C,puckgoalie,sub_1F84C,,collide96
 $01FAFA,makepde,sub_1FAFA,,collide96
 $01FB24,getpde,sub_1FB24,,collide96
 $01FB44,setpde,sub_1FB44,,collide96

@@ -456,6 +456,18 @@ Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the b
   .posfield, .handfield, .weightfield, .jerseyfield). CreateNameDone stays global (CreateListMove, closed list, sits
   between). ModifyRatings and CheckMinGoalies (95G), ClearFreeAgentStats, ReleaseGfx, PStatsPalette2.
 
+- logic96: the asstab entries $1-$6 (assdefo, assdefd, asswingd, asswingo, asscenterd, asscentero) by the 94 numbering and
+  role, not by bytes: 96 opens each with a tmap test (players on the ice) that switches to a short-handed variant, so the
+  bodies no longer match 94 / 95 by masked bytes. The pairs they switch between (1-2, 3-4, 5-6), aioff / aidef and the
+  helpers they call agree with 94. The variants are new: ass...5 (one man short, tmap 5) and ass...4 (two short); asswingo4
+  and asswingd4 are a lone rts. DoubleMinorPenalties (the 4 minute Roughing and Cross Check).
+- logic96_vec: skateto (94G, the whole $C0 bytes; 95G from +8), FacePuck, GetHot2a / 2b / 2c (HotList2 hot spots).
+- collide96: the label holdcheck was on 94G Bcheck (same body line for line, CCStart's SPA216A / SPA052C entry): now
+  Bcheck, and the real holdcheck (the hold / hook entry) takes the name. checkcheck (95G), checkinglist (95G),
+  CheckPenalties, puckgoalie (94G, 32 words). Folds: checkcx's exits are .exit / .exit4 (95G locals) with the new
+  .droppuck between; FallDown's table and tail are .23, .24, .25, .hitter (95G locals; the hitter's own .0-.7 are .h0-.h7).
+  FallDown's comment said a3 falls: a2 falls and a3 is the hitter.
+
 ## Unsure
 
 Copied from `docs/align95_plan.md`. Leave these alone.
@@ -486,3 +498,4 @@ Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidenc
   blocks was found. Candidate ClearSavedLinesD7 once a reader confirms it.
 - For Abdul: names kept from 95G by role and interface where the body is new: SimTeamGoals, SimScorers, SimShots
   (season sim), ClearSeasonData (season96). Swap for new names if role is not enough.
+- For Abdul: the asstab entries $1-$6 are named by role and the 94 numbering, not a byte match (see the logic96 bullet).

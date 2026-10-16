@@ -12,7 +12,7 @@ PlayerStatsList	;Stats screen for team a2, d7 = 0 game / 1 playoff (plistplayoff
 	clr.w	(DispAttribCtr).w
 	move.w	$28(a2),(setupvalues+2).w
 	bsr.w	PListSetup
-	movea.l	#unk_18B4F8,a0
+	movea.l	#PlayerStatsSprites,a0
 	jsr	(DrawScreenSprite).l
 	move.w	#$18,(palcount).w
 	bclr	#2,(disflags).w
@@ -277,7 +277,7 @@ PListSetup	;PlayerStatsList: vram, fonts and the screen bitmaps
 	bclr	#5,(disflags).w
 	jsr	(orjoy).l
 	move.w	#1,d4
-	movea.l	#unk_18B4F8,a1
+	movea.l	#PlayerStatsSprites,a1
 	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
@@ -300,7 +300,7 @@ PListSetup	;PlayerStatsList: vram, fonts and the screen bitmaps
 	jsr	(eraser).l
 	jsr	(printz).l
 	String	$BF,$00,$00
-	movea.l	#unk_18948A,a0
+	movea.l	#PlayerStatsBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -313,10 +313,10 @@ PListSetup	;PlayerStatsList: vram, fonts and the screen bitmaps
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$BF,$0B,$01
-	movea.l	#unk_1AC7C6,a0
+	movea.l	#PlayerStatsTitleMap,a0
 	tst.w	(plistplayoff).w
 	beq.w	.0
-	movea.l	#unk_18B916,a0
+	movea.l	#PlayoffStatsTitleMap,a0
 .0
 	movea.l	a0,a1
 	movea.l	a0,a2
@@ -331,7 +331,7 @@ PListSetup	;PlayerStatsList: vram, fonts and the screen bitmaps
 	jsr	(PListHelp).l
 	jsr	(printz).l
 	String	$FE,$00,$00
-	movea.l	#unk_170B0C,a0
+	movea.l	#IceBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

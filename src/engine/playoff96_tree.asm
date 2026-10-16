@@ -62,10 +62,10 @@ PlayoffScreen	;Bring up the playoff screen if in playoff mode (OptPlayMode nonze
 	movea.l	#RosterFont+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	move.l	#RosterFont,(smallfontptr).w
-	movea.l	#unk_1BDCD4+8,a2
+	movea.l	#PlayoffTreeMap+8,a2
 	jsr	(printz).l
 	String	$FF,$00,$00
-	movea.l	#unk_1BDCD4,a0
+	movea.l	#PlayoffTreeMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -77,11 +77,11 @@ PlayoffScreen	;Bring up the playoff screen if in playoff mode (OptPlayMode nonze
 	moveq	#8,d5
 	jsr	(dobitmap).l
 	move.w	d4,(ExtraChars).w
-	movea.l	#unk_1C4810+8,a2
+	movea.l	#PlayoffTeamFrameMap+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	jsr	(printz).l
 	String	$FE,$00,$00
-	movea.l	#unk_1C0302,a0
+	movea.l	#PlayoffTreeBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -285,7 +285,7 @@ DrawTeamBlocks	;Draw team block d1 at printx / printy; the user's team gets a fr
 	move.w	(ExtraChars).w,d4
 	jsr	(printsmallz).l
 	String	$FE,$00,$FF,$02
-	movea.l	#unk_1C4810,a0
+	movea.l	#PlayoffTeamFrameMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

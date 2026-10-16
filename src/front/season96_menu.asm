@@ -209,7 +209,7 @@ SeasonPlayoffStats	;The playoff stats screen in a season (PlayoffStatsMenu with 
 	clr.w	(word_FF2720).l
 	bset	#5,(sflags12).w
 	bsr.w	PStatsSetup
-	movea.l	#unk_18B4F8,a0
+	movea.l	#PlayerStatsSprites,a0
 	jsr	(DrawScreenSprite).l
 	move.w	#$18,(palcount).w
 	bclr	#2,(disflags).w
@@ -458,7 +458,7 @@ PStatsSetup	;SeasonPlayoffStats: vram, fonts and the screen bitmaps, the heading
 	bclr	#5,(disflags).w
 	jsr	(orjoy).l
 	move.w	#1,d4
-	movea.l	#unk_18B4F8,a1
+	movea.l	#PlayerStatsSprites,a1
 	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
@@ -481,7 +481,7 @@ PStatsSetup	;SeasonPlayoffStats: vram, fonts and the screen bitmaps, the heading
 	jsr	(eraser).l
 	jsr	(printz).l
 	String	$BF,$00,$00
-	movea.l	#unk_18948A,a0
+	movea.l	#PlayerStatsBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -494,12 +494,12 @@ PStatsSetup	;SeasonPlayoffStats: vram, fonts and the screen bitmaps, the heading
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$BF,$0B,$01
-	movea.l	#unk_18ACD8,a0
+	movea.l	#SeasonStatsTitleMap,a0
 	btst	#2,(SeasonFlags).w
 	beq.w	.0
 	jsr	(printz).l
 	String	$BF,$0B,$01
-	movea.l	#unk_18B916,a0
+	movea.l	#PlayoffStatsTitleMap,a0
 .0
 	movea.l	a0,a1
 	movea.l	a0,a2
@@ -514,7 +514,7 @@ PStatsSetup	;SeasonPlayoffStats: vram, fonts and the screen bitmaps, the heading
 	bsr.w	PStatsHelp
 	jsr	(printz).l
 	String	$FE,$00,$00
-	movea.l	#unk_170B0C,a0
+	movea.l	#IceBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -936,7 +936,7 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 	clr.w	(carddelay).w
 	bsr.w	PlayoffMenuInit
 	bsr.w	PlayoffMenuSetup
-	movea.l	#unk_190380,a0
+	movea.l	#TransactionsSprites,a0
 	jsr	(DrawScreenSprite).l
 	jsr	(PStatsPalette).l
 	move.w	#$18,(palcount).w
@@ -1075,7 +1075,7 @@ PlayoffMenuSetup	;PlayoffMenuScreen: vram and the screen bitmaps
 	bclr	#5,(disflags).w
 	jsr	(orjoy).l
 	move.w	#1,d4
-	movea.l	#unk_190380,a1
+	movea.l	#TransactionsSprites,a1
 	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
@@ -1096,7 +1096,7 @@ PlayoffMenuSetup	;PlayoffMenuScreen: vram and the screen bitmaps
 	jsr	(eraser).l
 	jsr	(printz).l
 	String	$BF,$00,$00
-	movea.l	#unk_18E932,a0
+	movea.l	#TransactionsBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -1109,7 +1109,7 @@ PlayoffMenuSetup	;PlayoffMenuScreen: vram and the screen bitmaps
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$BF,$0B,$01
-	movea.l	#unk_18E152,a0
+	movea.l	#TransactionsTitleMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

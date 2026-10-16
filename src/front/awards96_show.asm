@@ -198,7 +198,7 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	bclr	#5,(disflags).w
 	jsr	(orjoy).l
 	move.w	#1,d4
-	movea.l	#unk_1B11B0,a1
+	movea.l	#AwardsSprites,a1
 	jsr	(LoadScreenSprite).l
 	move.w	#$1E,d4
 	move.w	d4,(smallfontchars).w
@@ -217,7 +217,7 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	jsr	(eraser).l
 	jsr	(printz).l
 	String	$BF,$00,$00
-	movea.l	#unk_1AF782,a0
+	movea.l	#AwardsBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -234,7 +234,7 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	addi.w	#$64,d4
 	jsr	(printz).l
 	String	$BF,$0B,$01
-	movea.l	#unk_1AEF62,a0
+	movea.l	#AwardsTitleMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -247,7 +247,7 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$FE,$00,$00
-	movea.l	#unk_170B0C,a0
+	movea.l	#IceBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -258,7 +258,7 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	moveq	#$1C,d3
 	moveq	#1,d5
 	jsr	(dobitmap).l
-	movea.l	#unk_1B11B0,a0
+	movea.l	#AwardsSprites,a0
 	jsr	(DrawScreenSprite).l
 	rts
 
@@ -502,7 +502,7 @@ CupChampionsScreen	;The user's team won the Cup: a full screen picture with the 
 	jsr	(eraser).l
 	jsr	(printz).l
 	String	$BF,$00,$00
-	movea.l	#unk_1CAEFA,a0
+	movea.l	#CupChampsMap2,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -513,7 +513,7 @@ CupChampionsScreen	;The user's team won the Cup: a full screen picture with the 
 	moveq	#$1C,d3
 	moveq	#$F,d5
 	jsr	(dobitmap).l
-	movea.l	#unk_1CCBA8,a0
+	movea.l	#CupChampsPals,a0
 	clr.l	d0
 	move.b	(dword_FFDD82+2).w,d0
 	asl.w	#5,d0
@@ -542,7 +542,7 @@ CupChampionsScreen	;The user's team won the Cup: a full screen picture with the 
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$FE,$00,$00
-	movea.l	#unk_1C6C4C,a0
+	movea.l	#CupChampsMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

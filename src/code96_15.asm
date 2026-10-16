@@ -182,7 +182,7 @@ HiScoreScreen	;vb2, the HiScoreBgMap and HiScoreImg bitmaps, then wait up to $50
 	jsr	(setVram_0).l
 	jsr	(printz).l
 	String	$BE,$0E,$03
-	movea.l	#unk_1468D6,a2
+	movea.l	#HiScoreBgMap,a2
 	movea.l	a2,a0
 	movea.l	a2,a1
 	adda.l	(a2)+,a0
@@ -196,7 +196,7 @@ HiScoreScreen	;vb2, the HiScoreBgMap and HiScoreImg bitmaps, then wait up to $50
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$BE,$10,$10
-	movea.l	#unk_147896,a2
+	movea.l	#HiScoreImg,a2
 	movea.l	a2,a0
 	movea.l	a2,a1
 	adda.l	(a2)+,a0

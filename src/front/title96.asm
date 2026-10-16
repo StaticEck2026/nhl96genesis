@@ -1,6 +1,6 @@
 ;	The opening screens. New in 96.
 
-TitleScreen	;Title screen: the picture unk_88A18 and song 0, until start or the time runs out
+TitleScreen	;Title screen: the picture TitleScreenImg and song 0, until start or the time runs out
 	move	#$2700,sr
 	move.w	(VDP_CNTR).l,(seed).w
 	move.w	(VDP_CNTR).l,(seed+2).w
@@ -33,7 +33,7 @@ TitleScreen	;Title screen: the picture unk_88A18 and song 0, until start or the 
 	move.w	#1,d4
 	jsr	(printz).l
 	String	$FE,$00,$00
-	movea.l	#unk_88A18,a0
+	movea.l	#TitleScreenImg,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -112,7 +112,7 @@ CreditsScreen	;The legal and credits pages (CreditsList) over three pictures; st
 	move.l	#RosterFont,(smallfontptr).w
 	jsr	(printz).l
 	String	$FE,$00,$00
-	movea.l	#unk_911B8,a0
+	movea.l	#CreditsBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -125,7 +125,7 @@ CreditsScreen	;The legal and credits pages (CreditsList) over three pictures; st
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$FF,$01,$0E
-	movea.l	#unk_8F2C6,a0
+	movea.l	#NHLShieldMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -138,7 +138,7 @@ CreditsScreen	;The legal and credits pages (CreditsList) over three pictures; st
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$FF,$02,$00
-	movea.l	#unk_90686,a0
+	movea.l	#NHLPALogoMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

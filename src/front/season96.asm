@@ -828,10 +828,10 @@ TeamSelectScreen	;Team select: up / down change the team, left / right pick home
 	jsr	(NewPO).l
 .10
 	bsr.w	TeamSelectGfx
-	movea.l	#unk_1808B8,a0
+	movea.l	#SelectTeamSeasonSprites,a0
 	btst	#7,(GameFlags).w
 	bne.w	.11
-	movea.l	#unk_18DE04,a0
+	movea.l	#SelectTeamSprites,a0
 .11
 	bsr.w	DrawScreenSprite
 	move.w	#$18,(palcount).w
@@ -1045,10 +1045,10 @@ TeamSelectGfx	;Team select video set up: backgrounds, the logos and the five ran
 	jsr	(setVram).l
 	bclr	#5,(disflags).w
 	jsr	(orjoy).l
-	movea.l	#unk_1808B8,a1
+	movea.l	#SelectTeamSeasonSprites,a1
 	btst	#7,(GameFlags).w
 	bne.w	.0
-	movea.l	#unk_18DE04,a1
+	movea.l	#SelectTeamSprites,a1
 .0
 	bsr.w	LoadScreenSprite
 	move.w	d4,(printbigchars).w
@@ -1071,10 +1071,10 @@ TeamSelectGfx	;Team select video set up: backgrounds, the logos and the five ran
 	jsr	(eraser).l
 	jsr	(printz).l
 	String	-(TXPRI+TXMAP1),$00,$00,$00
-	movea.l	#unk_17ECEA,a0
+	movea.l	#SelectTeamSeasonBgMap,a0
 	btst	#7,(GameFlags).w
 	bne.w	.1
-	movea.l	#unk_18C936,a0
+	movea.l	#SelectTeamBgMap,a0
 .1
 	movea.l	a0,a1
 	movea.l	a0,a2
@@ -1088,7 +1088,7 @@ TeamSelectGfx	;Team select video set up: backgrounds, the logos and the five ran
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	-(TXPRI+TXMAP1),$0B,$01,$00
-	movea.l	#unk_18C136,a0
+	movea.l	#SelectTeamTitleMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

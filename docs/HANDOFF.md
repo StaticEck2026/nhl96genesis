@@ -492,6 +492,16 @@ Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the b
   LineSetsBuf is GetTeamLines' buffer (shares ThreeStars). fight96 now writes CwdExciteLvl (93G) where it had the
   setup screen alias of that address; lines96_bar writes #ScoreSum-6 (95G ChkCnt).
 
+- Graphics (graphics96, scout96): 91 of the 95 unk_ pictures named; the extractor, incbin paths and extracted files follow
+  the names. HiScoreBgMap and HiScoreImg are the 95G pictures (tiles, palette and map identical). The rest are new art,
+  named by the screen whose routine draws them; each screen's 19x3 title banner was rendered and read (LEAGUE OPTIONS,
+  NHL STANDINGS, GAME OPTIONS, LEAGUE / PLAYOFF LEADERS, SEASON / PLAYOFF / PLAYER STATS, SELECT TEAM, TRANSACTIONS, TRADE
+  PLAYERS, CREATE PLAYER, SIGN / RELEASE PLAYERS, MAIN MENU, EDIT LINES, TEAM ROSTER, SCORING, PENALTIES, PERIOD STATS,
+  GAME STATS, SHOOTOUT SETUP, RECORD HOLDERS, USER ENTRY, NHL AWARDS). The ...Sprites files are SetSframe frame lists with
+  their tiles at +8. Where 95G has a picture with the same role, its name is used (TitleScreenImg, PauseBgBitmap,
+  AwardsBgMap, TradeBgMap, CreateBgMap, NameEntryBgMap, PlayerStatsBgMap, PlayerStatsTitleMap, PeriodStatsMap,
+  LineEditorBgMap). revframetbl is not a picture: RevReplayAdj's frame table (95G role).
+
 ## Unsure
 
 Copied from `docs/align95_plan.md`. Leave these alone.
@@ -539,3 +549,8 @@ Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidenc
   objects unk_FFBE72 / unk_FFBE8E, word_FFD036 / word_FFD038 in the stats block, byte_FFC35A, unk_FFC38C, word_FFBF88,
   word_FFBFF0, word_FFD300, word_FFD310, byte_FFD474 / byte_FFD47E (94 arenaanim / faceoffanim by the dead 94 code only),
   byte_FFDCA6, byte_FFDCF9, dword_FFDD82, word_FFDDB6, word_FFDDBE, byte_FF2710, word_FF1388, unk_FFC4C6 uses aside).
+- Graphics: unk_1417B6 (a frame offset table used only by the dead arena animation), unk_17C2AE (a palette; what it
+  colours is not shown), unk_1CCEE8 and unk_1D5420 (CupCelebration's sprites and banner; not identified by content).
+- For Abdul: names that the pictures now contradict. OptionsScreen's banner reads MAIN MENU (the GAME OPTIONS screen is
+  other code); PlayoffMenuScreen / PlayoffMenuSetup draw TRANSACTIONS and run RosterMenuList; ControllerBgMap is also the
+  background of the select team, main menu and transactions screens. Left as they are (not IDA names).

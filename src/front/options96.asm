@@ -48,7 +48,7 @@ OptionsScreen	;The game options screen: play mode, rosters, period length, goali
 	clr.w	(carddelay).w
 	bsr.w	OptionsMenuInit
 	bsr.w	OptionsScreenSetup
-	movea.l	#unk_19C232,a0
+	movea.l	#MainMenuSprites,a0
 	jsr	(DrawScreenSprite).l
 	jsr	(PStatsPalette).l
 	move.w	#$18,(palcount).w
@@ -240,7 +240,7 @@ OptionsScreenSetup	;OptionsScreen: vram, fonts, the screen bitmaps and the row l
 	bclr	#5,(disflags).w
 	jsr	(orjoy).l
 	move.w	#1,d4
-	movea.l	#unk_19C232,a1
+	movea.l	#MainMenuSprites,a1
 	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
@@ -250,7 +250,7 @@ OptionsScreenSetup	;OptionsScreen: vram, fonts, the screen bitmaps and the row l
 	jsr	(DecompressGraphicsPlain).l
 	move.l	#RosterFont,(smallfontptr).w
 	move.w	d4,(word_FFB8C4).w
-	movea.l	#unk_1C4C4E+8,a2
+	movea.l	#PuckAnimMap+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	jsr	(printsmallz).l
 	String	$FF,$01,$FD,$00,$FC
@@ -260,7 +260,7 @@ OptionsScreenSetup	;OptionsScreen: vram, fonts, the screen bitmaps and the row l
 	jsr	(eraser).l
 	jsr	(printz).l
 	String	$BF,$00,$00
-	movea.l	#unk_19A3E4,a0
+	movea.l	#MainMenuBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -273,7 +273,7 @@ OptionsScreenSetup	;OptionsScreen: vram, fonts, the screen bitmaps and the row l
 	jsr	(dobitmap).l
 	jsr	(printz).l
 	String	$BF,$0B,$01
-	movea.l	#unk_199BE4,a0
+	movea.l	#MainMenuTitleMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -602,12 +602,12 @@ SkillLevelTbl	;SetSkillLevel: skillspeed of each skill level
 SkillLevelPalTbl	;SetSkillLevel: skillspeedpal of each skill level
 	dc.w	$1D,$1D,$1C
 
-OptionsAnimFrame	;OptionsScreen: draw frame optanimframe of the animation (unk_1C4C4E, 7 x 7 tiles)
+OptionsAnimFrame	;OptionsScreen: draw frame optanimframe of the animation (PuckAnimMap, 7 x 7 tiles)
 	movem.l	d0-d7/a0-a6,-(sp)
 	jsr	(printz).l
 	String	$BF,$1F,$01
 	move.w	(word_FFB8C4).w,d4
-	movea.l	#unk_1C4C4E,a0
+	movea.l	#PuckAnimMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

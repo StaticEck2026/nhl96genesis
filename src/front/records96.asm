@@ -8,7 +8,7 @@ NameEntryScreen	;Name entry screen for pad slot a5: the name log, then edit or p
 	jsr	(ReadSRAM).l
 	bsr.w	NameEntryGfx
 	bsr.w	PrintNameLogRecords
-	movea.l	#unk_1AEB94,a0
+	movea.l	#NameEntrySprites,a0
 	jsr	(DrawScreenSprite).l
 	jsr	(ReadNameLog).l
 	clr.w	(namelogarrows).w
@@ -649,7 +649,7 @@ NameEntryGfx	;Name entry: vram, fonts, the screen bitmaps, the pad icon (NameEnt
 	bclr	#5,(disflags).w
 	jsr	(orjoy).l
 	move.w	#1,d4
-	movea.l	#unk_1AEB94,a1
+	movea.l	#NameEntrySprites,a1
 	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
@@ -671,7 +671,7 @@ NameEntryGfx	;Name entry: vram, fonts, the screen bitmaps, the pad icon (NameEnt
 	jsr	(eraser).l
 	jsr	(printcurz).l
 	String	$BF,$00,$00
-	movea.l	#unk_1AD7C6,a0
+	movea.l	#NameEntryBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -684,7 +684,7 @@ NameEntryGfx	;Name entry: vram, fonts, the screen bitmaps, the pad icon (NameEnt
 	jsr	(dobitmap).l
 	jsr	(printcurz).l
 	String	$BF,$0B,$01
-	movea.l	#unk_1ACFE6,a0
+	movea.l	#NameEntryTitleMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0
@@ -697,7 +697,7 @@ NameEntryGfx	;Name entry: vram, fonts, the screen bitmaps, the pad icon (NameEnt
 	jsr	(dobitmap).l
 	jsr	(printcurz).l
 	String	$FE,$00,$00
-	movea.l	#unk_170B0C,a0
+	movea.l	#IceBgMap,a0
 	movea.l	a0,a1
 	movea.l	a0,a2
 	adda.l	(a2)+,a0

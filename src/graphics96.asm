@@ -589,7 +589,7 @@ ControllerTitleMap	;The controller setup screen title map (ControllerSetupScreen
 unk_1B773A	;A map used from the controller setup
 	incbin	..\Extracted\NHL96\Graphics\unk_1B773A.map.jim
 
-BigFontMap	;The big font map of printbig1 (chars word_FFB016); +8 the tiles (LoadBigFonts)
+BigFontMap	;The big font map of printbig1 (chars bigfont1chars); +8 the tiles (LoadBigFonts)
 	incbin	..\Extracted\NHL96\Graphics\BigFontMap.map.jim
 
 BigFontMap3	;The big font map of printbig2 (chars BigFontChars); +8 the tiles (LoadBigFonts)

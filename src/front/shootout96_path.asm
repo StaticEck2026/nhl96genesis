@@ -65,7 +65,7 @@ ShootoutModeBox	;Shootout round box: "SHOOTOUT MODE" (ShootoutModeBigTxt), the s
 	jsr	(printbig2).l
 	jsr	(printz).l
 	String	$BF,$04,$0C,'       Round '
-	move.w	(word_FFD438).w,d0
+	move.w	(shootoutround).w,d0
 	move.w	#2,d1
 	jsr	(PushNumberWidth).l
 	jsr	(print).l
@@ -82,12 +82,12 @@ ShootoutInit	;Clear the player structs (SortCords) and the shootout state, then 
 .loop
 	clr.w	(a0)+
 	dbf	d0,.loop
-	clr.w	(word_FFDCC4).w
-	move.w	#1,(word_FFD438).w
+	clr.w	(shootoutdelay).w
+	move.w	#1,(shootoutround).w
 	bclr	#3,(gmode2).w
 	clr.w	(homeshootgoals).w
 	clr.w	(awayshootgoals).w
-	clr.w	(word_FFD446).w
+	clr.w	(homeshootnum).w
 	clr.w	(shootoutteam).w
 	rts
 
@@ -104,7 +104,7 @@ CountShootoutGoals	;Shootout: count the goals and end it when one team cannot ca
 	movem.l	d0-d7/a0-a6,-(sp)
 	btst	#0,(shootoutteam+1).w
 	beq.w	.switch
-	cmpi.w	#5,(word_FFD438).w
+	cmpi.w	#5,(shootoutround).w
 	blt.w	.switch
 	move.w	(homeshootgoals).w,d0
 	cmp.w	(awayshootgoals).w,d0
@@ -115,12 +115,12 @@ CountShootoutGoals	;Shootout: count the goals and end it when one team cannot ca
 .switch
 	eori.w	#1,(shootoutteam).w
 	bne.w	.x
-	addq.w	#1,(word_FFD446).w
-	cmpi.w	#5,(word_FFD446).w
+	addq.w	#1,(homeshootnum).w
+	cmpi.w	#5,(homeshootnum).w
 	blt.w	.1
-	clr.w	(word_FFD446).w
+	clr.w	(homeshootnum).w
 .1
-	addq.w	#1,(word_FFD438).w
+	addq.w	#1,(shootoutround).w
 .x
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
@@ -206,7 +206,7 @@ EndShootout	;Shootout over: LockScroll, then the 5 skaters of player slots 1-5 (
 	movem.l	d0-d7/a0-a6,-(sp)
 	bset	#2,(sflags2).w
 	jsr	(LockScroll).l
-	move.w	#$60,(word_FFDCC4).w
+	move.w	#$60,(shootoutdelay).w
 	movea.l	#SortCords,a3
 	move.w	#0,d0
 	move.w	(homeshootgoals).w,d2
@@ -406,7 +406,7 @@ ClearWinRecords	;Clear bytes 8-$B (wins, games) of the 8 ThreeStars records and 
 PSandSOpassdir	;Penalty shot / shootout: passdir = sopathdir (the end of the skate path NextPathPoint), turned by passdirlist
 	;for the bottom net
 	movem.l	d0-d7/a0-a6,-(sp)
-	move.w	(word_FFD81C).w,d0
+	move.w	(sopathdir).w,d0
 	btst	#7,$62(a3)
 	bne.w	.0
 	movea.l	#passdirlist,a0

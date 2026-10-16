@@ -75,7 +75,7 @@ ChkShotStat	;Determine if a shot was taken and add it to the stats (crowd, team,
 .0
 	movem.l	d0-d1/a1-a3,-(sp)
 	move.l	a4,-(sp)
-	movea.l	#$FFFFC4C6,a4
+	movea.l	#ScoreSum-6,a4
 	adda.w	(ScoreSumbytes).w,a4
 	movea.l	#tmstruct,a2
 	btst	#7,2(a4)

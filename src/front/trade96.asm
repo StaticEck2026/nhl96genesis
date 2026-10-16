@@ -371,7 +371,7 @@ SimScore	;Simulate the score of game a0: SimTeamStrength / SimTeamGoals for both
 	move.b	d2,3(a0)
 	btst	#7,(GameFlags).w
 	beq.w	.0
-	btst	#2,(dword_FFDD7E+2).w
+	btst	#2,(SeasonFlags).w
 	beq.w	.0
 	move.b	2(a0),d0
 	move.b	3(a0),d1
@@ -399,7 +399,7 @@ SimTeamGoals	;d2 = goals of a team of strength d3 against team d1 (its defense, 
 	move.w	d4,$28(a2)
 	movea.l	#TeamList,a1
 	asl.w	#2,d4
-	move.l	(a1,d4.w),(dword_FFCAE2).w
+	move.l	(a1,d4.w),(AwShots+tmdata).w
 	move.l	(GAttribOverallMask).l,d4
 	clr.w	d0
 	jsr	(CalcAttrib).l
@@ -472,7 +472,7 @@ SimTeamStrength	;d3 = the sim strength of team d0: SimRatingPoints of its best s
 	move.w	d0,$28(a2)
 	movea.l	#TeamList,a0
 	asl.w	#2,d0
-	move.l	(a0,d0.w),(dword_FFC744).w
+	move.l	(a0,d0.w),(tmstruct+tmdata).w
 	move.l	(PAttribOverallMask).l,d4
 	bsr.w	GetGoalieCount
 	move.w	d0,-(sp)

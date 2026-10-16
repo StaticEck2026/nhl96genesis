@@ -135,7 +135,7 @@ ResetClock	;gameclock = PerTimeTotal = the period length (GetPeriodTime; overtim
 .1
 	btst	#7,(GameFlags).w
 	beq.w	.2
-	btst	#2,(dword_FFDD7E+2).w
+	btst	#2,(SeasonFlags).w
 	beq.w	.2
 	move.w	#$4B0,d0
 .2

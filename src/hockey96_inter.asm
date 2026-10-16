@@ -12,8 +12,8 @@ Intermission	;Before the period: at game over (gsp 4) the records (UpdateRecords
 	jsr	(FindUserGame).l
 	cmpa.l	#0,a2
 	beq.w	.0
-	move.b	(byte_FFC733).w,2(a2)
-	move.b	(byte_FFCAD1).w,3(a2)
+	move.b	(HmGoals+1).w,2(a2)
+	move.b	(AwGoals+1).w,3(a2)
 	jsr	(SaveUserGame).l
 	jsr	(SaveGameStats).l
 .0
@@ -41,11 +41,11 @@ Intermission	;Before the period: at game over (gsp 4) the records (UpdateRecords
 	bset	#0,(sflags).w
 	movea.l	#SetupPauseScreen,a1
 	jsr	(InitMenuState).l
-	move.w	#$A8C,(word_FFDDC4).w
+	move.w	#$A8C,(IntermissionTimer).w
 .4
 	tst.w	(demoflag).w
 	bne.w	.periodic
-	subq.w	#1,(word_FFDDC4).w
+	subq.w	#1,(IntermissionTimer).w
 	bmi.w	.5
 .periodic
 	jsr	(vcountwait).l

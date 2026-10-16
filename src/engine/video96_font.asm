@@ -7,9 +7,9 @@ LoadSmallFont	;Load the small font tiles (SmallFontMap+8) at char d4 (smallfontc
 	dc.b	$A1,$23,$2F,$AB,$D1,$AA,$CD,$EF	;remap table
 	rts
 
-LoadBigFonts	;Load the fonts at char d4: BigFontMap+8 (word_FFB016), then the big font BigFontMap3+8 (BigFontChars); d4 =
+LoadBigFonts	;Load the fonts at char d4: BigFontMap+8 (bigfont1chars), then the big font BigFontMap3+8 (BigFontChars); d4 =
 	;next char
-	move.w	d4,(word_FFB016).w
+	move.w	d4,(bigfont1chars).w
 	movea.l	#BigFontMap+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	move.w	d4,(BigFontChars).w

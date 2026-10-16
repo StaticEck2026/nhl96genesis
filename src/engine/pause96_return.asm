@@ -48,8 +48,8 @@ RestoreGameScreen	;Rebuild the game screen: the vdp maps, palettes, vram, framer
 	;the face off screen (disflags bit 4) or the ref tiles, the home team graphics and the replay icon
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.l	#$FFFFFFFF,(padcont).w
-	move.l	#$FFFFFFFF,(dword_FFBEB2).w
-	move.l	#$FFFFFFFF,(dword_FFBEB6).w
+	move.l	#$FFFFFFFF,(padcont+4).w
+	move.l	#$FFFFFFFF,(padcont+8).w
 	clr.w	(printfontset).w
 	move.l	#VBlank,(vbint).w
 	bset	#1,(disflags).w
@@ -76,7 +76,7 @@ RestoreGameScreen	;Rebuild the game screen: the vdp maps, palettes, vram, framer
 	jsr	(DoFill).l
 	move.w	(framercset).w,d4
 	jsr	(AddFramer).l
-	move.w	(word_FFB038).w,d4
+	move.w	(gamefontchars).w,d4
 	jsr	(LoadSmallFont).l
 	jsr	(LoadBigFonts).l
 	move.w	(energybarchars).w,d4
@@ -117,7 +117,7 @@ RestoreGameScreen	;Rebuild the game screen: the vdp maps, palettes, vram, framer
 	bset	#2,(disflags).w
 	move.w	#$7D0,(Oldrow).w
 	clr.w	d4
-	move.w	d4,(word_FFB022).w
+	move.w	d4,(rinkvrcset).w
 	movea.l	#Rinktilelist+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	jsr	(LoadHomeTeamGfx).l

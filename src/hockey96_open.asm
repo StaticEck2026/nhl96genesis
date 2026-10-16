@@ -140,12 +140,12 @@ OpeningClear	;Reset the stack and clear the game variables (keeping the season d
 	move.w	(a0),(gamenum).w
 	bset	#7,(GameFlags).w
 	jsr	(ReadSeasonHeader).l
-	btst	#2,(dword_FFDD7E+2).w
+	btst	#2,(SeasonFlags).w
 	beq.w	.2
 	jsr	(ReadPassData).l
 	jsr	(maketree).l
 	jsr	(ContinuePlayoffs).l
-	btst	#1,(dword_FFDD7E+2).w
+	btst	#1,(SeasonFlags).w
 	bne.w	*+4
 .2
 	bra.w	.5
@@ -172,11 +172,11 @@ OpeningClear	;Reset the stack and clear the game variables (keeping the season d
 	beq.w	.playoffs
 	jsr	(ReadSeasonHeader).l
 	jsr	(LoadSeasonOptions).l
-	btst	#0,(dword_FFDD7E+2).w
+	btst	#0,(SeasonFlags).w
 	beq.w	.8
-	btst	#1,(dword_FFDD7E+2).w
+	btst	#1,(SeasonFlags).w
 	bne.w	.11
-	btst	#2,(dword_FFDD7E+2).w
+	btst	#2,(SeasonFlags).w
 	beq.w	.11
 .8
 	jsr	(BuildSeasonTeamList).l
@@ -186,18 +186,18 @@ OpeningClear	;Reset the stack and clear the game variables (keeping the season d
 	jsr	(UserGamePlayed).l
 	beq.w	.13
 .9
-	move.w	#1,(word_FFDDB0).w
+	move.w	#1,(simdays).w
 .10
 	jsr	(SimSeasonDays).l
 	bset	#1,(byte_FFC35A).w
-	btst	#0,(dword_FFDD7E+2).w
+	btst	#0,(SeasonFlags).w
 	beq.s	.8
 .11
-	btst	#1,(dword_FFDD7E+2).w
+	btst	#1,(SeasonFlags).w
 	bne.w	.17
-	btst	#2,(dword_FFDD7E+2).w
+	btst	#2,(SeasonFlags).w
 	bne.w	.12
-	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
+	move.l	#SeasonMenuScreen,(NextScreenPtr).w
 	jsr	(RunSeasonMenu).l
 	jsr	(SetSeasonAwardWinners).l
 	jsr	(NewPO).l
@@ -207,14 +207,14 @@ OpeningClear	;Reset the stack and clear the game variables (keeping the season d
 	bra.s	.8
 .13
 	jsr	(SetupSeasonGame).l
-	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
+	move.l	#SeasonMenuScreen,(NextScreenPtr).w
 	jsr	(RunSeasonMenu).l
-	btst	#0,(dword_FFDD7E+2).w
+	btst	#0,(SeasonFlags).w
 	beq.w	.14
-	btst	#2,(dword_FFDD7E+2).w
+	btst	#2,(SeasonFlags).w
 	beq.s	.11
 .14
-	tst.w	(word_FFDDB0).w
+	tst.w	(simdays).w
 	bne.s	.10
 	bclr	#5,(sflags10).w
 	jsr	(TeamSelectScreen).l
@@ -229,7 +229,7 @@ OpeningClear	;Reset the stack and clear the game variables (keeping the season d
 	jmp	StartGame
 .16
 	jsr	(SeasonAwards).l
-	bset	#1,(dword_FFDD7E+2).w
+	bset	#1,(SeasonFlags).w
 	bclr	#6,(GameFlags).w
 	jsr	(WriteSeasonHeader).l
 	bclr	#7,(GameFlags).w
@@ -239,12 +239,12 @@ OpeningClear	;Reset the stack and clear the game variables (keeping the season d
 	beq.w	.18
 	bra.w	.20
 .18
-	btst	#3,(dword_FFDD7E+2).w
+	btst	#3,(SeasonFlags).w
 	beq.w	.19
 	jsr	(CupCelebration).l
 .19
 	jsr	(PlayoffScreen).l
-	btst	#3,(dword_FFDD7E+2).w
+	btst	#3,(SeasonFlags).w
 	beq.w	.21
 .20
 	move.w	#0,-(sp)
@@ -254,7 +254,7 @@ OpeningClear	;Reset the stack and clear the game variables (keeping the season d
 	jsr	(SeasonAwards).l
 	btst	#1,(sflags13).w
 	bne.w	.22
-	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
+	move.l	#SeasonMenuScreen,(NextScreenPtr).w
 	jsr	(RunSeasonMenu).l
 .22
 	bclr	#7,(GameFlags).w
@@ -298,7 +298,7 @@ EASportsScreen	;Called from Begin. Show the EA Sports screen until a button or a
 	moveq	#$F,d5
 	bsr.w	dobitmap
 	move.w	#$EEE,(palfadenew).w
-	move.w	#0,(word_FFBD4C).w
+	move.w	#0,(palfadenew+$E).w
 	move.w	#$18,(palcount).w
 	move	#$2500,sr
 	move.w	#$50,(seed).w

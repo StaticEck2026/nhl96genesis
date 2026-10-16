@@ -102,7 +102,7 @@ maketree	;Make the playoff tree (potree) from the playoff seeds and WinBits, the
 	movem.l	d0-d4/a0-a3,-(sp)
 	btst	#7,(GameFlags).w
 	beq.w	.0
-	btst	#2,(dword_FFDD7E+2).w
+	btst	#2,(SeasonFlags).w
 	beq.w	.nogames
 	movea.l	#$FFFFD130,a0
 	moveq	#$57,d0
@@ -574,12 +574,12 @@ ReadPassData	;Read pwddatabuffer from save RAM (GameFlags bit 7: the season copy
 	rts
 
 WritePassData	;Write pwddatabuffer to save RAM and its checksum (GameFlags bit 7: the season copy, only with
-	;dword_FFDD7E bit 2)
+	;SeasonDay bit 2)
 	movem.l	d0-d1/a0,-(sp)
 	move.l	#$E5E,d0
 	btst	#7,(GameFlags).w
 	beq.w	.0
-	btst	#2,(dword_FFDD7E+2).w
+	btst	#2,(SeasonFlags).w
 	beq.w	.1
 	moveq	#$4D,d0
 .0

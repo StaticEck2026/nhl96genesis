@@ -481,6 +481,17 @@ Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the b
   DoubleMinorChk, ErasePenaltyMessage, Erase/DrawPowerPlayBox, SetGoalieFromLines, OpeningClear, TurnGoalieFromNet,
   ChecksumSkipStart / End. PauseScreenDraw takes the 95G name by role and caller (body rewritten).
 
+- RAM (ram96): 99 of the 145 IDA names closed. 95G / 94G names where the same routine uses the variable at the same point
+  (rinkvrcset, spritechars, ReplayIconChars, clockram, shotpflags, RefRamMap, the stats screen block DispAttribCtr /
+  VertLineScrolling / PlayerScrollCtr / screentimer, homeplayers / awayplayers, the shootout variables, NameEntryMode,
+  namelogarrows, sopathdir, the 94 crowd meter CwdChkCntr / CwdChkCnt / CrowdRecord / CrowdAvg / CrowdPeak, PuckZCntr /
+  TmpPuckZ, SeasonDay with SeasonFlags = SeasonDay+2). New-in-96 variables named from their one job (the pstats... clone
+  of the stats screen block, team select and award logo chars, the font char bases, options animation, skill speed,
+  NextScreenPtr, simdays, fightidletimer, IntermissionTimer, ...). Labels that were only an offset into a named variable
+  are written as that expression (padcont+4, tmstruct+tmap, potree+$1C, LineSetsBuf+$43, SeasonDay+8, ...) and dropped.
+  LineSetsBuf is GetTeamLines' buffer (shares ThreeStars). fight96 now writes CwdExciteLvl (93G) where it had the
+  setup screen alias of that address; lines96_bar writes #ScoreSum-6 (95G ChkCnt).
+
 ## Unsure
 
 Copied from `docs/align95_plan.md`. Leave these alone.
@@ -521,3 +532,10 @@ Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidenc
 - sub_14804 (hockey96): clears save RAM $E68-$ECD in StartGame (OptPlayMode above 1); what lives there is not known.
 - sub_1D920A (code96_15): called before setpassmode / SetShotMode and has no effect (the movem undoes the load).
 - For Abdul: PauseScreenDraw (pause96_return) has 95G's caller and job but a rewritten body.
+- RAM: 46 IDA names stay. No uses at all (unk_FFB65E, unk_FFB6DE, byte_FFB7BC, unk_FFC058, unk_FFCFB4, dword_FFD234, the
+  unused tmstruct / AwShots offsets word_FFC73C, word_FFC74C, byte_FFC756, word_FFCADA, word_FFCAEA, byte_FFCAF4,
+  unk_FFFFF6, unk_FFFFFF). Two jobs at one address (word_FF2720, word_FFB8C4, word_FFD238). The rest have uses in code
+  whose job is not known yet (the fight counters word_FFDCDE ... byte_FFDCEC, the role carriers word_FFD23A / C, the pad
+  objects unk_FFBE72 / unk_FFBE8E, word_FFD036 / word_FFD038 in the stats block, byte_FFC35A, unk_FFC38C, word_FFBF88,
+  word_FFBFF0, word_FFD300, word_FFD310, byte_FFD474 / byte_FFD47E (94 arenaanim / faceoffanim by the dead 94 code only),
+  byte_FFDCA6, byte_FFDCF9, dword_FFDD82, word_FFDDB6, word_FFDDBE, byte_FF2710, word_FF1388, unk_FFC4C6 uses aside).

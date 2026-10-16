@@ -152,31 +152,31 @@ CreditsScreen	;The legal and credits pages (CreditsList) over three pictures; st
 	move	#$2500,sr
 	bclr	#2,(disflags).w
 	move.w	#$18,(palcount).w
-	clr.w	(word_FFD030).w
-	clr.w	(word_FFD032).w
+	clr.w	(DispAttribCtr).w
+	clr.w	(VertLineScrolling).w
 	move.l	#$5732,(setupvalues).w
 	bsr.w	PrintCreditsPage
 .0
 	bsr.w	CreditsWaitFrame
 	jsr	(FindHeldMenuPad).l
-	tst.w	(word_FFD030).w
+	tst.w	(DispAttribCtr).w
 	beq.w	.1
 	btst	#7,d1
 	bne.w	.5
 .1
-	addq.w	#1,(word_FFD032).w
-	tst.w	(word_FFD030).w
+	addq.w	#1,(VertLineScrolling).w
+	tst.w	(DispAttribCtr).w
 	bne.w	.2
-	cmpi.w	#$B4,(word_FFD032).w
+	cmpi.w	#$B4,(VertLineScrolling).w
 	blt.w	.4
 	bra.w	.3
 .2
-	cmpi.w	#$258,(word_FFD032).w
+	cmpi.w	#$258,(VertLineScrolling).w
 	blt.w	.4
 .3
-	clr.w	(word_FFD032).w
-	addq.w	#1,(word_FFD030).w
-	cmpi.w	#5,(word_FFD030).w
+	clr.w	(VertLineScrolling).w
+	addq.w	#1,(DispAttribCtr).w
+	cmpi.w	#5,(DispAttribCtr).w
 	beq.w	.5
 	bsr.w	PrintCreditsPage
 .4
@@ -241,7 +241,7 @@ CupCelebration	;The user's team won the Cup: the rink scene with the team's spri
 	move.w	#$B,-(sp)
 	jsr	(sfx).l
 	move.w	#1,(padiconchars1).w
-	clr.w	(word_FFD030).w
+	clr.w	(DispAttribCtr).w
 	move.w	(vcount).w,d0
 .loop2
 	cmp.w	(vcount).w,d0
@@ -252,22 +252,22 @@ CupCelebration	;The user's team won the Cup: the rink scene with the team's spri
 .0
 	btst	#0,(disflags).w
 	bne.s	.0
-	addq.w	#1,(word_FFD030).w
-	cmpi.w	#$A,(word_FFD030).w
+	addq.w	#1,(DispAttribCtr).w
+	cmpi.w	#$A,(DispAttribCtr).w
 	blt.w	.1
-	clr.w	(word_FFD030).w
+	clr.w	(DispAttribCtr).w
 	addq.w	#1,(padiconchars1).w
 	cmpi.w	#$22,(padiconchars1).w
 	blt.w	.1
 	move.w	#$11,(padiconchars1).w
 .1
-	subq.w	#1,(word_FFD032).w
+	subq.w	#1,(VertLineScrolling).w
 	bpl.w	.2
 	move.w	#$A,d0
 	jsr	(randomd0).l
 	movea.l	#CupCheerDelays,a0
 	add.w	d0,d0
-	move.w	(a0,d0.w),(word_FFD032).w
+	move.w	(a0,d0.w),(VertLineScrolling).w
 	move.w	#$B,-(sp)
 	jsr	(sfx).l
 .2
@@ -317,8 +317,8 @@ CupCheerDelays	;CupCelebration: frames to the next crowd cheer, one picked at ra
 CupCelebrationSetup	;CupCelebration: vram, the team and rink palettes, the rink and sprite tiles, the picture
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.l	#$FFFFFFFF,(padcont).w
-	move.l	#$FFFFFFFF,(dword_FFBEB2).w
-	move.l	#$FFFFFFFF,(dword_FFBEB6).w
+	move.l	#$FFFFFFFF,(padcont+4).w
+	move.l	#$FFFFFFFF,(padcont+8).w
 	jsr	(forceblack).l
 	clr.w	(Vpos).w
 	move.w	#$38,(Hpos).w
@@ -346,7 +346,7 @@ CupCelebrationSetup	;CupCelebration: vram, the team and rink palettes, the rink 
 	clr.w	d1
 	adda.w	2(a2),a2	;Palettedata
 	adda.w	d1,a2
-	movea.w	#(unk_FFBD7E-M68K_RAM),a1
+	movea.w	#(palfadenew+$40-M68K_RAM),a1
 	adda.w	d1,a1
 	moveq	#7,d0
 .loop
@@ -359,7 +359,7 @@ CupCelebrationSetup	;CupCelebration: vram, the team and rink palettes, the rink 
 	move.w	#$7FF,d2
 	jsr	(DoFill).l
 	clr.w	d4
-	move.w	d4,(word_FFB022).w
+	move.w	d4,(rinkvrcset).w
 	movea.l	#Rinktilelist+8,a2
 	jsr	(DecompressGraphicsPlain).l
 	move.w	d4,(animchars).w

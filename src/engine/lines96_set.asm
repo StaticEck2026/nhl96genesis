@@ -38,8 +38,8 @@ GetTeamLines	;a0 = the line sets of team d7
 	bsr.w	AddBestGoalie
 	move.w	#2,d1
 	bsr.w	AddLineSkaters
-	move.l	(ThreeStars).w,(dword_FFD138).w
-	move.l	(dword_FFD134).w,(dword_FFD13C).w
+	move.l	(LineSetsBuf).w,(LineSetsBuf+8).w
+	move.l	(LineSetsBuf+4).w,(LineSetsBuf+$C).w
 	bsr.w	ClearUsedPlayers
 	movea.l	#$FFFFD140,a0
 	bsr.w	AddBestGoalie
@@ -50,10 +50,10 @@ GetTeamLines	;a0 = the line sets of team d7
 	bsr.w	AddBestGoalie
 	move.w	#4,d1
 	bsr.w	AddLineSkaters
-	move.l	(ThreeStars).w,(dword_FFD150).w
-	move.l	(dword_FFD134).w,(dword_FFD154).w
-	move.l	(dword_FFD140).w,(dword_FFD158).w
-	move.l	(dword_FFD144).w,(dword_FFD15C).w
+	move.l	(LineSetsBuf).w,(LineSetsBuf+$20).w
+	move.l	(LineSetsBuf+4).w,(LineSetsBuf+$24).w
+	move.l	(LineSetsBuf+$10).w,(LineSetsBuf+$28).w
+	move.l	(LineSetsBuf+$14).w,(LineSetsBuf+$2C).w
 	bsr.w	ClearUsedPlayers
 	movea.l	#$FFFFD1B3,a3
 	move.w	#$FFFF,d5
@@ -65,7 +65,7 @@ GetTeamLines	;a0 = the line sets of team d7
 	move.w	#2,d1
 	bsr.w	AddFourForwards
 	bsr.w	ClearUsedPlayers
-	move.b	(byte_FFD160).w,(StandingsBuf).w
+	move.b	(LineSetsBuf+$30).w,(StandingsBuf).w
 	movea.l	#$FFFFD169,a0
 	move.w	#3,d1
 	bsr.w	AddDefensePair
@@ -203,7 +203,7 @@ MergedFallbackLists	;Lists AddLinePlayer tries once the forward list holds all t
 	dc.l	$FFFFD177,$FFFFD195,$FFFFD1B3,$FFFFD1B3,$FFFFD1B3
 
 AddBestGoalie	;Write the first goalie of the goalie list (player number + 1) to a0
-	move.b	(byte_FFD173).w,d0
+	move.b	(LineSetsBuf+$43).w,d0
 	addq.b	#1,d0
 	move.b	d0,(a0)+
 	rts

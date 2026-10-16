@@ -166,7 +166,7 @@ updatescroll	;Scroll the rink window: Hscroll / Vscroll from Hpos / Vpos
 showref	;Ref window: when sflags2 bit 1 is set add the 8 RefRamMap rows to the dma list at a5 (VmMap1)
 	bclr	#1,(sflags2).w
 	beq.w	rtss2
-	movea.w	#(unk_FFC44C-M68K_RAM),a0
+	movea.w	#(RefRamMap-M68K_RAM),a0
 	movea.w	#(VmMap1-M68K_RAM),a1
 	move.w	2(a1),d2
 	moveq	#2,d0	;refy: Xpos on ice screen
@@ -564,13 +564,13 @@ setffo	;Called from setvideo
 	dbf	d0,.top
 	rts
 
-SetGloveAndSetupPad	;The setup pad (word_FFBF16 at $3E8: none) and the glove (glovecords), then uppads
+SetGloveAndSetupPad	;The setup pad (glovecords+2 at $3E8: none) and the glove (glovecords), then uppads
 	movea.w	#(unk_FFBE72-M68K_RAM),a0
 	st	$18(a0)
-	cmpi.w	#$3E8,(word_FFBF16).w
+	cmpi.w	#$3E8,(glovecords+2).w
 	beq.w	.0
-	move.b	(word_FFBF16).w,d0
-	move.b	(word_FFBF16+1).w,d1
+	move.b	(glovecords+2).w,d0
+	move.b	(glovecords+2+1).w,d1
 	ext.w	d0
 	asl.w	#2,d0
 	move.w	d0,(a0)
@@ -905,7 +905,7 @@ setupice	;Set all variables, send non purgeable graphics, build sprite frame lis
 	move.w	#$7FF,d2
 	bsr.w	DoFill
 	clr.w	d4
-	move.w	d4,(word_FFB022).w
+	move.w	d4,(rinkvrcset).w
 	movea.l	#Rinktilelist+8,a2
 	btst	#4,(sflags4).w
 	beq.w	*+4
@@ -920,11 +920,11 @@ setupice	;Set all variables, send non purgeable graphics, build sprite frame lis
 	bsr.w	DecompressGraphicsPlain
 	move.w	d4,(animchars).w
 	jsr	(LoadCrowdFrames).l
-	move.w	d4,(word_FFB02E).w
+	move.w	d4,(spritechars).w
 	bsr.w	defaultsprites
 	bsr.w	setupIceRinkPal
 	bsr.w	AddFramer
-	move.w	d4,(word_FFB038).w
+	move.w	d4,(gamefontchars).w
 	jsr	(LoadSmallFont).l
 	jsr	(LoadBigFonts).l
 	move.w	d4,(ExtraChars).w

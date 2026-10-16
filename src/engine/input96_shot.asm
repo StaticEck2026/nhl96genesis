@@ -190,7 +190,7 @@ doshot	;Shoot the puck
 	bclr	#3,(sflags).w
 	bra.w	.4
 .0
-	move.b	pflags(a3),(byte_FFC364).w
+	move.b	pflags(a3),(shotpflags).w
 	bclr	#4,(gmode2).w
 	btst	#1,pflags3(a3)	;check if player on breakaway
 	beq.w	.cont
@@ -751,14 +751,14 @@ sub_FD14
 	movea.l	#SortCords,a5
 	move.w	(word_FFD23A).w,d6
 	bmi.w	.3
-	cmpi.w	#6,(word_FFC74A).w
+	cmpi.w	#6,(tmstruct+tmap).w
 	bne.w	.3
 	bsr.w	sub_FD80
 .3
 	movea.l	#SortCords+$300,a5
 	move.w	(word_FFD23C).w,d6
 	bmi.w	.4
-	cmpi.w	#6,(word_FFCAE8).w
+	cmpi.w	#6,(AwShots+tmap).w
 	bne.w	.4
 	bsr.w	sub_FD80
 .4

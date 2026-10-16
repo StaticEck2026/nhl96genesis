@@ -1,8 +1,8 @@
 ;	Loads for the replay icon and the home team graphics, the hi-score
 ;	screen, and clearing the penalties.
 
-LoadReplayIcon	;Load the replay icon tiles (ReplayIconMap+8) at char d4 (word_FFB030)
-	move.w	d4,(word_FFB030).w
+LoadReplayIcon	;Load the replay icon tiles (ReplayIconMap+8) at char d4 (ReplayIconChars)
+	move.w	d4,(ReplayIconChars).w
 	movea.l	#ReplayIconMap+8,a2
 	jmp	DecompressGraphicsPlain
 

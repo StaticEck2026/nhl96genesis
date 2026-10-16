@@ -85,16 +85,16 @@ printbigz2	;printbig2 with the String after the call
 	movea.l	(sp)+,a1
 	rts
 
-printbig1	;printbigcur with the font map BigFontMap (chars word_FFB016)
+printbig1	;printbigcur with the font map BigFontMap (chars bigfont1chars)
 	bclr	#2,(sflags11).w
 	move.l	#BigFontMap,(bigfontptr).l
-	move.w	(word_FFB016).w,(word_FFB014).w
+	move.w	(bigfont1chars).w,(printbigchars).w
 	jmp	printbigcur
 
 printbig2	;printbigcur with the font map BigFontMap3 (chars BigFontChars)
 	bclr	#2,(sflags11).w
 	move.l	#BigFontMap3,(bigfontptr).l
-	move.w	(BigFontChars).w,(word_FFB014).w
+	move.w	(BigFontChars).w,(printbigchars).w
 	jmp	printbigcur
 	;After printbig2: code that nothing in the listing reaches.
 	;Code the listing does not decode: kept as bytes
@@ -715,7 +715,7 @@ PushRef	;Tell vblank what to display: ref frame d0
 	adda.l	4(a0),a0
 	addq.w	#4,a0
 	adda.w	d0,a0
-	movea.w	#(unk_FFC44C-M68K_RAM),a1
+	movea.w	#(RefRamMap-M68K_RAM),a1
 	move.w	(ExtraChars).w,d2
 	ori.w	#$8000,d2	;priority
 	moveq	#$37,d0	;(refheight*refwidth)-1
@@ -730,7 +730,7 @@ PushRef	;Tell vblank what to display: ref frame d0
 	bne.w	.4
 	btst	#4,(sflags9).w
 	bne.w	.4
-	movea.w	#(unk_FFC44C-M68K_RAM),a1
+	movea.w	#(RefRamMap-M68K_RAM),a1
 	moveq	#$37,d0	;(refheight*refwidth)-1
 .3
 	move.w	#$7FF,(a1)+	;blank tile
@@ -788,7 +788,7 @@ prefmes	;Print the penalty message: the player, the penalty and its length (Pena
 	bmi.w	.8
 	cmpi.w	#$3E8,(glovecords).w
 	bne.w	.3
-	cmpi.w	#$3E8,(word_FFBF16).w
+	cmpi.w	#$3E8,(glovecords+2).w
 	beq.w	.4
 .3
 	jsr	(ClearMessageLine).l

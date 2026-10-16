@@ -6,7 +6,7 @@ ScoutingReport	;The pre-game scouting report: an empty rts in 96
 	rts
 
 ResolveDayGames	;Compute winners and losers for the playoff matchups of the day: the series wins (gsstruct),
-	;WinBits and gamelevel when the round is over; at gamelevel 4 the final flags in dword_FFDD7E, else
+	;WinBits and gamelevel when the round is over; at gamelevel 4 the final flags in SeasonDay, else
 	;maketree; then the save RAM write
 	movem.l	d0-d7/a0-a6,-(sp)
 	clr.w	(rosterscroll).w
@@ -92,7 +92,7 @@ ResolveDayGames	;Compute winners and losers for the playoff matchups of the day:
 .4
 	cmpi.w	#4,(gamelevel).w
 	bne.w	.7
-	bset	#1,(dword_FFDD7E+2).w
+	bset	#1,(SeasonFlags).w
 	movem.l	d0/a0-a1,-(sp)
 	movea.l	#$FFFFDCF8,a0
 	lea	2(a0),a1
@@ -102,10 +102,10 @@ ResolveDayGames	;Compute winners and losers for the playoff matchups of the day:
 	addq.w	#1,a1
 .5
 	move.b	(a1),d0
-	bclr	#3,(dword_FFDD7E+2).w
+	bclr	#3,(SeasonFlags).w
 	cmp.b	(dword_FFDD82+2).w,d0
 	bne.w	.6
-	bset	#3,(dword_FFDD7E+2).w
+	bset	#3,(SeasonFlags).w
 .6
 	movem.l	(sp)+,d0/a0-a1
 	bra.w	.8
@@ -323,7 +323,7 @@ SetupPlayoffs	;Start the playoffs: save the season header (SRSeasonHeaderSave) a
 	;OptPlayMode 1
 	movem.l	d0-d7/a0-a6,-(sp)
 	bset	#6,(GameFlags).w
-	move.b	(dword_FFDD7E+3).w,-(sp)
+	move.b	(SeasonDay+3).w,-(sp)
 	move.b	(dword_FFDD82).w,-(sp)
 	move.b	(dword_FFDD82+1).w,-(sp)
 	move.b	(dword_FFDD82+2).w,-(sp)
@@ -337,11 +337,11 @@ SetupPlayoffs	;Start the playoffs: save the season header (SRSeasonHeaderSave) a
 	movea.l	#SaveRAM+SRSeasonHeader,a0
 	clr.l	(a0)
 	jsr	(ReadSeasonHeader).l
-	bset	#2,(dword_FFDD7E+2).w
+	bset	#2,(SeasonFlags).w
 	move.b	(sp)+,(dword_FFDD82+2).w
 	move.b	(sp)+,(dword_FFDD82+1).w
 	move.b	(sp)+,(dword_FFDD82).w
-	move.b	(sp)+,(dword_FFDD7E+3).w
+	move.b	(sp)+,(SeasonDay+3).w
 	clr.b	(dword_FFDD82+3).w
 	jsr	(WriteSeasonHeader).l
 	move.l	#$CBF,d0

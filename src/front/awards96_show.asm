@@ -8,7 +8,7 @@ SeasonAwards	;End of season awards: left / right go through the 9 awards (pictur
 	bsr.w	AwardsScreenSetup
 	move.w	#$18,(palcount).w
 	bclr	#2,(disflags).w
-	clr.w	(word_FFD034).w
+	clr.w	(PlayerScrollCtr).w
 .draw
 	jsr	(DrawAwardWinnerLogo).l
 	jsr	(DrawAwardPicture).l
@@ -28,17 +28,17 @@ SeasonAwards	;End of season awards: left / right go through the 9 awards (pictur
 	bne.w	.2
 	btst	#2,d1
 	beq.w	.1
-	move.w	(word_FFD034).w,d0
+	move.w	(PlayerScrollCtr).w,d0
 	subq.w	#1,d0
 	bpl.w	.0
 	move.w	#8,d0
 .0
-	move.w	d0,(word_FFD034).w
+	move.w	d0,(PlayerScrollCtr).w
 	bra.s	.draw
 .1
 	btst	#3,d1
 	beq.s	.frame
-	move.w	(word_FFD034).w,d0
+	move.w	(PlayerScrollCtr).w,d0
 	addq.w	#1,d0
 	cmp.w	#8,d0
 	ble.s	.0
@@ -48,19 +48,19 @@ SeasonAwards	;End of season awards: left / right go through the 9 awards (pictur
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
-DrawAwardWinnerLogo	;The team logo of the winner of award word_FFD034
+DrawAwardWinnerLogo	;The team logo of the winner of award PlayerScrollCtr
 	jsr	(printz).l
 	String	$8F,$03,$08
 	bsr.w	GetAwardWinnerTeam
-	move.w	(word_FFB02C).w,d4
+	move.w	(awardlogochars).w,d4
 	clr.w	d5
 	jsr	(DrawTeamLogoD7).l
 	rts
 
-DrawAwardPicture	;Draw the picture of award word_FFD034 (AwardPictures)
+DrawAwardPicture	;Draw the picture of award PlayerScrollCtr (AwardPictures)
 	jsr	(printz).l
 	String	$BF,$19,$09
-	move.w	(word_FFD034).w,d0
+	move.w	(PlayerScrollCtr).w,d0
 	movea.l	#AwardPictures,a0
 	asl.w	#2,d0
 	movea.l	(a0,d0.w),a0
@@ -73,7 +73,7 @@ DrawAwardPicture	;Draw the picture of award word_FFD034 (AwardPictures)
 	moveq	#$A,d2
 	moveq	#$A,d3
 	moveq	#2,d5
-	move.w	(word_FFD030).w,d4
+	move.w	(DispAttribCtr).w,d4
 	jsr	(dobitmap).l
 	rts
 
@@ -81,11 +81,11 @@ AwardPictures	;The award picture bitmaps, one per award
 	dc.l	HartPic,ArtRossPic,NorrisPic,VezinaPic,ConnSmythePic
 	dc.l	PresidentsPic,WalesPic,CampbellPic,PearsonPic
 
-PrintAwardName	;Print the name of award word_FFD034 (AwardNames)
+PrintAwardName	;Print the name of award PlayerScrollCtr (AwardNames)
 	jsr	(printz).l
 	String	$BF,$13,$05
 	movea.l	#AwardNames,a1
-	move.w	(word_FFD034).w,d0
+	move.w	(PlayerScrollCtr).w,d0
 	jsr	(SkipStrings).l
 	move.w	(a1),d0
 	subq.w	#2,d0
@@ -106,11 +106,11 @@ AwardNames	;PrintAwardName Strings: the award names
 	String	' clarence campbell  '
 	String	' lester b. pearson  '
 
-PrintAwardDesc	;Print the description of award word_FFD034 (AwardDescs)
+PrintAwardDesc	;Print the description of award PlayerScrollCtr (AwardDescs)
 	jsr	(printcurz).l
 	String	$8F,$02,$14,'                ',$8F,$02,$15,'                ',$8F,$02,$16,'                ',$8F,$02,$17,'                ',$8F,$02,$18,'                '
 	movea.l	#AwardDescs,a1
-	move.w	(word_FFD034).w,d0
+	move.w	(PlayerScrollCtr).w,d0
 	jsr	(SkipStrings).l
 	jsr	(printcur).l
 	rts
@@ -126,13 +126,13 @@ AwardDescs	;PrintAwardDesc Strings: the award descriptions
 	String	$8F,$02,$14,'to the winners',$8F,$02,$15,'of the',$8F,$02,$16,'Western',$8F,$02,$17,'Conference',$8F,$02,$18,'Championship'
 	String	$8F,$02,$14,'to the nhl''s',$8F,$02,$15,'outstanding',$8F,$02,$16,'player chosen by',$8F,$02,$17,'player members',$8F,$02,$18,'of the nhlpa'
 
-PrintAwardWinner	;Print the winner of award word_FFD034: a team (TeamAwardFlags) or a player "F. Name"
+PrintAwardWinner	;Print the winner of award PlayerScrollCtr: a team (TeamAwardFlags) or a player "F. Name"
 	bset	#2,(sflags11).w
 	jsr	(printbigz).l
 	String	$F8,$04,$01,$17,$15,'              '
 	bsr.w	GetAwardWinner
 	movea.l	#TeamAwardFlags,a0
-	move.w	(word_FFD034).w,d1
+	move.w	(PlayerScrollCtr).w,d1
 	tst.b	(a0,d1.w)
 	beq.w	.0
 	move.w	d0,d7
@@ -228,9 +228,9 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	moveq	#$1C,d3
 	moveq	#8,d5
 	jsr	(dobitmap).l
-	move.w	d4,(word_FFB02C).w
+	move.w	d4,(awardlogochars).w
 	addi.w	#$A0,d4
-	move.w	d4,(word_FFD030).w
+	move.w	d4,(DispAttribCtr).w
 	addi.w	#$64,d4
 	jsr	(printz).l
 	String	$BF,$0B,$01
@@ -262,16 +262,16 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	jsr	(DrawScreenSprite).l
 	rts
 
-GetAwardWinnerTeam	;d7 = the team of the winner of award word_FFD034 (its save RAM award record)
+GetAwardWinnerTeam	;d7 = the team of the winner of award PlayerScrollCtr (its save RAM award record)
 	;Code the listing does not decode: kept as bytes
 	dc.b	$20,$7C,$FF,$FF,$D1,$30,$20,$3C,$00,$00,$0D,$94,$32,$38,$D0,$34
 	dc.b	$B2,$7C,$00,$08,$66,$00,$00,$04,$42,$41,$C2,$FC,$00,$04,$D0,$81
 	dc.b	$32,$3C,$00,$04,$4E,$B9,$00,$02,$41,$E8,$3E,$28,$00,$02,$4E,$75
 
-GetAwardWinner	;d0 = the 4-byte winner record of award word_FFD034 (save RAM $D94 + award * 4, read to ThreeStars)
+GetAwardWinner	;d0 = the 4-byte winner record of award PlayerScrollCtr (save RAM $D94 + award * 4, read to ThreeStars)
 	movea.l	#ThreeStars,a0
 	move.l	#$D94,d0
-	move.w	(word_FFD034).w,d1
+	move.w	(PlayerScrollCtr).w,d1
 	cmp.w	#8,d1
 	bne.w	.0
 	clr.w	d1
@@ -286,7 +286,7 @@ GetAwardWinner	;d0 = the 4-byte winner record of award word_FFD034 (save RAM $D9
 SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, Norris, Vezina, Presidents') to save RAM from the
 	;leaders
 	movem.l	d0-d7/a0-a6,-(sp)
-	move.w	#2,(word_FFBF56).w
+	move.w	#2,(pstatscat).w
 	jsr	(BuildPlayerLeaders).l
 	movea.l	#$201B28,a6
 	move.w	(word_FF1388).l,d0
@@ -338,7 +338,7 @@ SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, N
 	move.b	(jerseynum).w,1(a6)
 	move.b	(jerseynum+1).w,3(a6)
 	addq.l	#8,a6
-	move.w	#3,(word_FFBF56).w
+	move.w	#3,(pstatscat).w
 	jsr	(BuildPlayerLeaders).l
 	move.w	(word_FF1388).l,d0
 	ext.l	d0
@@ -380,7 +380,7 @@ SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, N
 
 SetPlayoffAwardWinners	;Write the Conn Smythe, Wales and Campbell winners to save RAM (the finalists, or the conference standings)
 	movem.l	d0-d7/a0-a6,-(sp)
-	move.w	#2,(word_FFBF56).w
+	move.w	#2,(pstatscat).w
 	jsr	(BuildPlayerLeaders).l
 	movea.l	#$201B48,a6
 	move.w	(word_FF1388).l,d0
@@ -464,7 +464,7 @@ SetPlayoffAwardWinners	;Write the Conn Smythe, Wales and Campbell winners to sav
 	rts
 
 CupChampionsScreen	;The user's team won the Cup: a full screen picture with the team palette, small logo and name, until start
-	btst	#3,(dword_FFDD7E+2).w
+	btst	#3,(SeasonFlags).w
 	beq.w	.3
 	movem.l	d0-d7/a0-a6,-(sp)
 	move.l	#VBlank_SpriteFade,(vbint).w
@@ -489,7 +489,7 @@ CupChampionsScreen	;The user's team won the Cup: a full screen picture with the 
 	move.w	d0,(a0)
 	jsr	(orjoy).l
 	move.w	#1,d4
-	move.w	d4,(word_FFB016).w
+	move.w	d4,(bigfont1chars).w
 	movea.l	#BigFontMap+8,a2
 	jsr	(DecompressGraphicsWithCallback).l
 	dc.b	$04,$F3,$45,$67,$89,$CB,$CA,$9F	;remap table
@@ -569,7 +569,7 @@ CupChampionsScreen	;The user's team won the Cup: a full screen picture with the 
 	subq.w	#2,d0
 	asr.w	#1,d0
 	sub.w	d0,(printx).w
-	move.w	(word_FFB016).w,(word_FFB014).w
+	move.w	(bigfont1chars).w,(printbigchars).w
 	move.l	#BigFontMap,(bigfontptr).w
 	jsr	(printbigcur).l
 	jsr	(printz).l
@@ -590,7 +590,7 @@ CupChampionsScreen	;The user's team won the Cup: a full screen picture with the 
 	subq.w	#2,d0
 	asr.w	#1,d0
 	sub.w	d0,(printx).w
-	move.w	(word_FFB016).w,(word_FFB014).w
+	move.w	(bigfont1chars).w,(printbigchars).w
 	move.l	#BigFontMap,(bigfontptr).w
 	jsr	(printbigcur).l
 	move.w	#$18,(palcount).w

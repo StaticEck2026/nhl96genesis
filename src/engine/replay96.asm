@@ -262,8 +262,8 @@ updatereplay	;Called every frame to save replay events, d7 = elapsed frames
 	or.b	d0,(a0)+
 	adda.w	#$80,a3
 	dbf	d2,.loop
-	move.b	(byte_FFB777).w,(a0)+
-	move.b	(byte_FFB7F7).w,(a0)+
+	move.b	(puckz+1).w,(a0)+
+	move.b	(SortCords+$F*SCstruct+Zpos+1).w,(a0)+
 	move.b	(lastsfx+1).w,(a0)+
 	bset	#7,(lastsfx+1).w
 	move.b	d7,(a0)+

@@ -981,7 +981,7 @@ ClearCreatedPlayers	;Clear the created players list at M68K_RAM+$DB4 (20 x $8000
 .loop
 	move.w	#$8000,(a0)+
 	dbf	d6,.loop
-	move.b	#0,(byte_FF0DDC).l
+	move.b	#0,(M68K_RAM+$DDC).l
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 

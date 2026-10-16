@@ -745,27 +745,27 @@ AddPlayoffTeamStats	;Add the po team's game stats to its playoff totals in stats
 	move.l	#$7340,d1
 	movea.l	#statsbuffer,a0
 	adda.w	d6,a0
-	jsr	(sub_10F22).l
+	jsr	(WriteSRAMBitWords).l
 	moveq	#$A,d2
 	move.l	#$7430,d1
 	movea.l	#statsbuffer+$38,a0
 	adda.w	d6,a0
-	jsr	(sub_10F22).l
+	jsr	(WriteSRAMBitWords).l
 	moveq	#9,d2
 	move.l	#$7520,d1
 	movea.l	#statsbuffer+$A8,a0
 	adda.w	d6,a0
-	jsr	(sub_10F22).l
+	jsr	(WriteSRAMBitWords).l
 	asr.w	#1,d6
 	move.w	d6,d3
 	moveq	#$D,d2
 	move.l	#$75F8,d1
 	movea.l	#statsbuffer+$70,a0
-	jsr	(sub_10F22).l
+	jsr	(WriteSRAMBitWords).l
 	moveq	#$D,d2
 	move.l	#$761F,d1
 	movea.l	#statsbuffer,a0
-	jsr	(sub_10F22).l
+	jsr	(WriteSRAMBitWords).l
 	bclr	#6,(GameFlags).w
 	jsr	(MakeSRAMChecksum).l
 .2
@@ -786,27 +786,27 @@ ReadTeamStats	;Read the playoff stat totals of the po team from save RAM into st
 	move.l	#$7340,d1
 	movea.l	#statsbuffer,a0
 	adda.w	d6,a0
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	moveq	#$A,d2
 	move.l	#$7430,d1
 	movea.l	#statsbuffer+$38,a0
 	adda.w	d6,a0
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	moveq	#9,d2
 	move.l	#$7520,d1
 	movea.l	#statsbuffer+$A8,a0
 	adda.w	d6,a0
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	asr.w	#1,d6
 	move.w	d6,d3
 	moveq	#$D,d2
 	move.l	#$75F8,d1
 	movea.l	#statsbuffer+$70,a0
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	moveq	#$D,d2
 	move.l	#$761F,d1
 	movea.l	#statsbuffer,a0
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	rts
 
 ResolveGames	;Compute winners and losers for playoff matchups

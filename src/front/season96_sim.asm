@@ -56,7 +56,7 @@ SimGameStats
 	movea.l	#$FFFF56A4,a6
 	bsr.w	sub_10A08
 	bsr.w	SimGoalieStats
-	jsr	(sub_10CF2).l
+	jsr	(SaveGameStats).l
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 

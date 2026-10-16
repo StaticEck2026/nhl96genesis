@@ -13,7 +13,7 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 SortBytesByWords = $010CB2		;season96
-sub_10CF2 = $010CF2		;season96
+SaveGameStats = $010CF2		;season96
 TeamList = $00077E		;teamdata96
 GetGoalieCountD7 = $015774		;players96_count
 randomd0 = $01B0A6		;video96

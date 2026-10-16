@@ -19,7 +19,7 @@ OptionsScreen	;The game options screen: play mode, rosters, period length, goali
 	beq.w	.0
 	jsr	(maketree).l
 .0
-	jsr	(sub_1149E).l
+	jsr	(ReadSeasonHeader).l
 	bclr	#1,(sflags13).w
 	btst	#1,(dword_FFDD7E+2).w
 	beq.w	.1
@@ -49,7 +49,7 @@ OptionsScreen	;The game options screen: play mode, rosters, period length, goali
 	bsr.w	OptionsMenuInit
 	bsr.w	OptionsScreenSetup
 	movea.l	#unk_19C232,a0
-	jsr	(sub_1218A).l
+	jsr	(DrawScreenSprite).l
 	jsr	(PStatsPalette).l
 	move.w	#$18,(palcount).w
 	bclr	#2,(disflags).w
@@ -61,7 +61,7 @@ OptionsScreen	;The game options screen: play mode, rosters, period length, goali
 .loop2
 	cmp.w	(vcount).w,d0
 	beq.s	.loop2
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	addq.w	#1,(carddelay).w
 	cmpi.w	#$2A30,(carddelay).w
 	bge.w	.16
@@ -196,7 +196,7 @@ OptionsScreen	;The game options screen: play mode, rosters, period length, goali
 	bsr.w	SetPlayMode
 	btst	#7,(GameFlags).w
 	beq.w	.19
-	jsr	(sub_1149E).l
+	jsr	(ReadSeasonHeader).l
 	btst	#2,(dword_FFDD7E+2).w
 	beq.w	.19
 	jsr	(ReadPassData).l
@@ -241,7 +241,7 @@ OptionsScreenSetup	;OptionsScreen: vram, fonts, the screen bitmaps and the row l
 	jsr	(orjoy).l
 	move.w	#1,d4
 	movea.l	#unk_19C232,a1
-	jsr	(sub_1217A).l
+	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
 	jsr	(DecompressGraphicsPlain).l

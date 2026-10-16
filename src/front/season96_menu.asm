@@ -210,7 +210,7 @@ SeasonPlayoffStats	;The playoff stats screen in a season (PlayoffStatsMenu with 
 	bset	#5,(sflags12).w
 	bsr.w	PStatsSetup
 	movea.l	#unk_18B4F8,a0
-	jsr	(sub_1218A).l
+	jsr	(DrawScreenSprite).l
 	move.w	#$18,(palcount).w
 	bclr	#2,(disflags).w
 	clr.w	(word_FFBF58).w
@@ -257,12 +257,12 @@ SeasonPlayoffStats	;The playoff stats screen in a season (PlayoffStatsMenu with 
 	cmp.w	(vcount).w,d0
 	beq.s	.loop3
 	bset	#2,(disflags).w
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	bsr.w	PStatsPrintList
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	move	#$2500,sr
 	bsr.w	PStatsArrows
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	bclr	#2,(disflags).w
 .input
 	bsr.w	WaitAnyPad
@@ -359,7 +359,7 @@ SeasonPlayoffStats	;The playoff stats screen in a season (PlayoffStatsMenu with 
 	jmp	Opening2
 .18
 	bclr	#5,(sflags12).w
-	move.l	#unk_122A4,(dword_FFDDAC).w
+	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
@@ -370,7 +370,7 @@ WaitAnyPad	;Wait for a press on pad 1 or 2 (3 and 4 with FourWayPlay); d1 = the 
 	move.w	(vcount).w,d1
 	sub.w	(oldvcount).w,d1
 	beq.s	.wait
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	move.w	(vcount).w,(oldvcount).w
 	jsr	(ReadJoy1).l
 	jsr	(ProcessInputWithRepeat).l
@@ -459,7 +459,7 @@ PStatsSetup	;SeasonPlayoffStats: vram, fonts and the screen bitmaps, the heading
 	jsr	(orjoy).l
 	move.w	#1,d4
 	movea.l	#unk_18B4F8,a1
-	jsr	(sub_1217A).l
+	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
 	jsr	(DecompressGraphicsPlain).l
@@ -632,7 +632,7 @@ PStatsBuildList	;SeasonPlayoffStats: the player or goalie list of the shown team
 	moveq	#$A,d2
 	move.l	#$F0,d4
 .4
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	movea.l	#$FFFF1A02,a0
 	move.l	#$1FA8,d1
 	moveq	#$C,d2
@@ -644,7 +644,7 @@ PStatsBuildList	;SeasonPlayoffStats: the player or goalie list of the shown team
 	moveq	#$A,d2
 	move.l	#$F0,d4
 .5
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	movea.l	#$FFFF193A,a1
 	movea.l	#$FFFF1A02,a2
 	movea.l	#$FFFF1ACA,a0
@@ -667,7 +667,7 @@ PStatsBuildList	;SeasonPlayoffStats: the player or goalie list of the shown team
 	moveq	#9,d2
 	move.l	#$D8,d4
 .8
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	bra.w	.18
 .9
 	jsr	(GetGoalieCountD7).l
@@ -695,7 +695,7 @@ PStatsBuildList	;SeasonPlayoffStats: the player or goalie list of the shown team
 	moveq	#$E,d2
 	moveq	#$2A,d4
 .13
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	movea.l	#$FFFF1D22,a0
 	move.l	#$5548,d1
 	moveq	#$E,d2
@@ -707,7 +707,7 @@ PStatsBuildList	;SeasonPlayoffStats: the player or goalie list of the shown team
 	moveq	#$E,d2
 	moveq	#$2A,d4
 .14
-	jsr	(sub_10F02).l
+	jsr	(ReadSRAMBitWords).l
 	movea.l	#$FFFF1C5A,a0
 	movea.l	#$FFFF1D22,a1
 	movea.l	#$FFFF1DEA,a2
@@ -937,7 +937,7 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 	bsr.w	PlayoffMenuInit
 	bsr.w	PlayoffMenuSetup
 	movea.l	#unk_190380,a0
-	jsr	(sub_1218A).l
+	jsr	(DrawScreenSprite).l
 	jsr	(PStatsPalette).l
 	move.w	#$18,(palcount).w
 	bclr	#2,(disflags).w
@@ -948,7 +948,7 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 .loop2
 	cmp.w	(vcount).w,d0
 	beq.s	.loop2
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	cmpi.w	#$5460,(carddelay).w
 	jsr	(FindHeldMenuPad).l
 	jsr	(ProcessInputWithRepeat).l
@@ -1002,7 +1002,7 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 	move.w	(menuitem).w,d0
 	asl.w	#2,d0
 	move.l	(a0,d0.w),(dword_FFDDAC).w
-	cmpi.l	#unk_122A4,(dword_FFDDAC).w
+	cmpi.l	#SeasonMenuScreen,(dword_FFDDAC).w
 	beq.w	.7
 	cmpi.l	#ClearPlayoffSave,(dword_FFDDAC).l
 	bne.w	.6
@@ -1035,7 +1035,7 @@ PlayoffMenuScreen	;The playoff menu screen: the playoff tree from save RAM (Read
 
 PlayoffMenuRoutines	;PlayoffMenuScreen: the routine of each menu item
 	dc.l	TradePlayers,MenuCreatePlayers,MenuSignFreeAgents,MenuReleasePlayer,ClearPlayoffSave,TeamRosterScreen
-	dc.l	unk_122A4
+	dc.l	SeasonMenuScreen
 
 PlayoffMenuDraw	;PlayoffMenuScreen: draw the menu (PrintMenuList2)
 	movem.l	d0-d7/a0-a6,-(sp)
@@ -1076,7 +1076,7 @@ PlayoffMenuSetup	;PlayoffMenuScreen: vram and the screen bitmaps
 	jsr	(orjoy).l
 	move.w	#1,d4
 	movea.l	#unk_190380,a1
-	jsr	(sub_1217A).l
+	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
 	jsr	(DecompressGraphicsPlain).l

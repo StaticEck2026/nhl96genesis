@@ -13,7 +13,7 @@
 
 ; External addresses outside, read from lst/nhl96.bin.
 printz = $01BB8E		;video96
-unk_122A4 = $0122A4		;season96
+SeasonMenuScreen = $0122A4		;season96
 forceblack = $01AF52		;video96
 dobitmap = $01B692		;video96
 DecompressGraphicsPlain = $01B730		;video96

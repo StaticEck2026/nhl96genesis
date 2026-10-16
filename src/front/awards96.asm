@@ -118,7 +118,7 @@ ResolveDayGames	;Compute winners and losers for the playoff matchups of the day:
 	bclr	#4,(sflags).w
 	move.w	#$FFFF,(lastsfx).w
 	move.l	#M68K_RAM,(recbpr).w
-	jsr	(sub_11226).l
+	jsr	(WriteDayGames).l
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
@@ -149,7 +149,7 @@ InitPlayoffs	;Seed the playoffs: the two conferences (ConferenceTeams1 / 2) sort
 	movea.l	#ConferenceTeams2,a1
 	bsr.w	CopyBytes
 	movea.l	#SeedStandings,a0
-	jsr	(sub_1161E).l
+	jsr	(ReadStandings).l
 	bsr.w	CalcSeedPoints
 	move.w	#$C,(SeedCount).l
 	movea.l	#AwardIds,a0
@@ -336,14 +336,14 @@ SetupPlayoffs	;Start the playoffs: save the season header (SRSeasonHeaderSave) a
 	dbf	d0,.save
 	movea.l	#SaveRAM+SRSeasonHeader,a0
 	clr.l	(a0)
-	jsr	(sub_1149E).l
+	jsr	(ReadSeasonHeader).l
 	bset	#2,(dword_FFDD7E+2).w
 	move.b	(sp)+,(dword_FFDD82+2).w
 	move.b	(sp)+,(dword_FFDD82+1).w
 	move.b	(sp)+,(dword_FFDD82).w
 	move.b	(sp)+,(dword_FFDD7E+3).w
 	clr.b	(dword_FFDD82+3).w
-	jsr	(sub_1147E).l
+	jsr	(WriteSeasonHeader).l
 	move.l	#$CBF,d0
 	move.w	#$54,d1
 	jsr	(ClearSRAMBytes).l

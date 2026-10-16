@@ -9,13 +9,13 @@ Intermission	;Before the period: at game over (gsp 4) the records (UpdateRecords
 	btst	#7,(GameFlags).w
 	beq.w	.1
 	movem.l	a2,-(sp)
-	jsr	(sub_11510).l
+	jsr	(FindUserGame).l
 	cmpa.l	#0,a2
 	beq.w	.0
 	move.b	(byte_FFC733).w,2(a2)
 	move.b	(byte_FFCAD1).w,3(a2)
-	jsr	(sub_112DA).l
-	jsr	(sub_10CF2).l
+	jsr	(SaveUserGame).l
+	jsr	(SaveGameStats).l
 .0
 	movem.l	(sp)+,a2
 .1

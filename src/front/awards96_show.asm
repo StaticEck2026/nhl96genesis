@@ -22,7 +22,7 @@ SeasonAwards	;End of season awards: left / right go through the 9 awards (pictur
 .vwait
 	cmp.w	(vcount).w,d0
 	beq.s	.vwait
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	jsr	(orjoy).l
 	btst	#7,d1
 	bne.w	.2
@@ -54,7 +54,7 @@ sub_1E7B64	;SeasonAwards: a bitmap (sub_1E821C) at 3,8
 	bsr.w	sub_1E821C
 	move.w	(word_FFB02C).w,d4
 	clr.w	d5
-	jsr	(sub_12BB2).l
+	jsr	(DrawTeamLogoD7).l
 	rts
 
 DrawAwardPicture	;Draw the picture of award word_FFD034 (AwardPictures)
@@ -199,7 +199,7 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	jsr	(orjoy).l
 	move.w	#1,d4
 	movea.l	#unk_1B11B0,a1
-	jsr	(sub_1217A).l
+	jsr	(LoadScreenSprite).l
 	move.w	#$1E,d4
 	move.w	d4,(smallfontchars).w
 	movea.l	#SmallFontMap2+8,a2
@@ -259,7 +259,7 @@ AwardsScreenSetup	;Awards screen setup: vram, fonts and the background bitmaps
 	moveq	#1,d5
 	jsr	(dobitmap).l
 	movea.l	#unk_1B11B0,a0
-	jsr	(sub_1218A).l
+	jsr	(DrawScreenSprite).l
 	rts
 
 sub_1E821C	;Called from sub_1E7B64
@@ -353,7 +353,7 @@ sub_1E827A	;Called from Opening2: player records of three lists to save RAM
 	adda.l	#$10,a6
 	move.l	a6,-(sp)
 	movea.l	#$FFFFD168,a0
-	jsr	(sub_1161E).l
+	jsr	(ReadStandings).l
 	jsr	(StandingsPoints).l
 	movea.l	(sp)+,a6
 	move.w	#$19,d6
@@ -411,7 +411,7 @@ sub_1E83E6	;Called from SeasonAwards: the award winner records to save RAM
 	move.w	#5,(StandingsMode).w
 	jsr	(StandingsGroups).l
 	movea.l	#$FFFFD168,a0
-	jsr	(sub_1161E).l
+	jsr	(ReadStandings).l
 	jsr	(StandingsPoints).l
 	jsr	(SortStandings).l
 	clr.w	d7
@@ -422,7 +422,7 @@ sub_1E83E6	;Called from SeasonAwards: the award winner records to save RAM
 	move.w	#4,(StandingsMode).w
 	jsr	(StandingsGroups).l
 	movea.l	#$FFFFD168,a0
-	jsr	(sub_1161E).l
+	jsr	(ReadStandings).l
 	jsr	(StandingsPoints).l
 	jsr	(SortStandings).l
 	clr.w	d7

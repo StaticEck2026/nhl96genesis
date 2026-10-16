@@ -13,7 +13,7 @@ PlayerStatsList	;Stats screen for team a2, d7 = 0 game / 1 playoff (word_FFCF42)
 	move.w	$28(a2),(setupvalues+2).w
 	bsr.w	PListSetup
 	movea.l	#unk_18B4F8,a0
-	jsr	(sub_1218A).l
+	jsr	(DrawScreenSprite).l
 	move.w	#$18,(palcount).w
 	bclr	#2,(disflags).w
 	clr.w	(word_FFD032).w
@@ -54,7 +54,7 @@ PlayerStatsList	;Stats screen for team a2, d7 = 0 game / 1 playoff (word_FFCF42)
 .6
 	cmp.w	(vcount).w,d0
 	beq.s	.6
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	bsr.w	PListCategory
 	bsr.w	PListTeamBlock
 	bsr.w	PListHelp
@@ -64,7 +64,7 @@ PlayerStatsList	;Stats screen for team a2, d7 = 0 game / 1 playoff (word_FFCF42)
 .7
 	cmp.w	(vcount).w,d0
 	beq.s	.7
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	bset	#2,(disflags).w
 	bsr.w	PListPrint
 	bsr.w	PListArrows
@@ -189,7 +189,7 @@ PlayerStatsList	;Stats screen for team a2, d7 = 0 game / 1 playoff (word_FFCF42)
 .22
 	jmp	Opening2
 .23
-	move.l	#unk_122A4,(dword_FFDDAC).w
+	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
 	movem.l	(sp)+,d0-d7/a0-a6
 	rts
 
@@ -201,7 +201,7 @@ ReadAnyPad	;Wait for a press on pad 1 or 2 (3 and 4 with FourWayPlay); d1 = the 
 	sub.w	(oldvcount).w,d1
 	beq.s	.wait
 	move.w	(vcount).w,(oldvcount).w
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	jsr	(ReadJoy1).l
 	jsr	(ProcessInputWithRepeat).l
 	tst.w	d1
@@ -278,7 +278,7 @@ PListSetup	;PlayerStatsList: vram, fonts and the screen bitmaps
 	jsr	(orjoy).l
 	move.w	#1,d4
 	movea.l	#unk_18B4F8,a1
-	jsr	(sub_1217A).l
+	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
 	jsr	(DecompressGraphicsPlain).l

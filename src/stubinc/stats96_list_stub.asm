@@ -14,9 +14,9 @@
 ; External addresses outside, read from lst/nhl96.bin.
 printz = $01BB8E		;video96
 PushNumberWidth = $01BE1C		;video96
-sub_1218A = $01218A		;season96
-unk_122A4 = $0122A4		;season96
-sub_12640 = $012640		;season96
+DrawScreenSprite = $01218A		;season96
+SeasonMenuScreen = $0122A4		;season96
+SetMenuScroll = $012640		;season96
 GetGoalieCountD7 = $015774		;players96_count
 GetPlayerCountD7 = $0157B2		;players96_count
 dobitmap = $01B692		;video96
@@ -25,7 +25,7 @@ Opening2 = $02174A		;hockey96_open
 unk_18B4F8 = $18B4F8		;graphics96
 PStatsClearList = $1DB364		;season96_menu
 FormatPlayerNameD7 = $01017A		;trade96
-sub_1217A = $01217A		;season96
+LoadScreenSprite = $01217A		;season96
 DrawSetupTeamBlock = $012B84		;season96
 unk_12D46 = $012D46		;teamgfx96
 orjoy = $01B2C4		;video96

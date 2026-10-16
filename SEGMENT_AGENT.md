@@ -73,7 +73,7 @@ Every row is matched. Rows are in ROM order and tile `$000000` up to the `$FF` f
 | input96_shot | matched, 3404 bytes | $00F374 | $0100BF | code | input95 | shotdiradj, shotdirmath, SetShotMode, ShotMode, doshot, setpassmode, passmode, dopass, passtoa0 |
 | trade96 | matched, 2138 bytes | $0100C0 | $010919 | code | trade95 | DefaultRosters, FormatPlayerNameD7, GetRosterName, GetJerseyNumber |
 | season96_sim | matched, 920 bytes | $01091A | $010CB1 | code | season95 | SimGameStats, SimGoalieStats, SimGoalie, PickSimGoalie |
-| season96 | matched, 8012 bytes | $010CB2 | $012BFD | code | - | Season and save RAM handling and its screens, mostly new in 96 (IDA names); DrawSetupTeamBlock |
+| season96 | matched, 8012 bytes | $010CB2 | $012BFD | code | - | SaveGameStats, TickTeamInjuries, SimSeasonDays, WriteDayGames, Read/WriteSeasonHeader, ReadStandings, TeamSelectScreen, RunSeasonMenu, SeasonMenuScreen, DrawSetupTeamBlock |
 | teamgfx96 | matched, 2394 bytes | $012BFE | $013557 | data | - | TeamBlockPtrs, TeamLogoPtrs, SmallLogoPtrs, unk_12D46 (bytes), nullsub_2 |
 | schedule96 | matched, 2376 bytes | $013558 | $013E9F | data | schedule95 | SeasonSchedule (Day) |
 | awards96 | matched, 1374 bytes | $013EA0 | $0143FD | code | awards95 | nullsub_3, ResolveDayGames, BeginPlayoffs, InitPlayoffs, SeedPairings, SortSeeds, CalcSeedPoints, SetupPlayoffs, GetTeamPOSlot, BuildPOSlots |

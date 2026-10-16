@@ -139,7 +139,7 @@ loc_217BE
 	dbf	d0,.pal
 	move.w	(a0),(gamenum).w
 	bset	#7,(GameFlags).w
-	jsr	(sub_1149E).l
+	jsr	(ReadSeasonHeader).l
 	btst	#2,(dword_FFDD7E+2).w
 	beq.w	.2
 	jsr	(ReadPassData).l
@@ -163,15 +163,15 @@ loc_217BE
 	btst	#6,(sflags10).w
 	beq.w	.7
 .6
-	jsr	(sub_11814).l
+	jsr	(TeamSelectScreen).l
 	move.w	(VDP_CNTR).l,(seed).w
 	move.w	(VDP_CNTR).l,(seed+2).w
-	jsr	(sub_10FB4).l
+	jsr	(StartNewSeason).l
 .7
 	btst	#7,(GameFlags).w
 	beq.w	.playoffs
-	jsr	(sub_1149E).l
-	jsr	(sub_115EA).l
+	jsr	(ReadSeasonHeader).l
+	jsr	(LoadSeasonOptions).l
 	btst	#0,(dword_FFDD7E+2).w
 	beq.w	.8
 	btst	#1,(dword_FFDD7E+2).w
@@ -179,16 +179,16 @@ loc_217BE
 	btst	#2,(dword_FFDD7E+2).w
 	beq.w	.11
 .8
-	jsr	(sub_1116A).l
-	jsr	(sub_11510).l
+	jsr	(BuildSeasonTeamList).l
+	jsr	(FindUserGame).l
 	cmpa.l	#0,a2
 	beq.w	.9
-	jsr	(sub_113C2).l
+	jsr	(UserGamePlayed).l
 	beq.w	.13
 .9
 	move.w	#1,(word_FFDDB0).w
 .10
-	jsr	(sub_11024).l
+	jsr	(SimSeasonDays).l
 	bset	#1,(byte_FFC35A).w
 	btst	#0,(dword_FFDD7E+2).w
 	beq.s	.8
@@ -197,8 +197,8 @@ loc_217BE
 	bne.w	.17
 	btst	#2,(dword_FFDD7E+2).w
 	bne.w	.12
-	move.l	#unk_122A4,(dword_FFDDAC).w
-	jsr	(sub_1223E).l
+	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
+	jsr	(RunSeasonMenu).l
 	jsr	(sub_1E827A).l
 	jsr	(NewPO).l
 	btst	#1,(sflags11).w
@@ -206,9 +206,9 @@ loc_217BE
 .12
 	bra.s	.8
 .13
-	jsr	(sub_1169C).l
-	move.l	#unk_122A4,(dword_FFDDAC).w
-	jsr	(sub_1223E).l
+	jsr	(SetupSeasonGame).l
+	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
+	jsr	(RunSeasonMenu).l
 	btst	#0,(dword_FFDD7E+2).w
 	beq.w	.14
 	btst	#2,(dword_FFDD7E+2).w
@@ -217,7 +217,7 @@ loc_217BE
 	tst.w	(word_FFDDB0).w
 	bne.s	.10
 	bclr	#5,(sflags10).w
-	jsr	(sub_11814).l
+	jsr	(TeamSelectScreen).l
 .playoffs
 	jsr	(SetContTeams).l
 	jsr	(UserNameEntry).l
@@ -231,7 +231,7 @@ loc_217BE
 	jsr	(SeasonAwards).l
 	bset	#1,(dword_FFDD7E+2).w
 	bclr	#6,(GameFlags).w
-	jsr	(sub_1147E).l
+	jsr	(WriteSeasonHeader).l
 	bclr	#7,(GameFlags).w
 	bra.w	Opening2
 .17
@@ -254,8 +254,8 @@ loc_217BE
 	jsr	(SeasonAwards).l
 	btst	#1,(sflags13).w
 	bne.w	.22
-	move.l	#unk_122A4,(dword_FFDDAC).w
-	jsr	(sub_1223E).l
+	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
+	jsr	(RunSeasonMenu).l
 .22
 	bclr	#7,(GameFlags).w
 	bra.w	Opening2

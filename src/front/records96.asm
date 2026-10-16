@@ -9,7 +9,7 @@ NameEntryScreen	;Name entry screen for pad slot a5: the name log, then edit or p
 	bsr.w	NameEntryGfx
 	bsr.w	PrintNameLogRecords
 	movea.l	#unk_1AEB94,a0
-	jsr	(sub_1218A).l
+	jsr	(DrawScreenSprite).l
 	jsr	(ReadNameLog).l
 	clr.w	(word_FFD3C4).w
 	move.w	#1,(namelogsel).w
@@ -50,7 +50,7 @@ NameEntryScreen	;Name entry screen for pad slot a5: the name log, then edit or p
 .loop2
 	cmp.w	(vcount).w,d0
 	beq.s	.loop2
-	jsr	(sub_12640).l
+	jsr	(SetMenuScroll).l
 	cmpa.l	#pad1user,a5
 	beq.w	.2
 	cmpa.l	#pad2user,a5
@@ -650,7 +650,7 @@ NameEntryGfx	;Name entry: vram, fonts, the screen bitmaps, the pad icon (NameEnt
 	jsr	(orjoy).l
 	move.w	#1,d4
 	movea.l	#unk_1AEB94,a1
-	jsr	(sub_1217A).l
+	jsr	(LoadScreenSprite).l
 	move.w	d4,(smallfontchars).w
 	movea.l	#RosterFont+8,a2
 	jsr	(DecompressGraphicsPlain).l

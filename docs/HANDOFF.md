@@ -423,6 +423,15 @@ Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the b
   ClearUsedPlayers, ClearPosListUsed, and the three fallback list tables. No 95G body: 95G LoadTeamLines is the parent of
   96 SetOriginalLines (already named), which copies sets 0 and 2-7 (OptLine) or 1-7 of GetTeamLines' result.
 
+- season96: the save RAM season code. 95G names where the job, arguments and callers are the same and only the storage
+  changed to bit fields (ReadSeasonHeader, WriteSeasonHeader, RecordGameResult, RecordTeamResult, ReadStandings,
+  TickTeamInjuries, BuildSeasonTeamList, ClearSeasonData; WriteDayGames also matches 13/16 words). New-in-96 names from
+  the code: SaveGameStats, AddTeamGameStats, AddSavedStats, Read/WriteSRAMBitWords, StartNewSeason, SimSeasonDays,
+  SaveUserGame, UserGamePlayed, ReadUserGameCount, FindUserGame, LoadSeasonOptions, SetupSeasonGame, the team select
+  screen (TeamSelectScreen, TeamSelectGfx, the rank printers, TeamRankPtrs, the logo drawers, TeamSelectSide,
+  RedrawTeamRanks), RunSeasonMenu and SeasonMenuScreen (its menu text), LoadScreenSprite / DrawScreenSprite (seven
+  screens use them), SetMenuScroll, DrawTeamLogoD7. homegoalies doubles as the menu background scroll.
+
 ## Unsure
 
 Copied from `docs/align95_plan.md`. Leave these alone.
@@ -441,3 +450,7 @@ Labels the masked search found inside bytes that are still unnamed. Do not inven
 Named from the matching 95 body: chkpk, UpdatePenaltyShotEnd, PenShotTable, a2touchpuck, SetScroll2, ClockDigitChar, DoDMAList, DumpSprites2, rtsShowCrowd, ButtonLabelCharTable, Goal (collide96), GoalTypeTbl (summary96), setteams, InitCreateRecord, getplayernameD7, getnamea0, InitializeGameStructures, GetRandomUnusedTeam. VBlank_SpriteFade is the summary96 vbint. setup96_menu already owns VBlank_SetOptions. rtsBigClock is the shared return of the big-font clock.
 
 SegaInit locals exist in `src/sega/SegaInit.asm` and in `docs/name_map.csv`. Do not invent a second copy.
+
+Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidence below is found.
+- sub_11582 (season96): called last by ClearPlayoffSave (Reset Rosters). Clears the player stat totals and the
+  injuries, plus two save RAM blocks whose use is not known yet; name it once those blocks are identified.

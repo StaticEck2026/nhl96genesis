@@ -20,7 +20,7 @@ PlayoffScreen	;Bring up the playoff screen if in playoff mode (OptPlayMode nonze
 	move.b	d2,(byte_FFCFF0).w
 .1
 	jsr	(forceblack).l
-	move.l	#unk_122A4,(dword_FFDDAC).w
+	move.l	#SeasonMenuScreen,(dword_FFDDAC).w
 	move.w	(VSCRLPM).w,d0
 	jsr	(Vmaddr).l
 	clr.w	d0

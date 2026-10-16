@@ -444,7 +444,7 @@ SimTeamGoals	;d2 = goals of a team of strength d3 against team d1 (its defense, 
 	clr.w	d2
 .5
 	cmp.b	(a1,d2.w),d0
-	ble.w	locret_10686
+	ble.w	rtsSimTeamGoals
 	addq.w	#1,d2
 	bra.s	.5
 
@@ -452,7 +452,7 @@ SimGoalSteps	;SimTeamGoals: strength steps (0-100); the index picks the SimGoalO
 	dc.b	$09,$13,$18,$1D,$21,$24,$27,$2A,$2D,$30,$33,$36,$39,$3C,$3F,$42
 	dc.b	$46,$4B,$50,$5A,$64,$FF
 
-locret_10686
+rtsSimTeamGoals	;SimTeamGoals: the goal count is picked
 	rts
 
 SimTeamStrength	;d3 = the sim strength of team d0: SimRatingPoints of its best skaters - SimStrengthSub + SimStrengthAdd; a5 /

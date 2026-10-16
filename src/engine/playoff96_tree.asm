@@ -3,7 +3,7 @@
 PlayoffScreen	;Bring up the playoff screen if in playoff mode (OptPlayMode nonzero): the tree, the series scores and
 	;the team blocks, until start
 	tst.w	(OptPlayMode).w
-	beq.w	locret_1E733A
+	beq.w	rtsPlayoffScreen
 	btst	#7,(GameFlags).w
 	beq.w	.1
 	btst	#3,(SeasonFlags).w
@@ -176,7 +176,7 @@ HandlePlayoffInput	;Read the pads: start leaves PlayoffScreen, right / left scro
 
 UpdatePlayoffScroll	;Move the tree one step and stop on a page boundary
 	move.w	(PlayerScrollCtr).w,d0
-	beq.w	locret_1E733A
+	beq.w	rtsPlayoffScreen
 	add.w	(DispAttribCtr).w,d0
 	move.w	(gamelevel).w,d1
 	cmp.w	#3,d1
@@ -191,10 +191,10 @@ UpdatePlayoffScroll	;Move the tree one step and stop on a page boundary
 	move.w	d1,(jerseynum).w
 	movem.l	(sp)+,a0
 	cmp.w	d1,d0
-	bgt.w	locret_1E733A
+	bgt.w	rtsPlayoffScreen
 	neg.w	d1
 	cmp.w	d1,d0
-	blt.w	locret_1E733A
+	blt.w	rtsPlayoffScreen
 	move.w	d0,(DispAttribCtr).w
 	clr.w	(word_FFB8C4).w
 	move.w	d0,d1
@@ -225,7 +225,7 @@ PlayoffScreenExit	;Drop HandlePlayoffInput's return address and return from Play
 	jsr	(forceblack).l
 	addq.w	#4,sp
 
-locret_1E733A
+rtsPlayoffScreen	;Shared rts of PlayoffScreen and UpdatePlayoffScroll
 	rts
 
 PlayoffScreen_waitvsync	;Wait for the next frame; flash a colour each time palcount runs out

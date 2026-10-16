@@ -413,7 +413,8 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   Three renames, now that the files exist: getGoalieSCnum is FindGoalie (control96), ClearShootout is ShootoutInit (shootout96_path), LetterGrid is CreateLetterGrid (records96). LetterGridPos is a different routine and keeps its name.
   `code96_14` ($1D6B66-$1D7FA5) and `code96_15` ($1D8E5C-$1D9CC5) stay numbered. Each head mixes several subsystems.
   Names taken from the matching 95 body: getplayernameD7 and getnamea0 (trade96), chkpk (logic96_puck), PenShotTable and UpdatePenaltyShotEnd (shootout96), a2touchpuck (logic96_pull), SetScroll2, ClockDigitChar, DoDMAList, DumpSprites2, rtsShowCrowd and ButtonLabelCharTable (display96), setteams (control96_team), InitCreateRecord and InitCreateRecord2 (create96). The big-font clock helper in middle96_clock is BigClockDigitChar. SegaInit locals are in the name map. LoadEnergyBarTiles, LoadCrowdFrames, LoadRefTiles, LoadRefTilesHor, LoadFaceOffSprites and LoadFaceOffMap decompress those pictures. DumpPadSprites, DumpSpriteTable, SetGloveAndSetupPad and JumpToShowClock are named from what they do. VBlank_SpriteFade (summary96) is the period-summary and awards vbint. setup96_menu already owns VBlank_SetOptions.
-  Next: the finish plan in `docs/align95_plan.md` (section "Finish plan"). Decoded names first (`lines96_set`, then the small leftovers, then `season96`), then `dc.b` entries, one more 95G body search, graphics `unk_` labels, RAM, then the symbols pass. A generic label is finished when it has a real name or a closed-list row. Do not guess. Do not name the lone rts at $02032C rtss2. Do not reopen a numbered graphics or sound dump.
+  Next: see "Naming pass" below. Steps 1-6 of the finish plan in `docs/align95_plan.md` are done except the Unsure
+  rows; then the symbols pass (step 7). Earlier text: Decoded names first (`lines96_set`, then the small leftovers, then `season96`), then `dc.b` entries, one more 95G body search, graphics `unk_` labels, RAM, then the symbols pass. A generic label is finished when it has a real name or a closed-list row. Do not guess. Do not name the lone rts at $02032C rtss2. Do not reopen a numbered graphics or sound dump.
 
 ## Naming pass (Oct 2026, second session)
 Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the body; a parent name only when body and callers match.
@@ -502,6 +503,19 @@ Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the b
   AwardsBgMap, TradeBgMap, CreateBgMap, NameEntryBgMap, PlayerStatsBgMap, PlayerStatsTitleMap, PeriodStatsMap,
   LineEditorBgMap). revframetbl is not a picture: RevReplayAdj's frame table (95G role).
 
+- Found inside dc.b blocks, not labelled yet (a label there needs the dc.b line split at the address; no byte moves):
+  avdgoal $1A110 and skatetopuck $1A24A (94G / 95G bodies match) in skateto's bytes, with a new skatetopuck entry at
+  $1A210; 94G ReloadRinkGraphics at $154D8 (ExitStatsScreen + 4; ClrHor and ReplayMode call it); TagTradePositions
+  $1DD19E (ExecuteTrade); PrintCreateName $1DEB4C and DrawRatings $1DECCE (ModifyRatings); BuildPlayerLeaders' exit
+  after its jmp (a0); the jmp assreplace stub at $C608 and jmp donothing at $CAE4 (the assignment code's long branches);
+  the screen setup code of NHL Standings (in CanBlock's bytes), Game Options (SortStandings), the leaders (after
+  BlankStatsRow), the scoring summary (GoalTypeTbl), Game Stats (TeamStatTextTblNoPen), Record Holders
+  (ReadTeamRecords) and League Options (after SetMenuScroll); the menu handlers after VBlank_Menus' rte.
+  InitializeGameStructures' first instructions sit 6 bytes before its label, inside NOPJoyTbl's bytes (no callers).
+- Possible original bugs, kept as they are: maketree's first .bypoints call sorts seed numbers as team numbers (the call
+  after the loop orders the finalists correctly); SimTeamStrength reads its save RAM roster flag a goalie-count off;
+  RandomInjuryGames reads the high byte of the SeasonDay word.
+
 ## Unsure
 
 Copied from `docs/align95_plan.md`. Leave these alone.
@@ -522,8 +536,9 @@ Named from the matching 95 body: chkpk, UpdatePenaltyShotEnd, PenShotTable, a2to
 SegaInit locals exist in `src/sega/SegaInit.asm` and in `docs/name_map.csv`. Do not invent a second copy.
 
 Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidence below is found.
-- sub_11582 (season96): called last by ClearPlayoffSave (Reset Rosters). Clears the player stat totals and the
-  injuries, plus two save RAM blocks whose use is not known yet; name it once those blocks are identified.
+- sub_11582 (season96): called last by ClearPlayoffSave (Reset Rosters). Clears the player stat totals, the injuries,
+  the free agent stat words (the block ClearFreeAgentStats clears) and one more save RAM block ($DDD, 9 bytes) whose use
+  is not known yet; name it once that block is identified.
 - For Abdul: BlankMenuBox (summary96) has the callers and job of 95G ClearMenuBox (TimeoutMenu, SelectGoalieMenu), but
   95 calls eraser and 96 prints blank big-font rows, so it was named from the job. Rename to ClearMenuBox if role is enough.
 - For Abdul: CupChampionsScreen (awards96_show) has the job of 95G StanleyCupScreen with a different body; same question.
@@ -548,7 +563,7 @@ Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidenc
   whose job is not known yet (the fight counters word_FFDCDE ... byte_FFDCEC, the role carriers word_FFD23A / C, the pad
   objects unk_FFBE72 / unk_FFBE8E, word_FFD036 / word_FFD038 in the stats block, byte_FFC35A, unk_FFC38C, word_FFBF88,
   word_FFBFF0, word_FFD300, word_FFD310, byte_FFD474 / byte_FFD47E (94 arenaanim / faceoffanim by the dead 94 code only),
-  byte_FFDCA6, byte_FFDCF9, dword_FFDD82, word_FFDDB6, word_FFDDBE, byte_FF2710, word_FF1388, unk_FFC4C6 uses aside).
+  byte_FFDCA6, byte_FFDCF9, dword_FFDD82, word_FFDDB6, word_FFDDBE, byte_FF2710, word_FF1388). unk_FFC4C6 is ScoreSum-6 but has no uses left.
 - Graphics: unk_1417B6 (a frame offset table used only by the dead arena animation), unk_17C2AE (a palette; what it
   colours is not shown), unk_1CCEE8 and unk_1D5420 (CupCelebration's sprites and banner; not identified by content).
 - For Abdul: names that the pictures now contradict. OptionsScreen's banner reads MAIN MENU (the GAME OPTIONS screen is

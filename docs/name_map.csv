@@ -340,6 +340,7 @@ $0104EE,GetSeasonRosterId,sub_104EE,,trade96
 $01051A,SimScore,sub_1051A,,trade96
 $0105B0,SimTeamGoals,sub_105B0,,trade96
 $010670,SimGoalSteps,unk_10670,,trade96
+$010686,rtsSimTeamGoals,locret_10686,,trade96
 $010688,SimTeamStrength,sub_10688,,trade96
 $010760,SimRatingPoints,unk_10760,,trade96
 $0107C5,SimStrengthAdd,unk_107C5,,trade96
@@ -1667,7 +1668,7 @@ $1E700A,PlayoffScreen,sub_1E700A,,playoff96_tree
 $1E7276,HandlePlayoffInput,sub_1E7276,,playoff96_tree
 $1E72A0,UpdatePlayoffScroll,sub_1E72A0,,playoff96_tree
 $1E7332,PlayoffScreenExit,loc_1E7332,,playoff96_tree
-$1E733A,locret_1E733A,locret_1E733A,,playoff96_tree
+$1E733A,rtsPlayoffScreen,locret_1E733A,,playoff96_tree
 $1E733C,PlayoffScreen_waitvsync,sub_1E733C,,playoff96_tree
 $1E7384,PrintSeriesScore,sub_1E7384,,playoff96_tree
 $1E73B0,DrawTreeArrow,nullsub_8,,playoff96_tree

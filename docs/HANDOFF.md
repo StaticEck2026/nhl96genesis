@@ -445,6 +445,17 @@ Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the b
   BlankStatsRow. stats96: FormatLineName. summary96: BlankMenuBox, PeriodGoalsTxt, PeriodShotsTxt. playoff96_tree: the
   scroll tables.
 
+- Season sim (trade96 / season96_sim): SimScore (95G: role, caller and the playoff-tie tail match), SimTeamStrength, the
+  goal model tables and the sim penalties, scorers, assists and shots. SimTeamGoals, SimScorers and SimShots carry the
+  95G names by role and interface (the bodies are new). GetPositionSlot, GetSeasonRosterId.
+- Trade (trade96_edit): ExecuteTrade (95G, masked 18/20 and 14/16), ExtractTradedPlayer (95G, four 14-word windows),
+  FixJerseyNumber (95G 11/12), DeleteStatSlot / InsertStatSlot (new: packed stat fields), WaitMenuFrame, EraseBlank.
+  The old ExecuteTrade label at $1DD09A sat inside the operand of a jsr and nothing used it: removed. TradeDone moved
+  six bytes later, past the blt / rts that end the routine before it (no byte moves).
+- Create (create96): the field handlers and their table fold into CreatePlayer (.redraw, .fieldjumps, .namefield,
+  .posfield, .handfield, .weightfield, .jerseyfield). CreateNameDone stays global (CreateListMove, closed list, sits
+  between). ModifyRatings and CheckMinGoalies (95G), ClearFreeAgentStats, ReleaseGfx, PStatsPalette2.
+
 ## Unsure
 
 Copied from `docs/align95_plan.md`. Leave these alone.
@@ -470,3 +481,8 @@ Unsure from the naming pass (Oct 2026). Each stays an IDA name until the evidenc
 - For Abdul: BlankMenuBox (summary96) has the callers and job of 95G ClearMenuBox (TimeoutMenu, SelectGoalieMenu), but
   95 calls eraser and 96 prints blank big-font rows, so it was named from the job. Rename to ClearMenuBox if role is enough.
 - For Abdul: CupChampionsScreen (awards96_show) has the job of 95G StanleyCupScreen with a different body; same question.
+- sub_1E0D86 (create96): clears the $41-byte save RAM block at 0 or $C39 that belongs to team d7, called where 95 called
+  CheckSavedLines (ExecuteTrade, SignFreeAgents, ReleasePlayers). $41 is 95's saved line set size, but no reader of the
+  blocks was found. Candidate ClearSavedLinesD7 once a reader confirms it.
+- For Abdul: names kept from 95G by role and interface where the body is new: SimTeamGoals, SimScorers, SimShots
+  (season sim), ClearSeasonData (season96). Swap for new names if role is not enough.

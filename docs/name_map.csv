@@ -329,10 +329,30 @@ $0101DC,GetCreatedName,sub_101DC,,trade96
 $0101E6,GetRosterName,sub_101E6,,trade96
 $010258,GetRosterNameTail,loc_10258,,trade96
 $0102B8,GetJerseyNumber,sub_102B8,,trade96
+$0103AA,GetPositionSlot,sub_103AA,,trade96
+$0104EE,GetSeasonRosterId,sub_104EE,,trade96
+$01051A,SimScore,sub_1051A,,trade96
+$0105B0,SimTeamGoals,sub_105B0,,trade96
+$010670,SimGoalSteps,unk_10670,,trade96
+$010688,SimTeamStrength,sub_10688,,trade96
+$010760,SimRatingPoints,unk_10760,,trade96
+$0107C5,SimStrengthAdd,unk_107C5,,trade96
+$0107DF,SimStrengthSub,unk_107DF,,trade96
+$0107F9,SimTeamDefense,unk_107F9,,trade96
+$010813,SimHomeGoalAdj,unk_10813,,trade96
+$01082D,SimAwayGoalAdj,unk_1082D,,trade96
+$010847,SimGoalOdds,unk_10847,,trade96
 $01091A,SimGameStats,sub_1091A,,season96_sim
+$010A08,SimPenalties,sub_10A08,,season96_sim
+$010AFA,SimPenaltyBase,unk_10AFA,,season96_sim
 $010B14,SimGoalieStats,sub_10B14,,season96_sim
 $010B46,SimGoalie,sub_10B46,,season96_sim
 $010B88,PickSimGoalie,sub_10B88,,season96_sim
+$010BAC,SimScorers,sub_10BAC,,season96_sim
+$010C00,SimTeamAssists,sub_10C00,,season96_sim
+$010C6A,SimShots,sub_10C6A,,season96_sim
+$010C94,SimAssistOdds,unk_10C94,,season96_sim
+$010CA3,SimRankOdds,unk_10CA3,,season96_sim
 $010CB2,SortBytesByWords,sub_10CB2,,season96
 $010CF2,SaveGameStats,sub_10CF2,,season96
 $010D2A,AddTeamGameStats,sub_10D2A,,season96
@@ -1365,37 +1385,36 @@ $1DC158,TradePlayers,,,trade96_edit
 $1DC588,DrawHomeTradeRoster,,,trade96_edit
 $1DC5B6,DrawVisTradeRoster,,,trade96_edit
 $1DC5E0,DrawTradeRosterRows,,,trade96_edit
-$1DC6BE,TradeDone,,,trade96_edit
+$1DC6C4,TradeDone,,,trade96_edit
 $1DC8D8,TradeValue,,,trade96_edit
 $1DC910,TradeRatingSteps,,,trade96_edit
 $1DC91A,TradeRatingValues,,,trade96_edit
 $1DC924,TradeExit,,,trade96_edit
 $1DC92A,CheckTrade,,,trade96_edit
 $1DCB7A,InvalidTradeText,,,trade96_edit
-$1DCC8A,sub_1DCC8A,,,trade96_edit
+$1DCC8A,WaitMenuFrame,sub_1DCC8A,,trade96_edit
 $1DCCA0,BuildTradeList,,,trade96_edit
-$1DCFE2,sub_1DCFE2,,,trade96_edit
-$1DD086,sub_1DD086,,,trade96_edit
-$1DD09A,ExecuteTrade,,,trade96_edit
+$1DCFE2,EraseBlank,sub_1DCFE2,,trade96_edit
+$1DD086,ExecuteTrade,sub_1DD086,,trade96_edit
 $1DD1C0,ShiftTradeUp,,,trade96_edit
 $1DD1E2,ShiftTradeDown,,,trade96_edit
-$1DD212,sub_1DD212,,,trade96_edit
-$1DD4B6,sub_1DD4B6,,,trade96_edit
+$1DD212,ExtractTradedPlayer,sub_1DD212,,trade96_edit
+$1DD4B6,DeleteStatSlot,sub_1DD4B6,,trade96_edit
 $1DD516,InsertTradedPlayer,,,trade96_edit
-$1DD7D4,sub_1DD7D4,,,trade96_edit
-$1DD832,sub_1DD832,,,trade96_edit
+$1DD7D4,InsertStatSlot,sub_1DD7D4,,trade96_edit
+$1DD832,FixJerseyNumber,sub_1DD832,,trade96_edit
 $1DD8BE,GetRosterId,,,trade96_edit
 $1DD8FE,PositionLetters,,,trade96_edit
 $1DD916,CreatePlayer,,,create96
-$1DD93C,loc_1DD93C,,,create96
-$1DDA78,unk_1DDA78,,,create96
-$1DDAA0,loc_1DDAA0,,,create96
-$1DDAF2,loc_1DDAF2,,,create96
-$1DDB1E,loc_1DDB1E,,,create96
-$1DDB80,loc_1DDB80,,,create96
-$1DDBF6,loc_1DDBF6,,,create96
+$1DD93C,.redraw (CreatePlayer),loc_1DD93C,,create96
+$1DDA78,.fieldjumps (CreatePlayer),unk_1DDA78,,create96
+$1DDAA0,.posfield (CreatePlayer),loc_1DDAA0,,create96
+$1DDAF2,.handfield (CreatePlayer),loc_1DDAF2,,create96
+$1DDB1E,.weightfield (CreatePlayer),loc_1DDB1E,,create96
+$1DDB80,.jerseyfield (CreatePlayer),loc_1DDB80,,create96
+$1DDBF6,.namefield (CreatePlayer),loc_1DDBF6,,create96
 $1DDCE0,CreateListMove,,,create96
-$1DDDF0,loc_1DDDF0,,,create96
+$1DDDF0,CreateNameDone,loc_1DDDF0,,create96
 $1DDE3E,PrintGridLetter,,,create96
 $1DDE8C,FixFirstLetter,,,create96
 $1DDEBA,FindGridLetter,,,create96
@@ -1420,7 +1439,7 @@ $1DE98C,InitCreateRecord,,,create96
 $1DE992,InitCreateRecord2,,,create96
 $1DEA4A,CreateRecordTail1,,,create96
 $1DEA52,CreateRecordTail2,,,create96
-$1DEA5A,loc_1DEA5A,,,create96
+$1DEA5A,ModifyRatings,loc_1DEA5A,,create96
 $1DEDCC,FieldSpeed,,,create96
 $1DEDF4,FieldPrintSetup,,,create96
 $1DEE06,FieldAgility,,,create96
@@ -1491,7 +1510,7 @@ $1DF9C2,MinOverallRating,sub_1DF9C2,,create96
 $1DF9EC,OvrPlayerWgtList2,unk_1DF9EC,,create96
 $1DF9FC,OvrGoalWgtList2,unk_1DF9FC,,create96
 $1DFA0C,AttribWgtList2,unk_1DFA0C,,create96
-$1DFA1C,sub_1DFA1C,sub_1DFA1C,,create96
+$1DFA1C,ClearFreeAgentStats,sub_1DFA1C,,create96
 $1DFA34,ClearCreatedPlayers,sub_1DFA34,,create96
 $1DFA58,DeleteCreatedPlayer,,,create96
 $1DFB54,GetCreatedId,,,create96
@@ -1503,12 +1522,12 @@ $1DFF7C,DrawFreeAgents,,,create96
 $1E0178,FreeAgentMsgText,,,create96
 $1E01AC,BuildFreeAgentList,,,create96
 $1E0536,ReleasePlayers,,,create96
-$1E0872,sub_1E0872,,,create96
+$1E0872,CheckMinGoalies,sub_1E0872,,create96
 $1E087E,ReleaseArrows,,,create96
 $1E0948,DrawReleaseRoster,,,create96
 $1E0AF6,ReleaseMsgText,,,create96
-$1E0B76,sub_1E0B76,,,create96
-$1E0D66,sub_1E0D66,,,create96
+$1E0B76,ReleaseGfx,sub_1E0B76,,create96
+$1E0D66,PStatsPalette2,sub_1E0D66,,create96
 $1E0D86,sub_1E0D86,,,create96
 $1E0DDE,OptionsScreen,sub_1E0DDE,,options96
 $1E1114,OptionVars,unk_1E1114,,options96

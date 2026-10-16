@@ -297,7 +297,7 @@ SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, N
 	clr.w	4(a6)
 	move.w	d7,6(a6)
 	movea.l	#$FFFFDDAA,a0
-	jsr	(sub_104EE).l
+	jsr	(GetSeasonRosterId).l
 	move.b	(jerseynum).w,1(a6)
 	move.b	(jerseynum+1).w,3(a6)
 	addq.l	#8,a6
@@ -309,7 +309,7 @@ SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, N
 	clr.w	4(a6)
 	move.w	d7,6(a6)
 	movea.l	#$FFFFDDAA,a0
-	jsr	(sub_104EE).l
+	jsr	(GetSeasonRosterId).l
 	move.b	(jerseynum).w,1(a6)
 	move.b	(jerseynum+1).w,3(a6)
 	addq.l	#8,a6
@@ -321,7 +321,7 @@ SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, N
 	move.w	d0,d7
 	swap	d0
 	movem.w	d0,-(sp)
-	jsr	(sub_103AA).l
+	jsr	(GetPositionSlot).l
 	move.w	d0,d1
 	movem.w	(sp)+,d0
 	cmp.w	#1,d1
@@ -334,7 +334,7 @@ SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, N
 	clr.w	4(a6)
 	move.w	d7,6(a6)
 	movea.l	#$FFFFDDAA,a0
-	jsr	(sub_104EE).l
+	jsr	(GetSeasonRosterId).l
 	move.b	(jerseynum).w,1(a6)
 	move.b	(jerseynum+1).w,3(a6)
 	addq.l	#8,a6
@@ -348,7 +348,7 @@ SetSeasonAwardWinners	;Write the regular season award winners (Hart, Art Ross, N
 	clr.w	4(a6)
 	move.w	d7,6(a6)
 	movea.l	#$FFFFDDAA,a0
-	jsr	(sub_104EE).l
+	jsr	(GetSeasonRosterId).l
 	move.b	(jerseynum).w,1(a6)
 	move.b	(jerseynum+1).w,3(a6)
 	adda.l	#$10,a6
@@ -403,7 +403,7 @@ SetPlayoffAwardWinners	;Write the Conn Smythe, Wales and Campbell winners to sav
 	clr.w	4(a6)
 	move.w	d7,6(a6)
 	movea.l	#$FFFFDDAA,a0
-	jsr	(sub_104EE).l
+	jsr	(GetSeasonRosterId).l
 	move.b	(jerseynum).w,1(a6)
 	move.b	(jerseynum+1).w,3(a6)
 	btst	#1,(sflags11).w

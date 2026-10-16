@@ -15,7 +15,7 @@
 ; External addresses outside, read from lst/nhl96.bin.
 WriteSRAMBits = $0096E8		;srambits96
 ReadSRAMBits = $00975A		;srambits96
-sub_1051A = $01051A		;trade96
+SimScore = $01051A		;trade96
 SimGameStats = $01091A		;season96_sim
 TeamBlockPtrs = $012BFE		;teamgfx96
 TeamLogoPtrs = $012C6E		;teamgfx96

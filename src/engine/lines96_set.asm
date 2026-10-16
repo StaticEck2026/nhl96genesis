@@ -222,7 +222,7 @@ BuildPosList	;List at a3 (count, 0, player numbers) of the players of position s
 .0
 	movem.l	d2-d3,-(sp)
 	move.w	d2,d0
-	jsr	(sub_103AA).l
+	jsr	(GetPositionSlot).l
 	tst.w	d5
 	bpl.w	.1
 	cmp.w	#$FFFF,d5

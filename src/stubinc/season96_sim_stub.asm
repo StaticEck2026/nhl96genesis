@@ -20,7 +20,7 @@ randomd0 = $01B0A6		;video96
 PAttribAggressMask = $023574		;setup96_attr
 CalcAttrib = $1D7DF8		;code96_14
 SetSeasonInjuries = $1E8840		;injury96
-unk_107F9 = $0107F9		;trade96
+SimTeamDefense = $0107F9		;trade96
 
 
 ; Main segment code

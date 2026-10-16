@@ -359,7 +359,7 @@ SetupPlayoffs	;Start the playoffs: save the season header (SRSeasonHeaderSave) a
 	move.l	#$89,d0
 	move.l	#$6C0,d1
 	jsr	(ClearSRAMBytes).l
-	jsr	(sub_1DFA1C).l
+	jsr	(ClearFreeAgentStats).l
 	moveq	#$4D,d0
 	moveq	#$A,d1
 	jsr	(ClearSRAMBytes).l

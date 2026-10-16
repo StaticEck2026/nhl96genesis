@@ -22,7 +22,7 @@ WritePassBits = $0223EA		;playoff96
 GetShifter = $0224E2		;playoff96
 MakeSRAMChecksum = $0241AA		;sram96
 ClearSRAMBytes = $024208		;sram96
-sub_1DFA1C = $1DFA1C		;create96
+ClearFreeAgentStats = $1DFA1C		;create96
 
 
 ; Main segment code

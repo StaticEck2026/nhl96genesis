@@ -308,7 +308,7 @@ SimSeasonDays	;Simulate word_FFDDB0 days: every unplayed game of each day, save 
 	movem.l	(sp)+,d3/a3
 	beq.w	.5
 	movea.l	a2,a0
-	bsr.w	sub_1051A
+	bsr.w	SimScore
 	bsr.w	SimGameStats
 .5
 	addq.w	#5,a2

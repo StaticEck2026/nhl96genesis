@@ -136,7 +136,7 @@ InitShooters	;The 6 starters of the home (shootoutteam 0) or away team (save RAM
 .0
 	movem.l	d7-a0,-(sp)
 	move.w	d0,d7
-	jsr	(sub_EF02).l
+	jsr	(GetTeamLines).l
 	movea.l	a0,a1
 	movem.l	(sp)+,d7-a0
 	move.w	#5,d0

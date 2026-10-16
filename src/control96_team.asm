@@ -60,13 +60,13 @@ InitTeamStructure	;Set up team struct a2 for team d0: the team number at $28 and
 	asl.w	#2,d0
 	move.l	(a0,d0.w),$1E(a2)
 
-SetOriginalLines	;The lines of team struct a2: with OptLine the team's lines (sub_EF02), else the default lines. The
+SetOriginalLines	;The line sets of team struct a2 from GetTeamLines: with OptLine sets 0 and 2-7, else sets 1-7. The
 	;"Set Original lines" item of the line menus
 	tst.w	(OptLine).w
 	beq.w	.0
 	move.w	d7,-(sp)
 	move.w	$28(a2),d7
-	jsr	(sub_EF02).l
+	jsr	(GetTeamLines).l
 	move.w	(sp)+,d7
 	lea	$184(a2),a1
 	move.l	(a0)+,(a1)+
@@ -82,7 +82,7 @@ SetOriginalLines	;The lines of team struct a2: with OptLine the team's lines (su
 	moveq	#$D,d0
 	move.w	d7,-(sp)
 	move.w	$28(a2),d7
-	jsr	(sub_EF02).l
+	jsr	(GetTeamLines).l
 	move.w	(sp)+,d7
 	addq.w	#8,a0
 	lea	$184(a2),a1

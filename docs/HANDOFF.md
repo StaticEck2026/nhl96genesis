@@ -336,7 +336,7 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `engine/logic96.asm` is asstab through the penalty texts ($00C548-$00EC2F).
   `engine/lines96.asm` is the line change box (SetLCmode through lcfound2, $00EC30-$00EEFF). code96_03 is gone.
   `engine/input96_shot.asm` is the shot and the pass (shotdiradj through sub_1008E, $00F374-$0100BF).
-  `engine/lines96_set.asm` is the team line writer (NullSaveClear, sub_EF02, $00EF00-$00F373).
+  `engine/lines96_set.asm` is the team line writer (NullSaveClear, GetTeamLines, $00EF00-$00F373).
   `front/trade96.asm` is the roster names (DefaultRosters through the name tables, $0100C0-$010919).
   `front/season96_sim.asm` is the season simulation (SimGameStats through PickSimGoalie, $01091A-$010CB1).
   `front/season96.asm` is code96_05 renamed (season and save screens, $010CB2-$012BFD). The routines stay `sub_` until the bodies are read.
@@ -414,6 +414,14 @@ No force-push. Contributors: fork, branch, PR (START_HERE.md section 0).
   `code96_14` ($1D6B66-$1D7FA5) and `code96_15` ($1D8E5C-$1D9CC5) stay numbered. Each head mixes several subsystems.
   Names taken from the matching 95 body: getplayernameD7 and getnamea0 (trade96), chkpk (logic96_puck), PenShotTable and UpdatePenaltyShotEnd (shootout96), a2touchpuck (logic96_pull), SetScroll2, ClockDigitChar, DoDMAList, DumpSprites2, rtsShowCrowd and ButtonLabelCharTable (display96), setteams (control96_team), InitCreateRecord and InitCreateRecord2 (create96). The big-font clock helper in middle96_clock is BigClockDigitChar. SegaInit locals are in the name map. LoadEnergyBarTiles, LoadCrowdFrames, LoadRefTiles, LoadRefTilesHor, LoadFaceOffSprites and LoadFaceOffMap decompress those pictures. DumpPadSprites, DumpSpriteTable, SetGloveAndSetupPad and JumpToShowClock are named from what they do. VBlank_SpriteFade (summary96) is the period-summary and awards vbint. setup96_menu already owns VBlank_SetOptions.
   Next: the finish plan in `docs/align95_plan.md` (section "Finish plan"). Decoded names first (`lines96_set`, then the small leftovers, then `season96`), then `dc.b` entries, one more 95G body search, graphics `unk_` labels, RAM, then the symbols pass. A generic label is finished when it has a real name or a closed-list row. Do not guess. Do not name the lone rts at $02032C rtss2. Do not reopen a numbered graphics or sound dump.
+
+## Naming pass (Oct 2026, second session)
+Work branch `naming-pass`, one commit per file, each ALL MATCH. Names from the body; a parent name only when body and callers match.
+- lines96_set: GetTeamLines (a0 = the line sets of team d7: the team data `.ls` while CheckDefaultRoster says the saved
+  roster is the DefaultRosters one, else built in RAM), BuildPosList (per position slot, sorted by CalcAttribRating),
+  AddBestGoalie, AddLineSkaters, AddDefensePair, AddFourForwards, AddLinePlayer, TakePosListPlayer, TakeFallbackPlayer,
+  ClearUsedPlayers, ClearPosListUsed, and the three fallback list tables. No 95G body: 95G LoadTeamLines is the parent of
+  96 SetOriginalLines (already named), which copies sets 0 and 2-7 (OptLine) or 1-7 of GetTeamLines' result.
 
 ## Unsure
 

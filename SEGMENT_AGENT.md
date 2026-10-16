@@ -69,7 +69,7 @@ Every row is matched. Rows are in ROM order and tile `$000000` up to the `$FF` f
 | fight96 | matched, 3752 bytes | $00B6A0 | $00C547 | code | - | new in 96: checkfight, startfight, SetInst, fightinput, ClearMessageLine; assfight and assfwatch as bytes |
 | logic96 | matched, 9960 bytes | $00C548 | $00EC2F | code | logic95, penalty95 | asstab, the assignment routines (bytes, labelled at their asstab entries), Penaltylist, PenShotPenalties, unk_EBF8 |
 | lines96 | matched, 720 bytes | $00EC30 | $00EEFF | code | lines95 | SetLCmode, SetLCmode2, setlccords, getlchoice, lineinput, lcfound, lcfound2 |
-| lines96_set | matched, 1140 bytes | $00EF00 | $00F373 | code | lines95 | NullSaveClear, sub_EF02 (writes a team's lines) |
+| lines96_set | matched, 1140 bytes | $00EF00 | $00F373 | code | lines95 | NullSaveClear, GetTeamLines (the team data lines, or lines built from the ratings: BuildPosList, AddLineSkaters, AddLinePlayer) |
 | input96_shot | matched, 3404 bytes | $00F374 | $0100BF | code | input95 | shotdiradj, shotdirmath, SetShotMode, ShotMode, doshot, setpassmode, passmode, dopass, passtoa0 |
 | trade96 | matched, 2138 bytes | $0100C0 | $010919 | code | trade95 | DefaultRosters, FormatPlayerNameD7, GetRosterName, GetJerseyNumber |
 | season96_sim | matched, 920 bytes | $01091A | $010CB1 | code | season95 | SimGameStats, SimGoalieStats, SimGoalie, PickSimGoalie |
